@@ -1,7 +1,8 @@
 [project]
-name = "13_pollution_eau"
+name = "14-index-feminisation-pouvoir"
 version = "0.1.0"
-description = "Add your description here"
+description = """Outils de scraping et calcul de l'index de féminisation du pouvoir d'OXFAM,\
+et gestion des pages web associées"""
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
