@@ -1,5 +1,7 @@
 import scrapy
+from itemloaders import ItemLoader
 from scrapy_playwright.page import PageMethod
+from ..items import Identite
 
 
 class Figure2cSpider(scrapy.Spider):
@@ -18,7 +20,7 @@ class Figure2cSpider(scrapy.Spider):
         }
     }
 
-    def start_requests(self):
+    async def start(self):
         urls = [
             'https://www2.assemblee-nationale.fr/17/le-bureau-de-l-assemblee-nationale',
         ]
@@ -47,13 +49,11 @@ class Figure2cSpider(scrapy.Spider):
         identites_brutes = response.css('div.instance-composition-nom a::text').getall()
 
         for identite_brute in identites_brutes:
+
+            item = ItemLoader(item=Identite(), response=response)
             # Nettoyage : on enlève les espaces et sauts de ligne inutiles
             identite = identite_brute.strip()
 
             if identite:
-                self.log(f"Texte extrait : {identite}")
-
-                # Pour l'instant, on émet juste un dictionnaire simple
-                yield {
-                    'identite': identite
-                }
+                item.add_value('identite', identite)
+                yield item.load_item()

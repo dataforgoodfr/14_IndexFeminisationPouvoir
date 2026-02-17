@@ -4,7 +4,8 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 from scrapy import Item, Field
+from itemloaders.processors import TakeFirst
 
 
-class NomCompletItem(Item):
-    identite = Field()
+class Identite(Item):
+    identite = Field(output_processor=TakeFirst())
