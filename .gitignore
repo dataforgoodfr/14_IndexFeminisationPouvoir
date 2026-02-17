@@ -161,3 +161,9 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# Ignore tout le contenu du dossier de données générées par scrapy
+scrapers_ifp/data/*
+
+# Sauf le fichier .gitkeep pour conserver data vide dans le repo
+!scrapers_ifp/data/.gitkeep
