@@ -1,7 +1,7 @@
 import scrapy
-from itemloaders import ItemLoader
 from scrapy_playwright.page import PageMethod
-from ..items import Identite
+from ..models import Personne
+import logging
 
 
 class Figure2cSpider(scrapy.Spider):
@@ -44,16 +44,16 @@ class Figure2cSpider(scrapy.Spider):
         # self.log('Saved file %s' % filename)
 
         # On cible toutes les divs qui ont la classe "instance-composition-nom"
-        # Puis on prend la balise <a> à l'intérieur, et on récupère son texte.
+        # Puis on récupère le texte de la balise <a>.
 
         identites_brutes = response.css('div.instance-composition-nom a::text').getall()
 
         for identite_brute in identites_brutes:
+            if not identite_brute.strip():
+                continue
 
-            item = ItemLoader(item=Identite(), response=response)
-            # Nettoyage : on enlève les espaces et sauts de ligne inutiles
-            identite = identite_brute.strip()
-
-            if identite:
-                item.add_value('identite', identite)
-                yield item.load_item()
+            try:
+                item = Personne(personne_raw_text=identite_brute)
+                yield item.model_dump()
+            except Exception as e:
+                logging.error(f"Erreur Pydantic : {e}")
