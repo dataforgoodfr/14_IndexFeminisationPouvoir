@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lancer le projet avec Docker
 
-## Getting Started
+Ce projet peut être exécuté localement à l’aide de Docker et Docker Compose.
 
-First, run the development server:
+## Prérequis
+
+Assurez-vous d’avoir installé :
+
+* Docker
+* Docker Compose (inclus avec Docker Desktop)
+
+Vérifiez l’installation :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker --version
+docker compose version
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Premier démarrage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Depuis la racine du projet, exécutez :
 
-## Learn More
+```bash
+docker compose up --build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Cette commande va :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Construire l’image Docker
+2. Installer les dépendances
+3. Démarrer le serveur de développement Next.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Accéder à l’application
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Une fois démarrée, ouvrez :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+http://localhost:3000
+```
+
+---
+
+## ▶Démarrages suivants
+
+Après le premier build :
+
+```bash
+docker compose up
+```
+
+Utilisez `--build` uniquement si vous modifiez :
+
+* le Dockerfile
+* les dépendances
+* certaines variables d’environnement
+
+```bash
+docker compose up --build
+```
+
+---
+
+## Arrêter l’application
+
+Appuyez sur :
+
+```
+CTRL + C
+```
+
+Ou lancez :
+
+```bash
+docker compose down
+```
+
+---
+
+## Reconstruire le conteneur
+
+Si vous rencontrez des problèmes ou après des modifications importantes :
+
+```bash
+docker compose up --build
+```
+
+Rebuild complet sans cache :
+
+```bash
+docker compose build --no-cache
+```
+
+---
+
+## Nettoyage (optionnel)
+
+Supprimer conteneurs, réseaux et volumes :
+
+```bash
+docker compose down -v
+```
