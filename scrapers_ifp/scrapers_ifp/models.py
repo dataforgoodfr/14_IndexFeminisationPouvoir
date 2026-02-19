@@ -25,7 +25,11 @@ def genre_from_civilite(civilite: str) -> str:
 
 
 class Personne(BaseModel):
+    # Cas où l'on récupère une chaîne contenant titre + prénom + nom comme "Madame Yaël Braun-Pivet"
+    # TODO: comprendre les autres cas et les implémenter. Par exemple dans les cas d'Open Data
     personne_raw_text: str
+
+    # TODO: analyser les champs qui devraient-être obligatoires.
     personne_nom_complet: Optional[str] = None
     personne_civilite: Optional[str] = None
     personne_prenom: Optional[str] = None
