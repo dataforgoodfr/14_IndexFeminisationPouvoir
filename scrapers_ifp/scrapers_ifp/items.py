@@ -3,9 +3,4 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-from scrapy import Item, Field
-from itemloaders.processors import TakeFirst
-
-
-class Identite(Item):
-    identite = Field(output_processor=TakeFirst())
+# Non utilisé dans le projet actuel. Remplacé par les models pydantic
