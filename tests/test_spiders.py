@@ -1,5 +1,10 @@
-import pytest
+import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
+
+import pytest
 from scrapy.http import HtmlResponse, Request
 
 # Import de votre spider. Adaptez le chemin selon l'arborescence de votre projet.
@@ -59,3 +64,54 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
 
     # Si on parcourt toute la liste sans la trouver, le test échoue
     assert yael_trouvee, "Mme Yaël Braun-Pivet n'a pas été trouvée par le spider dans le fichier HTML."
+
+
+# 1. On calcule le chemin vers la racine du projet (le dossier parent de 'tests').
+TEST_DIR = Path(__file__).parent
+PROJECT_ROOT = TEST_DIR.parent
+
+# Le dossier qui contient 'scrapy.cfg'
+scrapy_project_dir = PROJECT_ROOT / "scrapers_ifp"
+
+@pytest.mark.live
+def test_spider_figure2c_live_e2e():
+    """
+    Test d'intégration E2E : Lance le vrai spider sur le vrai site web
+    via Playwright et vérifie les résultats extraits.
+    """
+
+    with tempfile.NamedTemporaryFile(suffix=".jl", delete=False) as tmp:
+        fichier_resultat = tmp.name
+
+    try:
+        commande = [sys.executable, "-m", "scrapy", "crawl", "figure2c", "-O", fichier_resultat]
+
+        resultat_commande = subprocess.run(
+            commande,
+            capture_output=True,
+            text=True,
+            cwd=scrapy_project_dir  # <--- On passe le dossier exact qui contient scrapy.cfg
+        )
+
+        assert resultat_commande.returncode == 0, f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
+
+        donnees_extraites = []
+        with open(fichier_resultat, 'r', encoding='utf-8') as f:
+            for ligne in f:
+                if ligne.strip():
+                    donnees_extraites.append(json.loads(ligne))
+
+        # Les Assertions
+        assert len(donnees_extraites) >= 10, f"Seulement {len(donnees_extraites)} personnes trouvées."
+
+        yael_trouvee = any(
+            p.get("personne_nom") == "Braun-Pivet" and p.get("personne_prenom") == "Yaël"
+            for p in donnees_extraites
+        )
+        assert yael_trouvee, "La présidente Yaël Braun-Pivet n'a pas été trouvée."
+
+        for personne in donnees_extraites:
+            assert personne.get("personne_genre") in ["M", "F", "U"], "Un genre invalide a été généré."
+
+    finally:
+        Path(fichier_resultat).unlink(missing_ok=True)
