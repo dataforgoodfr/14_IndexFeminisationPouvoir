@@ -21,3 +21,8 @@ dependencies = [
     "scrapy>=2.14.1",
     "scrapy-playwright==0.0.46",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
