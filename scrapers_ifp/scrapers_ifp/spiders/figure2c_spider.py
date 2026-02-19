@@ -56,4 +56,4 @@ class Figure2cSpider(scrapy.Spider):
                 item = Personne(personne_raw_text=identite_brute)
                 yield item.model_dump()
             except Exception as e:
-                logging.error(f"Erreur Pydantic : {e}")
+                logging.warning(f"Erreur Pydantic : {e}")
