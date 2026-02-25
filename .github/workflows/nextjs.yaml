@@ -57,6 +57,8 @@ jobs:
             - name: Build with Next.js
               working-directory: ./nextjs
               run: npx next build
+              env:
+                  NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:

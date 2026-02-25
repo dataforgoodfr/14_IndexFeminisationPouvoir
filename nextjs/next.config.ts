@@ -1,12 +1,11 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
-  output: 'export',
+  output: "export",
   trailingSlash: true,
-  basePath: '/14_IndexFeminisationPouvoir',
-  assetPrefix: '/14_IndexFeminisationPouvoir',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   images: {
     unoptimized: true,
   },
