@@ -1,3 +1,4 @@
+# TODO: supprimer le tag version qui est maintenant obsolète
 version: "5.0"
 
 services:
@@ -14,18 +15,18 @@ services:
   #   ports:
   #     - "5432:5432"
 
-  # scrapers:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/scrapers/Dockerfile
-  #   container_name: scrapers
-  #   depends_on:
-  #     - postgres
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./scrapers:/app
-  #   command: python main.py
+  scrapers:
+    build:
+      context: .
+      dockerfile: docker/scrapers/Dockerfile
+    container_name: scrapers
+    #    depends_on:
+    #      - postgres
+    #    env_file:
+    #      - .env
+    volumes:
+      - ./scrapers:/app
+    command: sleep infinity
 
   # dbt:
   #   build:
