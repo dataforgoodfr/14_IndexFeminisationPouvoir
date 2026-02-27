@@ -1,6 +1,3 @@
-# TODO: supprimer le tag version qui est maintenant obsolète
-version: "5.0"
-
 services:
   # postgres:
   #   image: postgres:17
