@@ -16,7 +16,7 @@ RUN uv sync --no-cache --no-install-project --frozen
 COPY scrapers/ scrapers/
 
 # Installation du projet
-RUN uv sync --no-cache
+RUN uv sync
 
 # Commande par défaut si nécessaire
 #CMD ["python", "main.py"]
