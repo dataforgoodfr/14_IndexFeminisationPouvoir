@@ -51,7 +51,8 @@ class Personne(BaseModel):
 
     @model_validator(mode='after')
     def parse_name_components(self):
-        if not self.personne_raw_text: return self
+        if not self.personne_raw_text:
+            return self
         clean_text = self.personne_raw_text.strip()
         self.personne_nom_complet = clean_text
         parsed = HumanName(clean_text)
