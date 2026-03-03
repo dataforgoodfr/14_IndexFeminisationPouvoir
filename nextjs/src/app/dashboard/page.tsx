@@ -8,7 +8,7 @@ type Data = Record<
 >;
 const _dummyData = {
   executif: {
-    score: 29.62,
+    score: 29.61,
     composantes: {
       gouvernement: 50,
       ministeres_regaliens: 0,
