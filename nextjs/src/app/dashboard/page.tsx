@@ -48,7 +48,7 @@ type CardProps = {
 const PouvoirCard = async ({ pouvoir, score, composantes }: CardProps) => {
   const t = await getTranslations(`Dashboard.pouvoir.${pouvoir}`);
   return (
-    <div className="bg-[#513893] container flex flex-col p-4 rounded-lg">
+    <div className="bg-[#513893] container flex flex-col p-4 rounded-lg text-background">
       <div className="flex flex-row justify-between items-center m-4">
         <div className="text-3xl">{t("title")}</div>
         <div className="text-5xl">{score} %</div>
