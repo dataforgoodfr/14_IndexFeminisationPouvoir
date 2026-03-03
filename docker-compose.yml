@@ -60,7 +60,7 @@ services:
     volumes:
       - ./nextjs:/app
       - /app/node_modules
-      - /.next
+      - /app/.next
     # env_file:
     #   - .env
     command: npm run dev
