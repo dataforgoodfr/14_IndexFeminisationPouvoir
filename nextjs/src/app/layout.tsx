@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Menu } from "@/components/menu";
+import { NextIntlClientProvider } from "next-intl";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,8 +29,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <div className="min-h-screen">
-          <Menu items={navigation} />
-          <main>{children}</main>
+          <NextIntlClientProvider>
+            <Menu items={navigation} />
+            <main>{children}</main>
+          </NextIntlClientProvider>
         </div>
       </body>
     </html>

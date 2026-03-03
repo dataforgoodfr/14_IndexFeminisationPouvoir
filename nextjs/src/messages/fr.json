@@ -1,0 +1,31 @@
+{
+  "Dashboard": {
+    "pouvoir": {
+      "executif": {
+        "title": "Pouvoir exécutif",
+        "composantes": {
+          "gouvernement": "de femmes au Gouvernement",
+          "ministeres_regaliens": "de femmes aux postes régaliens",
+          "cabinet_presidence": "de femmes au Cabinet de la Présidence",
+          "cabiner_premier_ministre": "de femmes au Cabinet du Premier Ministre",
+          "directrices_cabinet_gouvernement": "de femmes directrices de cabinet au Gouvernement"
+        }
+      },
+      "parlementaire": {
+        "title": "Pouvoir parlementaire",
+        "composantes": {
+          "deputees": "de femmes députées",
+          "presidente_commission_an": "de femmes présidente de commission à l'Assemblée Nationale"
+        }
+      },
+      "local": {
+        "title": "Pouvoir local",
+        "composantes": {}
+      },
+      "autre": {
+        "title": "Autre",
+        "composantes": {}
+      }
+    }
+  }
+}
