@@ -4,6 +4,11 @@ on:
     # Runs on pushes targeting the default branch
     push:
         branches: ["main"]
+    # Runs on pull requests targeting the default branch
+    pull_request:
+        branches: ["main"]
+        paths:
+          - nextjs/
 
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
@@ -30,7 +35,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: "20"
+                  node-version: "24"
                   cache: npm
                   cache-dependency-path: nextjs/package-lock.json
             - name: Setup Pages
@@ -41,6 +46,9 @@ jobs:
                   #
                   # You may remove this line if you want to manage the configuration yourself.
                   static_site_generator: next
+                  # This should enable to automatically inject the basePath, but currently the next.config.ts extension isn't supported
+                  # cf https://github.com/actions/configure-pages/issues/177
+                  # generator_config_file: ./nextjs/next.config.ts
             - name: Restore cache
               uses: actions/cache@v4
               with:
@@ -55,10 +63,12 @@ jobs:
               working-directory: ./nextjs
               run: npm ci
             - name: Build with Next.js
+              env:
+                # This should be managed by actions/configure-pages, but currently the next.config.ts extension isn't supported
+                # cf https://github.com/actions/configure-pages/issues/177
+                NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
               working-directory: ./nextjs
               run: npx next build
-              env:
-                  NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
@@ -66,6 +76,7 @@ jobs:
 
     # Deployment job
     deploy:
+        if: github.ref_name == github.event.repository.default_branch
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}
