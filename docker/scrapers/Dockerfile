@@ -13,6 +13,9 @@ COPY pyproject.toml uv.lock ./
 # --frozen : échoue si uv.lock n'est pas à jour (sécurité)
 RUN uv sync --no-cache --no-install-project --frozen
 
+# Installation de Playwright Chromium et TOUTES ses dépendances système (libnss3, etc.)
+RUN uv run playwright install --with-deps chromium
+
 COPY scrapers/ scrapers/
 
 # Installation du projet
