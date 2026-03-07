@@ -22,7 +22,7 @@ services:
     #    env_file:
     #      - .env
     volumes:
-      - ./scrapers:/app
+      - ./scrapers:/app/scrapers
     command: sleep infinity
 
   # dbt:

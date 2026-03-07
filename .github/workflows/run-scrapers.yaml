@@ -1,0 +1,37 @@
+name: Lancer les Scrapers (Manuel)
+
+on:
+  # Permet de lancer ce workflow manuellement depuis l'onglet "Actions" de GitHub
+  workflow_dispatch:
+
+jobs:
+  scrape-and-save:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Construire l'image Docker
+        # On construit l'image Docker en utilisant la configuration de docker-compose.yml
+        run: docker compose build scrapers
+
+      - name: Lancer les scrapers
+        # Exécute la commande de lancement à l'intérieur du conteneur
+        # TODO: pour l'instant on utilise une commande bash, mais on devrait utiliser un script Python ultérieurement
+        # pour lancer les scrapers en parallèle.
+        run: |
+          mkdir -p scrapers/scrapers_ifp/data
+          docker compose run --rm -w /app/scrapers/scrapers_ifp scrapers\
+                      bash -c "uv run scrapy list \
+                      | xargs -I {} uv run scrapy crawl {} \
+                      -o data/{}_$(date +%Y%m%d_%H%M%S).csv"
+
+      - name: Sauvegarder les fichiers dans les Artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultats-scrapers
+          # Chemin vers le dossier de sauvegarde des fichiers de scraping
+          path: scrapers/scrapers_ifp/data
+          # Optionnel : durée de conservation pour ne pas saturer votre espace GitHub
+          retention-days: 14
