@@ -1,0 +1,26 @@
+name: Tests sur les scrapers
+
+on:
+  pull_request:
+    paths:
+      - 'scrapers/**'
+  push:
+    branches: [main]
+    paths:
+      - 'scrapers/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install UV
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install dependencies with UV
+        run: uv sync --all-groups
+
+      - name: Run tests
+        run: uv run pytest scrapers/tests/
