@@ -22,5 +22,6 @@ jobs:
       - name: Install dependencies with UV
         run: uv sync --all-groups
 
+      # Run pytest tests, except those requiring a navigator, marked with a "live" tag
       - name: Run tests
-        run: uv run pytest scrapers/tests/
+        run: uv run pytest -v -m "not live" scrapers/tests/
