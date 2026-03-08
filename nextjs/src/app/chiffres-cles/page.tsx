@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import ArcDiagramPct from "../../components/ArcDiagramPct"
 import Link from "next/link";
 import Image from "next/image";
+import pouvoirData from "@/data/pouvoir.json";
 
 type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
 
@@ -9,48 +10,17 @@ type Data = Record<
   Pouvoir,
   { score: number; evolution: number, composantes: Record<string, number> }
 >;
-const _dummyData = {
-  executif: {
-    score: 29.61,
-    evolution:2.5,
-    composantes: {
-      gouvernement: 50,
-      ministeres_regaliens: 0,
-      cabinet_presidence: 35.2,
-      cabiner_premier_ministre: 42.9,
-      directrices_cabinet_gouvernement: 20,
-    },
-  },
-  parlementaire: {
-    score: 28.6,
-    evolution:2.5,
-    composantes: {
-      deputees: 36,
-      presidente_commission_an: 37.5,
-    },
-  },
-  local: {
-    evolution:2.5,
-    score: 24.7,
-    composantes: {},
-  },
-  autre: {
-    score: 19.8,
-    evolution:-1.2,
-    composantes: {},
-  },
-} satisfies Data;
 
 const fetchData = async () => {
   await new Promise((res) => setTimeout(res, 300));
-  return _dummyData;
+  return pouvoirData as Data;
 };
 
 type CardProps = {
   pouvoir: Pouvoir;
   score: number;
   evolution: number;
-  composantes: (typeof _dummyData)[Pouvoir]["composantes"];
+  composantes: Record<string, number>;
 };
 
 const PouvoirCard = async ({ pouvoir, score, evolution, composantes }: CardProps) => {
