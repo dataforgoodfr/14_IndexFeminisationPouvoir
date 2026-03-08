@@ -7,6 +7,7 @@ from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
 
 # Tests paramétrés sur le parsing des noms ---
 
+
 @pytest.mark.parametrize(
     "nom_brut, expected_civilite, expected_prenom, expected_nom, expected_genre",
     [
@@ -22,9 +23,11 @@ from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
         ("Emmanuel Macron", "", "Emmanuel", "Macron", "U"),
         # Cas avec particule (pour tester vos ajouts fr_prefixes)
         ("M. Charles de Gaulle", "M.", "Charles", "de Gaulle", "M"),
-    ]
+    ],
 )
-def test_decoupage_personne_nameparser(nom_brut, expected_civilite, expected_prenom, expected_nom, expected_genre):
+def test_decoupage_personne_nameparser(
+    nom_brut, expected_civilite, expected_prenom, expected_nom, expected_genre
+):
     """Vérifie que le validateur Pydantic découpe bien les noms et déduit le bon genre."""
 
     # On instancie notre modèle avec le seul champ obligatoire
@@ -43,6 +46,7 @@ def test_decoupage_personne_nameparser(nom_brut, expected_civilite, expected_pre
 
 
 # Tests sur les erreurs de validation (Les crashs) ---
+
 
 def test_erreur_si_texte_brut_manquant():
     """Vérifie que Pydantic plante si on oublie 'personne_raw_text'."""

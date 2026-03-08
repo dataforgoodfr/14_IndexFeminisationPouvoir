@@ -31,10 +31,7 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
     # 2. On simule la réponse de Scrapy
     request = Request(url="https://www2.assemblee-nationale.fr/dummy-url")
     response = HtmlResponse(
-        url=request.url,
-        request=request,
-        body=contenu_html,
-        encoding='utf-8'
+        url=request.url, request=request, body=contenu_html, encoding="utf-8"
     )
 
     # 3. On instancie le spider
@@ -46,7 +43,9 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
         resultats.append(item)
 
         # 5. Les vérifications (Assertions)
-        assert len(resultats) > 0, "Le spider n'a extrait aucune donnée ou requête de la page."
+        assert (
+            len(resultats) > 0
+        ), "Le spider n'a extrait aucune donnée ou requête de la page."
 
         yael_trouvee = False
 
@@ -55,7 +54,7 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
 
             # Cas A : Le spider a trouvé un lien et généré une requête
             if isinstance(element, Request):
-                identite_brute = element.meta.get('identite_brute', '')
+                identite_brute = element.meta.get("identite_brute", "")
                 # On passe le texte brut dans notre modèle Pydantic pour parser le nom
                 personne_dict = Personne(personne_raw_text=identite_brute).model_dump()
 
@@ -64,7 +63,10 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
                 personne_dict = element
 
             # On fait notre vérification sur le dictionnaire final
-            if personne_dict.get("personne_nom") == "Braun-Pivet" and personne_dict.get("personne_prenom") == "Yaël":
+            if (
+                personne_dict.get("personne_nom") == "Braun-Pivet"
+                and personne_dict.get("personne_prenom") == "Yaël"
+            ):
                 yael_trouvee = True
                 break
 
@@ -78,6 +80,7 @@ PROJECT_ROOT = TEST_DIR.parent
 # Le dossier qui contient 'scrapy.cfg'
 scrapy_project_dir = PROJECT_ROOT / "scrapers_ifp"
 
+
 @pytest.mark.live
 def test_spider_figure2c_live_e2e():
     """
@@ -89,34 +92,51 @@ def test_spider_figure2c_live_e2e():
         fichier_resultat = tmp.name
 
     try:
-        commande = [sys.executable, "-m", "scrapy", "crawl", "figure2c", "-O", fichier_resultat]
+        commande = [
+            sys.executable,
+            "-m",
+            "scrapy",
+            "crawl",
+            "figure2c",
+            "-O",
+            fichier_resultat,
+        ]
 
         resultat_commande = subprocess.run(
             commande,
             capture_output=True,
             text=True,
-            cwd=scrapy_project_dir  # <--- On passe le dossier exact qui contient scrapy.cfg
+            cwd=scrapy_project_dir,  # <--- On passe le dossier exact qui contient scrapy.cfg
         )
 
-        assert resultat_commande.returncode == 0, f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
+        assert (
+            resultat_commande.returncode == 0
+        ), f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
 
         donnees_extraites = []
-        with open(fichier_resultat, 'r', encoding='utf-8') as f:
+        with open(fichier_resultat, "r", encoding="utf-8") as f:
             for ligne in f:
                 if ligne.strip():
                     donnees_extraites.append(json.loads(ligne))
 
         # Les Assertions
-        assert len(donnees_extraites) >= 10, f"Seulement {len(donnees_extraites)} personnes trouvées."
+        assert (
+            len(donnees_extraites) >= 10
+        ), f"Seulement {len(donnees_extraites)} personnes trouvées."
 
         yael_trouvee = any(
-            p.get("personne_nom") == "Braun-Pivet" and p.get("personne_prenom") == "Yaël"
+            p.get("personne_nom") == "Braun-Pivet"
+            and p.get("personne_prenom") == "Yaël"
             for p in donnees_extraites
         )
         assert yael_trouvee, "La présidente Yaël Braun-Pivet n'a pas été trouvée."
 
         for personne in donnees_extraites:
-            assert personne.get("personne_genre") in ["M", "F", "U"], "Un genre invalide a été généré."
+            assert personne.get("personne_genre") in [
+                "M",
+                "F",
+                "U",
+            ], "Un genre invalide a été généré."
 
     finally:
         Path(fichier_resultat).unlink(missing_ok=True)
