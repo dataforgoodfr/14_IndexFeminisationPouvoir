@@ -11,9 +11,10 @@ type ArcDiagramPctProps = {
     arcColor?: string;
     valueColor?: string;
     descriptionColor?: string;
+    maxDegree?:number;
 };
 
-export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor , valueColor, descriptionColor }: ArcDiagramPctProps) => {
+export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor , valueColor, descriptionColor, maxDegree }: ArcDiagramPctProps) => {
 
     const containerRef = useRef<HTMLDivElement>(null)
     const [dimensions, setDimensions] = useState({ width: 150, height: 0 })
@@ -25,9 +26,11 @@ export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor 
     valueColor = valueColor ? valueColor : tresholdColor
     descriptionColor = descriptionColor ? descriptionColor : "black"
 
+    // Set maxDegree if not provided
+    const maxDegreeValue = (maxDegree && maxDegree>0 && maxDegree<360) ? maxDegree : 220
+
     // Calculate the degree for the given value (0-100%)
-    const maxDegree = 280
-    const degree = (value / 100) * maxDegree
+    const degree = (value / 100) * maxDegreeValue
     
     // Calculate minimal Height and Width needed for the arc
     const margin_radius = 10
@@ -56,8 +59,8 @@ export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor 
     const baseArcGenerator = d3.arc()
         .innerRadius(radius+1)
         .outerRadius(radius + 15)
-        .startAngle((-maxDegree/2) * Math.PI/180)
-        .endAngle((maxDegree/2) * Math.PI/180) // Convert degree to radians
+        .startAngle((-maxDegreeValue/2) * Math.PI/180)
+        .endAngle((maxDegreeValue/2) * Math.PI/180) // Convert degree to radians
         .cornerRadius(30);
     const arcPath = baseArcGenerator({} as any);
 
@@ -65,8 +68,8 @@ export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor 
     const arcGenerator2 = d3.arc()
         .innerRadius(radius+1)
         .outerRadius(radius + 15)
-        .startAngle((-maxDegree/2) * Math.PI/180)
-        .endAngle((-maxDegree/2 + degree) * Math.PI/180) // Convert degree to radians
+        .startAngle((-maxDegreeValue/2) * Math.PI/180)
+        .endAngle((-maxDegreeValue/2 + degree) * Math.PI/180) // Convert degree to radians
         .cornerRadius(30);
     const arcPath2 = arcGenerator2({} as any);
 
@@ -79,7 +82,7 @@ export const ArcDiagramPct = ({value, radius , description , fontSize, arcColor 
     // Value Text and position
     const valueText = `${value}%`
     const valuePositionX = 0
-    const valuePositionY = -(radius * Math.sin(maxDegree*Math.PI/180)) * 0.75
+    const valuePositionY = radius * 0.6
 
     // Font sizes
     const descriptionFontSize = fontSize ? fontSize : (3/20)*radius + 8
