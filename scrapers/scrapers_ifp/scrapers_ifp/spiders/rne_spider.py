@@ -8,22 +8,18 @@ class BaseRneSpider(scrapy.Spider):
     Les classes filles doivent définir 'name' et 'resource_filter'.
     """
 
-    # L'URL du dataset parent est commune à tous
-    dataset_api_url: str = (
+    start_urls = [
         "https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/"
-    )
+    ]
 
-    # Le filtre pour sélectionner la ressource spécifique dans le dataset
+    # Filtre de sélection de la ressource nécessaire définie dans la classe fille
     resource_filter: str = ""
 
     custom_settings = {
         "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
 
-    async def start(self):
-        yield scrapy.Request(url=self.dataset_api_url, callback=self.parse_dataset)
-
-    async def parse_dataset(self, response: TextResponse):
+    async def parse(self, response: TextResponse, **kwargs):
         data = response.json()
         resource_id = None
 

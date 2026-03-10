@@ -19,29 +19,39 @@ class ScrapersIfpSpiderMiddleware:
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
         s = cls()
+        # On sauvegarde le crawler pour l'utiliser dans "process_spider_output" en particulier.
+        s.crawler = crawler
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_spider_input(self, response, spider):
+    def process_spider_input(self, response):
         # Called for each response that goes through the spider
         # middleware and into the spider.
 
         # Should return None or raise an exception.
         return None
 
-    def process_spider_output(self, response, result, spider):
+    async def process_spider_output(self, response, result):
         # Called with the results returned from the Spider, after
         # it has processed the response.
 
-        # Must return an iterable of Request, or item objects.
-        for i in result:
-            # We include the url of the source page in the item
-            if isinstance(i, dict):
-                i["source_url"] = response.url
+        # On récupère le spider
+        spider = self.crawler.spider
 
+        # Must return an iterable of Request, or item objects.
+        async for i in result:
+            # On vérifie que 'i' est bien une donnée (un dictionnaire)
+            if isinstance(i, dict):
+                # On ajoute l'URL uniquement dans les données
+                if hasattr(spider, "start_urls") and spider.start_urls:
+                    i["source_url"] = spider.start_urls[0]
+                else:
+                    i["source_url"] = "Le spider n'a pas de start_urls!"
+
+            # On yield 'i' quoi qu'il arrive (que ce soit la donnée modifiée ou la Requête intacte)
             yield i
 
-    def process_spider_exception(self, response, exception, spider):
+    def process_spider_exception(self, response, exception):
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
 
