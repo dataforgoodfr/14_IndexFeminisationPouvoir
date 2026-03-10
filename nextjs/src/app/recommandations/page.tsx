@@ -11,7 +11,7 @@ import { DocumentIcon } from "@/components/icons/document";
 export default function Recommendations() {
   return (
     <div className="flex items-center justify-center  font-sans bg-[#F9F9F9]">
-      <div className="flex flex-col gap-4 max-w-296 items-center justify-between py-12 px-4 gap-8">
+      <div className="flex flex-col max-w-296 items-center justify-between py-12 px-4 gap-8">
         <div className="flex flex-col justify-center text-center w-full gap-2">
           <h1 className="text-2xl">Recommandations</h1>
           <p className="text-sm text-[#868686]">
