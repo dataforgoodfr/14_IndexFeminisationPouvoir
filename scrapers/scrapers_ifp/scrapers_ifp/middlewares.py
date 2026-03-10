@@ -5,6 +5,7 @@
 
 from scrapy import signals
 
+
 # useful for handling different item types with a single interface
 # from itemadapter import ItemAdapter
 
@@ -34,6 +35,10 @@ class ScrapersIfpSpiderMiddleware:
 
         # Must return an iterable of Request, or item objects.
         for i in result:
+            # We include the url of the source page in the item
+            if isinstance(i, dict):
+                i["source_url"] = response.url
+
             yield i
 
     def process_spider_exception(self, response, exception, spider):
