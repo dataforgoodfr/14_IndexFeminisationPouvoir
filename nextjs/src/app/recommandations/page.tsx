@@ -1,12 +1,12 @@
-import { HTMLAttributes, JSX } from "react";
 import Link from "next/link";
+import type { HTMLAttributes, JSX } from "react";
 import { AcademicIcon } from "@/components/icons/academic";
 import { BriefcaseIcon } from "@/components/icons/briefcase";
+import { DocumentIcon } from "@/components/icons/document";
 import { ChartBarIcon } from "@/components/icons/graph";
 import { ScaleIcon } from "@/components/icons/scale";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
 import { UsersIcon } from "@/components/icons/users";
-import { DocumentIcon } from "@/components/icons/document";
 
 export default function Recommendations() {
   return (
