@@ -12,6 +12,6 @@ repos:
       - id: check-merge-conflict
       - id: mixed-line-ending
   - repo: https://github.com/biomejs/pre-commit
-    rev: v2.4.6 # Use the sha / tag you want to point at
+    rev: v2.4.4
     hooks:
       - id: biome-check
