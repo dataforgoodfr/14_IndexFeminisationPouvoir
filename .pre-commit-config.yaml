@@ -11,3 +11,18 @@ repos:
     hooks:
       - id: check-merge-conflict
       - id: mixed-line-ending
+  # see https://github.com/biomejs/pre-commit/blob/main/.pre-commit-hooks.yaml
+  - repo: local
+    hooks:
+      - id: biome-format
+        name: biome format
+        entry: ./nextjs/node_modules/.bin/biome format --config-path ./nextjs/biome.json --write --files-ignore-unknown=true --no-errors-on-unmatched
+        language: system
+        types: [text]
+        files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?|css|svelte|vue|astro|graphql|gql)$"
+      - id: biome-check
+        name: biome check
+        entry: ./nextjs/node_modules/.bin/biome check --config-path ./nextjs/biome.json --write --files-ignore-unknown=true --no-errors-on-unmatched
+        language: system
+        types: [text]
+        files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?|css|svelte|vue|astro|graphql|gql)$"
