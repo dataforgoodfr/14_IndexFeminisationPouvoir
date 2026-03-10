@@ -4,10 +4,10 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { cn } from "@/lib/utils";
-import Link, { LinkProps } from "next/link";
-import { FC } from "react";
+import Link, { type LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
+import type { FC } from "react";
+import { cn } from "@/lib/utils";
 
 type NavigationItem = {
   name: string;
