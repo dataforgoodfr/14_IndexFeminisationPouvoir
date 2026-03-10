@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 const navigation = [
   { name: "Chiffres clés", href: "/chiffres-cles/", current: true },
-  { name: "Explorer les données", href: "/donnees/", current: false },
-  { name: "Recommendations", href: "/recommendations/", current: false },
+  { name: "Explorer les données", href: "/explorer/", current: false },
+  { name: "Recommandations", href: "/recommandations/", current: false },
   { name: "Méthode de calcul", href: "/methode/", current: false },
 ];
 

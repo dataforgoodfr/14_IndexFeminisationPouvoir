@@ -2,12 +2,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-8 items-center justify-center font-sans">
-      <div className="flex-1 flex-row max-w-6xl md:mt-20">
-        {/* First Part */}
-        <div className="flex flex-col md:flex-row w-full gap-4 md:gap-0 ">
-          {/* Left Part */}
-          <div className="flex-1 bg-gray-000 p-8">
+    <div className="flex items-center justify-center">
+      <div className="flex w-full max-w-6xl flex-col items-center justify-between py-32 px-4  sm:items-start">
+        <div className="flex flex-col gap-8  md:gap-40 md:flex-row ">
+          <div className="flex1">
             <h1 className="text-4xl/relaxed h">
               Le pouvoir, nom masculin&nbsp;: l'index de féminisation du pouvoir
             </h1>
