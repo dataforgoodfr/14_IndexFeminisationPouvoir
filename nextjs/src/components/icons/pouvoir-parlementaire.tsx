@@ -13,6 +13,7 @@ export const PouvoirParlementaireIcon = (
     {...props}
     className={cn("size-6", props.className)}
   >
+    <title>Pouvoir parlementaire</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

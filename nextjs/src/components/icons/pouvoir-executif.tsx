@@ -11,6 +11,7 @@ export const PouvoirExecutifIcon = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
     className={cn("size-6", props.className)}
   >
+    <title>Pouvoir exécutif</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

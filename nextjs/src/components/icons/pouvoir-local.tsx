@@ -11,6 +11,7 @@ export const PouvoirLocalIcon = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
     className={cn("size-6", props.className)}
   >
+    <title>Pouvoir local</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
