@@ -77,6 +77,12 @@ class RneSenateursSpider(BaseRneSpider):
     resource_filter = "elus-senateurs-sen"
 
 
+# Parlement européen
+class RneElusParlementEuropeenSpider(BaseRneSpider):
+    name = "figure4"
+    resource_filter = "elus-representants-Parlement-européen-rpe"
+
+
 # Maire
 class RneMairesSpider(BaseRneSpider):
     name = "figure5a"
