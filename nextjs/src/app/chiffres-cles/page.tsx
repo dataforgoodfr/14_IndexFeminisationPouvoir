@@ -79,12 +79,12 @@ export default async function Page() {
           <div className="flex-1 flex flex-col bg-gray-000 items-center justify-center relative p-8 md:pl-30">
             <div className="flex-1 flex flex-row">
               {/* Image overlaying between Left and Right Part */}
-              <div className="flex-1 mr-4 translate-y-1/8 md:translate-y-1/8 md:absolute md:left-1 md:top-1 md:-translate-x-1/2 ">
+              <div className="mr-4 hidden md:block absolute left-0 top-0 translate-y-1/6 -translate-x-1/2 ">
                 <Image
-                  src="/images/woman_drawing.png"
+                  src="/images/woman_drawing.svg"
                   alt="divider"
-                  width={300}
-                  height={400}
+                  width={375}
+                  height={500}
                   priority
                 />
               </div>
