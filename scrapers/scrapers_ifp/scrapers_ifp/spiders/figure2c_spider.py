@@ -10,6 +10,7 @@ class Figure2cSpider(scrapy.Spider):
     name = "figure2c"
 
     start_urls = [
+        # TODO: récupérer l'URL du bureau de la législature en cours, qui est ci-dessous écrite en dur.
         "https://www2.assemblee-nationale.fr/17/le-bureau-de-l-assemblee-nationale"
     ]
 

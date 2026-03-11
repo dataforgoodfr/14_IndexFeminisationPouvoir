@@ -47,8 +47,6 @@ class BaseRneSpider(scrapy.Spider):
         for ligne in lignes:
             # On vérifie si la ligne passe le filtre de la classe enfant
             if self.is_row_valid(ligne):
-                # On ajoute le nom du scraper dans les données pour s'y retrouver à l'export
-                ligne["source_scraper"] = self.name
                 yield ligne
 
         # Gestion de la pagination via les liens fournis par l'API
@@ -77,6 +75,12 @@ class RneDeputesSpider(BaseRneSpider):
 class RneSenateursSpider(BaseRneSpider):
     name = "figure3a"
     resource_filter = "elus-senateurs-sen"
+
+
+# Maire
+class RneMairesSpider(BaseRneSpider):
+    name = "figure5a"
+    resource_filter = "elus-maires-mai"
 
 
 # Conseillers départementaux
