@@ -13,6 +13,7 @@ export const UnionEuropeenneIcon = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
     className={cn("size-6", props.className)}
   >
+    <title>Union Européenne</title>
     <path
       fill="#039"
       fillRule="nonzero"

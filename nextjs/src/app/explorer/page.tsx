@@ -1,11 +1,11 @@
-import { HTMLAttributes, JSX } from "react";
-import Link, { LinkProps } from "next/link";
-import { cn } from "@/lib/utils";
+import Link, { type LinkProps } from "next/link";
+import type { HTMLAttributes, JSX } from "react";
+import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
 import { UnionEuropeenneIcon } from "@/components/icons/union-europeenne";
-import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
+import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
