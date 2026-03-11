@@ -22,7 +22,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:black/5 hover:text-black focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
 
@@ -73,11 +73,10 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                     href={item.href}
                     aria-current={pathname === item.href ? "page" : undefined}
                     className={cn(
-                      "text-foreground",
+                      "block rounded-md px-3 py-2 text-base font-medium ",
                       pathname === item.href
-                        ? "font-semibold"
-                        : " hover:bg-black/5",
-                      "rounded-md px-3 py-1 text-sm font-medium",
+                        ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
+                        : "text-gray-800 hover:bg-black/5 hover:shadow-sm ",
                     )}
                   >
                     {item.name}
@@ -95,8 +94,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3">
+      <DisclosurePanel className="lg:hidden">
+        <div className="space-y-1 pl-2 pr-4 pt-2 pb-3">
           {items.map((item) => (
             <DisclosureButton
               key={item.name}
@@ -105,9 +104,9 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
                 pathname === item.href
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-white/5 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium",
+                  ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
+                  : "text-gray-800 hover:bg-black/5 hover:shadow-sm hover:transform hover:translate-x-0.5",
+                "block rounded-md px-3 py-2 text-base font-medium transition-all duration-150 ease-in-out",
               )}
             >
               {item.name}
