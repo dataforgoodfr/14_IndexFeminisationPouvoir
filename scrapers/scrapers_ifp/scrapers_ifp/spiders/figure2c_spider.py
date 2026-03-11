@@ -1,11 +1,18 @@
+import logging
+
 import scrapy
 from scrapy_playwright.page import PageMethod
+
 from ..models import Personne
-import logging
 
 
 class Figure2cSpider(scrapy.Spider):
     name = "figure2c"
+
+    start_urls = [
+        # TODO: récupérer l'URL du bureau de la législature en cours, qui est ci-dessous écrite en dur.
+        "https://www2.assemblee-nationale.fr/17/le-bureau-de-l-assemblee-nationale"
+    ]
 
     # Configuration pour activer Playwright, ce qui est nécessaire si la page est chargée avec
     # des éléments dynamiques ou nécessitants JavaScript ; inutile sinon.
@@ -21,10 +28,7 @@ class Figure2cSpider(scrapy.Spider):
     }
 
     async def start(self):
-        urls = [
-            "https://www2.assemblee-nationale.fr/17/le-bureau-de-l-assemblee-nationale",
-        ]
-        for url in urls:
+        for url in self.start_urls:
             yield scrapy.Request(
                 url=url,
                 callback=self.parse,

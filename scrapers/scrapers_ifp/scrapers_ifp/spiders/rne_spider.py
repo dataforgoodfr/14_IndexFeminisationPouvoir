@@ -8,22 +8,18 @@ class BaseRneSpider(scrapy.Spider):
     Les classes filles doivent définir 'name' et 'resource_filter'.
     """
 
-    # L'URL du dataset parent est commune à tous
-    dataset_api_url: str = (
+    start_urls = [
         "https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/"
-    )
+    ]
 
-    # Le filtre pour sélectionner la ressource spécifique dans le dataset
+    # Filtre de sélection de la ressource nécessaire définie dans la classe fille
     resource_filter: str = ""
 
     custom_settings = {
         "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
 
-    async def start(self):
-        yield scrapy.Request(url=self.dataset_api_url, callback=self.parse_dataset)
-
-    async def parse_dataset(self, response: TextResponse):
+    async def parse(self, response: TextResponse, **kwargs):
         data = response.json()
         resource_id = None
 
@@ -49,14 +45,21 @@ class BaseRneSpider(scrapy.Spider):
         lignes = json_response.get("data", [])
 
         for ligne in lignes:
-            # On ajoute le nom du scraper dans les données pour s'y retrouver à l'export
-            ligne["source_scraper"] = self.name
-            yield ligne
+            # On vérifie si la ligne passe le filtre de la classe enfant
+            if self.is_row_valid(ligne):
+                yield ligne
 
         # Gestion de la pagination via les liens fournis par l'API
         next_url = json_response.get("links", {}).get("next")
         if next_url:
             yield scrapy.Request(url=next_url, callback=self.parse_api_data)
+
+    def is_row_valid(self, row: dict) -> bool:
+        """
+        Méthode permettant de filtrer les lignes extraites.
+        Renvoie True par défaut. À surcharger dans les sous-classes si nécessaire.
+        """
+        return True
 
 
 # --- SPIDERS SPÉCIFIQUES ---
@@ -74,8 +77,25 @@ class RneSenateursSpider(BaseRneSpider):
     resource_filter = "elus-senateurs-sen"
 
 
+# Maire
+class RneMairesSpider(BaseRneSpider):
+    name = "figure5a"
+    resource_filter = "elus-maires-mai"
+
+
 # Conseillers départementaux
 class RneConseillersDepartementauxSpider(BaseRneSpider):
     name = "figure6a"
     resource_filter = "elus-conseillers-departementaux"
-    # TODO: n'extraire que les président·e·s de départements
+
+    def is_row_valid(self, row: dict) -> bool:
+        # On récupère la valeur de la colonne, en prévoyant une chaîne vide par défaut si la clé n'existe pas
+        libelle = row.get("Libellé de la fonction", "")
+
+        # On s'assure que c'est bien une chaîne de caractères et qu'elle commence par "Président"
+        if isinstance(libelle, str) and libelle.startswith(
+            "Président du conseil départemental"
+        ):
+            return True
+
+        return False
