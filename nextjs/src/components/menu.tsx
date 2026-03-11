@@ -20,7 +20,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
     <Disclosure as="nav" className="relative border-b border-(--color-border)">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
             {/* Mobile menu button*/}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:black/5 hover:text-black focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
               <span className="absolute -inset-0.5" />
@@ -58,14 +58,14 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               </svg>
             </DisclosureButton>
           </div>
-          <div className="flex flex-1 justify-center items-stretch sm:justify-start">
+          <div className="flex flex-1 justify-center items-stretch md:justify-start">
             <Link href="/" className="flex shrink-0 items-center gap-3">
               <div className="w-10 h-10 rounded-sm bg-foreground  text-background flex items-center justify-center">
                 IF
               </div>
-              Index de Féminisation
+              <span className="md:hidden xl:block">Index de Féminisation</span>
             </Link>
-            <div className="hidden w-full sm:ml-6 sm:flex justify-between items-center">
+            <div className="hidden w-full md:ml-6 md:flex justify-between items-center">
               <div className="flex space-x-4 items-center justify-center">
                 {items.map((item) => (
                   <Link
@@ -73,7 +73,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                     href={item.href}
                     aria-current={pathname === item.href ? "page" : undefined}
                     className={cn(
-                      "block rounded-md px-3 py-2 text-base font-medium ",
+                      "block rounded-md px-2 py-2 text-base font-medium ",
                       pathname === item.href
                         ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
                         : "text-gray-800 hover:bg-black/5 hover:shadow-sm ",
@@ -85,7 +85,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               </div>
               <Link
                 href="/rapport"
-                className="w-36 h-10 flex items-center justify-center bg-black text-background"
+                className="hidden w-36 h-10 xl:flex items-center justify-center bg-black text-background"
               >
                 Lire le rapport
               </Link>

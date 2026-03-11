@@ -62,8 +62,9 @@ const PouvoirSelector = ({
     <Link
       className={cn(
         "flex-1 flex flex-col justify-center items-center p-2 gap-2 w-32 h-32 text-center",
-        "bg-linear-to-b from-purple-200/24 to-purple-900/5 border border-purple-300 rounded-2xl flex-none self-stretch",
-        "hover:border-2 hover:border-[#513893]",
+        "border border-[#C9C4E4] rounded-2xl flex-none self-stretch",
+        "hover:border hover:border-[#513893]",
+        "bg-linear-to-b from-[rgba(179,138,191,0.24)] to-[rgba(83,64,89,0.05)]",
       )}
       {...linkProps}
     >
