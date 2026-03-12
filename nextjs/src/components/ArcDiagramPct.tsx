@@ -141,7 +141,7 @@ export const ArcDiagramPct = ({
       className="flex items-center justify-center w-full font-sans"
     >
       <svg width={dimensions.width} height={dimensions.height}>
-        <title>{`${descriptionText}·${valueText}`}</title>
+        <title>{`${descriptionText} = ${valueText}`}</title>
         <g transform={`translate(${centerX}, ${centerY})`}>
           <path d={arcPath || ""} fill={baseArcColor} />
           <path d={arcPath2 || ""} fill={arcColor} />
