@@ -1,10 +1,7 @@
 import Image from "next/image";
-import Image from "next/image";
-import Link from "next/link";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import pouvoirData from "@/data/pouvoir.json";
-import ArcDiagramPct from "../../components/ArcDiagramPct";
 import ArcDiagramPct from "../../components/ArcDiagramPct";
 
 type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
@@ -26,13 +23,8 @@ type CardProps = {
 	composantes: Record<string, number>;
 };
 
-const PouvoirCard = async ({
-	pouvoir,
-	score,
-	evolution,
-	composantes,
-}: CardProps) => {
-	const t = await getTranslations(`Dashboard.pouvoir.${pouvoir}`);
+const PouvoirCard = async ({ pouvoir, score, evolution }: CardProps) => {
+  const t = await getTranslations(`Dashboard.pouvoir.${pouvoir}`);
 
 	const bgColor = evolution && evolution > 0 ? "bg-green-500" : "bg-red-500";
 

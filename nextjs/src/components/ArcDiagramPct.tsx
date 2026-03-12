@@ -1,7 +1,7 @@
 "use client";
 
 import * as d3 from "d3";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ArcDiagramPctProps = {
   value: number;
@@ -66,25 +66,23 @@ export const ArcDiagramPct = ({
   const centerX = dimensions.width / 2;
   const centerY = dimensions.height / 2;
 
-  // Complete Arc (background)
-  const baseArcGenerator = d3
-    .arc()
-    .innerRadius(radius + 1)
-    .outerRadius(radius + 15)
-    .startAngle(((-maxDegreeValue / 2) * Math.PI) / 180)
-    .endAngle(((maxDegreeValue / 2) * Math.PI) / 180) // Convert degree to radians
-    .cornerRadius(30);
-  const arcPath = baseArcGenerator({} as any);
+  const degreeToRadian = (degree: number) => (degree * Math.PI) / 180;
 
+  // Complete Arc (background)
+  const arcGenerator = d3.arc().cornerRadius(30);
+  const arcPath = arcGenerator({
+    startAngle: degreeToRadian(-maxDegreeValue / 2),
+    endAngle: degreeToRadian(maxDegreeValue / 2),
+    innerRadius: radius + 1,
+    outerRadius: radius + 15,
+  });
   // Value Arc (foreground)
-  const arcGenerator2 = d3
-    .arc()
-    .innerRadius(radius + 1)
-    .outerRadius(radius + 15)
-    .startAngle(((-maxDegreeValue / 2) * Math.PI) / 180)
-    .endAngle(((-maxDegreeValue / 2 + degree) * Math.PI) / 180) // Convert degree to radians
-    .cornerRadius(30);
-  const arcPath2 = arcGenerator2({} as any);
+  const arcPath2 = arcGenerator({
+    startAngle: degreeToRadian(-maxDegreeValue / 2),
+    endAngle: degreeToRadian(-maxDegreeValue / 2 + degree),
+    innerRadius: radius + 1,
+    outerRadius: radius + 15,
+  });
 
   // Decription Text and position
   const descriptionText = description ? description : "";
@@ -119,7 +117,7 @@ export const ArcDiagramPct = ({
 
     for (const w of words) {
       if ((currentLine + w).length <= maxCharsPerLine) {
-        currentLine += (currentLine != "" ? " " : "") + w;
+        currentLine += (currentLine !== "" ? " " : "") + w;
       } else {
         if (currentLine) {
           lines.push(currentLine);
@@ -143,6 +141,7 @@ export const ArcDiagramPct = ({
       className="flex items-center justify-center w-full font-sans"
     >
       <svg width={dimensions.width} height={dimensions.height}>
+        <title>{`${descriptionText}·${valueText}`}</title>
         <g transform={`translate(${centerX}, ${centerY})`}>
           <path d={arcPath || ""} fill={baseArcColor} />
           <path d={arcPath2 || ""} fill={arcColor} />
@@ -158,7 +157,7 @@ export const ArcDiagramPct = ({
           >
             {descriptionLines.map((line, idx) => (
               <tspan
-                key={idx}
+                key={`${idx}-${line}`}
                 x={descriptionPositionX}
                 dy={idx === 0 ? 0 : lineHeight}
               >
