@@ -1,0 +1,31 @@
+{
+  "executif": {
+    "score": 29.61,
+    "evolution": 2.5,
+    "composantes": {
+      "gouvernement": 50,
+      "ministeres_regaliens": 0,
+      "cabinet_presidence": 35.2,
+      "cabiner_premier_ministre": 42.9,
+      "directrices_cabinet_gouvernement": 20
+    }
+  },
+  "parlementaire": {
+    "score": 28.6,
+    "evolution": 2.5,
+    "composantes": {
+      "deputees": 36,
+      "presidente_commission_an": 37.5
+    }
+  },
+  "local": {
+    "evolution": 2.5,
+    "score": 24.7,
+    "composantes": {}
+  },
+  "autre": {
+    "score": 19.8,
+    "evolution": -1.2,
+    "composantes": {}
+  }
+}
