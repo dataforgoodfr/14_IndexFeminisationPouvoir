@@ -19,24 +19,24 @@ services:
     container_name: scrapers
     #    depends_on:
     #      - postgres
-    #    env_file:
-    #      - .env
+    env_file:
+      - .env
     volumes:
       - ./scrapers:/app/scrapers
     command: sleep infinity
 
-  # dbt:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/dbt/Dockerfile
-  #   container_name: dbt
-  #   depends_on:
-  #     - postgres
-  #   volumes:
-  #     - ./dbt:/dbt
-  #   env_file:
-  #     - .env
-  #   command: dbt run
+  dbt:
+    build:
+      context: .
+      dockerfile: docker/dbt/Dockerfile
+    container_name: dbt
+#    depends_on:
+#      - postgres
+    volumes:
+      - ./dbt:/dbt
+    env_file:
+      - .env
+    command: sleep infinity
 
   # nocodb:
   #   image: nocodb/nocodb:latest
