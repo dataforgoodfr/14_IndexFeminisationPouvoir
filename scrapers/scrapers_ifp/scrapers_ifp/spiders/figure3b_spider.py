@@ -1,5 +1,3 @@
-import json
-from urllib.parse import urlencode
 import scrapy
 from scrapy.http import TextResponse
 
