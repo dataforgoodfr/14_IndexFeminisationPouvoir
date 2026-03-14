@@ -172,10 +172,7 @@ async def test_spider_figure2b():
     )
 
     # 3. On exécute le spider
-    resultats = []
-    async for item in spider.parse(response):
-        resultats.append(item)
-
+    resultats = list(spider.parse(response))
     result_dump = resultats[0].model_dump()
 
     # 4. On vérifie les résultats extraits
