@@ -11,7 +11,6 @@ class BaseAnnuaireSpider(scrapy.Spider):
     typeOrganisme = ""
     fonctions: list[str] = []
     fonctions_exclues: list[str] = []
-    grades: list[str] = []
     zone_geographique_type = ""
 
     current_offset = 0
@@ -60,12 +59,11 @@ class BaseAnnuaireSpider(scrapy.Spider):
             nom = personne.get("nom")
             prenom = personne.get("prenom")
             civilite = personne.get("civilite")
-            grade = personne.get("grade")
 
             if not nom and not prenom and not civilite:
                 return False
 
-            if not self.filter_personne(fonction, grade):
+            if fonction not in self.fonctions:
                 continue
 
             adresse = adresse_list[0] if len(adresse_list) > 0 else {}
@@ -75,7 +73,6 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 personne_prenom=prenom,
                 personne_nom=nom,
                 personne_civilite=civilite,
-                # TODO à matcher au nom du département
                 zone_geographique_libelle=self.getZoneGeographiqueLibelle(adresse),
                 zone_geographique_type=self.zone_geographique_type,
                 poste_libelle=fonction,
@@ -83,41 +80,26 @@ class BaseAnnuaireSpider(scrapy.Spider):
             yield item.model_dump()
             break
 
-    def filter_personne(self, fonction: str, grade: str):
-
-        if fonction in self.fonctions:
-            return True
-        if grade in self.grades and fonction not in self.fonctions_exclues:
-            return True
-        return False
-
     def getZoneGeographiqueLibelle(self, adresse: dict):
         return ""
 
 
+# Directeurs et Directrices de cabinet des mairies des préfectures en France
 class Figure5cSpider(BaseAnnuaireSpider):
-    # Femmes directrices de cabinet des mairies des préfectures en France
     name = "figure5c"
 
     typeOrganisme = "Préfecture, sous-préfecture"
     fonctions = ["Directeur de cabinet", "Directrice de cabinet"]
-    # TODO à affiner !
-    # grades = ["sous-préfet", "sous-préfète"]
-    # fonctions_exclues = [
-    #     "Secrétaire général",
-    #     "Secrétaire générale",
-    #     "Secrétaire général adjoint",
-    #     "Secrétaire générale adjointe",
-    # ]
 
     zone_geographique_type = "préfecture"
 
+    # TODO à matcher au nom du département
     def getZoneGeographiqueLibelle(self, adresse: dict):
         return adresse.get("nom_commune", "")
 
 
+# Préfets et préfètes
 class Figure9Spider(BaseAnnuaireSpider):
-    # Femmes directrices de cabinet des mairies des préfectures en France
     name = "figure9"
 
     typeOrganisme = "Préfecture, sous-préfecture"
@@ -125,6 +107,7 @@ class Figure9Spider(BaseAnnuaireSpider):
 
     zone_geographique_type = "préfecture"
 
+    # TODO à matcher au nom du département
     def getZoneGeographiqueLibelle(self, adresse: dict):
         return adresse.get("nom_commune", "")
 
@@ -133,9 +116,6 @@ class Figure9Spider(BaseAnnuaireSpider):
 class Figure10PaysSpider(BaseAnnuaireSpider):
     typeOrganisme = "Ambassade ou mission diplomatique"
     fonctions = ["Ambassadeur", "Ambassadrice"]
-    grades = ["administrateur de l'État", "administratrice de l'État"]
-    fonctions_exclues = ["Consul général", "Consule générale"]
-
     zone_geographique_type = "pays"
 
     def getZoneGeographiqueLibelle(self, adresse: dict):
@@ -144,14 +124,12 @@ class Figure10PaysSpider(BaseAnnuaireSpider):
 
 # Figure partielle, voir Figure10Spider
 class Figure10OrganisationsSpider(BaseAnnuaireSpider):
-    typeOrganisme = "Représentation permanente auprès d'une organisation internationale"
     fonctions = [
         "Ambassadeur",
         "Ambassadrice",
         "Représentant permanent",
         "Représentante permanente",
     ]
-    grades = ["administrateur de l'État"]
     zone_geographique_type = "organisation internationale"
 
     def getZoneGeographiqueLibelle(self, adresse: dict):
@@ -198,8 +176,8 @@ class Figure10OrganisationsSpider(BaseAnnuaireSpider):
         )
 
 
+# Ambassadeurs et Ambassadrices
 class Figure10Spider(BaseAnnuaireSpider):
-    # Femmes ambassadrices
     name = "figure10"
 
     async def start(self):
