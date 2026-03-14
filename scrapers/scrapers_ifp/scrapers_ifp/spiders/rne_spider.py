@@ -54,21 +54,12 @@ class BaseRneSpider(scrapy.Spider):
         lignes = json_response.get("data", [])
 
         for ligne in lignes:
-            # On vérifie si la ligne passe le filtre de la classe enfant
-            if self.is_row_valid(ligne):
-                yield ligne
+            yield ligne
 
         # Gestion de la pagination via les liens fournis par l'API
         next_url = json_response.get("links", {}).get("next")
         if next_url:
             yield scrapy.Request(url=next_url, callback=self.parse_api_data)
-
-    def is_row_valid(self, row: dict) -> bool:
-        """
-        Méthode permettant de filtrer les lignes extraites.
-        Renvoie True par défaut. À surcharger dans les sous-classes si nécessaire.
-        """
-        return True
 
 
 # --- SPIDERS SPÉCIFIQUES ---
@@ -105,19 +96,17 @@ class RneMairesPrefecturesSpider(BaseRneSpider):
     other_filters = {"Code de la commune__in": ",".join(prefectures.keys())}
 
 
-# Conseillers départementaux
+# Présidentes de département
 class RneConseillersDepartementauxSpider(BaseRneSpider):
     name = "figure6a"
     resource_filter = "elus-conseillers-departementaux"
+    other_filters = {
+        "Libellé de la fonction__exact": "Président du conseil départemental"
+    }
 
-    def is_row_valid(self, row: dict) -> bool:
-        # On récupère la valeur de la colonne, en prévoyant une chaîne vide par défaut si la clé n'existe pas
-        libelle = row.get("Libellé de la fonction", "")
 
-        # On s'assure que c'est bien une chaîne de caractères et qu'elle commence par "Président"
-        if isinstance(libelle, str) and libelle.startswith(
-            "Président du conseil départemental"
-        ):
-            return True
-
-        return False
+# Présidentes de région
+class RneConseillersRegionauxSpider(BaseRneSpider):
+    name = "figure7a"
+    resource_filter = "elus-conseillers-regionaux"
+    other_filters = {"Libellé de la fonction__exact": "Président du conseil régional"}
