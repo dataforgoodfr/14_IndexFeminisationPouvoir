@@ -105,7 +105,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               className={cn(
                 pathname === item.href
                   ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
-                  : "text-gray-800 hover:bg-black/5 hover:shadow-sm hover:transform hover:translate-x-0.5",
+                  : "text-gray-800 hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
                 "block rounded-md px-3 py-2 text-base font-medium transition-all duration-150 ease-in-out",
               )}
             >
