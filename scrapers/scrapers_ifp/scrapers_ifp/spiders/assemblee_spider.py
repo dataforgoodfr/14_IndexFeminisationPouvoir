@@ -24,14 +24,15 @@ class BaseAssembleeSpider(scrapy.Spider):
     organes: dict[str, str] = {}
     zipFile: zipfile.ZipFile
 
-    def parse(self, response: scrapy.http.response.Response):
+    async def parse(self, response: scrapy.http.response.Response):
         self.zipFile = zipfile.ZipFile(BytesIO(response.body))
         for file in self.zipFile.filelist:
             if not re.match(r"^json/acteur/.*\.json$", file.filename):
                 self.logger.debug(f"Skipping file: {file.filename}")
                 continue
             self.logger.info(f"Parsing file: {file.filename}")
-            yield from self.parse_acteur(file.filename)
+            async for item in self.parse_acteur(file.filename):
+                yield item
 
     def parse_organe(self, id: str):
         if id in self.organes:
@@ -42,7 +43,7 @@ class BaseAssembleeSpider(scrapy.Spider):
         self.organes[id] = parsed.organe.libelle
         return parsed.organe.libelle
 
-    def parse_acteur(self, path: str):
+    async def parse_acteur(self, path: str):
         data = self.zipFile.open(path).read()
         parsed = json.loads(data, object_hook=SimpleNamespace)
         acteur = parsed.acteur
