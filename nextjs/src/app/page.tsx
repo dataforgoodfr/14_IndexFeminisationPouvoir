@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex w-full max-w-6xl flex-col items-center justify-between py-32 px-4  sm:items-start">
-        <div className="flex flex-col gap-8  md:gap-40 md:flex-row ">
-          <div className="flex1">
-            <h1 className="text-4xl/relaxed h">
+      <div className="flex w-full max-w-6xl flex-col items-start justify-between py-32 px-4 lg:items-center">
+        <div className="flex flex-col justify-between gap-8 lg:gap-40 lg:flex-row">
+          <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left ">
+            <h1 className="text-4xl/relaxed h ">
               Le pouvoir, nom masculin&nbsp;: l'index de féminisation du pouvoir
             </h1>
             <div className="mt-4 text-lg">
@@ -20,8 +20,8 @@ export default function Home() {
               Télécharger le rapport complet
             </Link>
           </div>
-          <div className="flex1">
-            <div className="w-125 h-75 bg-gray-500 flex items-center justify-center text-white">
+          <div className="flex-1 flex justify-center">
+            <div className="h-full w-full min-h-64 bg-gray-500 flex items-center justify-center text-white">
               Placeholder
             </div>
           </div>
