@@ -1,8 +1,10 @@
+import io
 import json
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+import zipfile
 
 import pytest
 from scrapy.http import HtmlResponse, Request
@@ -11,6 +13,7 @@ from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
 # Import de votre spider. Adaptez le chemin selon l'arborescence de votre projet.
 # Par exemple : from scrapers_ifp.spiders.figure2c_spider import Figure2cSpider
 from scrapers.scrapers_ifp.scrapers_ifp.spiders.figure2c_spider import Figure2cSpider
+from scrapers.scrapers_ifp.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
 
 # On définit les chemins
 TEST_DIR = Path(__file__).parent
@@ -43,9 +46,9 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
         resultats.append(item)
 
         # 5. Les vérifications (Assertions)
-        assert (
-            len(resultats) > 0
-        ), "Le spider n'a extrait aucune donnée ou requête de la page."
+        assert len(resultats) > 0, (
+            "Le spider n'a extrait aucune donnée ou requête de la page."
+        )
 
         yael_trouvee = False
 
@@ -109,9 +112,9 @@ def test_spider_figure2c_live_e2e():
             cwd=scrapy_project_dir,  # <--- On passe le dossier exact qui contient scrapy.cfg
         )
 
-        assert (
-            resultat_commande.returncode == 0
-        ), f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
+        assert resultat_commande.returncode == 0, (
+            f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
+        )
 
         donnees_extraites = []
         with open(fichier_resultat, "r", encoding="utf-8") as f:
@@ -120,9 +123,9 @@ def test_spider_figure2c_live_e2e():
                     donnees_extraites.append(json.loads(ligne))
 
         # Les Assertions
-        assert (
-            len(donnees_extraites) >= 10
-        ), f"Seulement {len(donnees_extraites)} personnes trouvées."
+        assert len(donnees_extraites) >= 10, (
+            f"Seulement {len(donnees_extraites)} personnes trouvées."
+        )
 
         yael_trouvee = any(
             p.get("personne_nom") == "Braun-Pivet"
@@ -140,3 +143,53 @@ def test_spider_figure2c_live_e2e():
 
     finally:
         Path(fichier_resultat).unlink(missing_ok=True)
+
+
+def loadZip(name: str):
+    figure_2b_dir = DATA_DIR / name
+    zip_buffer = io.BytesIO()
+    with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zf:
+        for file_path in sorted(figure_2b_dir.rglob("*")):
+            if file_path.is_file():
+                arcname = file_path.relative_to(figure_2b_dir)
+                zf.write(file_path, arcname)
+    zip_buffer.seek(0)
+
+    return zip_buffer.read()
+
+
+@pytest.mark.asyncio
+async def test_spider_figure2b():
+    spider = Figure2bSpider()
+
+    # 1. On génère un fichier zip en mémoire à partir du dossier de test "figure_2b" qui contient les fichiers JSON d'exemple.
+    content_zip = loadZip("assemblee_nationale")
+
+    # 2. On simule la réponse de Scrapy
+    request = Request(url="https://data.assemblee-nationale.fr/dummy-url.zip")
+    response = HtmlResponse(
+        url=request.url, request=request, body=content_zip, encoding="utf-8"
+    )
+
+    # 3. On exécute le spider
+    resultats = list(spider.parse(response))
+    result_dump = resultats[0].model_dump()
+
+    # 4. On vérifie les résultats extraits
+    expected = Personne(
+        personne_raw_text="M. Alexandre Portier",
+        groupe_politique_libelle="Droite Républicaine",
+        poste_libelle="Commission des affaires culturelles et de l'éducation",
+        zone_geographique_libelle="Auvergne-Rhône-Alpes - Rhône (69) - 09",
+        zone_geographique_type="circonscription",
+    )
+
+    assert len(resultats) == 1, (
+        f"Le spider a extrait {len(resultats)} personnes au lieu de 1."
+    )
+    assert isinstance(resultats[0], Personne), (
+        f"Le spider a extrait un objet de type {type(resultats[0])} au lieu de Personne."
+    )
+
+    expected_dump = expected.model_dump()
+    assert result_dump == expected_dump, "Résultat incorrect."

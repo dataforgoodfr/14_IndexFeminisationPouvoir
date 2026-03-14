@@ -1,0 +1,29 @@
+{
+  "organe": {
+    "@xmlns": "http://schemas.assemblee-nationale.fr/referentiel",
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:type": "GroupePolitique_type",
+    "uid": "PO845425",
+    "codeType": "GP",
+    "libelle": "Droite R\u00e9publicaine",
+    "libelleEdition": "du groupe Droite R\u00e9publicaine",
+    "libelleAbrege": "DR",
+    "libelleAbrev": "DR",
+    "viMoDe": {
+      "dateDebut": "2024-07-18",
+      "dateAgrement": null,
+      "dateFin": null
+    },
+    "organeParent": null,
+    "chambre": null,
+    "regime": "5\u00e8me R\u00e9publique",
+    "legislature": "17",
+    "secretariat": {
+      "secretaire01": null,
+      "secretaire02": null
+    },
+    "positionPolitique": null,
+    "preseance": "5",
+    "couleurAssociee": "#8CB0DC"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "organe": {
+        "@xmlns": "http://schemas.assemblee-nationale.fr/referentiel",
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "@xsi:type": "OrganeParlementaire_Type",
+        "uid": "PO419604",
+        "codeType": "COMPER",
+        "libelle": "Commission des affaires culturelles et de l'\u00e9ducation",
+        "libelleEdition": "de la commission des affaires culturelles et de l'\u00e9ducation",
+        "libelleAbrege": "Affaires culturelles et \u00e9ducation",
+        "libelleAbrev": "CION-CEDU",
+        "viMoDe": {
+            "dateDebut": "2009-06-25",
+            "dateAgrement": null,
+            "dateFin": null
+        },
+        "organeParent": null,
+        "chambre": null,
+        "regime": "5\u00e8me R\u00e9publique",
+        "legislature": null,
+        "secretariat": {
+            "secretaire01": "Mme Alexandra Feuillade",
+            "secretaire02": null
+        }
+    }
+}
