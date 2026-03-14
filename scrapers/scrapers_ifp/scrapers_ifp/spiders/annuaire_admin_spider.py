@@ -84,9 +84,9 @@ class BaseAnnuaireSpider(scrapy.Spider):
         return ""
 
 
-# Directeurs et Directrices de cabinet des mairies des préfectures en France
-class Figure5cSpider(BaseAnnuaireSpider):
-    name = "figure5c"
+# Directrices de cabinet d'un président-e de départemen
+class Figure6bSpider(BaseAnnuaireSpider):
+    name = "figure6b"
 
     typeOrganisme = "Préfecture, sous-préfecture"
     fonctions = ["Directeur de cabinet", "Directrice de cabinet"]
