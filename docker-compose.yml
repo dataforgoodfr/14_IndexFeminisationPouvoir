@@ -19,8 +19,8 @@ services:
     container_name: scrapers
     #    depends_on:
     #      - postgres
-    env_file:
-      - .env
+#    env_file:
+#      - .env
     volumes:
       - ./scrapers:/app/scrapers
     command: sleep infinity
