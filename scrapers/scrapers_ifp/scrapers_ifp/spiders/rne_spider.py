@@ -1,5 +1,8 @@
+from urllib.parse import urlencode
 import scrapy
 from scrapy.http import TextResponse
+
+from ..static_data import prefectures
 
 
 class BaseRneSpider(scrapy.Spider):
@@ -14,6 +17,9 @@ class BaseRneSpider(scrapy.Spider):
 
     # Filtre de sélection de la ressource nécessaire définie dans la classe fille
     resource_filter: str = ""
+
+    # Filtres spécifiques à la ressource. À définir dans les classes filles si nécessaire
+    other_filters: dict = {}
 
     custom_settings = {
         "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -33,7 +39,10 @@ class BaseRneSpider(scrapy.Spider):
 
         if resource_id:
             self.logger.info(f"🎯 [{self.name}] ID trouvé : {resource_id}")
-            api_url = f"https://tabular-api.data.gouv.fr/api/resources/{resource_id}/data/?page_size=200"
+            params = self.other_filters.copy()
+            params["page_size"] = 200
+            api_url = f"https://tabular-api.data.gouv.fr/api/resources/{resource_id}/data/?{urlencode(params)}"
+
             yield scrapy.Request(url=api_url, callback=self.parse_api_data)
         else:
             self.logger.error(
@@ -87,6 +96,13 @@ class RneElusParlementEuropeenSpider(BaseRneSpider):
 class RneMairesSpider(BaseRneSpider):
     name = "figure5a"
     resource_filter = "elus-maires-mai"
+
+
+# Maire de préfecture
+class RneMairesPrefecturesSpider(BaseRneSpider):
+    name = "figure5b"
+    resource_filter = "elus-maires-mai"
+    other_filters = {"Code de la commune__in": ",".join(prefectures.keys())}
 
 
 # Conseillers départementaux
