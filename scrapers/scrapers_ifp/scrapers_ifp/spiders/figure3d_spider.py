@@ -58,4 +58,5 @@ class Figure3dSpider(scrapy.Spider):
                 personne_nom=nom,
                 poste_libelle=groupe,
             )
+            # TODO: voir pourquoi dans le fichier de sortie, le middleware scrapy ne renvoie pas de start_urls
             yield item
