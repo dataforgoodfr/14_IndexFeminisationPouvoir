@@ -116,6 +116,19 @@ class Figure5cSpider(BaseAnnuaireSpider):
         return adresse.get("nom_commune", "")
 
 
+class Figure9Spider(BaseAnnuaireSpider):
+    # Femmes directrices de cabinet des mairies des préfectures en France
+    name = "figure9"
+
+    typeOrganisme = "Préfecture, sous-préfecture"
+    fonctions = ["Préfet", "Préfète"]
+
+    zone_geographique_type = "préfecture"
+
+    def getZoneGeographiqueLibelle(self, adresse: dict):
+        return adresse.get("nom_commune", "")
+
+
 # Figure partielle, voir Figure10Spider
 class Figure10PaysSpider(BaseAnnuaireSpider):
     typeOrganisme = "Ambassade ou mission diplomatique"
