@@ -1,5 +1,8 @@
+from urllib.parse import urlencode
 import scrapy
 from scrapy.http import TextResponse
+
+from ..static_data import prefectures
 
 
 class BaseRneSpider(scrapy.Spider):
@@ -14,6 +17,9 @@ class BaseRneSpider(scrapy.Spider):
 
     # Filtre de sélection de la ressource nécessaire définie dans la classe fille
     resource_filter: str = ""
+
+    # Filtres spécifiques à la ressource. À définir dans les classes filles si nécessaire
+    other_filters: dict = {}
 
     custom_settings = {
         "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -33,7 +39,10 @@ class BaseRneSpider(scrapy.Spider):
 
         if resource_id:
             self.logger.info(f"🎯 [{self.name}] ID trouvé : {resource_id}")
-            api_url = f"https://tabular-api.data.gouv.fr/api/resources/{resource_id}/data/?page_size=200"
+            params = self.other_filters.copy()
+            params["page_size"] = 200
+            api_url = f"https://tabular-api.data.gouv.fr/api/resources/{resource_id}/data/?{urlencode(params)}"
+
             yield scrapy.Request(url=api_url, callback=self.parse_api_data)
         else:
             self.logger.error(
@@ -45,21 +54,12 @@ class BaseRneSpider(scrapy.Spider):
         lignes = json_response.get("data", [])
 
         for ligne in lignes:
-            # On vérifie si la ligne passe le filtre de la classe enfant
-            if self.is_row_valid(ligne):
-                yield ligne
+            yield ligne
 
         # Gestion de la pagination via les liens fournis par l'API
         next_url = json_response.get("links", {}).get("next")
         if next_url:
             yield scrapy.Request(url=next_url, callback=self.parse_api_data)
-
-    def is_row_valid(self, row: dict) -> bool:
-        """
-        Méthode permettant de filtrer les lignes extraites.
-        Renvoie True par défaut. À surcharger dans les sous-classes si nécessaire.
-        """
-        return True
 
 
 # --- SPIDERS SPÉCIFIQUES ---
@@ -89,19 +89,24 @@ class RneMairesSpider(BaseRneSpider):
     resource_filter = "elus-maires-mai"
 
 
-# Conseillers départementaux
+# Maire de préfecture
+class RneMairesPrefecturesSpider(BaseRneSpider):
+    name = "figure5b"
+    resource_filter = "elus-maires-mai"
+    other_filters = {"Code de la commune__in": ",".join(prefectures.keys())}
+
+
+# Présidentes de département
 class RneConseillersDepartementauxSpider(BaseRneSpider):
     name = "figure6a"
     resource_filter = "elus-conseillers-departementaux"
+    other_filters = {
+        "Libellé de la fonction__exact": "Président du conseil départemental"
+    }
 
-    def is_row_valid(self, row: dict) -> bool:
-        # On récupère la valeur de la colonne, en prévoyant une chaîne vide par défaut si la clé n'existe pas
-        libelle = row.get("Libellé de la fonction", "")
 
-        # On s'assure que c'est bien une chaîne de caractères et qu'elle commence par "Président"
-        if isinstance(libelle, str) and libelle.startswith(
-            "Président du conseil départemental"
-        ):
-            return True
-
-        return False
+# Présidentes de région
+class RneConseillersRegionauxSpider(BaseRneSpider):
+    name = "figure7a"
+    resource_filter = "elus-conseillers-regionaux"
+    other_filters = {"Libellé de la fonction__exact": "Président du conseil régional"}

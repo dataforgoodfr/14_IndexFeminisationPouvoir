@@ -3,7 +3,6 @@ import json
 from scrapy.http import TextResponse, Request
 from scrapers.scrapers_ifp.scrapers_ifp.spiders.rne_spider import (
     RneDeputesSpider,
-    RneConseillersDepartementauxSpider,
 )
 
 
@@ -69,17 +68,6 @@ class TestRneSpiders:
         request = await gen.__anext__()
         assert "ID-DEPUTES-123" in request.url
         assert request.callback == spider.parse_api_data
-
-    def test_departmental_filter_logic(self):
-        """Vérifie le filtrage (méthode synchrone)."""
-        spider = RneConseillersDepartementauxSpider()
-        assert (
-            spider.is_row_valid(
-                {"Libellé de la fonction": "Président du conseil départemental"}
-            )
-            is True
-        )
-        assert spider.is_row_valid({"Libellé de la fonction": "Conseiller"}) is False
 
     @pytest.mark.asyncio
     async def test_parse_api_data_content_and_source(self, mock_tabular_data):
