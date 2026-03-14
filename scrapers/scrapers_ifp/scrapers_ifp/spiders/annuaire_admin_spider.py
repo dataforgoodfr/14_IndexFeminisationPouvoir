@@ -8,14 +8,14 @@ from ..models import Personne
 
 # https://api-lannuaire.service-public.fr/explore/dataset/api-lannuaire-administration/api/
 class BaseAnnuaireSpider(scrapy.Spider):
-    typeOrganisme = ""
+    where: str = ""
     fonctions: list[str] = []
     fonctions_exclues: list[str] = []
     zone_geographique_type = ""
 
     current_offset = 0
     params = {
-        "select": "affectation_personne,id,type_organisme,code_insee_commune,url_service_public,adresse",
+        "select": "nom,affectation_personne,id,type_organisme,code_insee_commune,url_service_public,adresse",
         "limit": 100,
     }
     start_urls = [
@@ -24,8 +24,8 @@ class BaseAnnuaireSpider(scrapy.Spider):
 
     def getUrl(self):
         params = self.params.copy()
-        params["where"] = f'type_organisme="{self.typeOrganisme}"'
         params["offset"] = self.current_offset
+        params["where"] = self.where
         return f"{self.start_urls[0]}?{urlencode(params)}"
 
     async def start(self):
@@ -36,8 +36,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
         results = json_response.get("results", [])
         for result in results:
             try:
-                for item in self.parse_personne(result):
-                    yield item
+                yield self.parse_personne(result)
             except Exception as e:
                 self.logger.error(f"Error processing result {result}: {e} ")
                 continue
@@ -53,6 +52,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
     ):
         adresse_list = json.loads(result.get("adresse", "[]") or "[]")
         affectations = json.loads(result.get("affectation_personne", "[]") or "[]")
+        fonctionsTrouvées = []
         for affectation in affectations:
             personne = affectation.get("personne")
             fonction = affectation.get("fonction")
@@ -61,9 +61,10 @@ class BaseAnnuaireSpider(scrapy.Spider):
             civilite = personne.get("civilite")
 
             if not nom and not prenom and not civilite:
-                return False
+                continue
 
             if fonction not in self.fonctions:
+                fonctionsTrouvées.append(fonction)
                 continue
 
             adresse = adresse_list[0] if len(adresse_list) > 0 else {}
@@ -73,14 +74,19 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 personne_prenom=prenom,
                 personne_nom=nom,
                 personne_civilite=civilite,
-                zone_geographique_libelle=self.getZoneGeographiqueLibelle(adresse),
+                zone_geographique_libelle=self.getZoneGeographiqueLibelle(
+                    adresse, result.get("nom", "")
+                ),
                 zone_geographique_type=self.zone_geographique_type,
                 poste_libelle=fonction,
             )
-            yield item.model_dump()
-            break
+            return item.model_dump()
 
-    def getZoneGeographiqueLibelle(self, adresse: dict):
+        self.logger.warning(
+            f"Aucune personne trouvée pour {result.get('nom')} : {set(fonctionsTrouvées)}",
+        )
+
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
         return ""
 
 
@@ -88,7 +94,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
 class Figure6bSpider(BaseAnnuaireSpider):
     name = "figure6b"
 
-    typeOrganisme = "Préfecture, sous-préfecture"
+    where = 'type_organisme="Préfecture, sous-préfecture"'
     fonctions = ["Directeur de cabinet", "Directrice de cabinet"]
 
     zone_geographique_type = "préfecture"
@@ -102,7 +108,7 @@ class Figure6bSpider(BaseAnnuaireSpider):
 class Figure9Spider(BaseAnnuaireSpider):
     name = "figure9"
 
-    typeOrganisme = "Préfecture, sous-préfecture"
+    where = 'type_organisme="Préfecture, sous-préfecture"'
     fonctions = ["Préfet", "Préfète"]
 
     zone_geographique_type = "préfecture"
@@ -114,12 +120,16 @@ class Figure9Spider(BaseAnnuaireSpider):
 
 # Figure partielle, voir Figure10Spider
 class Figure10PaysSpider(BaseAnnuaireSpider):
-    typeOrganisme = "Ambassade ou mission diplomatique"
+    where = 'type_organisme="Ambassade ou mission diplomatique"'
     fonctions = ["Ambassadeur", "Ambassadrice"]
     zone_geographique_type = "pays"
 
     def getZoneGeographiqueLibelle(self, adresse: dict):
         return adresse.get("pays", "")
+
+
+def addQuotes(s: str):
+    return f'"{s}"'
 
 
 # Figure partielle, voir Figure10Spider
@@ -131,49 +141,42 @@ class Figure10OrganisationsSpider(BaseAnnuaireSpider):
         "Représentante permanente",
     ]
     zone_geographique_type = "organisation internationale"
+    organisations = [
+        #  Représentation permanente de la France auprès de l'Organisation des Nations unies - New York
+        "264698f7-fa26-4b11-86e6-18a55aab7f4b",
+        #  Représentation permanente de la France auprès de l'Organisation météorologique mondiale - Genève
+        "3f9197ef-65bc-4d7f-9116-0fa5fdd213aa",
+        #  Délégation permanente de la France auprès de l'Organisation des Nations unies pour l'éducation, la science et la culture - Paris
+        "5a417930-9e04-4b72-9ca1-ac12442d3a99",
+        #  Représentation permanente de la France auprès de l'Organisation de coopération et de développement économiques - Paris
+        "3febdfff-b888-4764-bae2-be79058a11ab",
+        #  Représentation permanente de la France auprès de l'Office des Nations unies et des Organisations internationales - Vienne
+        "7e983ada-c4ac-4d95-a45c-0a05b5c6a470",
+        #  Représentation permanente de la France auprès de l'Organisation maritime internationale (OMI) - Londres
+        "9b85d991-86b9-410f-bb8b-23f2c69b02cb",
+        #  Représentation permanente de la France auprès du Conseil de l'Europe - Strasbourg
+        "5994a151-7a35-4f77-95da-ba8ed17394af",
+        #  Représentation permanente de la France auprès de l'Organisation pour l'interdiction des armes chimiques (OIAC) - La Haye
+        "eb87d261-f431-49f6-bfb9-5b86c2b8b3e6",
+        #  Représentation permanente de la France auprès de l'Organisation des Nations unies - Nairobi
+        "2d56fbc6-a2d2-4e1f-b37b-5221ee2e16d9",
+        #  Représentation permanente de la France auprès de l'Organisation de l'aviation civile internationale (OACI) - Montréal
+        "86400472-30a4-47c0-9964-5e65be480150",
+        #  Représentation de la France auprès de la Communauté du Pacifique - Nouméa
+        "fc0c04ba-ff00-4929-95c0-2deae123a1b6",
+        #  Représentation permanente de la France auprès de l'Organisation pour la sécurité et la coopération en Europe - Vienne
+        "0b920c1b-6128-4c98-a5b4-1fb9a3d9204e",
+        # Représentation permanente de la France auprès de la Conférence du désarmement - Genève
+        "b519d1a0-2bfe-45e1-a363-51cfe4fbf2a4",
+        # Représentation permanente de la France auprès de l'Office des Nations unies - Genève
+        "48bafbe1-3db1-4a78-9c14-6ea0d3269b9d",
+        # Représentation permanente de la France auprès des institutions des Nations unies pour l'alimentation et l'agriculture - Rome
+        "4e6af2c0-863e-4b47-b033-075bbbc62398",
+    ]
+    where = f"id in ({','.join(map(addQuotes, organisations))})"
 
     def getZoneGeographiqueLibelle(self, adresse: dict):
         return adresse.get("pays", "")
-
-    async def start(self):
-        params = self.params.copy()
-        organisations = [
-            #  Représentation permanente de la France auprès de l'Organisation des Nations unies - New York
-            '"264698f7-fa26-4b11-86e6-18a55aab7f4b"',
-            #  Représentation permanente de la France auprès de l'Organisation météorologique mondiale - Genève
-            '"3f9197ef-65bc-4d7f-9116-0fa5fdd213aa"',
-            #  Délégation permanente de la France auprès de l'Organisation des Nations unies pour l'éducation, la science et la culture - Paris
-            '"5a417930-9e04-4b72-9ca1-ac12442d3a99"',
-            #  Représentation permanente de la France auprès de l'Organisation de coopération et de développement économiques - Paris
-            '"3febdfff-b888-4764-bae2-be79058a11ab"',
-            #  Représentation permanente de la France auprès de l'Office des Nations unies et des Organisations internationales - Vienne
-            '"7e983ada-c4ac-4d95-a45c-0a05b5c6a470"',
-            #  Représentation permanente de la France auprès de l'Organisation maritime internationale (OMI) - Londres
-            '"9b85d991-86b9-410f-bb8b-23f2c69b02cb"',
-            #  Représentation permanente de la France auprès du Conseil de l'Europe - Strasbourg
-            '"5994a151-7a35-4f77-95da-ba8ed17394af"',
-            #  Représentation permanente de la France auprès de l'Organisation pour l'interdiction des armes chimiques (OIAC) - La Haye
-            '"eb87d261-f431-49f6-bfb9-5b86c2b8b3e6"',
-            #  Représentation permanente de la France auprès de l'Organisation des Nations unies - Nairobi
-            '"2d56fbc6-a2d2-4e1f-b37b-5221ee2e16d9"',
-            #  Représentation permanente de la France auprès de l'Organisation de l'aviation civile internationale (OACI) - Montréal
-            '"86400472-30a4-47c0-9964-5e65be480150"',
-            #  Représentation de la France auprès de la Communauté du Pacifique - Nouméa
-            '"fc0c04ba-ff00-4929-95c0-2deae123a1b6"',
-            #  Représentation permanente de la France auprès de l'Organisation pour la sécurité et la coopération en Europe - Vienne
-            '"0b920c1b-6128-4c98-a5b4-1fb9a3d9204e"',
-            # Représentation permanente de la France auprès de la Conférence du désarmement - Genève
-            '"b519d1a0-2bfe-45e1-a363-51cfe4fbf2a4"',
-            # Représentation permanente de la France auprès de l'Office des Nations unies - Genève
-            '"48bafbe1-3db1-4a78-9c14-6ea0d3269b9d"',
-            # Représentation permanente de la France auprès des institutions des Nations unies pour l'alimentation et l'agriculture - Rome
-            '"4e6af2c0-863e-4b47-b033-075bbbc62398"',
-        ]
-        params["where"] = f"id in ({','.join(organisations)})"
-        yield scrapy.Request(
-            url=self.start_urls[0] + "?" + urlencode(params),
-            callback=self.parse,
-        )
 
 
 # Ambassadeurs et Ambassadrices
@@ -185,3 +188,47 @@ class Figure10Spider(BaseAnnuaireSpider):
             yield item
         async for item in Figure10OrganisationsSpider(self.name).start():
             yield item
+
+
+# Présidentes d'une haute autorité ou agence
+class Figure11Spider(BaseAnnuaireSpider):
+    name = "figure11"
+    # on choisit d'ignorer les fonctions de "Directeur général" et "Directrice générale"
+    # qui donnent des résultats moins précis
+    fonctions = [
+        "Président",
+        "Présidente",
+        "Président du conseil d'administration",
+        "Présidente du conseil d'administration",
+        "Président du collège",
+        "Présidente du collège",
+        "Président de l'ARCEP",
+        "Présidente de l'ARCEP",
+        "Gouverneur de la Banque de France",
+        "Gouverneure de la Banque de France",
+        "Médiateur national de l'énergie",
+        "Médiatrice nationale de l'énergie",
+        "Contrôleur général des lieux de privation de liberté",
+        "Contrôleure générale des lieux de privation de liberté",
+        "Défenseur des droits",
+        "Défenseure des droits",
+    ]
+
+    types_organismes = [
+        "Autorité publique indépendante",
+        "Autorité administrative indépendante",
+        "Haute autorité",
+        "Agence publique",
+    ]
+
+    noms_organismes = [
+        "Banque de France",
+        "Agence française de développement",
+    ]
+
+    where = f"type_organisme in ({','.join(map(addQuotes, types_organismes))}) or nom in ({','.join(map(addQuotes, noms_organismes))})"
+
+    zone_geographique_type = "haute autorité ou agence"
+
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
+        return nom_organisme
