@@ -2,11 +2,15 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'ifp'
+name: 'dbt_ifp'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'ifp'
+
+flags:
+  send_anonymous_usage_stats: false
+  use_colors: true
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
