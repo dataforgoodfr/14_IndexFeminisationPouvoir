@@ -6,7 +6,7 @@ name: 'dbt_ifp'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'ifp'
+profile: 'dbt_ifp'
 
 flags:
   send_anonymous_usage_stats: false
