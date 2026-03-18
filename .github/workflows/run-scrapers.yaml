@@ -17,15 +17,16 @@ jobs:
         run: docker compose build scrapers
 
       - name: Lancer les scrapers
-        # Exécute la commande de lancement à l'intérieur du conteneur
-        # TODO: pour l'instant on utilise une commande bash, mais on devrait utiliser un script Python ultérieurement
-        # pour lancer les scrapers en parallèle.
+        env:
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_REGION: ${{ vars.S3_REGION }}
+          S3_ENDPOINT_URL: ${{ vars.S3_ENDPOINT_URL }}
+          S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
         run: |
-          mkdir -p scrapers/scrapers_ifp/data
-          docker compose run --rm -w /app/scrapers/scrapers_ifp scrapers\
-                      bash -c "uv run scrapy list \
-                      | xargs -I {} uv run scrapy crawl {} \
-                      -o data/{}_$(date +%Y%m%d_%H%M%S).csv"
+          docker compose run --rm -w /app/scrapers/scrapers_ifp \
+          -e PYTHONPATH=/app scrapers uv run python run_spiders.py \
+          --storage both --all-spiders
 
       - name: Sauvegarder les fichiers dans les Artefacts
         uses: actions/upload-artifact@v6

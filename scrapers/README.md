@@ -116,6 +116,10 @@ Dans le répertoire `14_IndexFeminisationPouvoir/scrapers/scrapers_ifp`, lancer 
 
 `uv run scrapy crawl -O ./data/raw/figure2c.csv figure2c`
 
+## Lancer tous les scapers avec Docker
+
+Utiliser la commande : `docker compose run --rm -w /app/scrapers/scrapers_ifp -e PYTHONPATH=/app scrapers uv run python run_spiders.py --storage local`
+
 ## Il y a aussi des tests automatiques `pytest`
 
 Vous pouvez les lancer par
