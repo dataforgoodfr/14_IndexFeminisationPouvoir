@@ -2,19 +2,14 @@ import os
 import logging
 from datetime import datetime
 from scrapy.utils.project import get_project_settings
-from scrapy.crawler import CrawlerProcess
+from scrapy.crawler import AsyncCrawlerProcess
 from scrapy.spiderloader import SpiderLoader
 from scrapy.utils.log import configure_logging
 
 
 def run_all():
-    os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "scrapers_ifp.settings")
+    # os.environ.setdefault("SCRAPY_SETTINGS_MODULE", "scrapers_ifp.settings")
     settings = get_project_settings()
-
-    # Forcer le reactor pour Playwright
-    settings.set(
-        "TWISTED_REACTOR", "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-    )
 
     configure_logging(settings)
     logger = logging.getLogger(__name__)
@@ -27,7 +22,8 @@ def run_all():
 
     spider_loader = SpiderLoader.from_settings(settings)
     spiders = spider_loader.list()
-    process = CrawlerProcess(settings)
+    # spiders = ["figure2c"]
+    process = AsyncCrawlerProcess(settings)
 
     for spider_name in spiders:
         output_file = os.path.abspath(
