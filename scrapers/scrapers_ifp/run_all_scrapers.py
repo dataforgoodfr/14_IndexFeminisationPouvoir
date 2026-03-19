@@ -15,7 +15,14 @@ from scrapy.utils.log import configure_logging
 
 def parse_arguments():
     """
-    Gère les arguments de la ligne de commande et valide l'environnement.
+    Parses command-line arguments and validates the configuration for exporting
+    data either locally, to S3, or to both destinations.
+
+    Raises an error if the target includes 's3' or 'both' and any required
+    environment variables specific to S3 are missing.
+
+    Returns:
+        An argparse.Namespace object containing the parsed arguments.
     """
 
     parser = argparse.ArgumentParser(description="Orchestrateur de scrapers IFP.")
