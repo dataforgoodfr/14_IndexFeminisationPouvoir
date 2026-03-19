@@ -2,12 +2,52 @@
 Lance tous les spiders du projet avec sauvegarde des fichiers CSV dans le dossier data
 TODO: exporter les sorties dans S3, configurer le logging et refactorer la production des settings
 """
+import argparse
+import sys
+from dotenv import load_dotenv
 import os
 import logging
 from scrapy.utils.project import get_project_settings
 from scrapy.crawler import AsyncCrawlerProcess
 from scrapy.spiderloader import SpiderLoader
 from scrapy.utils.log import configure_logging
+
+
+def parse_arguments():
+    """
+    Gère les arguments de la ligne de commande et valide l'environnement.
+    """
+
+    parser = argparse.ArgumentParser(description="Orchestrateur de scrapers IFP.")
+    parser.add_argument(
+        "--target",
+        choices=["local", "s3", "both"],
+        default="local",
+        help="Destination des exports (default: local)",
+    )
+
+    args = parser.parse_args()
+
+    # Validation de sécurité pour S3
+    if args.target in ["s3", "both"]:
+        load_dotenv()
+        required_keys = [
+            "S3_ACCESS_KEY",
+            "S3_SECRET_ACCESS_KEY",
+            "S3_REGION",
+            "S3_ENDPOINT_URL",
+            "S3_BUCKET_NAME",
+        ]
+        missing = [key for key in required_keys if not os.getenv(key)]
+
+        if missing:
+            print(
+                f"ERREUR : Cible '{args.target}' choisie, mais variables manquantes : {', '.join(missing)}"
+            )
+            print("Vérifiez votre fichier .env ou vos secrets GitHub.")
+            sys.exit(1)  # Arrêt propre du script
+
+    return args
 
 
 def run_all():
@@ -41,7 +81,6 @@ def run_all():
             "FEEDS": {
                 f"file://{data_dir}/%(name)s_%(time)s.csv": {
                     "format": "csv",
-                    "encoding": "utf8",
                 }
             }
         }
@@ -54,9 +93,7 @@ def run_all():
         # 5. On réaffecte le dictionnaire complet à la classe
         spider_cls.custom_settings = updated_settings
 
-        logger.info(
-            f"📍 Configuration fusionnée pour {spider_name} (Playwright préservé)"
-        )
+        logger.info(f"Configuration fusionnée pour {spider_name} (Playwright préservé)")
         process.crawl(spider_cls)
 
     logger.info("🚀 Démarrage du processus Scrapy...")
