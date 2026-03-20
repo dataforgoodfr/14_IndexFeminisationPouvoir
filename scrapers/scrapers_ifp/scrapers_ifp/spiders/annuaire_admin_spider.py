@@ -226,7 +226,23 @@ class Figure11Spider(BaseAnnuaireSpider):
         "Agence française de développement",
     ]
 
-    where = f"type_organisme in ({','.join(map(addQuotes, types_organismes))}) or nom in ({','.join(map(addQuotes, noms_organismes))})"
+    exclure_organismes = [
+        "Arcom - Lille",
+        "Arcom - Lyon",
+        "Arcom - Nouvelle-Calédonie et Wallis-et-Futuna",
+        "Arcom - Paris",
+        "Commissions spécialisées",
+        "Collège de l'Autorité de régulation de la communication audiovisuelle et numérique",
+        "Collège de la commission de régulation de l'énergie",
+    ]
+
+    where = (
+        f"("
+        f"type_organisme in ({','.join(map(addQuotes, types_organismes))}) "
+        f"or nom in ({','.join(map(addQuotes, noms_organismes))})"
+        f") "
+        f"and NOT (nom in ({','.join(map(addQuotes, exclure_organismes))}))"
+    )
 
     zone_geographique_type = "haute autorité ou agence"
 
