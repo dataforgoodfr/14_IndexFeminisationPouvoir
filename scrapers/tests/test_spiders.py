@@ -158,8 +158,7 @@ def loadZip(name: str):
     return zip_buffer.read()
 
 
-@pytest.mark.asyncio
-async def test_spider_figure2b():
+def test_spider_figure2b():
     spider = Figure2bSpider()
 
     # 1. On génère un fichier zip en mémoire à partir du dossier de test "figure_2b" qui contient les fichiers JSON d'exemple.
@@ -172,7 +171,8 @@ async def test_spider_figure2b():
     )
 
     # 3. On exécute le spider
-    resultats = list(spider.parse(response))
+    resultats = list(spider.parse(response))        
+
     result_dump = resultats[0].model_dump()
 
     # 4. On vérifie les résultats extraits

@@ -38,13 +38,13 @@ class BaseAssembleeSpider(scrapy.Spider):
             return self.organes[id]
 
         data = self.zipFile.open(f"json/organe/{id}.json").read()
-        parsed = json.loads(data, object_hook=SimpleNamespace)
+        parsed = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
         self.organes[id] = parsed.organe.libelle
         return parsed.organe.libelle
 
     def parse_acteur(self, path: str):
         data = self.zipFile.open(path).read()
-        parsed = json.loads(data, object_hook=SimpleNamespace)
+        parsed = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
         acteur = parsed.acteur
 
         civilite = acteur.etatCivil.ident.civ
@@ -103,7 +103,6 @@ class Figure2bSpider(BaseAssembleeSpider):
     # COMPER = Commission Permanente
     typeOrgane = "COMPER"
     qualites = ["Président"]
-
 
 # TODO doublon avec figure2b, mais sans scrapping html
 class Figure2cbisSpider(BaseAssembleeSpider):
