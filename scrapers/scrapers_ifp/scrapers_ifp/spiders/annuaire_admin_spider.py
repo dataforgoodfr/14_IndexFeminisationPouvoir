@@ -4,6 +4,7 @@ import scrapy
 from scrapy.http import TextResponse
 
 from ..models import Personne
+from ..static_data import prefectures
 
 
 def addQuotes(s: str):
@@ -57,7 +58,6 @@ class BaseAnnuaireSpider(scrapy.Spider):
         self,
         result: dict,
     ):
-        adresse_list = json.loads(result.get("adresse", "[]") or "[]")
         affectations = json.loads(result.get("affectation_personne", "[]") or "[]")
         fonctionsTrouvées = []
         for affectation in affectations:
@@ -74,16 +74,13 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 fonctionsTrouvées.append(fonction)
                 continue
 
-            adresse = adresse_list[0] if len(adresse_list) > 0 else {}
             item = Personne(
                 personne_raw_text=f"{civilite} {prenom} {nom}",
                 personne_nom_complet=f"{civilite} {prenom} {nom}",
                 personne_prenom=prenom,
                 personne_nom=nom,
                 personne_civilite=civilite,
-                zone_geographique_libelle=self.getZoneGeographiqueLibelle(
-                    adresse, result.get("nom", "")
-                ),
+                zone_geographique_libelle=self.getZoneGeographiqueLibelle(result),
                 zone_geographique_type=self.zone_geographique_type,
                 poste_libelle=fonction,
             )
@@ -95,8 +92,13 @@ class BaseAnnuaireSpider(scrapy.Spider):
             f"Aucune personne trouvée pour {result.get('nom')} : {set(fonctionsTrouvées)}",
         )
 
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
+    def getZoneGeographiqueLibelle(self, result: dict):
         return ""
+
+    def getAddresse(self, result: dict):
+        adresse_list = json.loads(result.get("adresse", "[]") or "[]")
+        adresse = adresse_list[0] if len(adresse_list) > 0 else {}
+        return adresse
 
     def matchFonction(self, fonction: str, nom_organisme: str):
         return fonction in self.fonctions
@@ -160,8 +162,8 @@ class Figure1eSpider(BaseAnnuaireSpider):
     ]
     where = 'nom="Gouvernement (Premier ministre et ministères)"'
 
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return nom_organisme
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return result.get("nom", "")
 
     def parse(self, response: TextResponse):
         json_response = response.json()
@@ -218,9 +220,8 @@ class Figure6bSpider(BaseAnnuaireSpider):
 
     zone_geographique_type = "préfecture"
 
-    # TODO à matcher au nom du département
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return adresse.get("nom_commune", "")
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return prefectures.get(result.get("code_insee_commune", ""), "")
 
 
 # Directrices de cabinet d'un.e président-e de région
@@ -248,10 +249,11 @@ class Figure7bSpider(BaseAnnuaireSpider):
 
     zone_geographique_type = "région"
 
-    # TODO à matcher au nom du département
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return nom_organisme.replace("Conseil régional - ", "").replace(
-            "Collectivité de Corse", "Corse"
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return (
+            result.get("nom", "")
+            .replace("Conseil régional - ", "")
+            .replace("Collectivité de Corse", "Corse")
         )
 
 
@@ -272,8 +274,8 @@ class Figure8Spider(BaseAnnuaireSpider):
 
     zone_geographique_type = "haute juridiction"
 
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return nom_organisme
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return result.get("nom", "")
 
     def matchFonction(self, fonction: str, nom_organisme: str):
         if nom_organisme not in self.organismes:
@@ -293,9 +295,8 @@ class Figure9Spider(BaseAnnuaireSpider):
 
     zone_geographique_type = "préfecture"
 
-    # TODO à matcher au nom du département
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return adresse.get("nom_commune", "")
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return prefectures.get(result.get("code_insee_commune", ""), "")
 
 
 # Figure partielle, voir Figure10Spider
@@ -304,8 +305,8 @@ class Figure10PaysSpider(BaseAnnuaireSpider):
     fonctions = ["Ambassadeur", "Ambassadrice"]
     zone_geographique_type = "pays"
 
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return adresse.get("pays", "")
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return self.getAddresse(result).get("pays", "")
 
 
 # Figure partielle, voir Figure10Spider
@@ -351,8 +352,8 @@ class Figure10OrganisationsSpider(BaseAnnuaireSpider):
     ]
     where = f"id in ({','.join(map(addQuotes, organisations))})"
 
-    def getZoneGeographiqueLibelle(self, adresse: dict):
-        return adresse.get("pays", "")
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return self.getAddresse(result).get("pays", "")
 
 
 # Ambassadeurs et Ambassadrices
@@ -422,5 +423,5 @@ class Figure11Spider(BaseAnnuaireSpider):
 
     zone_geographique_type = "haute autorité ou agence"
 
-    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return nom_organisme
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return result.get("nom", "")
