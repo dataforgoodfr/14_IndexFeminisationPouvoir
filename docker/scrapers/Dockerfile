@@ -1,5 +1,5 @@
-# On utilise Python 3.12 pour éviter les packages non encore compatibles avec Python 3.14
-FROM python:3.12-slim
+# On utilise Python 3.13 pour éviter les packages non encore compatibles avec Python 3.14
+FROM python:3.13-slim
 
 # On installe uv directement dans l'image système
 RUN pip install uv
