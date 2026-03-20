@@ -100,7 +100,7 @@ class Figure6bSpider(BaseAnnuaireSpider):
     zone_geographique_type = "préfecture"
 
     # TODO à matcher au nom du département
-    def getZoneGeographiqueLibelle(self, adresse: dict):
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
         return adresse.get("nom_commune", "")
 
 
@@ -114,7 +114,7 @@ class Figure9Spider(BaseAnnuaireSpider):
     zone_geographique_type = "préfecture"
 
     # TODO à matcher au nom du département
-    def getZoneGeographiqueLibelle(self, adresse: dict):
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
         return adresse.get("nom_commune", "")
 
 
@@ -124,7 +124,7 @@ class Figure10PaysSpider(BaseAnnuaireSpider):
     fonctions = ["Ambassadeur", "Ambassadrice"]
     zone_geographique_type = "pays"
 
-    def getZoneGeographiqueLibelle(self, adresse: dict):
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
         return adresse.get("pays", "")
 
 
