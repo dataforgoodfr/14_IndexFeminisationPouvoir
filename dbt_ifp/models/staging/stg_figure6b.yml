@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_figure6b
+    description: >
+      Pourcentage de femmes directrices de cabinet d'un président-e de département en 2025
+    columns:
+      - name: personne_raw_text
+        description: Nom Prénom du directeur de cabinet avec civilité
+        type: STRING
+        data_tests:
+          - not_null
+      - name: personne_nom_complet
+        description: Nom Prénom du directeur de cabinet sans civilité
+        type: STRING
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: STRING
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Mme', 'M.']
+      - name: personne_prenom
+        description: Prénom du directeur de cabinet
+        type: STRING
+      - name: personne_nom
+        description: Nom du directeur de cabinet
+        type: STRING
+      - name: personne_genre
+        description: F or M
+        type: STRING
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['F', 'M']
+      - name: groupe_politique_libelle
+        description: Libellé du groupe politique de la personne
+        type: STRING
+      - name: poste_libelle
+        description: Directrice de cabinet ou Directeur de cabinet
+        tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Directrice de cabinet', 'Directeur de cabinet']        
+        type: STRING
+      - name: zone_geographique_libelle
+        description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
+        type: STRING
+        data_tests:
+          - not_null   
+      - name: zone_geographique_type
+        description: toujours "préfecture"
+        type: STRING
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['préfecture']    
+      - name: source_url
+        description: URL de provenance de la données
+        type: STRING
