@@ -43,9 +43,9 @@ async def test_spider_figure2c_extrait_yael_braun_pivet():
         resultats.append(item)
 
         # 5. Les vérifications (Assertions)
-        assert len(resultats) > 0, (
-            "Le spider n'a extrait aucune donnée ou requête de la page."
-        )
+        assert (
+            len(resultats) > 0
+        ), "Le spider n'a extrait aucune donnée ou requête de la page."
 
         yael_trouvee = False
 
@@ -109,9 +109,9 @@ def test_spider_figure2c_live_e2e():
             cwd=scrapy_project_dir,  # <--- On passe le dossier exact qui contient scrapy.cfg
         )
 
-        assert resultat_commande.returncode == 0, (
-            f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
-        )
+        assert (
+            resultat_commande.returncode == 0
+        ), f"Le spider a crashé.\nSTDOUT: {resultat_commande.stdout}\nSTDERR: {resultat_commande.stderr}"
 
         donnees_extraites = []
         with open(fichier_resultat, "r", encoding="utf-8") as f:
@@ -120,9 +120,9 @@ def test_spider_figure2c_live_e2e():
                     donnees_extraites.append(json.loads(ligne))
 
         # Les Assertions
-        assert len(donnees_extraites) >= 10, (
-            f"Seulement {len(donnees_extraites)} personnes trouvées."
-        )
+        assert (
+            len(donnees_extraites) >= 10
+        ), f"Seulement {len(donnees_extraites)} personnes trouvées."
 
         yael_trouvee = any(
             p.get("personne_nom") == "Braun-Pivet"
@@ -140,6 +140,3 @@ def test_spider_figure2c_live_e2e():
 
     finally:
         Path(fichier_resultat).unlink(missing_ok=True)
-
-
-# dummy change
