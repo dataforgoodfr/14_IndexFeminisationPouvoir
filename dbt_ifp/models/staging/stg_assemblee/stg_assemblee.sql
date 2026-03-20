@@ -4,7 +4,7 @@ with assemblee as (
 
 renamed as (
     select
-        md5(personne_prenom || personne_nom) as id,
+        md5(personne_prenom || personne_nom || zone_geographique_libelle) as id,
         personne_prenom as prenom_elu,
         personne_nom as nom_elu,
         personne_genre as genre,
