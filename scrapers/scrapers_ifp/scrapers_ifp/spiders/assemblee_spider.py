@@ -104,6 +104,7 @@ class Figure2bSpider(BaseAssembleeSpider):
     typeOrgane = "COMPER"
     qualites = ["Président"]
 
+
 # TODO doublon avec figure2b, mais sans scrapping html
 class Figure2cbisSpider(BaseAssembleeSpider):
     name = "figure2cbis"
