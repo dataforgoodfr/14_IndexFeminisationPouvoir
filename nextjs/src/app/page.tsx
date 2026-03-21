@@ -6,7 +6,7 @@ export default function Home() {
       <div className="flex w-full max-w-6xl flex-col items-start justify-between py-32 px-4 lg:items-center">
         <div className="flex flex-col justify-between gap-8 lg:gap-40 lg:flex-row">
           <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left ">
-            <h1 className="text-4xl/relaxed h ">
+            <h1 className="text-4xl/relaxed h font-tstar">
               Le pouvoir, nom masculin&nbsp;: l'index de féminisation du pouvoir
             </h1>
             <div className="mt-4 text-lg">
@@ -15,7 +15,7 @@ export default function Home() {
             </div>
             <Link
               href="/rapport"
-              className="mt-4 w-xs h-10 flex items-center justify-center bg-black text-background"
+              className="mt-4 w-xs h-10 flex items-center justify-center bg-black text-background font-headline"
             >
               Télécharger le rapport complet
             </Link>
