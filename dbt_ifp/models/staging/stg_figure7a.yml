@@ -6,19 +6,19 @@ models:
     columns:
       - name: id
         description: Identifiant
-        type: VARCHAR
+        type: TEXT
       - name: code_region
         description: "Code de la région"
-        type: VARCHAR
+        type: TEXT
       - name: libelle_region
         description: "Libellé de la région"
         type: TEXT
       - name: code_dep
         description: "Code de la section départementale"
-        type: VARCHAR
+        type: TEXT
       - name: libelle_dep
         description: "Libellé de la section départementale"
-        type: VARCHAR
+        type: TEXT
       - name: nom_elu
         description: "Nom de l'élu"
         type: TEXT
