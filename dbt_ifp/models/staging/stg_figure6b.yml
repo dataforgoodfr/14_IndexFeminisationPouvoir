@@ -7,15 +7,15 @@ models:
     columns:
       - name: personne_raw_text
         description: Nom Prénom du directeur de cabinet avec civilité
-        type: STRING
+        type: TEXT
         data_tests:
           - not_null
       - name: personne_nom_complet
         description: Nom Prénom du directeur de cabinet sans civilité
-        type: STRING
+        type: TEXT
       - name: personne_civilite
         description: civilité Mme ou M.
-        type: STRING
+        type: TEXT
         data_tests:
           - not_null
           - accepted_values:
@@ -23,13 +23,13 @@ models:
                 values: ['Mme', 'M.']
       - name: personne_prenom
         description: Prénom du directeur de cabinet
-        type: STRING
+        type: TEXT
       - name: personne_nom
         description: Nom du directeur de cabinet
-        type: STRING
+        type: TEXT
       - name: personne_genre
         description: F or M
-        type: STRING
+        type: TEXT
         data_tests:
           - not_null
           - accepted_values:
@@ -37,7 +37,7 @@ models:
                 values: ['F', 'M']
       - name: groupe_politique_libelle
         description: Libellé du groupe politique de la personne
-        type: STRING
+        type: TEXT
       - name: poste_libelle
         description: Directrice de cabinet ou Directeur de cabinet
         tests:
@@ -45,15 +45,15 @@ models:
           - accepted_values:
               arguments: 
                 values: ['Directrice de cabinet', 'Directeur de cabinet']        
-        type: STRING
+        type: TEXT
       - name: zone_geographique_libelle
         description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
-        type: STRING
+        type: TEXT
         data_tests:
           - not_null   
       - name: zone_geographique_type
         description: toujours "préfecture"
-        type: STRING
+        type: TEXT
         data_tests:
           - not_null
           - accepted_values:
@@ -61,4 +61,4 @@ models:
                 values: ['préfecture']    
       - name: source_url
         description: URL de provenance de la données
-        type: STRING
+        type: TEXT
