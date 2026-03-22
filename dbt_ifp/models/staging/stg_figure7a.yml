@@ -53,4 +53,5 @@ models:
         description: 'Date de début de la fonction'
         type: DATE
       - name: source_url
+        description: URL de provenance de la donnée
         type: TEXT
