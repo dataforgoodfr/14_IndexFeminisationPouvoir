@@ -3,6 +3,7 @@ from io import BytesIO
 from types import SimpleNamespace
 import zipfile
 
+import requests
 import scrapy
 import scrapy.http
 import scrapy.http.response
@@ -17,12 +18,38 @@ class BaseAssembleeSpider(scrapy.Spider):
     # Noms des qualités (ou fonctions) à extraire des mandats du député, à définir dans les classes filles
     qualites: list[str] = []
 
-    start_urls = [
-        "https://data.assemblee-nationale.fr/static/openData/repository/17/amo/deputes_actifs_mandats_actifs_organes/AMO10_deputes_actifs_mandats_actifs_organes.json.zip"
-    ]
-
     organes: dict[str, str] = {}
     zipFile: zipfile.ZipFile
+
+    async def start(self):
+        # On utilise Wikidata pour trouver le numéro de l'assemblée en cours, afin de construire l'URL du fichier à télécharger sur le site de l'Assemblée Nationale.
+        # En effet, ce numéro change à chaque législature, et l'API de l'Assemblée Nationale ne permet pas de le récupérer facilement.
+        sparql_query_wikidata = """
+        SELECT ?ordinal WHERE {
+            SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en". }
+
+            ?item wdt:P31 wd:Q15238777 ; # instance of  = legislative term
+                    wdt:P17 wd:Q142 ; # country = france
+                    wdt:P13188 wd:Q193582. # meeting of  = national assembly 
+
+            FILTER NOT EXISTS { ?item wdt:P582 ?endTime . } # end time is not set
+
+            # select the "series ordinal" = # of the assembly
+            ?item p:P31 ?statement .
+            ?statement pq:P1545 ?ordinal .
+        }
+        """
+        params = {"query": sparql_query_wikidata, "format": "json"}
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get(
+            url="https://query.wikidata.org/sparql", params=params, headers=headers
+        )
+        data = response.json()
+        ordinal = data["results"]["bindings"][0]["ordinal"]["value"]
+        yield scrapy.Request(
+            url=f"https://data.assemblee-nationale.fr/static/openData/repository/{ordinal}/amo/deputes_actifs_mandats_actifs_organes/AMO10_deputes_actifs_mandats_actifs_organes.json.zip",
+            callback=self.parse,
+        )
 
     def parse(self, response: scrapy.http.response.Response):
         self.zipFile = zipfile.ZipFile(BytesIO(response.body))
