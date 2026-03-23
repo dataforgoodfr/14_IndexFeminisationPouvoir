@@ -1,0 +1,653 @@
+{
+    "acteur": {
+        "@xmlns": "http://schemas.assemblee-nationale.fr/referentiel",
+        "uid": {
+            "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "@xsi:type": "IdActeur_type",
+            "#text": "PA794994"
+        },
+        "etatCivil": {
+            "ident": {
+                "civ": "M.",
+                "prenom": "Alexandre",
+                "nom": "Portier",
+                "alpha": "Portier",
+                "trigramme": "APO"
+            },
+            "infoNaissance": {
+                "dateNais": "1990-04-21",
+                "villeNais": "La Tronche",
+                "depNais": "Is\u00e8re",
+                "paysNais": "France"
+            },
+            "dateDeces": {
+                "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                "@xsi:nil": "true"
+            }
+        },
+        "profession": {
+            "libelleCourant": "Professeur de philosophie",
+            "socProcINSEE": {
+                "catSocPro": "Cadres administratifs et techniques de la fonction publique",
+                "famSocPro": "Cadres et professions intellectuelles sup\u00e9rieures"
+            }
+        },
+        "uri_hatvp": "https://www.hatvp.fr/pages_nominatives/portier-alexandre-24157",
+        "adresses": {
+            "adresse": [
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdressePostale_Type",
+                    "uid": "AD794996",
+                    "type": "0",
+                    "typeLibelle": "Adresse officielle",
+                    "poids": "1",
+                    "adresseDeRattachement": null,
+                    "intitule": "Assembl\u00e9e nationale,",
+                    "numeroRue": "126",
+                    "nomRue": "Rue de l'Universit\u00e9,",
+                    "complementAdresse": null,
+                    "codePostal": "75355",
+                    "ville": "Paris 07 SP"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseMail_Type",
+                    "uid": "AD798045",
+                    "type": "15",
+                    "typeLibelle": "M\u00e8l",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "alexandre.portier@assemblee-nationale.fr"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseSiteWeb_Type",
+                    "uid": "AD844270",
+                    "type": "25",
+                    "typeLibelle": "Facebook",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "alexandre.portier.73"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseSiteWeb_Type",
+                    "uid": "AD844280",
+                    "type": "29",
+                    "typeLibelle": "Instagram",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "alexportier69"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseSiteWeb_Type",
+                    "uid": "AD844300",
+                    "type": "22",
+                    "typeLibelle": "Site internet",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "alexandreportier.fr"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdressePostale_Type",
+                    "uid": "AD844344",
+                    "type": "2",
+                    "typeLibelle": "Adresse publi\u00e9e de circonscription",
+                    "poids": "22",
+                    "adresseDeRattachement": null,
+                    "intitule": null,
+                    "numeroRue": "413",
+                    "nomRue": "Philippe H\u00e9ron",
+                    "complementAdresse": null,
+                    "codePostal": "69400",
+                    "ville": "Villefranche-sur-Sa\u00f4ne"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseTelephonique_Type",
+                    "uid": "AD844346",
+                    "type": "11",
+                    "typeLibelle": "T\u00e9l\u00e9phone",
+                    "poids": "22",
+                    "adresseDeRattachement": "AD844344",
+                    "valElec": "04 74 65 74 53"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseMail_Type",
+                    "uid": "AD844378",
+                    "type": "15",
+                    "typeLibelle": "M\u00e8l",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "contact@alexandreportier.fr"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseSiteWeb_Type",
+                    "uid": "AD845148",
+                    "type": "30",
+                    "typeLibelle": "Linkedin",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "/in/alexandre-portier-0663967a"
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "AdresseSiteWeb_Type",
+                    "uid": "AD859621",
+                    "type": "24",
+                    "typeLibelle": "Twitter",
+                    "poids": null,
+                    "adresseDeRattachement": null,
+                    "valElec": "@Portier_A_"
+                }
+            ]
+        },
+        "mandats": {
+            "mandat": [
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatParlementaire_type",
+                    "uid": "PM873313",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "CONFPT",
+                    "dateDebut": "2025-10-02",
+                    "datePublication": "2025-10-03",
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO846702"
+                    },
+                    "suppleants": null,
+                    "chambre": null,
+                    "election": {
+                        "lieu": {
+                            "region": null,
+                            "regionType": null,
+                            "departement": null,
+                            "numDepartement": null,
+                            "numCirco": null
+                        },
+                        "causeMandat": null
+                    },
+                    "mandature": {
+                        "datePriseFonction": null,
+                        "causeFin": null,
+                        "premiereElection": "0",
+                        "placeHemicycle": null,
+                        "mandatRemplaceRef": null
+                    },
+                    "collaborateurs": null
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM876234",
+                    "acteurRef": "PA794994",
+                    "legislature": null,
+                    "typeOrgane": "PARPOL",
+                    "dateDebut": "2025-12-03",
+                    "datePublication": "2025-12-03",
+                    "dateFin": null,
+                    "preseance": "5",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO710396"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM866637",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "API",
+                    "dateDebut": "2025-03-10",
+                    "datePublication": "2025-03-11",
+                    "dateFin": null,
+                    "preseance": "40",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO201115"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM859170",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GP",
+                    "dateDebut": "2025-01-25",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre du",
+                        "libQualiteSex": "Membre du"
+                    },
+                    "organes": {
+                        "organeRef": "PO845425"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM877960",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "CMP",
+                    "dateDebut": "2026-01-21",
+                    "datePublication": "2026-01-23",
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "0",
+                    "infosQualite": {
+                        "codeQualite": "Titulaire",
+                        "libQualite": "Membre titulaire",
+                        "libQualiteSex": "Membre titulaire"
+                    },
+                    "organes": {
+                        "organeRef": "PO877656"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM873312",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "COMPER",
+                    "dateDebut": "2025-10-02",
+                    "datePublication": "2025-10-03",
+                    "dateFin": null,
+                    "preseance": "1",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Pr\u00e9sident",
+                        "libQualite": "Pr\u00e9sident",
+                        "libQualiteSex": "Pr\u00e9sident"
+                    },
+                    "organes": {
+                        "organeRef": "PO419604"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM859599",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "COMPER",
+                    "dateDebut": "2025-01-28",
+                    "datePublication": "2025-01-28",
+                    "dateFin": null,
+                    "preseance": "32",
+                    "nominPrincipale": "0",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO419604"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM862412",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GE",
+                    "dateDebut": "2025-02-04",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "0",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO854343"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM871687",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GE",
+                    "dateDebut": "2025-06-24",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO854525"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM862960",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GE",
+                    "dateDebut": "2025-02-05",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "0",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO854406"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM867206",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GE",
+                    "dateDebut": "2025-02-19",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "12",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Secr\u00e9taire",
+                        "libQualite": "Secr\u00e9taire",
+                        "libQualiteSex": "Secr\u00e9taire"
+                    },
+                    "organes": {
+                        "organeRef": "PO854343"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM866077",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GE",
+                    "dateDebut": "2025-03-04",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "12",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Secr\u00e9taire",
+                        "libQualite": "Secr\u00e9taire",
+                        "libQualiteSex": "Secr\u00e9taire"
+                    },
+                    "organes": {
+                        "organeRef": "PO854406"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM862424",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GA",
+                    "dateDebut": "2025-02-04",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO851350"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM866556",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GA",
+                    "dateDebut": "2025-03-10",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "1",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Pr\u00e9sident",
+                        "libQualite": "Pr\u00e9sident",
+                        "libQualiteSex": "Pr\u00e9sident"
+                    },
+                    "organes": {
+                        "organeRef": "PO851688"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM877870",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GA",
+                    "dateDebut": "2026-01-21",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO851289"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM862413",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GA",
+                    "dateDebut": "2025-02-04",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO851557"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM862959",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "GA",
+                    "dateDebut": "2025-02-05",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "20",
+                    "nominPrincipale": "0",
+                    "infosQualite": {
+                        "codeQualite": "Membre",
+                        "libQualite": "Membre",
+                        "libQualiteSex": "Membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO851688"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatSimple_Type",
+                    "uid": "PM878067",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "CMP",
+                    "dateDebut": "2026-01-27",
+                    "datePublication": "2026-01-28",
+                    "dateFin": null,
+                    "preseance": "4",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "Vice-Pr\u00e9sident",
+                        "libQualite": "Vice-Pr\u00e9sident",
+                        "libQualiteSex": "Vice-Pr\u00e9sident"
+                    },
+                    "organes": {
+                        "organeRef": "PO877656"
+                    }
+                },
+                {
+                    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+                    "@xsi:type": "MandatParlementaire_type",
+                    "uid": "PM858360",
+                    "acteurRef": "PA794994",
+                    "legislature": "17",
+                    "typeOrgane": "ASSEMBLEE",
+                    "dateDebut": "2024-07-07",
+                    "datePublication": null,
+                    "dateFin": null,
+                    "preseance": "50",
+                    "nominPrincipale": "1",
+                    "infosQualite": {
+                        "codeQualite": "membre",
+                        "libQualite": "membre",
+                        "libQualiteSex": "membre"
+                    },
+                    "organes": {
+                        "organeRef": "PO838901"
+                    },
+                    "suppleants": {
+                        "suppleant": {
+                            "dateDebut": "2024-07-07",
+                            "dateFin": null,
+                            "suppleantRef": "PA841745"
+                        }
+                    },
+                    "chambre": null,
+                    "election": {
+                        "lieu": {
+                            "region": "Auvergne-Rh\u00f4ne-Alpes",
+                            "regionType": "M\u00e9tropolitain",
+                            "departement": "Rh\u00f4ne",
+                            "numDepartement": "69",
+                            "numCirco": "9"
+                        },
+                        "causeMandat": "reprise de l'exercice du mandat d'un ancien membre du Gouvernement",
+                        "refCirconscription": "PO839761"
+                    },
+                    "mandature": {
+                        "datePriseFonction": "2025-01-24",
+                        "causeFin": null,
+                        "premiereElection": "1",
+                        "placeHemicycle": "173",
+                        "mandatRemplaceRef": "PM843293"
+                    },
+                    "collaborateurs": {
+                        "collaborateur": [
+                            {
+                                "qualite": "Mme",
+                                "prenom": "Nathalie",
+                                "nom": "Hadj-Sa\u00efd",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": "M.",
+                                "prenom": "Kerrien",
+                                "nom": "Piquant",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": "M.",
+                                "prenom": "R\u00e9mi",
+                                "nom": "Berne",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": null,
+                                "prenom": "Anne",
+                                "nom": "Gloannec",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": "M.",
+                                "prenom": "Emmanuel",
+                                "nom": "Fourdrigniez",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": "M.",
+                                "prenom": "Adrien",
+                                "nom": "Cornut-Gentille",
+                                "dateDebut": null,
+                                "dateFin": null
+                            },
+                            {
+                                "qualite": "M.",
+                                "prenom": "Loan",
+                                "nom": "Deschamps",
+                                "dateDebut": null,
+                                "dateFin": null
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
