@@ -7,6 +7,9 @@ models:
       - name: id
         description: Identifiant
         type: TEXT
+        data_tests:
+          - not_null
+          - unique
       - name: code_region
         description: "Code de la région"
         type: TEXT
