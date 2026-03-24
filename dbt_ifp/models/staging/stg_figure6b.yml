@@ -10,6 +10,7 @@ models:
         type: TEXT
         data_tests:
           - not_null
+          - unique
       - name: personne_nom_complet
         description: Nom Prénom du directeur de cabinet sans civilité
         type: TEXT
