@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Récupérer le code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Construire l'image Docker
         # On construit l'image Docker en utilisant la configuration de docker-compose.yml
@@ -28,7 +28,7 @@ jobs:
                       -o data/{}_$(date +%Y%m%d_%H%M%S).csv"
 
       - name: Sauvegarder les fichiers dans les Artefacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: resultats-scrapers
           # Chemin vers le dossier de sauvegarde des fichiers de scraping
