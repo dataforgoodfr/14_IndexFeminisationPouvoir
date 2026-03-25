@@ -143,6 +143,7 @@ class Figure7bSpider(BaseAnnuaireSpider):
         )
 
 
+# Hautes juridictions
 class Figure8Spider(BaseAnnuaireSpider):
     name = "figure8"
 
@@ -157,11 +158,10 @@ class Figure8Spider(BaseAnnuaireSpider):
     where = f"nom in ({','.join(map(addQuotes, organismes))})"
     fonctions = ["Président", "Présidente", "Vice-président", "Vice-présidente"]
 
-    zone_geographique_type = "préfecture"
+    zone_geographique_type = "haute juridiction"
 
-    # TODO à matcher au nom du département
     def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
-        return adresse.get("nom_commune", "")
+        return nom_organisme
 
     def matchFonction(self, fonction: str, nom_organisme: str):
         if nom_organisme not in self.organismes:
