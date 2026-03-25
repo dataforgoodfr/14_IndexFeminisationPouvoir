@@ -1,8 +1,9 @@
+-- stg_figure7a.sql
 {% set start_year = 2025 %}
 {% set current_year = modules.datetime.datetime.now().year %}
 
 
-{% for year in range(start_year, current_year) %}
+{% for year in range(start_year, current_year + 1) %}
 SELECT
     {{ year }} as year_partition,
     CAST("__id" AS TEXT) AS id,
