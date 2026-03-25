@@ -1,4 +1,10 @@
+{% set start_year = 2025 %}
+{% set current_year = modules.datetime.datetime.now().year %}
+
+
+{% for year in range(start_year, current_year) %}
 SELECT
+    {{ year }} as year_partition,
     CAST("__id" AS TEXT) AS id,
     CAST("Code de la région" AS TEXT) AS code_region,
     "Libellé de la région" AS libelle_region,
@@ -15,4 +21,6 @@ SELECT
     "Date de début de la fonction" AS date_fonction_debut,
     source_url
 FROM
-    {{ ref('figure7a_20260320_140724') }}
+    {{ ref('figure7a_' ~ year) }}
+{% if not loop.last %} UNION ALL {% endif %}
+{% endfor %}

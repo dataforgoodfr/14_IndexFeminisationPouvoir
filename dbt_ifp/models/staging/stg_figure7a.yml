@@ -4,6 +4,11 @@ models:
   - name: stg_figure7a
     description: Pourcentage de femmes présidant une région en 2025
     columns:
+      - name: year_partition
+        description: année
+        type: INTEGER
+        data_tests:
+          - not_null
       - name: id
         description: Identifiant
         type: TEXT
