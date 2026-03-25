@@ -5,15 +5,12 @@ models:
     description: >
       Pourcentage de femmes directrices de cabinet d'un président-e de département en 2025
     columns:
-      - name: personne_raw_text
-        description: Nom Prénom du directeur de cabinet avec civilité
+      - name: id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
         type: TEXT
         data_tests:
           - not_null
           - unique
-      - name: personne_nom_complet
-        description: Nom Prénom du directeur de cabinet sans civilité
-        type: TEXT
       - name: personne_civilite
         description: civilité Mme ou M.
         type: TEXT
