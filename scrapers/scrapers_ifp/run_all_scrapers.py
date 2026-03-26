@@ -2,6 +2,7 @@
 Lance tous les spiders du projet avec sauvegarde des fichiers CSV dans le dossier data
 TODO: exporter les sorties dans S3, configurer le logging et refactorer la production des settings
 """
+
 import argparse
 import sys
 from dotenv import load_dotenv
@@ -11,6 +12,7 @@ from scrapy.utils.project import get_project_settings
 from scrapy.crawler import AsyncCrawlerProcess
 from scrapy.spiderloader import SpiderLoader
 from scrapy.utils.log import configure_logging
+from scrapers.scrapers_ifp.scrapers_ifp.constants import OUTPUT_DIR
 
 
 def parse_arguments():
@@ -66,9 +68,9 @@ def run_all():
     configure_logging(settings)
     logger = logging.getLogger(__name__)
 
-    data_dir = os.path.join(os.getcwd(), "data")
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
+    # data_dir = os.path.join(os.getcwd(), "data")
+    # if not os.path.exists(data_dir):
+    #     os.makedirs(data_dir)
 
     spider_loader = SpiderLoader.from_settings(settings)
     spiders = spider_loader.list()
@@ -86,7 +88,7 @@ def run_all():
         # 3. On prépare nos réglages de sortie
         new_feeds = {
             "FEEDS": {
-                f"file://{data_dir}/%(name)s_%(time)s.csv": {
+                f"file://{OUTPUT_DIR}/%(name)s_%(time)s.csv": {
                     "format": "csv",
                 }
             }
