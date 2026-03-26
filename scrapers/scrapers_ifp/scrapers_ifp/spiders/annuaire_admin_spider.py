@@ -59,7 +59,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
         result: dict,
     ):
         affectations = json.loads(result.get("affectation_personne", "[]") or "[]")
-        fonctionsTrouvées = []
+        fonctions_trouvees = []
         for affectation in affectations:
             personne = affectation.get("personne")
             fonction = affectation.get("fonction")
@@ -71,7 +71,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 continue
 
             if not self.matchFonction(fonction, result.get("nom", "")):
-                fonctionsTrouvées.append(fonction)
+                fonctions_trouvees.append(fonction)
                 continue
 
             item = Personne(
@@ -89,7 +89,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 return
 
         self.logger.warning(
-            f"Aucune personne trouvée pour {result.get('nom')} : {set(fonctionsTrouvées)}",
+            f"Aucune personne trouvée pour {result.get('nom')} : {set(fonctions_trouvees)}",
         )
 
     def getZoneGeographiqueLibelle(self, result: dict):
