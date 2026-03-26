@@ -67,7 +67,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
             if not nom and not prenom and not civilite:
                 continue
 
-            if fonction not in self.fonctions:
+            if not self.matchFonction(fonction, result.get("nom", "")):
                 fonctionsTrouvées.append(fonction)
                 continue
 
@@ -92,6 +92,9 @@ class BaseAnnuaireSpider(scrapy.Spider):
 
     def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
         return ""
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        return fonction in self.fonctions
 
 
 # Directrices de cabinet d'un.e président-e de département
@@ -138,6 +141,35 @@ class Figure7bSpider(BaseAnnuaireSpider):
         return nom_organisme.replace("Conseil régional - ", "").replace(
             "Collectivité de Corse", "Corse"
         )
+
+
+# Hautes juridictions
+class Figure8Spider(BaseAnnuaireSpider):
+    name = "figure8"
+
+    organismes = {
+        "Conseil constitutionnel": ["Président", "Présidente"],
+        "Conseil d'État": ["Vice-président", "Vice-présidente"],
+        "Cour de cassation": ["Premier président", "Première présidente"],
+        "Cour de justice de la République": ["Président", "Présidente"],
+        "Cour des comptes": ["Premier président", "Première présidente"],
+    }
+
+    where = f"nom in ({','.join(map(addQuotes, organismes))})"
+    fonctions = ["Président", "Présidente", "Vice-président", "Vice-présidente"]
+
+    zone_geographique_type = "haute juridiction"
+
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
+        return nom_organisme
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        if nom_organisme not in self.organismes:
+            self.logger.warning(
+                f"Organisme {nom_organisme} non trouvé dans la liste des organismes"
+            )
+            return False
+        return fonction in self.organismes[nom_organisme]
 
 
 # Préfets et préfètes
