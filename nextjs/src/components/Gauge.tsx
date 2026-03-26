@@ -15,6 +15,10 @@ interface GaugeProps {
   textColor?: string;
   /** Color of the unfilled track */
   trackColor?: string;
+  /** Starting angle of the arc in degrees */
+  startAngleDeg?: number;
+  /** Sweep angle of the arc in degrees */
+  sweepAngle?: number;
 }
 
 const Gauge: React.FC<GaugeProps> = ({
@@ -25,15 +29,14 @@ const Gauge: React.FC<GaugeProps> = ({
   fillColor = "#878D96",
   trackColor = "#D9D9D9",
   textColor = "#4A2D8A",
+  startAngleDeg = 135,
+  sweepAngle = 270,
 }) => {
   const strokeWidth = size * 0.1;
   const halfStroke = strokeWidth / 2;
   const radius = (size - strokeWidth) / 2;
   const centerX = size / 2;
   const centerY = size / 2;
-
-  const startAngleDeg = 135;
-  const sweepAngle = 270;
 
   const degToRad = (deg: number) => (deg * Math.PI) / 180;
 
