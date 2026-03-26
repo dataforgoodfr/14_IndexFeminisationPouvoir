@@ -14,12 +14,14 @@ def addQuotes(s: str):
 class BaseAnnuaireSpider(scrapy.Spider):
     where: str = ""
     fonctions: list[str] = []
-    fonctions_exclues: list[str] = []
     zone_geographique_type = ""
+
+    # spécifie si on recherche plus d'une personne par organisme
+    stop_at_one = True
 
     current_offset = 0
     params = {
-        "select": "nom,affectation_personne,id,type_organisme,code_insee_commune,url_service_public,adresse",
+        "select": "nom,affectation_personne,id,type_organisme,code_insee_commune,url_service_public,adresse,hierarchie",
         "limit": 100,
     }
     start_urls = [
@@ -40,7 +42,8 @@ class BaseAnnuaireSpider(scrapy.Spider):
         results = json_response.get("results", [])
         for result in results:
             try:
-                yield self.parse_personne(result)
+                for item in self.parse_personne(result):
+                    yield item
             except Exception as e:
                 self.logger.error(f"Error processing result {result}: {e} ")
                 continue
@@ -84,7 +87,9 @@ class BaseAnnuaireSpider(scrapy.Spider):
                 zone_geographique_type=self.zone_geographique_type,
                 poste_libelle=fonction,
             )
-            return item.model_dump()
+            yield item.model_dump()
+            if self.stop_at_one:
+                return
 
         self.logger.warning(
             f"Aucune personne trouvée pour {result.get('nom')} : {set(fonctionsTrouvées)}",
@@ -95,6 +100,113 @@ class BaseAnnuaireSpider(scrapy.Spider):
 
     def matchFonction(self, fonction: str, nom_organisme: str):
         return fonction in self.fonctions
+
+
+# Membres du cabinet du président de la république
+# NB: on utilise la hierarchie pour récupérer tous les pôles du cabinet
+class Figure1cSpider(BaseAnnuaireSpider):
+    name = "figure1c"
+
+    where = 'nom="Cabinet du président de la République"'
+    zone_geographique_type = ""
+    stop_at_one = False
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        return True
+
+    async def parse(self, response: TextResponse):
+        json_response = response.json()
+        results = json_response.get("results", [])
+        for result in results:
+            for item in self.parse_personne(result):
+                yield item
+
+            hierarchie = json.loads(result.get("hierarchie", "[]") or "[]")
+            if len(hierarchie) == 0:
+                continue
+            ids = map(lambda x: x.get("service"), hierarchie)
+            params = self.params.copy()
+            params["where"] = f"id in ({','.join(map(addQuotes, ids))})"
+            url = f"{self.start_urls[0]}?{urlencode(params)}"
+            yield scrapy.Request(
+                url=url,
+                # on utilise le callback de la classe parente pour éviter de faire une récursion infinie
+                # callback=super(BaseAnnuaireSpider, self).parse,
+                callback=self.parse,
+            )
+
+
+# Membres du cabinet du premier ministre
+class Figure1dSpider(BaseAnnuaireSpider):
+    name = "figure1d"
+
+    where = 'nom="Cabinet du Premier ministre"'
+    stop_at_one = False
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        return True
+
+
+# Directrices de cabinet au sein du gouvernement
+# NB: on utilise la hierarchie pour récupérer tous les cabinets ministériels
+class Figure1eSpider(BaseAnnuaireSpider):
+    name = "figure1e"
+
+    fonctions = [
+        "Directeur de cabinet",
+        "Directeur du cabinet",
+        "Directrice de cabinet",
+        "Directrice du cabinet",
+    ]
+    where = 'nom="Gouvernement (Premier ministre et ministères)"'
+
+    def getZoneGeographiqueLibelle(self, adresse: dict, nom_organisme: str):
+        return nom_organisme
+
+    def parse(self, response: TextResponse):
+        json_response = response.json()
+        gouvernement = json_response.get("results", [])[0]
+
+        hierarchie = json.loads(gouvernement.get("hierarchie", "[]") or "[]")
+        ids = map(lambda x: x.get("service"), hierarchie)
+        params = self.params.copy()
+        params["where"] = (
+            f'id in ({",".join(map(addQuotes, ids))}) and startswith(nom, "Ministère")'
+        )
+        url = f"{self.start_urls[0]}?{urlencode(params)}"
+        yield scrapy.Request(url=url, callback=self.parse_ministères)
+
+    def parse_ministères(self, response: TextResponse):
+        json_response = response.json()
+        ministères = json_response.get("results", [])
+        for ministère in ministères:
+            self.logger.info(f"Parsing ministère: {ministère.get('nom')}")
+            hierarchie = json.loads(ministère.get("hierarchie", "[]") or "[]")
+            ids = list(map(lambda x: x.get("service"), hierarchie))
+
+            if len(ids) == 0:
+                continue
+            params = self.params.copy()
+            params["where"] = (
+                f'id in ({",".join(map(addQuotes, ids))}) and startswith(nom, "Cabinet")'
+            )
+            url = f"{self.start_urls[0]}?{urlencode(params)}"
+            yield scrapy.Request(url=url, callback=self.parse_cabinets)
+
+            # Ministres délégués
+            if ministère.get("nom", "").startswith("Ministère"):
+                params["where"] = (
+                    f'id in ({",".join(map(addQuotes, ids))}) and startswith(nom, "Ministre")'
+                )
+                url = f"{self.start_urls[0]}?{urlencode(params)}"
+                yield scrapy.Request(url=url, callback=self.parse_ministères)
+
+    def parse_cabinets(self, response: TextResponse):
+        json_response = response.json()
+        cabinets = json_response.get("results", [])
+        for cabinet in cabinets:
+            self.logger.info(f"Parsing cabinet: {cabinet.get('nom')}")
+            yield from self.parse_personne(cabinet)
 
 
 # Directrices de cabinet d'un.e président-e de département
