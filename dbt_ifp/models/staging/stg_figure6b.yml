@@ -3,7 +3,7 @@ version: 2
 models:
   - name: stg_figure6b
     description: >
-      Pourcentage de femmes directrices de cabinet d'un président-e de département en 2025
+      Liste des directeurs et directrices de cabinet d'un-e président-e de département en 2025
     columns:
       - name: id
         description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
