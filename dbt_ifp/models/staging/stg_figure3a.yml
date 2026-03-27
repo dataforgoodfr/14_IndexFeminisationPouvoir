@@ -1,0 +1,82 @@
+models:
+  - name: stg_figure3a
+    description: "Liste des sénatrices et sénateurs récupérées via l'API du RNE (Répertoire national des élus)"
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+
+      - name: id
+        data_type: integer
+        description: "L’id de la ligne"
+        data_tests:
+          - unique
+          - not_null
+      
+      - name: code_departement
+        data_type: text
+        description: "Le code du département: 
+        - numéro de département
+        - 'ZZ' pour les circonscriptions des Français·es de l’étranger
+        - null pour les circonscriptions pour les collectivités à statut particulier"
+
+      - name: code_collectivite_statut_part
+        data_type: text
+        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
+
+      - name: nom_collectivite_statut_part
+        data_type: text
+        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
+
+      - name: nom_elu
+        data_type: text
+        description: "Le nom de l’élu·e dans la circonscription"
+        data_tests:
+          - not_null
+
+      - name: prenom_elu
+        data_type: text
+        description: "Le prénom de l’élu·e dans la circonscription"
+        data_tests:
+          - not_null
+
+      - name: genre
+        data_type: text
+        description: "Le genre de l’élu·e: 'M' ou 'F'"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [ 'M', 'F' ]
+
+      - name: date_naissance
+        data_type: date
+        description: "La date de naissance de l’élu·e au format YYYY-MM-DD"
+        data_tests:
+          - not_null
+
+      - name: code_categorie_socprof
+        data_type: integer
+        description: "Le code de la catégorie socio-professionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: nom_categorie_socprof
+        data_type: text
+        description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: date_debut_mandat
+        data_type: date
+        description: "La date de début de mandat de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: source_url
+        data_type: text
+        description: URL de provenance de la donnée : API du RNE pour ce modèle
+        data_tests:
+          - not_null
