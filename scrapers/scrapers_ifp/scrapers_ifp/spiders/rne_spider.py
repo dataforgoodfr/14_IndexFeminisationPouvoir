@@ -65,12 +65,6 @@ class BaseRneSpider(scrapy.Spider):
 # --- SPIDERS SPÉCIFIQUES ---
 
 
-# Députés
-class RneDeputesSpider(BaseRneSpider):
-    name = "figure2a"
-    resource_filter = "elus-deputes-dep"
-
-
 # Sénateurs
 class RneSenateursSpider(BaseRneSpider):
     name = "figure3a"

@@ -117,10 +117,9 @@ class BaseAssembleeSpider(scrapy.Spider):
             )
 
 
-# TODO doublon avec figure2a, mais basée sur la donnée offcielle de l'AN.
-# plusieurs écarts observés, la donnée AN a l'air plus à jour
-class Figure2abisSpider(BaseAssembleeSpider):
-    name = "figure2abis"
+# Les député·e·s
+class Figure2aSpider(BaseAssembleeSpider):
+    name = "figure2a"
     typeOrgane = "ASSEMBLEE"
     qualites = ["membre"]
 
@@ -132,9 +131,9 @@ class Figure2bSpider(BaseAssembleeSpider):
     qualites = ["Président"]
 
 
-# TODO doublon avec figure2b, mais sans scrapping html
-class Figure2cbisSpider(BaseAssembleeSpider):
-    name = "figure2cbis"
+# Le bureau de l'Assemblée Nationale
+class Figure2cSpider(BaseAssembleeSpider):
+    name = "figure2c"
     typeOrgane = "BUREAU"
     qualites = ["Président", "Vice-Président", "Questeur", "Secrétaire"]
 
