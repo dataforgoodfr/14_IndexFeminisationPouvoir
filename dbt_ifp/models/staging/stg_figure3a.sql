@@ -1,4 +1,10 @@
+{% set start_year = 2026 %}
+{% set current_year = modules.datetime.datetime.now().year %}
+
+
+{% for year in range(start_year, current_year + 1) %}
 SELECT
+    {{ year }} as annee_partition,
     __id as id,
     "Code du département" as code_departement,
     "Libellé du département" as libelle_departement,
@@ -13,4 +19,6 @@ SELECT
     "Date de début du mandat" as date_debut_mandat,
     source_url
 FROM
-    {{ ref('figure3a_2026') }}
+    {{ ref('figure3a_' ~ year) }}
+{% if not loop.last %} UNION ALL {% endif %}
+{% endfor %}
