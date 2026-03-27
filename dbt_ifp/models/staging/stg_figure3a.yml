@@ -1,6 +1,6 @@
 models:
-  - name: stg_senat
-    description: "Les données liées aux sénatrices et sénateurs récupérées par scraping"
+  - name: stg_figure3a
+    description: "Liste des sénatrices et sénateurs récupérées via l'API du RNE (Répertoire national des élus)"
     columns:
       - name: id
         data_type: integer
@@ -10,7 +10,7 @@ models:
           - not_null
       
       - name: code_departement
-        data_type: integer
+        data_type: text
         description: "Le code du département: 
         - numéro de département
         - 'ZZ' pour les circonscriptions des Français·es de l’étranger
@@ -69,8 +69,8 @@ models:
         data_tests:
           - not_null
 
-      - name: source_scraper
+      - name: source_url
         data_type: text
-        description: "Le nom de la figure source scrapée : 'figure3a' pour ce modèle"
+        description: URL de provenance de la donnée : API du RNE pour ce modèle
         data_tests:
           - not_null

@@ -11,6 +11,6 @@ SELECT
     "Code de la catégorie socio-professionnelle" as code_categorie_socprof,
     "Libellé de la catégorie socio-professionnelle" as nom_categorie_socprof,
     "Date de début du mandat" as date_debut_mandat,
-    source_url as source_scraper
+    source_url
 FROM
     {{ ref('figure3a_2026') }}
