@@ -15,6 +15,6 @@ select
     "Date de début du mandat" as date_debut_mandat,
     source_url
 from
-    {{ ref('stg_figure4_' ~ year) }}
+    {{ ref('figure4_' ~ year) }}
 {% if not loop.last %} UNION ALL {% endif %}
 {% endfor %}
