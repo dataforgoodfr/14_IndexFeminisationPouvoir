@@ -1,0 +1,69 @@
+Version: 1
+
+models:
+  - name: stg_figure4
+    description: "Liste des députées et députés européens récupérés par scraping API data.gouv.fr"
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        data_type: INTEGER
+        data_tests:
+          - not_null
+
+      - name: id
+        data_type: integer
+        description: "L’id de la ligne"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: nom_elu
+        data_type: text
+        description: "Le nom de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: prenom_elu
+        data_type: text
+        description: "Le prénom de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: genre
+        data_type: text
+        description: "Le genre de l’élu·e: 'M' ou 'F'"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [ 'M', 'F' ]
+
+      - name: date_naissance
+        data_type: date
+        description: "La date de naissance de l’élu·e au format YYYY-MM-DD"
+        data_tests:
+          - not_null
+
+      - name: code_categorie_socprof
+        data_type: integer
+        description: "Le code de la catégorie socio-professionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: nom_categorie_socprof
+        data_type: text
+        description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: date_debut_mandat
+        data_type: date
+        description: "La date de début de mandat de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: source_url
+        data_type: text
+        description: "URL de provenance de la donnée : URL API data.gouv.fr pour ce modèle"
+        data_tests:
+          - not_null
