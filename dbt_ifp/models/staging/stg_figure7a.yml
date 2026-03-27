@@ -2,10 +2,10 @@ version: 2
 
 models:
   - name: stg_figure7a
-    description: Liste des hommes et des femmes présidant une région par année (à partir de 2025)
+    description: Liste des hommes et des femmes présidant une région par année ( à partir de 2025 soit (annee_partition -1))
     columns:
       - name: annee_partition
-        description: année
+        description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
