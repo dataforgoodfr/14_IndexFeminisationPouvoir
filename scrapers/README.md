@@ -1,3 +1,10 @@
+# Les sources de données
+Les deux sources de données suivantes:
+- [api-lannuaire-administration](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/information/), qui possède la [documentation succincte](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration/attachments/documentation_technique_api_annuaire_de_l_administration_pdf/) et
+- [api-lannuaire-administration-locale-competence-geographique](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration-locale-competence-geographique/information/) avec [la documentation](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration-locale-competence-geographique/attachments/documentation_technique_api_annuaire_administration_competence_geographique_pdf/)
+
+méritent d'être utilisées pour le scraping.
+
 # Utilisation de Docker
 
 Ce projet peut être exécuté localement à l’aide de Docker et Docker Compose. *Cela permet de
