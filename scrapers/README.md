@@ -109,7 +109,7 @@ Dans le répertoire `14_IndexFeminisationPouvoir/scrapers/scrapers_ifp`, lancer 
 
 ## Lancer tous les scapers avec Docker
 
-Utiliser la commande : `docker compose run --rm -w /app/scrapers/scrapers_ifp -e PYTHONPATH=/app scrapers uv run python run_all_scrapers.py --target local`
+Utiliser la commande : `docker compose run --rm -w /app/scrapers/scrapers_ifp -e PYTHONPATH=/app scrapers uv run python run_all_scrapers.py --storage local`
 
 ## Il y a aussi des tests automatiques `pytest`
 

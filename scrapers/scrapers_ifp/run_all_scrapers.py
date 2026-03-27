@@ -20,7 +20,7 @@ def parse_arguments():
     Parses command-line arguments and validates the configuration for exporting
     data either locally, to S3, or to both destinations.
 
-    Raises an error if the target includes 's3' or 'both' and any required
+    Raises an error if the storage includes 's3' or 'both' and any required
     environment variables specific to S3 are missing.
 
     Returns:
@@ -29,7 +29,7 @@ def parse_arguments():
 
     parser = argparse.ArgumentParser(description="Orchestrateur de scrapers IFP.")
     parser.add_argument(
-        "--target",
+        "--storage",
         choices=["local", "s3", "both"],
         default="local",
         help="Destination des exports (default: local)",
@@ -38,7 +38,7 @@ def parse_arguments():
     args = parser.parse_args()
 
     # Validation de sécurité pour S3
-    if args.target in ["s3", "both"]:
+    if args.storage in ["s3", "both"]:
         load_dotenv()
         required_keys = [
             "S3_ACCESS_KEY",
@@ -51,7 +51,7 @@ def parse_arguments():
 
         if missing:
             print(
-                f"ERREUR : Cible '{args.target}' choisie, mais variables manquantes : {', '.join(missing)}"
+                f"ERREUR : Cible '{args.storage}' choisie, mais variables manquantes : {', '.join(missing)}"
             )
             print("Vérifiez votre fichier .env ou vos secrets GitHub.")
             sys.exit(1)  # Arrêt propre du script

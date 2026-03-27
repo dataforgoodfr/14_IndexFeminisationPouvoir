@@ -14,18 +14,18 @@ def test_parse_arguments_default(mocker):
     """Teste les arguments par défaut (local)"""
     mocker.patch("sys.argv", ["run_all_scrapers.py"])
     args = parse_arguments()
-    assert args.target == "local"
+    assert args.storage == "local"
 
 
-def test_parse_arguments_target_local(mocker):
-    """Teste l'argument --target local"""
-    mocker.patch("sys.argv", ["run_all_scrapers.py", "--target", "local"])
+def test_parse_arguments_storage_local(mocker):
+    """Teste l'argument --storage local"""
+    mocker.patch("sys.argv", ["run_all_scrapers.py", "--storage", "local"])
     args = parse_arguments()
-    assert args.target == "local"
+    assert args.storage == "local"
 
 
-def test_parse_arguments_target_s3_success(mocker):
-    """Teste l'argument --target s3 avec les variables d'environnement présentes"""
+def test_parse_arguments_storage_s3_success(mocker):
+    """Teste l'argument --storage s3 avec les variables d'environnement présentes"""
     mock_env = {
         "S3_ACCESS_KEY": "test_key",
         "S3_SECRET_ACCESS_KEY": "test_secret",
@@ -35,7 +35,7 @@ def test_parse_arguments_target_s3_success(mocker):
     }
 
     # On patche tout à la suite, de manière linéaire
-    mocker.patch("sys.argv", ["run_all_scrapers.py", "--target", "s3"])
+    mocker.patch("sys.argv", ["run_all_scrapers.py", "--storage", "s3"])
     mocker.patch(
         "os.getenv", side_effect=lambda key, default=None: mock_env.get(key, default)
     )
@@ -44,12 +44,12 @@ def test_parse_arguments_target_s3_success(mocker):
     )  # Adapter le chemin d'import
 
     args = parse_arguments()
-    assert args.target == "s3"
+    assert args.storage == "s3"
 
 
-def test_parse_arguments_target_s3_failure(mocker):
-    """Teste l'argument --target s3 avec des variables d'environnement manquantes"""
-    mocker.patch("sys.argv", ["run_all_scrapers.py", "--target", "s3"])
+def test_parse_arguments_storage_s3_failure(mocker):
+    """Teste l'argument --storage s3 avec des variables d'environnement manquantes"""
+    mocker.patch("sys.argv", ["run_all_scrapers.py", "--storage", "s3"])
     mocker.patch("os.getenv", return_value=None)
     mocker.patch("scrapers.scrapers_ifp.run_all_scrapers.load_dotenv")
     mock_exit = mocker.patch("sys.exit")
@@ -60,9 +60,9 @@ def test_parse_arguments_target_s3_failure(mocker):
     mock_exit.assert_called_once_with(1)
 
 
-def test_parse_arguments_invalid_target(mocker):
+def test_parse_arguments_invalid_storage(mocker):
     """Teste un argument cible invalide"""
-    mocker.patch("sys.argv", ["run_all_scrapers.py", "--target", "invalid"])
+    mocker.patch("sys.argv", ["run_all_scrapers.py", "--storage", "invalid"])
     mocker.patch("sys.stderr")  # On mocke stderr pour ne pas polluer la console
 
     with pytest.raises(SystemExit):
