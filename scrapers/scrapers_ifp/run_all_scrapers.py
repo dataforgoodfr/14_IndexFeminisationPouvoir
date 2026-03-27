@@ -63,18 +63,14 @@ def run_all():
     """
     Lance tous les spiders du projet avec sauvegarde des fichiers CSV dans le dossier data
     """
+    args = parse_arguments()
     settings = get_project_settings()
 
     configure_logging(settings)
     logger = logging.getLogger(__name__)
 
-    # data_dir = os.path.join(os.getcwd(), "data")
-    # if not os.path.exists(data_dir):
-    #     os.makedirs(data_dir)
-
     spider_loader = SpiderLoader.from_settings(settings)
     spiders = spider_loader.list()
-    # spiders = ["figure2c"]
     process = AsyncCrawlerProcess(settings)
 
     for spider_name in spiders:
@@ -86,13 +82,26 @@ def run_all():
         existing_settings = getattr(spider_cls, "custom_settings", {}) or {}
 
         # 3. On prépare nos réglages de sortie
-        new_feeds = {
-            "FEEDS": {
-                f"file://{OUTPUT_DIR}/%(name)s_%(time)s.csv": {
-                    "format": "csv",
-                }
-            }
-        }
+        feeds = {}
+        if args.storage in ["local", "both"]:
+            feeds[f"file://{OUTPUT_DIR}/%(name)s_%(time)s.csv"] = {"format": "csv"}
+
+        if args.storage in ["s3", "both"]:
+            bucket = os.getenv("S3_BUCKET_NAME")
+            s3_uri = f"s3://{bucket}/%(name)s_%(time)s.csv"
+            feeds[s3_uri] = {"format": "csv"}
+
+            # Configuration pour S3 (Scrapy utilise AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY par défaut)
+            # Mais on peut aussi passer les variables d'environnement directement à Scrapy
+            # ou via les settings.
+            # Scrapy supporte AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY.
+            # Pour l'endpoint S3 (ex: MinIO), on peut utiliser AWS_ENDPOINT_URL.
+            os.environ["AWS_ACCESS_KEY_ID"] = os.getenv("S3_ACCESS_KEY")
+            os.environ["AWS_SECRET_ACCESS_KEY"] = os.getenv("S3_SECRET_ACCESS_KEY")
+            os.environ["AWS_ENDPOINT_URL"] = os.getenv("S3_ENDPOINT_URL")
+            os.environ["AWS_REGION_NAME"] = os.getenv("S3_REGION")
+
+        new_feeds = {"FEEDS": feeds}
 
         # 4. FUSION : On garde l'ancien et on ajoute le nouveau
         # .copy() évite de modifier accidentellement d'autres références
@@ -102,7 +111,9 @@ def run_all():
         # 5. On réaffecte le dictionnaire complet à la classe
         spider_cls.custom_settings = updated_settings
 
-        logger.info(f"Configuration fusionnée pour {spider_name} (Playwright préservé)")
+        logger.info(
+            f"Configuration fusionnée pour {spider_name} (Playwright préservé, storage: {args.storage})"
+        )
         process.crawl(spider_cls)
 
     logger.info("🚀 Démarrage du processus Scrapy...")
