@@ -5,7 +5,7 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
-    {{ year }} as year_partition,
+    {{ year }} as annee_partition,
     CAST("__id" AS TEXT) AS id,
     CAST("Code de la région" AS TEXT) AS code_region,
     "Libellé de la région" AS libelle_region,
@@ -15,8 +15,8 @@ SELECT
     "Prénom de l'élu" AS prenom_elu,
     "Code sexe" AS code_sexe,
     "Date de naissance" AS date_naissance,
-    CAST("Code de la catégorie socio-professionnelle" AS TEXT) AS code_pcs,
-    "Libellé de la catégorie socio-professionnelle" AS libelle_pcs,
+    CAST("Code de la catégorie socio-professionnelle" AS TEXT) AS code_csp,
+    "Libellé de la catégorie socio-professionnelle" AS libelle_csp,
     "Date de début du mandat" AS date_mandat_debut,
     "Libellé de la fonction" AS libelle_fonction,
     "Date de début de la fonction" AS date_fonction_debut,

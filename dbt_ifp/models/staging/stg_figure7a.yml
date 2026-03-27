@@ -2,9 +2,9 @@ version: 2
 
 models:
   - name: stg_figure7a
-    description: Pourcentage de femmes présidant une région en 2025
+    description: Liste des hommes et des femmes présidant une région par année (à partir de 2025)
     columns:
-      - name: year_partition
+      - name: annee_partition
         description: année
         type: INTEGER
         data_tests:
@@ -45,10 +45,10 @@ models:
       - name: date_naissance
         description: Date de naissance
         type: DATE
-      - name: code_pcs
+      - name: code_csp
         description: 'Code de la catégorie socio-professionnelle. Professions et Catégories Socioprofessionnelles'
         type: INTEGER
-      - name: libelle_pcs
+      - name: libelle_csp
         description: 'Libellé de la catégorie socio-professionnelle'
         type: TEXT
       - name: date_mandat_debut
