@@ -2,6 +2,12 @@ models:
   - name: stg_figure3a
     description: "Liste des sénatrices et sénateurs récupérées via l'API du RNE (Répertoire national des élus)"
     columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+
       - name: id
         data_type: integer
         description: "L’id de la ligne"
