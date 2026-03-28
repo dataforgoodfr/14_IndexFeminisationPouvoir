@@ -4,12 +4,12 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
-    {{ year }} AS year_partition,
+    {{ year }} AS annee_partition,
     md5(personne_raw_text || zone_geographique_libelle) AS id,
     personne_civilite,
     personne_prenom,
     personne_nom,
-    personne_genre,
+    personne_genre AS genre,
     groupe_politique_libelle,
     poste_libelle,
     zone_geographique_libelle,
