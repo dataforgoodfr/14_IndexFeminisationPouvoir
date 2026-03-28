@@ -21,10 +21,10 @@ models:
       - name: libelle_region
         description: "Libellé de la région"
         type: TEXT
-      - name: code_dep
+      - name: code_departement
         description: "Code de la section départementale"
         type: TEXT
-      - name: libelle_dep
+      - name: libelle_departement
         description: "Libellé de la section départementale"
         type: TEXT
       - name: nom_elu
