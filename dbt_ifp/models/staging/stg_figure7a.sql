@@ -13,7 +13,7 @@ SELECT
     "Libellé de la section départementale" AS libelle_dep,
     "Nom de l'élu" AS nom_elu,
     "Prénom de l'élu" AS prenom_elu,
-    "Code sexe" AS code_sexe,
+    "Code sexe" AS genre,
     "Date de naissance" AS date_naissance,
     CAST("Code de la catégorie socio-professionnelle" AS TEXT) AS code_csp,
     "Libellé de la catégorie socio-professionnelle" AS libelle_csp,
