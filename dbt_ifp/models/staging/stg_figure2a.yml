@@ -1,5 +1,5 @@
 models:
-  - name: stg_deputees
+  - name: stg_figure2a
     description: "Les données liées aux député·es récupérées par scraping"
     columns:
       - name: id

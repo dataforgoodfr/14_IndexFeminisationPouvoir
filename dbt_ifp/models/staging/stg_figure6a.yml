@@ -1,5 +1,5 @@
 models:
-  - name: stg_conseilleres_departementales
+  - name: stg_figure6a
     description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
     columns:
       - name: id

@@ -1,5 +1,5 @@
 models:
-  - name: stg_assemblee
+  - name: stg_figure2c
     description: "La liste des membres du bureau de l’Assemblée Nationale, récupérée par scraping"
     columns:
       - name: id
