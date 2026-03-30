@@ -33,7 +33,7 @@ services:
 #    depends_on:
 #      - postgres
     volumes:
-      - ./dbt:/dbt
+      - ./dbt_ifp:/dbt_ifp
     env_file:
       - .env
     command: sleep infinity
