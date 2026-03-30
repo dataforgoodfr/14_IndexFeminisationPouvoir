@@ -116,6 +116,7 @@ class Figure1aSpider(BaseAnnuaireSpider):
     zone_geographique_type = "gouvernement"
     stop_at_one = False
 
+    # TODO: cette implémentation de la gestion des doublons devrait-elle être généralisée ?
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # On crée un "registre" vide au lancement du spider pour mémoriser les noms qui évitera les doublons
