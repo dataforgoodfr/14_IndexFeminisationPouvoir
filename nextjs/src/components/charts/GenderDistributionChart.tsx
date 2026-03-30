@@ -45,12 +45,6 @@ const GenderDistributionChart: React.FC<GenderDistributionChartProps> = ({
     i >= filledCount ? "homme" : "femme",
   );
 
-  // Split into rows
-  const rowsArray: ("femme" | "homme")[][] = [];
-  for (let i = 0; i < icons.length; i += columns) {
-    rowsArray.push(icons.slice(i, i + columns));
-  }
-
   return (
     <div className="w-full lg:w-auto">
       <p className="font-bold opacity-75 ml-2 mb-1 flex flex-col lg:flex-row">
