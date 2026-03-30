@@ -26,7 +26,11 @@ class BaseAnnuaireSpider(scrapy.Spider):
         "limit": 100,
     }
     start_urls = [
-        "https://api-lannuaire.service-public.gouv.fr/api/explore/v2.1/catalog/datasets/api-lannuaire-administration/records"
+        (
+            "https://api-lannuaire.service-public.gouv.fr"
+            "/api/explore/v2.1/catalog/datasets"
+            "/api-lannuaire-administration/records"
+        )
     ]
 
     def getUrl(self):
@@ -38,7 +42,7 @@ class BaseAnnuaireSpider(scrapy.Spider):
     async def start(self):
         yield scrapy.Request(url=self.getUrl(), callback=self.parse)
 
-    async def parse(self, response: TextResponse):
+    async def parse(self, response: TextResponse, **kwargs):
         json_response = response.json()
         results = json_response.get("results", [])
         for result in results:
@@ -104,6 +108,154 @@ class BaseAnnuaireSpider(scrapy.Spider):
         return fonction in self.fonctions
 
 
+# Membres du Gouvernement (Premier ministre, Ministres, Ministres délégués, Secrétaires d'État)
+class Figure1aSpider(BaseAnnuaireSpider):
+    name = "figure1a"
+
+    where = 'nom="Gouvernement (Premier ministre et ministères)"'
+    zone_geographique_type = "gouvernement"
+    stop_at_one = False
+
+    # TODO: cette implémentation de la gestion des doublons devrait-elle être généralisée ?
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # On crée un "registre" vide au lancement du spider pour mémoriser les noms qui évitera les doublons
+        self.personnes_vues = set()
+
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return result.get("nom", "")
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        mots_cles = ["ministre", "secrétaire d'état"]
+        return any(mot in fonction.lower() for mot in mots_cles)
+
+    def parse_personne(self, result: dict):
+        # On appelle la méthode de la classe mère pour faire le travail d'extraction
+        for item in super().parse_personne(result):
+            # L'item retourné est un dictionnaire (grâce à item.model_dump())
+            nom_complet = item.get("personne_nom_complet")
+
+            # Le filtre anti-doublon intervient ici :
+            if nom_complet not in self.personnes_vues:
+                self.personnes_vues.add(nom_complet)
+                yield item
+            else:
+                self.logger.debug(f"Doublon ignoré (cumul de mandats) : {nom_complet}")
+
+    def parse(self, response: TextResponse, **kwargs):
+        json_response = response.json()
+        results = json_response.get("results", [])
+
+        if not results:
+            return
+
+        gouvernement = results[0]
+
+        hierarchie = json.loads(gouvernement.get("hierarchie", "[]") or "[]")
+        ids = list(map(lambda x: x.get("service"), hierarchie))
+
+        if ids:
+            params = self.params.copy()
+            params["where"] = (
+                f"id in ({','.join(map(addQuotes, ids))}) "
+                f'and (nom="Premier ministre" or startswith(nom, "Ministère") '
+                f'or startswith(nom, "Ministre") or startswith(nom, "Secrétaire"))'
+            )
+            url = f"{self.start_urls[0]}?{urlencode(params)}"
+            yield scrapy.Request(url=url, callback=self.parse_ministres)
+
+    def parse_ministres(self, response: TextResponse):
+        json_response = response.json()
+        entites_ministerielles = json_response.get("results", [])
+
+        for entite in entites_ministerielles:
+            self.logger.info(f"Extraction des membres pour : {entite.get('nom')}")
+
+            # L'appel à self.parse_personne passera désormais par notre version filtrée !
+            yield from self.parse_personne(entite)
+
+            hierarchie = json.loads(entite.get("hierarchie", "[]") or "[]")
+            ids = list(map(lambda x: x.get("service"), hierarchie))
+
+            if ids:
+                params = self.params.copy()
+                params["where"] = (
+                    f"id in ({','.join(map(addQuotes, ids))}) "
+                    f'and (startswith(nom, "Ministre") or startswith(nom, "Secrétaire"))'
+                )
+                url = f"{self.start_urls[0]}?{urlencode(params)}"
+                yield scrapy.Request(url=url, callback=self.parse_ministres)
+
+
+# Ministres à la tête d'un ministère régalien (incluant le Premier ministre)
+class Figure1bSpider(BaseAnnuaireSpider):
+    name = "figure1b"
+
+    where = 'nom="Gouvernement (Premier ministre et ministères)"'
+    zone_geographique_type = "gouvernement"
+    stop_at_one = False
+
+    # Mots-clés pour les postes régaliens (incluant le Premier Ministre)
+    mots_cles_regaliens = [
+        "premier ministre",
+        "intérieur",
+        "justice",
+        "garde des sceaux",
+        "armées",
+        "défense",
+        "affaires étrangères",
+        "économie",
+        "finances",
+    ]
+
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return result.get("nom", "")
+
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        fonction_lower = fonction.lower()
+        return "ministre" in fonction_lower or "garde des sceaux" in fonction_lower
+
+    def parse(self, response: TextResponse, **kwargs):
+        json_response = response.json()
+        results = json_response.get("results", [])
+
+        if not results:
+            return
+
+        gouvernement = results[0]
+
+        hierarchie = json.loads(gouvernement.get("hierarchie", "[]") or "[]")
+        ids = list(map(lambda x: x.get("service"), hierarchie))
+
+        if ids:
+            params = self.params.copy()
+            # Recherche dans les organisations cibles
+            params["where"] = (
+                f"id in ({','.join(map(addQuotes, ids))}) "
+                f'and (nom="Premier ministre" or startswith(nom, "Ministère"))'
+            )
+            url = f"{self.start_urls[0]}?{urlencode(params)}"
+            yield scrapy.Request(url=url, callback=self.parse_ministeres_regaliens)
+
+    def parse_ministeres_regaliens(self, response: TextResponse):
+        json_response = response.json()
+        ministeres = json_response.get("results", [])
+
+        for ministere in ministeres:
+            nom_ministere = ministere.get("nom", "").lower()
+
+            # Le filtre métier : est-ce le PM ou un ministère régalien ?
+            est_regalien = any(mot in nom_ministere for mot in self.mots_cles_regaliens)
+
+            if est_regalien:
+                self.logger.info(
+                    f"Ministère régalien / PM ciblé : {ministere.get('nom')}"
+                )
+
+                # On extrait la personne à la tête de cette entité
+                yield from self.parse_personne(ministere)
+
+
 # Membres du cabinet du président de la république
 # NB: on utilise la hierarchie pour récupérer tous les pôles du cabinet
 class Figure1cSpider(BaseAnnuaireSpider):
@@ -116,7 +268,7 @@ class Figure1cSpider(BaseAnnuaireSpider):
     def matchFonction(self, fonction: str, nom_organisme: str):
         return True
 
-    async def parse(self, response: TextResponse):
+    async def parse(self, response: TextResponse, **kwargs):
         json_response = response.json()
         results = json_response.get("results", [])
         for result in results:
@@ -165,7 +317,7 @@ class Figure1eSpider(BaseAnnuaireSpider):
     def getZoneGeographiqueLibelle(self, result: dict):
         return result.get("nom", "")
 
-    def parse(self, response: TextResponse):
+    def parse(self, response: TextResponse, **kwargs):
         json_response = response.json()
         gouvernement = json_response.get("results", [])[0]
 
@@ -176,14 +328,14 @@ class Figure1eSpider(BaseAnnuaireSpider):
             f'id in ({",".join(map(addQuotes, ids))}) and startswith(nom, "Ministère")'
         )
         url = f"{self.start_urls[0]}?{urlencode(params)}"
-        yield scrapy.Request(url=url, callback=self.parse_ministères)
+        yield scrapy.Request(url=url, callback=self.parse_ministeres)
 
-    def parse_ministères(self, response: TextResponse):
+    def parse_ministeres(self, response: TextResponse):
         json_response = response.json()
-        ministères = json_response.get("results", [])
-        for ministère in ministères:
-            self.logger.info(f"Parsing ministère: {ministère.get('nom')}")
-            hierarchie = json.loads(ministère.get("hierarchie", "[]") or "[]")
+        ministeres = json_response.get("results", [])
+        for ministere in ministeres:
+            self.logger.info(f"Parsing ministère: {ministere.get('nom')}")
+            hierarchie = json.loads(ministere.get("hierarchie", "[]") or "[]")
             ids = list(map(lambda x: x.get("service"), hierarchie))
 
             if len(ids) == 0:
@@ -196,12 +348,12 @@ class Figure1eSpider(BaseAnnuaireSpider):
             yield scrapy.Request(url=url, callback=self.parse_cabinets)
 
             # Ministres délégués
-            if ministère.get("nom", "").startswith("Ministère"):
+            if ministere.get("nom", "").startswith("Ministère"):
                 params["where"] = (
                     f'id in ({",".join(map(addQuotes, ids))}) and startswith(nom, "Ministre")'
                 )
                 url = f"{self.start_urls[0]}?{urlencode(params)}"
-                yield scrapy.Request(url=url, callback=self.parse_ministères)
+                yield scrapy.Request(url=url, callback=self.parse_ministeres)
 
     def parse_cabinets(self, response: TextResponse):
         json_response = response.json()
@@ -234,7 +386,10 @@ class Figure7bSpider(BaseAnnuaireSpider):
         "Collectivité territoriale de Martinique",
     ]
 
-    where = f'type_organisme="Collectivité locale" and (nom like "Conseil régional - " or nom in ({",".join(map(addQuotes, noms_organismes))}))'
+    where = (
+        f'type_organisme="Collectivité locale" and (nom like "Conseil régional - " '
+        f"or nom in ({','.join(map(addQuotes, noms_organismes))}))"
+    )
 
     fonctions = [
         "Directeur de cabinet",
