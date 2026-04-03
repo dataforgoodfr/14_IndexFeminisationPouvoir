@@ -17,7 +17,10 @@ type NavigationItem = {
 export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
   const pathname = usePathname();
   return (
-    <Disclosure as="nav" className="relative border-b border-(--color-border)">
+    <Disclosure
+      as="nav"
+      className="relative bg-foundations-violet-principal text-foundations-blanc"
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -76,7 +79,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                       "block rounded-md px-2 py-2 text-base font-medium ",
                       pathname === item.href
                         ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
-                        : "text-gray-800 hover:bg-black/5 hover:shadow-sm ",
+                        : "text-foundations-blanc hover:bg-black/5 hover:shadow-sm ",
                     )}
                   >
                     {item.name}
@@ -85,7 +88,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               </div>
               <Link
                 href="/rapport"
-                className="hidden w-36 h-10 xl:flex items-center justify-center bg-black text-background"
+                className="hidden w-36 h-10 xl:flex items-center justify-center bg-foundations-blanc text-foundations-violet-principal font-bold"
               >
                 Lire le rapport
               </Link>

@@ -1,0 +1,24 @@
+@layer utilities {
+  /* ===== Background Pattern Utilities ===== */
+
+  /* Purple background with SVG pattern overlay (20% opacity) */
+  .bg-svg-purple {
+    @apply relative bg-purple-oxfam-600 z-1;
+  }
+  .bg-svg-purple::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/hero.svg)] bg-auto -z-1;
+  }
+
+  /* Inequal sign */
+  .bg-svg-inequal {
+    @apply relative z-1;
+  }
+  .bg-svg-inequal::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal.svg)] bg-center bg-no-repeat -z-1 opacity-25;
+  }
+
+  /* ===== Typography Utilities ===== */
+  .label-medium {
+    @apply font-lato font-[12px];
+  }
+}
