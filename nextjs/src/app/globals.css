@@ -53,6 +53,28 @@
   --color-neutral-900: #242436;
   --color-neutral-950: #1a1a2e;
 
+  /* Main Used Colors */
+  --color-foundations-vert-principal: var(
+    --color-green-oxfam-500
+  ); /* #61A534 */
+  --color-foundations--violet-principal: var(
+    --color-purple-oxfam-600
+  ); /* #513893 */
+  --color-foundations--violet-clair: var(
+    --color-purple-oxfam-300
+  ); /* #CBB8D9 */
+  --color-foundations--jaune-oxfam: var(--color-yellow-oxfam-400); /* #F2E100 */
+  --color-foundations--viole-tres-clair: var(
+    --color-purple-oxfam-100
+  ); /* #E9ECF7 */
+  --color-foundations--noir: #000000;
+  --color-foundations--jaune-fonce: var(--color-yellow-oxfam-500); /* #D4C128 */
+  --color-foundations-gris-fonce: #4a4a4a;
+  --color-foundations-blanc: #ffffff;
+  --color-foundations-vert-site: #0c9d40;
+  --color-foundations-orange-site: var(--color-orange-oxfam-500); /* #EA8215 */
+  --color-foundations-rouge-principal: #ff003d;
+
   /* Elements Colors */
   --color-foreground: #171717;
 
