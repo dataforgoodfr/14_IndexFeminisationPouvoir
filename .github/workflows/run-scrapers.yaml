@@ -24,7 +24,7 @@ jobs:
           S3_ENDPOINT_URL: ${{ vars.S3_ENDPOINT_URL }}
           S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
         run: |
-          docker compose run --rm scrapers -w /app/scrapers python -m main
+          docker compose run --rm -w /app/scrapers scrapers uv run main.py --storage local
 
       - name: Sauvegarder les fichiers dans les Artefacts
         uses: actions/upload-artifact@v6
