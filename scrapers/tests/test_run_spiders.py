@@ -1,14 +1,13 @@
-import pytest
 import sys
+
+import pytest
 import os
 
 # Ajout du chemin pour importer run_spiders
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../scrapers_ifp"))
-)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from scrapers.scrapers_ifp.run_spiders import parse_arguments, SpiderOrchestrator
-from scrapers.scrapers_ifp.scrapers_ifp.settings_manager import (
+from ..main import parse_arguments, SpiderOrchestrator
+from ..settings_manager import (
     S3ConfigurationError,
     validate_s3_credentials,
 )
@@ -29,19 +28,19 @@ def test_orchestrator_configures_feeds_local(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.SpiderLoader.from_settings",
+        "scrapers.main.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.AsyncCrawlerProcess",
+        "scrapers.main.AsyncCrawlerProcess",
         return_value=mock_process,
     )
 
     # Mock de configure_logging pour éviter les effets de bord
-    mocker.patch("scrapers.scrapers_ifp.run_spiders.configure_logging")
+    mocker.patch("scrapers.main.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -75,17 +74,17 @@ def test_orchestrator_configures_feeds_s3(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.SpiderLoader.from_settings",
+        "scrapers.main.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.AsyncCrawlerProcess",
+        "scrapers.main.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_ifp.run_spiders.configure_logging")
+    mocker.patch("scrapers.main.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -124,17 +123,17 @@ def test_orchestrator_configures_feeds_both(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.SpiderLoader.from_settings",
+        "scrapers.main.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.AsyncCrawlerProcess",
+        "scrapers.main.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_ifp.run_spiders.configure_logging")
+    mocker.patch("scrapers.main.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -151,14 +150,15 @@ def test_orchestrator_configures_feeds_both(mocker):
 
 def test_parse_arguments_default(mocker):
     """Teste les arguments par défaut (local)"""
-    mocker.patch("sys.argv", ["run_spiders.py"])
+    mocker.patch("sys.argv", ["main.py"])
     args = parse_arguments()
     assert args.storage == "local"
+    assert args.spiders is None
 
 
 def test_parse_arguments_storage_local(mocker):
     """Teste l'argument --storage local"""
-    mocker.patch("sys.argv", ["run_spiders.py", "--storage", "local"])
+    mocker.patch("sys.argv", ["main.py", "--storage", "local"])
     args = parse_arguments()
     assert args.storage == "local"
 
@@ -174,7 +174,7 @@ def test_parse_arguments_storage_s3_success(mocker):
     }
 
     # On patche tout à la suite, de manière linéaire
-    mocker.patch("sys.argv", ["run_spiders.py", "--storage", "s3"])
+    mocker.patch("sys.argv", ["main.py", "--storage", "s3"])
     mocker.patch(
         "os.getenv", side_effect=lambda key, default=None: mock_env.get(key, default)
     )
@@ -191,31 +191,16 @@ def test_validate_s3_failure(mocker):
         validate_s3_credentials()
 
 
-def test_parse_arguments_all_spiders_default(mocker):
-    """Vérifie que --all-spiders est True par défaut"""
-    mocker.patch("sys.argv", ["run_spiders.py"])
-    args = parse_arguments()
-    assert args.all_spiders is True
-
-
-def test_parse_arguments_no_all_spiders(mocker):
-    """Vérifie l'option --no-all-spiders"""
-    mocker.patch("sys.argv", ["run_spiders.py", "--no-all-spiders"])
-    args = parse_arguments()
-    assert args.all_spiders is False
-
-
 def test_parse_arguments_spiders_list(mocker):
     """Vérifie l'option --spiders avec une liste"""
-    mocker.patch("sys.argv", ["run_spiders.py", "--spiders", "s1", "s2"])
+    mocker.patch("sys.argv", ["main.py", "--spiders", "s1", "s2"])
     args = parse_arguments()
     assert args.spiders == ["s1", "s2"]
-    assert args.all_spiders is True  # Par défaut, mais exclusif à l'usage
 
 
 def test_parse_arguments_mutually_exclusive(mocker):
     """Vérifie l'exclusivité mutuelle entre --all-spiders et --spiders"""
-    mocker.patch("sys.argv", ["run_spiders.py", "--all-spiders", "--spiders", "s1"])
+    mocker.patch("sys.argv", ["main.py", "--all-spiders", "--spiders", "s1"])
     with pytest.raises(SystemExit):
         parse_arguments()
 
@@ -227,21 +212,21 @@ def test_orchestrator_filters_spiders(mocker):
     mock_loader.list.return_value = ["exists", "other"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.SpiderLoader.from_settings",
+        "scrapers.main.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.AsyncCrawlerProcess",
+        "scrapers.main.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_ifp.run_spiders.configure_logging")
+    mocker.patch("scrapers.main.configure_logging")
     mock_process.start.return_value = None
 
     orchestrator = SpiderOrchestrator(
-        storage="local", target_spiders=["exists", "missing"], run_all=True
+        storage="local", target_spiders=["exists", "missing"], run_all=False
     )
     orchestrator.run()
 
@@ -256,17 +241,17 @@ def test_orchestrator_no_spiders_to_run(mocker):
     mock_loader = mocker.Mock()
     mock_loader.list.return_value = ["s1", "s2"]
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.SpiderLoader.from_settings",
+        "scrapers.main.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_ifp.run_spiders.AsyncCrawlerProcess",
+        "scrapers.main.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_ifp.run_spiders.configure_logging")
+    mocker.patch("scrapers.main.configure_logging")
 
     orchestrator = SpiderOrchestrator(storage="local", run_all=False)
     orchestrator.run()
@@ -277,7 +262,7 @@ def test_orchestrator_no_spiders_to_run(mocker):
 
 def test_parse_arguments_invalid_storage(mocker):
     """Teste un argument cible invalide"""
-    mocker.patch("sys.argv", ["run_spiders.py", "--storage", "invalid"])
+    mocker.patch("sys.argv", ["main.py", "--storage", "invalid"])
     mocker.patch("sys.stderr")  # On mocke stderr pour ne pas polluer la console
 
     with pytest.raises(SystemExit):

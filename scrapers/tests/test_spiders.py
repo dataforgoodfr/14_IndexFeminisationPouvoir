@@ -3,10 +3,8 @@ from pathlib import Path
 import zipfile
 
 from scrapy.http import HtmlResponse, Request
-from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
-
-# Import de votre spider. Adaptez le chemin selon l'arborescence de votre projet.
-from scrapers.scrapers_ifp.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
+from ..scrapers_ifp.models import Personne
+from ..scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
 
 # On définit les chemins
 TEST_DIR = Path(__file__).parent
@@ -18,7 +16,7 @@ TEST_DIR = Path(__file__).parent
 PROJECT_ROOT = TEST_DIR.parent
 
 # Le dossier qui contient 'scrapy.cfg'
-scrapy_project_dir = PROJECT_ROOT / "scrapers_ifp"
+scrapy_project_dir = PROJECT_ROOT
 
 
 def loadZip(name: str):
