@@ -171,3 +171,6 @@ seeds:
       - name: "source_scraper"
         data_type: text
         description: "Le nom de la figure source scrapée : 'figure6a' pour ce modèle"
+  
+  - name: figure5a_2026
+    description: Liste des hommes et des femmes maires récupérée via l'API du RNE
