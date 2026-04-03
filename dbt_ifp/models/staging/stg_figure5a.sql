@@ -4,7 +4,7 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
-    {{ year }} AS year_partition,
+    {{ year }} AS annee_partition,
     id,
     code_departement,
     libelle_departement,
@@ -12,7 +12,7 @@ SELECT
     libelle_commune,
     nom_elu,
     prenom_elu,
-    genre_elu,
+    genre,
     date_debut_mandat
 FROM
     {{ ref('figure5a_' ~ year) }}
