@@ -1,3 +1,12 @@
+# Les sources de données
+La source de données suivante est utilisée largement pour le scraping dans [annuaire_admin_spider.py](https://github.com/dataforgoodfr/14_IndexFeminisationPouvoir/blob/f116a88d49927e4bc26af823e9f05a9d7b5b8cb0/scrapers/scrapers_ifp/scrapers_ifp/spiders/annuaire_admin_spider.py) :
+- [api-lannuaire-administration](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/information/). Une documentation succincte: [documentation succincte](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration/attachments/documentation_technique_api_annuaire_de_l_administration_pdf/).
+
+Cet autre annuaire de l'administration :
+- [api-lannuaire-administration-locale-competence-geographique](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration-locale-competence-geographique/information/) avec [cette documentation](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration-locale-competence-geographique/attachments/documentation_technique_api_annuaire_administration_competence_geographique_pdf/)
+
+n'a pas été utilisé, mais pourrait-être une alternative pour certains pouvoirs locaux.
+
 # Utilisation de Docker
 
 Ce projet peut être exécuté localement à l’aide de Docker et Docker Compose. *Cela permet de

@@ -13,7 +13,7 @@ COPY pyproject.toml uv.lock ./
 # --frozen : échoue si uv.lock n'est pas à jour (sécurité)
 RUN uv sync --no-cache --no-install-project --frozen
 
-COPY dbt/ dbt/
+COPY dbt_ifp/ dbt_ifp/
 
 # Installation du projet
 RUN uv sync

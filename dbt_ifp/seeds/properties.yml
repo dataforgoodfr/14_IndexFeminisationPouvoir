@@ -12,3 +12,6 @@ seeds:
   - name: figure6a
     config:
       description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
+
+  - name: figure5a_2026
+    description: Liste des hommes et des femmes maires récupérée via l'API du RNE

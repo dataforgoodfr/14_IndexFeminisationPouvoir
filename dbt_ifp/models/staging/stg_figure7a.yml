@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_figure7a
+    description: Liste des hommes et des femmes présidant une région par année ( à partir de 2025 soit (annee_partition -1))
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+      - name: id
+        description: Identifiant
+        type: TEXT
+        data_tests:
+          - not_null
+          - unique
+      - name: code_region
+        description: "Code de la région"
+        type: TEXT
+      - name: libelle_region
+        description: "Libellé de la région"
+        type: TEXT
+      - name: code_departement
+        description: "Code de la section départementale"
+        type: TEXT
+      - name: libelle_departement
+        description: "Libellé de la section départementale"
+        type: TEXT
+      - name: nom_elu
+        description: "Nom de l'élu"
+        type: TEXT
+      - name: prenom_elu
+        description: "Prénom de l'élu"
+        type: TEXT
+      - name: genre
+        description: genre (F or M)
+        type: STRING
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['F', 'M']
+        type: TEXT
+      - name: date_naissance
+        description: Date de naissance
+        type: DATE
+      - name: code_csp
+        description: 'Code de la catégorie socio-professionnelle. Professions et Catégories Socioprofessionnelles'
+        type: INTEGER
+      - name: libelle_csp
+        description: 'Libellé de la catégorie socio-professionnelle'
+        type: TEXT
+      - name: date_mandat_debut
+        description: 'Date de début du mandat'
+        type: DATE
+      - name: libelle_fonction
+        description: 'Libellé de la fonction'
+        type: TEXT
+      - name: date_mandat_fonction
+        description: 'Date de début de la fonction'
+        type: DATE
+      - name: source_url
+        description: URL de provenance de la donnée
+        type: TEXT

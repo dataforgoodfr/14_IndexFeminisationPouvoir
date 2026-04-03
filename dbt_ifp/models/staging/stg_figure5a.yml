@@ -1,0 +1,84 @@
+version: 1
+
+models:
+  - name: stg_figure5a
+    description: Liste des hommmes et femmes élu.es maires
+    columns:
+    
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+      
+      - name: id
+        description: ID de la ligne
+        type: INTEGER
+        data_tests:
+          - not_null
+          - unique
+
+      - name: code_departement
+        description: Code du département de l'élu.e maire
+        type: TEXT
+
+      - name: libelle_departement
+        description: Département de l'élu.e maire
+        type: TEXT
+
+      - name: code_collectivite_statut_part
+        description: Code pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)
+        type: TEXT
+
+      - name: nom_collectivite_statut_part
+        description: Libellé pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)
+        type: TEXT
+
+      - name: code_commune
+        description: Code INSEE de la commune de l'élu.e maire
+        type: TEXT
+
+      - name: libelle_commune
+        description: Commune de l'élu.e maire
+        type: TEXT
+
+      - name: nom_elu
+        description: Nom de famille de l'élu.e maire
+        type: TEXT
+
+      - name: prenom_elu
+        description: Prénom de l'élu.e maire
+        type: TEXT
+
+      - name: genre
+        description: Genre de l'élu.e maire 
+        type: TEXT
+        data_tests:
+          - not_null  
+          - accepted_values:
+              arguments: 
+                values: ['M','F'] 
+
+      - name: date_naissance
+        description: Date de naissance de l'élu.e maire
+        type: DATE   
+
+      - name: code_csp
+        description: Code de la catégorie socio-professionnelle de l'élu.e maire
+        type: TEXT
+
+      - name: libelle_csp
+        description: Nom de la catégorie socio-professionnelle de l'élu.e maire
+        type: TEXT
+
+      - name: date_debut_mandat
+        description: Date de début du mandat de l'élu.e maire
+        type: DATE
+
+      - name: date_debut_fonction
+        description: Date de prise de fonction de l'élu.e maire
+        type: DATE
+
+      - name: source_url
+        description: URL de provenance de la donnée
+        type: TEXT
