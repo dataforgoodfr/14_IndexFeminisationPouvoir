@@ -5,30 +5,51 @@ type Props = {
   className?: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
 };
-export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => (
-  <svg
-    viewBox="0 0 272 272"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-label={`Graphique en anneau représentant une valeur de ${value}% de femmes pour ce pouvoir`}
-    className={className}
-  >
-    <path
-      d="M39.8335 232.167C54.2402 246.573 71.6996 257.559 90.922 264.312C110.144 271.065 130.638 273.413 150.89 271.182C171.142 268.952 190.633 262.199 207.925 251.424C225.217 240.649 239.867 226.127 250.792 208.93C261.718 191.733 268.64 172.301 271.047 152.069C273.455 131.838 271.286 111.324 264.701 92.0435C258.115 72.763 247.283 55.2083 233.002 40.6764C218.722 26.1445 201.359 15.0069 182.196 8.08626L165.311 54.8391C177.47 59.2302 188.487 66.297 197.548 75.5174C206.608 84.7379 213.482 95.8763 217.66 108.11C221.838 120.343 223.215 133.359 221.687 146.196C220.16 159.033 215.768 171.362 208.835 182.274C201.903 193.185 192.608 202.4 181.636 209.236C170.665 216.073 158.297 220.358 145.448 221.773C132.598 223.188 119.595 221.698 107.398 217.414C95.2016 213.129 84.1236 206.158 74.9826 197.017L39.8335 232.167Z"
-      fill="white"
-    />
-    <path
-      d="M186.106 9.56653C156.611 -2.12237 123.957 -3.13143 93.7966 6.71399C63.6361 16.5594 37.8668 36.6397 20.9489 63.4794C4.0309 90.3191 -2.97104 122.229 1.15494 153.686C5.28091 185.144 20.2751 214.169 43.5424 235.738L77.341 199.278C62.5792 185.594 53.0662 167.179 50.4485 147.221C47.8309 127.263 52.2732 107.018 63.0067 89.9898C73.7401 72.9616 90.0893 60.2218 109.224 53.9754C128.359 47.7291 149.076 48.3693 167.789 55.7852L186.106 9.56653Z"
-      fill="#CBB8D9"
-    />
-    <g transform="translate(136 136)">
-      <Icon
-        x={-34.5}
-        y={-34.5}
-        width={69}
-        height={69}
-        preserveAspectRatio="xMidYMid meet"
-      />
-    </g>
-  </svg>
-);
+export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
+  const normalizedValue = 100 - Math.max(0, Math.min(100, value));
+  const center = 136;
+  const radius = 95;
+  const strokeWidth = 42;
+  const circumference = 2 * Math.PI * radius;
+  const filledLength = (normalizedValue / 100) * circumference;
+
+  return (
+    <svg
+      viewBox="0 0 272 272"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label={`Graphique en anneau représentant une valeur de ${value}% de femmes pour ce pouvoir`}
+      className={className}
+    >
+      <g transform={`rotate(-90 ${center} ${center})`}>
+        <circle
+          cx={center}
+          cy={center}
+          r={radius}
+          stroke="var(--color-foundations-violet-clair"
+          strokeWidth={strokeWidth}
+          fill="none"
+        />
+        <circle
+          cx={center}
+          cy={center}
+          r={radius}
+          stroke="white"
+          strokeWidth={strokeWidth}
+          strokeDasharray={`${filledLength} ${circumference - filledLength}`}
+          strokeLinecap="butt"
+          fill="none"
+        />
+      </g>
+      <g transform="translate(136 136)">
+        <Icon
+          x={-34.5}
+          y={-34.5}
+          width={69}
+          height={69}
+          preserveAspectRatio="xMidYMid meet"
+        />
+      </g>
+    </svg>
+  );
+};
