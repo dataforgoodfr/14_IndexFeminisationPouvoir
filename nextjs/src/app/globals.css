@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "./globals_utilities.css";
+
+@import "./utilities.css";
+@import "./typography.css";
 
 @theme inline {
   --font-headline: var(--font-oxfam-headline);

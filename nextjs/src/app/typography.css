@@ -1,0 +1,96 @@
+/* ===== Typography Utilities ===== */
+@layer utilities {
+  .header-h {
+    @apply font-lato text-[50px];
+  }
+  .header-h1 {
+    @apply font-headline text-[50px];
+  }
+  .header-h2 {
+    @apply font-lato text-[44px];
+  }
+  .header-h3 {
+    @apply font-lato text-[22px];
+  }
+  .header-h4 {
+    @apply font-lato text-[18px];
+  }
+  .body1-medium {
+    @apply font-lato font-bold text-[16px];
+  }
+  .body1-regular {
+    @apply font-lato font-normal text-[16px];
+  }
+  .body2-medium {
+    @apply font-lato font-bold text-[14px];
+  }
+  .body2-regular {
+    @apply font-lato font-normal text-[14px];
+  }
+  .body3-medium {
+    @apply font-lato font-bold text-[12px];
+  }
+  .body3-regular {
+    @apply font-lato font-normal text-[12px];
+  }
+  .text-chiffre-xl {
+    @apply font-tstar text-[71px] font-bold;
+  }
+  .text-chiffre-l {
+    @apply font-tstar text-[50px] font-bold;
+  }
+  .text-chiffre-s {
+    @apply font-tstar text-[40px] font-bold;
+  }
+  .text-femmes-xl {
+    @apply font-lato text-[21px] font-normal lowercase;
+  }
+  .text-intitule-l {
+    @apply font-tstar text-[24px] uppercase;
+  }
+  .text-intitule-xl {
+    @apply font-tstar text-[33px] uppercase;
+  }
+  .text-femmes-s {
+    @apply font-lato text-[16px] font-normal lowercase;
+  }
+  .text-intitule-s {
+    @apply font-tstar text-[20px] uppercase;
+  }
+  .text-intitule-xs {
+    @apply font-tstar text-[18px];
+  }
+  .text-intitule-m {
+    @apply font-tstar text-[22px] uppercase;
+  }
+  .body4-medium {
+    @apply font-lato text-[24px] font-bold;
+  }
+  .label-medium {
+    @apply font-lato text-[12px] font-bold;
+  }
+  .label-regular {
+    @apply font-lato text-[12px] font-normal;
+  }
+  .button1-semibold {
+    @apply font-headline text-[22px] font-normal;
+  }
+  .button2-semibold {
+    @apply font-tstar text-[20px] font-bold uppercase;
+  }
+  .button3-semibold {
+    @apply font-lato text-[16px] font-bold;
+  }
+  .link1-medium {
+    @apply font-lato text-[16px] font-bold;
+  }
+  .link1-regular {
+    @apply font-lato text-[16px] font-normal;
+  }
+  .link2-medium {
+    @apply font-lato text-[14px] font-bold;
+  }
+  .link2-regular {
+    @apply font-lato text-[14px] font-normal;
+  }
+}

@@ -16,9 +16,4 @@
   .bg-svg-inequal::after {
     @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal.svg)] bg-center bg-no-repeat -z-1 opacity-25;
   }
-
-  /* ===== Typography Utilities ===== */
-  .label-medium {
-    @apply font-lato font-[12px];
-  }
 }

@@ -15,11 +15,10 @@ export const PouvoirFigure = ({
   <div className="flex flex-col  lg:flex-row gap-9">
     <DoughhnutChart value={valeur} className="w-68 h-68" icon={Icon} />
     <div className="flex flex-col justify-center">
-      <span className="text-4xl text-foundations-blanc">
+      <span className="text-chiffre-xl text-foundations-blanc">
         {valeur.toFixed(2)} %
       </span>
-      {/* TODO appliquer typography */}
-      <span className="text-2xl text-foundations-blanc">{texte}</span>
+      <span className="text-femmes-xl text-foundations-blanc">{texte}</span>
       <span className="label-medium text-foundations-blanc">
         {dateMiseàJour.toLocaleDateString("fr-FR", {
           year: "numeric",

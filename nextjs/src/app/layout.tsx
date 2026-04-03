@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={`${OxfamHeadline.variable} ${OxfamTstarPro.variable} ${Lato.variable} antialiased`}
       >
-        <div className="min-h-screen font-lato flex flex-col">
+        <div className="min-h-screen flex flex-col">
           <NextIntlClientProvider>
             <Menu items={navigation} />
             <main className="flex-1 flex flex-col">{children}</main>
