@@ -1,19 +1,19 @@
 /* ===== Typography Utilities ===== */
 @layer utilities {
   .header-h {
-    @apply font-lato text-[50px];
+    @apply font-lato font-black text-[50px];
   }
   .header-h1 {
-    @apply font-headline text-[50px];
+    @apply font-headline text-[45px] lg:text-[50px];
   }
   .header-h2 {
-    @apply font-lato text-[44px];
+    @apply font-lato font-black text-[44px];
   }
   .header-h3 {
-    @apply font-lato text-[22px];
+    @apply font-lato font-black text-[22px];
   }
   .header-h4 {
-    @apply font-lato text-[18px];
+    @apply font-lato font-black text-[18px];
   }
   .body1-medium {
     @apply font-lato font-bold text-[16px];

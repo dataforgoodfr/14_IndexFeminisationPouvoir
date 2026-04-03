@@ -49,6 +49,7 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
           width={69}
           height={69}
           preserveAspectRatio="xMidYMid meet"
+          className="fill-white"
         />
       </g>
     </svg>
