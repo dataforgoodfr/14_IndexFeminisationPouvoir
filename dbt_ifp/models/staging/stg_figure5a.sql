@@ -5,15 +5,22 @@
 {% for year in range(start_year, current_year + 1) %}
 SELECT
     {{ year }} AS annee_partition,
-    id,
-    code_departement,
-    libelle_departement,
-    code_commune,
-    libelle_commune,
-    nom_elu,
-    prenom_elu,
-    genre,
-    date_debut_mandat
+    "__id" as id,
+    "Code du département" as code_departement,
+    "Libellé du département" as libelle_departement,
+    "Code de la collectivité à statut particulier" as code_collectivite_statut_part,
+    "Libellé de la collectivité à statut particulier" as nom_collectivite_statut_part,
+    "Code de la commune" as code_commune,
+    "Libellé de la commune" as libelle_commune,
+    "Nom de l'élu" as nom_elu,
+    "Prénom de l'élu" as prenom_elu,
+    "Code sexe" as genre,
+    "Date de naissance" as date_naissance,
+    "Code de la catégorie socio-professionnelle" as code_csp,
+    "Libellé de la catégorie socio-professionnelle" as libelle_csp,
+    "Date de début du mandat" as date_debut_mandat,
+    "Date de début de la fonction" as date_debut_fonction,
+    source_url
 FROM
     {{ ref('figure5a_' ~ year) }}
 {% if not loop.last %} UNION ALL {% endif %}
