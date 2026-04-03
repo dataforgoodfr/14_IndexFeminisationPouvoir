@@ -1,6 +1,5 @@
 import Link, { type LinkProps } from "next/link";
 import type { HTMLAttributes, JSX } from "react";
-import { Inequal } from "@/components/icons/inequal";
 import { MondeIcon } from "@/components/icons/monde";
 import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
