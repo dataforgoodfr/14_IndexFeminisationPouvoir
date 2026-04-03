@@ -38,6 +38,16 @@ async function fetchRegionData(
       },
     );
   }
+
+  // Convert the departments array into a map: { "region name": percentage, ... }
+  if (dataRegion.departements && Array.isArray(dataRegion.departements)) {
+    dataRegion.departements.forEach(
+      (department: { nom: string; percentage: number }) => {
+        regionMap[department.nom] = department.percentage;
+      },
+    );
+  }
+
   return regionMap;
 }
 
@@ -54,6 +64,7 @@ type MapProjectionProps = {
     percentage: number | string,
   ) => void; // Callback when region is clicked
   colorGradientList?: string[]; // Optional list of colors for gradient
+  selectedRegion?: string; // Name of the selected region
 };
 
 export default function MapProjection({
@@ -64,6 +75,7 @@ export default function MapProjection({
   projectionMethod,
   onRegionClick,
   colorGradientList = ["#F44336", "#FFC107", "#4CAF50", "#4CAF50"],
+  selectedRegion = undefined,
 }: MapProjectionProps) {
   // Store the map reference to draw on
   const mapRef = useRef<HTMLDivElement>(null);
@@ -76,7 +88,7 @@ export default function MapProjection({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  // const colorGradientList = ["#F44336", "#FFC107", "#4CAF50", "#4CAF50"];
+  // ==================== DATA LOADING ====================
 
   // load data function to fetch both GeoJSON and region data
   const loadData = useCallback(async () => {
@@ -139,6 +151,14 @@ export default function MapProjection({
       return "#CCCCCC"; // Default gray if no data
     };
 
+    const getOpacity = (feature: GeoJSON.Feature): string => {
+      const regionName = (feature.properties as GeoJSON.GeoJsonProperties)?.nom;
+      if (selectedRegion && regionName === selectedRegion) {
+        return "1"; // Highlight selected region
+      }
+      return "0.8"; // Default opacity for other regions
+    };
+
     // Check if geoData
     if (!geoData || !mapRef.current || loading) return;
 
@@ -198,6 +218,7 @@ export default function MapProjection({
       .append("path")
       .attr("d", pathGenerator)
       .attr("fill", (feature: GeoJSON.Feature) => getColor(feature))
+      .attr("opacity", (feature: GeoJSON.Feature) => getOpacity(feature))
       .attr("stroke", "white")
       .attr("stroke-width", "0.4px")
       .style("cursor", "pointer")
@@ -226,7 +247,9 @@ export default function MapProjection({
           .text(`${regionName}: ${percentage}%`);
       })
       .on("mouseleave", function () {
-        d3.select(this).style("opacity", "1").style("stroke-width", "0.4px");
+        d3.select(this)
+          .style("opacity", (feature) => getOpacity(feature as GeoJSON.Feature))
+          .style("stroke-width", "0.4px");
         d3.selectAll(".tooltip").remove();
       })
       .on("click", (_event, feature: GeoJSON.Feature) => {
@@ -265,6 +288,7 @@ export default function MapProjection({
     projectionMethod,
     onRegionClick,
     colorGradientList,
+    selectedRegion,
   ]);
 
   useEffect(() => {
