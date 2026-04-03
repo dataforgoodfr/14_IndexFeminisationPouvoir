@@ -8,6 +8,7 @@ type Props = {
 export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
   const normalizedValue = 100 - Math.max(0, Math.min(100, value));
   const center = 136;
+  const startAngle = -90 + 12; // Décalage de 15 degrés pour que le début du graphique soit à 12h05
   const radius = 95;
   const strokeWidth = 42;
   const circumference = 2 * Math.PI * radius;
@@ -21,12 +22,12 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
       aria-label={`Graphique en anneau représentant une valeur de ${value}% de femmes pour ce pouvoir`}
       className={className}
     >
-      <g transform={`rotate(-90 ${center} ${center})`}>
+      <g transform={`rotate(${startAngle} ${center} ${center})`}>
         <circle
           cx={center}
           cy={center}
           r={radius}
-          stroke="var(--color-foundations-violet-clair"
+          stroke="var(--color-foundations-violet-clair)"
           strokeWidth={strokeWidth}
           fill="none"
         />
