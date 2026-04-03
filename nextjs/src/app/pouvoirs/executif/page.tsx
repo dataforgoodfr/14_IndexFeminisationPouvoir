@@ -1,6 +1,6 @@
 import GenderDistributionChart from "@/components/charts/GenderDistributionChart";
 import { Hero } from "@/components/Hero";
-import { FemmeElueIcon } from "@/components/icons/femme-elue";
+import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PageTitle } from "@/components/PageTitle";
 import { PouvoirFigure } from "@/components/PouvoirFigure";
 
@@ -17,12 +17,12 @@ export default function Page() {
     Object.keys(executif).length;
 
   return (
-    <div className="flex flex-col mt-20 gap-8  items-center justify-center ">
+    <>
       <PageTitle title="Pouvoir éxécutif" subtitle="Texte à ajouter" />
       <Hero>
         <PouvoirFigure
           valeur={parite}
-          icon={FemmeElueIcon}
+          icon={PouvoirExecutifIcon}
           dateMiseàJour={new Date()}
           texte="Texte à ajouter"
         />
@@ -66,6 +66,6 @@ export default function Page() {
         </h2>
         <GenderDistributionChart pourcentage={executif.cabinet_gouvernement} />
       </div>
-    </div>
+    </>
   );
 }
