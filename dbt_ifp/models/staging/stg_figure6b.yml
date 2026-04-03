@@ -3,8 +3,13 @@ version: 2
 models:
   - name: stg_figure6b
     description: >
-      Liste des directeurs et directrices de cabinet d'un-e président-e de département en 2025
+      Liste des directeurs et directrices de cabinet d'un-e président-e de département à partir de 2025 (annee_partition -1))
     columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
       - name: id
         description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
         type: TEXT
@@ -25,7 +30,7 @@ models:
       - name: personne_nom
         description: Nom du directeur de cabinet
         type: TEXT
-      - name: personne_genre
+      - name: genre
         description: F or M
         type: TEXT
         data_tests:
