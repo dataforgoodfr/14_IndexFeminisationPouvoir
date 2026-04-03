@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const navigation = [
   { name: "Chiffres clés", href: "/chiffres-cles/", current: true },
-  { name: "Explorer les données", href: "/explorer/", current: false },
+  { name: "Pouvoirs", href: "/pouvoirs/", current: false },
   { name: "Recommandations", href: "/recommandations/", current: false },
   { name: "Méthode de calcul", href: "/methode/", current: false },
 ];
@@ -25,10 +25,10 @@ export default function RootLayout({
       <body
         className={`${OxfamHeadline.variable} ${OxfamTstarPro.variable} ${Lato.variable} antialiased`}
       >
-        <div className="min-h-screen font-lato">
+        <div className="min-h-screen flex flex-col">
           <NextIntlClientProvider>
             <Menu items={navigation} />
-            <main>{children}</main>
+            <main className="flex-1 flex flex-col">{children}</main>
           </NextIntlClientProvider>
         </div>
       </body>

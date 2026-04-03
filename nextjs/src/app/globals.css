@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "./utilities.css";
+@import "./typography.css";
+
 @theme inline {
   --font-headline: var(--font-oxfam-headline);
   --font-tstar: var(--font-oxfam-tstar-pro);
@@ -57,18 +60,16 @@
   --color-foundations-vert-principal: var(
     --color-green-oxfam-500
   ); /* #61A534 */
-  --color-foundations--violet-principal: var(
+  --color-foundations-violet-principal: var(
     --color-purple-oxfam-600
   ); /* #513893 */
-  --color-foundations--violet-clair: var(
-    --color-purple-oxfam-300
-  ); /* #CBB8D9 */
-  --color-foundations--jaune-oxfam: var(--color-yellow-oxfam-400); /* #F2E100 */
-  --color-foundations--viole-tres-clair: var(
+  --color-foundations-violet-clair: var(--color-purple-oxfam-300); /* #CBB8D9 */
+  --color-foundations-jaune-oxfam: var(--color-yellow-oxfam-400); /* #F2E100 */
+  --color-foundations-viole-tres-clair: var(
     --color-purple-oxfam-100
   ); /* #E9ECF7 */
-  --color-foundations--noir: #000000;
-  --color-foundations--jaune-fonce: var(--color-yellow-oxfam-500); /* #D4C128 */
+  --color-foundations-noir: #000000;
+  --color-foundations-jaune-fonce: var(--color-yellow-oxfam-500); /* #D4C128 */
   --color-foundations-gris-fonce: #4a4a4a;
   --color-foundations-blanc: #ffffff;
   --color-foundations-vert-site: #0c9d40;
@@ -122,12 +123,4 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.tooltip {
-  @apply invisible absolute;
-}
-
-.has-tooltip:hover .tooltip {
-  @apply visible z-50;
 }
