@@ -194,8 +194,7 @@ const outreMerMaps = [
 // ==================== COMPONENT ====================
 
 export default function MapPage() {
-
-  const colorGradientListMap = ["#e9ecf7","#513893","#1e0f3c","#1e0f3c"];
+  const colorGradientListMap = ["#e9ecf7", "#513893", "#1e0f3c", "#1e0f3c"];
 
   // State for selected region data
   const [selectedRegion, setSelectedRegion] = useState<{
@@ -245,8 +244,7 @@ export default function MapPage() {
     });
   };
 
-  const addMetropoleToList = () =>
-  {
+  const addMetropoleToList = () => {
     for (const map of metropoleMaps) {
       metropoleProjectionsList.push(
         <MapProjection
@@ -260,8 +258,8 @@ export default function MapPage() {
           colorGradientList={colorGradientListMap}
         />,
       );
-    }    
-  }
+    }
+  };
 
   // Generate MapProjection content for each region
   const metropoleProjectionsList = [];
@@ -299,14 +297,12 @@ export default function MapPage() {
           pathData={departmentMap.pathData}
           projectionMethod={departmentMap.projectionMethod}
           onRegionClick={handleDepartmentClick}
-          selectedRegion={selectedDepartment? selectedDepartment.name : ""}
+          selectedRegion={selectedDepartment ? selectedDepartment.name : ""}
           colorGradientList={colorGradientListMap}
         />,
       );
-    }
-    else
-    {
-      addMetropoleToList();     
+    } else {
+      addMetropoleToList();
     }
 
     selectedRegionHtml = (
