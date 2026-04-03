@@ -16,4 +16,15 @@
   .bg-svg-inequal::after {
     @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal.svg)] bg-center bg-no-repeat -z-1 opacity-25;
   }
+
+  /* Button */
+  .button {
+    @apply h-10 px-3 flex flex-row gap-3 items-center justify-center text-foundations-violet-principal bg-white font-headline;
+  }
+  .button-primary {
+    @apply bg-foundations-violet-principal text-white;
+    & svg {
+      @apply fill-white;
+    }
+  }
 }

@@ -1,19 +1,14 @@
 import { cn } from "@/lib/utils";
 
-type IconProps = React.SVGProps<SVGSVGElement> & {
-  variant?: "light" | "dark";
-};
-export const PouvoirExecutifIcon = ({ variant, ...props }: IconProps) => (
+type IconProps = React.SVGProps<SVGSVGElement> & {};
+export const PouvoirExecutifIcon = ({ ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="76"
     height="70"
     viewBox="0 0 76 70"
     {...props}
-    className={cn(
-      variant === "dark" ? "fill-white" : "fill-foundations-violet-principal",
-      props.className,
-    )}
+    className={cn("fill-foundations-violet-principal", props.className)}
   >
     <title>Pouvoir exécutif</title>
     <g clipPath="url(#clip0_6945_9520)">

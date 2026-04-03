@@ -30,7 +30,7 @@ const PouvoirCard = async ({ pouvoir, score, evolution }: CardProps) => {
   const bgColor = evolution && evolution > 0 ? "bg-green-500" : "bg-red-500";
 
   return (
-    <div className="border-gray-200 border container w-50flex flex-col p-4">
+    <div className="border-gray-200 border container w-50 flex flex-col p-4">
       <div className="text-[16px] text-[#697077]">{t("title")}</div>
       <div className="flex flex-row items-center">
         <div className="flex-1 text-[#21272A] font-bold text-2xl">{score}%</div>
@@ -49,7 +49,7 @@ export default async function Page() {
   const data = await fetchData();
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-65px)]  md:flex-row w-full gap-0 relative overflow-visible">
+    <div className="flex flex-col flex-1 md:flex-row w-full gap-0 relative overflow-visible">
       {/* Left Part */}
       <div className="flex-1 flex flex-col gap-8 bg-[#513893] p-8 lg:px-14 lg:py-24 md:pr-30 relative">
         <h1 className="text-5xl/tight text-[#CBB8D9] uppercase">
@@ -76,8 +76,8 @@ export default async function Page() {
           {/* Image overlaying between Left and Right Part */}
           <div className="mr-4 hidden md:block absolute left-0 top-0 translate-y-1/3 -translate-x-1/2 ">
             <Image
-              src="/images/woman_drawing.svg"
-              alt="divider"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/woman_drawing.svg`}
+              alt=""
               aria-hidden={true}
               width={426}
               height={426}
