@@ -1,15 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-border: #e5e5e5;
-}
+@import "./utilities.css";
+@import "./typography.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter-sans);
+  --font-headline: var(--font-oxfam-headline);
+  --font-tstar: var(--font-oxfam-tstar-pro);
+  --font-lato: var(--font-lato);
+
+  /* Colors Palette */
+  --color-purple-oxfam-50: #f4f3fb;
+  --color-purple-oxfam-100: #e9ecf7;
+  --color-purple-oxfam-200: #ddd0e9;
+  --color-purple-oxfam-300: #cbb8d9;
+  --color-purple-oxfam-400: #8b72be;
+  --color-purple-oxfam-500: #6b52a8;
+  --color-purple-oxfam-600: #513893;
+  --color-purple-oxfam-700: #472d8c;
+  --color-purple-oxfam-800: #3b1f7a;
+  --color-purple-oxfam-900: #2d1660;
+  --color-purple-oxfam-950: #1e0f3c;
+
+  --color-green-oxfam-50: #eef7e5;
+  --color-green-oxfam-100: #dcf0cc;
+  --color-green-oxfam-400: #80bf56;
+  --color-green-oxfam-500: #61a534;
+  --color-green-oxfam-600: #4e8829;
+  --color-green-oxfam-700: #3d6b20;
+
+  --color-orange-oxfam-50: #fef5e8;
+  --color-orange-oxfam-100: #fdecd5;
+  --color-orange-oxfam-400: #f09e45;
+  --color-orange-oxfam-500: #ea8215;
+  --color-orange-oxfam-600: #c96e0d;
+  --color-orange-oxfam-700: #b05c0a;
+
+  --color-yellow-oxfam-50: #fefce8;
+  --color-yellow-oxfam-100: #fcf8cc;
+  --color-yellow-oxfam-300: #f7ec60;
+  --color-yellow-oxfam-400: #f2e100;
+  --color-yellow-oxfam-500: #d4c128;
+  --color-yellow-oxfam-600: #b5a000;
+  --color-yellow-oxfam-700: #8a7d00;
+
+  --color-neutral-0: #fdfcf9;
+  --color-neutral-50: #f5f5fa;
+  --color-neutral-100: #ededf5;
+  --color-neutral-200: #dcdce8;
+  --color-neutral-300: #c4c4d4;
+  --color-neutral-400: #9e9eb4;
+  --color-neutral-500: #7a7a90;
+  --color-neutral-600: #5a5a72;
+  --color-neutral-700: #3d3d55;
+  --color-neutral-800: #2e2e44;
+  --color-neutral-900: #242436;
+  --color-neutral-950: #1a1a2e;
+
+  /* Main Used Colors */
+  --color-foundations-vert-principal: var(
+    --color-green-oxfam-500
+  ); /* #61A534 */
+  --color-foundations-violet-principal: var(
+    --color-purple-oxfam-600
+  ); /* #513893 */
+  --color-foundations-violet-clair: var(--color-purple-oxfam-300); /* #CBB8D9 */
+  --color-foundations-jaune-oxfam: var(--color-yellow-oxfam-400); /* #F2E100 */
+  --color-foundations-viole-tres-clair: var(
+    --color-purple-oxfam-100
+  ); /* #E9ECF7 */
+  --color-foundations-noir: #000000;
+  --color-foundations-jaune-fonce: var(--color-yellow-oxfam-500); /* #D4C128 */
+  --color-foundations-gris-fonce: #4a4a4a;
+  --color-foundations-blanc: #ffffff;
+  --color-foundations-vert-site: #0c9d40;
+  --color-foundations-orange-site: var(--color-orange-oxfam-500); /* #EA8215 */
+  --color-foundations-rouge-principal: #ff003d;
+
+  /* Elements Colors */
+  --color-foreground: #171717;
+
+  --color-background: #ffffff;
+  --color-background-page: #faf9f6;
+  --color-background-surface: var(--color-neutral-0);
+  --color-background-surface-alt: var(--color-neutral-50);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-light: var(--color-neutral-100);
+
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-500);
+
+  --color-brand-primary: var(--color-purple-oxfam-600);
+  --color-brand-hover: var(--color-purple-oxfam-700);
+  --color-brand-light: var(--color-purple-oxfam-100);
+
+  --color-success: var(--color-green-oxfam-500);
+  --color-success-light: var(--color-green-oxfam-50);
+
+  --color-warning: var(--color-orange-oxfam-500);
+  --color-warning-light: var(--color-orange-oxfam-50);
+
+  --color-info: var(--color-yellow-oxfam-500);
+  --color-info-light: var(--color-yellow-oxfam-50);
+
+  --color-dataviz-a: var(--color-purple-oxfam-600);
+  --color-dataviz-b: var(--color-purple-oxfam-400);
+  --color-dataviz-c: var(--color-green-oxfam-500);
+  --color-dataviz-d: var(--color-yellow-oxfam-500);
+  --color-dataviz-e: var(--color-orange-oxfam-500);
+  --color-dataviz-f: var(--color-yellow-oxfam-400);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -20,7 +120,7 @@
 } */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

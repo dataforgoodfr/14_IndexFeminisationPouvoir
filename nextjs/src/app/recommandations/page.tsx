@@ -10,7 +10,7 @@ import { UsersIcon } from "@/components/icons/users";
 
 export default function Recommendations() {
   return (
-    <div className="flex items-center justify-center  font-sans bg-[#F9F9F9]">
+    <div className="flex flex-1 items-center justify-center bg-[#F9F9F9]">
       <div className="flex flex-col max-w-296 items-center justify-between py-12 px-4 gap-8">
         <div className="flex flex-col justify-center text-center w-full gap-2">
           <h1 className="text-2xl">Recommandations</h1>
