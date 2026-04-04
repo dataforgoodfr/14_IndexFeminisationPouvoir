@@ -1,4 +1,4 @@
--- stg_figure6b.sql
+-- stg_figure1a.sql
 {% set start_year = 2026 %}
 {% set current_year = modules.datetime.datetime.now().year %}
 

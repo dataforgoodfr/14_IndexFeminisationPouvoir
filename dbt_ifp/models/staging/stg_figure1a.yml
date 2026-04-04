@@ -3,7 +3,7 @@ version: 2
 models:
   - name: stg_figure1a
     description: >
-      Liste des directeurs et directrices de cabinet d'un-e président-e de département à partir de 2025 (annee_partition -1))
+      Pourcentage de femme au gouvernement
     columns:
       - name: annee_partition
         description: année de la récupération des données
@@ -42,12 +42,11 @@ models:
         description: Libellé du groupe politique de la personne
         type: TEXT
       - name: poste_libelle
-        description: Directrice de cabinet ou Directeur de cabinet
+        description: Nom du poste
         tests:
           - not_null
-          - accepted_values:
-              arguments: 
-                values: ['Directrice de cabinet', 'Directeur de cabinet']        
+          - dbt_utils.expression_is_true:
+              expression: "ILIKE '%ministre%'"
         type: TEXT
       - name: zone_geographique_libelle
         description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
@@ -55,13 +54,13 @@ models:
         data_tests:
           - not_null   
       - name: zone_geographique_type
-        description: toujours "préfecture"
+        description: toujours "gouvernement"
         type: TEXT
         data_tests:
           - not_null
           - accepted_values:
               arguments: 
-                values: ['préfecture']    
+                values: ['gouvernement']    
       - name: source_url
         description: URL de provenance de la données
         type: TEXT
