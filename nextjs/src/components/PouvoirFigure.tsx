@@ -20,7 +20,8 @@ export const PouvoirFigure = ({
       </span>
       <span className="text-femmes-xl text-foundations-blanc">{texte}</span>
       <span className="label-medium text-foundations-blanc">
-        Dernière mise à jour : {dateMiseàJour.toLocaleDateString("fr-FR", {
+        Dernière mise à jour :{" "}
+        {dateMiseàJour.toLocaleDateString("fr-FR", {
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
