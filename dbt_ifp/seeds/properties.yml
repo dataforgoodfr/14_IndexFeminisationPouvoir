@@ -1,14 +1,14 @@
 version: 2
 
 seeds:
-  - name: figure2a
-    config:
-      description: "Liste des député·es récupérée par scraping "
+  - name: figure2a_2026
+    description: "Liste des député·es récupérée par scraping pour l’année 2026 "
 
-  - name: figure2c
-    config:
-      description: "La liste des membres du bureau de l’Assemblée Nationale"
+  - name: figure2c_2026
+    description: "La liste des membres du bureau de l’Assemblée Nationale en 2026"
 
-  - name: figure6a
-    config:
-      description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
+  - name: figure6a_2026
+    description: "Liste des conseillers·ères départementaux·ales récupérée par scraping, pour l’année 2026"
+
+  - name: figure5a_2026
+    description: Liste des hommes et des femmes maires récupérée via l'API du RNE
