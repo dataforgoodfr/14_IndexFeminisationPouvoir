@@ -2,6 +2,12 @@ models:
   - name: stg_figure2c
     description: "La liste des membres du bureau de l’Assemblée Nationale, récupérée par scraping"
     columns:
+      - name: annee_partition
+        data_type: integer
+        description: année de la récupération des données
+        data_tests:
+          - not_null
+
       - name: id
         data_type: text
         description: "L’id de la ligne, généré par hachage du nom et prénom de l’élu·e"

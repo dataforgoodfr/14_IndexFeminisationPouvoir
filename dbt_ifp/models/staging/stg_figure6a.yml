@@ -2,6 +2,12 @@ models:
   - name: stg_figure6a
     description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
     columns:
+      - name: annee_partition
+        data_type: integer
+        description: année de la récupération des données
+        data_tests:
+          - not_null
+
       - name: id
         data_type: integer
         description: "L’id de la ligne"
@@ -85,9 +91,3 @@ models:
       - name: date_debut_fonction
         data_type: date
         description: "La date de début de la fonction de l’élu·e au sein du conseil départemental. Peut être nul "
-
-      - name: source_scraper
-        data_type: text
-        description: "Le nom de la figure source scrapée : 'figure6a' pour ce modèle"
-        data_tests:
-          - not_null
