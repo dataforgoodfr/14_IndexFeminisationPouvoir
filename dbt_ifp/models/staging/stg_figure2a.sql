@@ -5,7 +5,7 @@
 
 select
     {{ year }} as annee_partition,
-    __id as id,
+    md5(__id::text || {{ year }}::text) as id,
     "Code du département" as code_departement,
     "Libellé du département" as nom_departement,
     "Code de la collectivité à statut particulier" as code_collectivite_statut_part,

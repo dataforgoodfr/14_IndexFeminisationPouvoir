@@ -9,7 +9,7 @@ models:
           - not_null
 
       - name: id
-        data_type: integer
+        data_type: text
         description: "L’id de la ligne"
         data_tests:
           - unique

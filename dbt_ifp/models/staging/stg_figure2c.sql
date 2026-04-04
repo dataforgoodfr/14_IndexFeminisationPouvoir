@@ -5,7 +5,7 @@
 
 select
     {{ year }} as annee_partition,
-    md5(personne_prenom || personne_nom || zone_geographique_libelle) as id,
+    md5(personne_prenom || personne_nom || zone_geographique_libelle || {{ year }}::text) as id,
     personne_prenom as prenom_elu,
     personne_nom as nom_elu,
     personne_genre as genre,
