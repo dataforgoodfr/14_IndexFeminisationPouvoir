@@ -42,7 +42,7 @@ models:
         description: Libellé du groupe politique de la personne
         type: TEXT
       - name: poste_libelle
-        description: Type du poste
+        description: Nom du poste
         tests:
           - not_null    
         type: TEXT
