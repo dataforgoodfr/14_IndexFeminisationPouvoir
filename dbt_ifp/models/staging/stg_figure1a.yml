@@ -49,7 +49,7 @@ models:
               expression: "ILIKE '%ministre%'"
         type: TEXT
       - name: zone_geographique_libelle
-        description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
+        description: "Libellé complet du poste (exemple : Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire)"
         type: TEXT
         data_tests:
           - not_null   
