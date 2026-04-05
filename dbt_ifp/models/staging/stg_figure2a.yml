@@ -78,13 +78,13 @@ models:
         data_tests:
           - not_null
 
-      - name: code_categorie_socprof
+      - name: code_csp
         data_type: integer
         description: "Le code de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
           - not_null
 
-      - name: nom_categorie_socprof
+      - name: libelle_csp
         data_type: text
         description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
@@ -95,3 +95,7 @@ models:
         description: "La date de début de mandat de l’élu·e"
         data_tests:
           - not_null
+
+      - name: source_url
+        data_type: text
+        description: "URL de provenance de la donnée"

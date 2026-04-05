@@ -12,7 +12,8 @@ select
     groupe_politique_libelle,
     poste_libelle,
     zone_geographique_libelle,
-    zone_geographique_type
+    zone_geographique_type,
+    source_url
 
 from {{ ref('figure2c_' ~ year) }}
 {% if not loop.last %} union all {% endif %}

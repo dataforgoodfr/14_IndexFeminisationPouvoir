@@ -53,3 +53,6 @@ models:
         description: "Le type de zone géographique dans lequel la personne a été élue (à priori toujours 
         'circonscription')"
 
+      - name: source_url
+        data_type: text
+        description: "URL de provenance de la donnée"
