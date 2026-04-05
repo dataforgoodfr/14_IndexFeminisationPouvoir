@@ -25,7 +25,6 @@ def parse_arguments():
     Arguments :
         --storage (str) : Destination des exports ('local', 's3' ou 'both').
         --all-spiders : Lance tous les spiders du projet (activé par défaut).
-        --no-all-spiders : Désactive le lancement de tous les spiders.
         --spiders (list) : Liste spécifique des noms de spiders à lancer.
 
     Returns:
