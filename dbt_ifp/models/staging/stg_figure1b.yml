@@ -42,12 +42,12 @@ models:
         description: Libellé du groupe politique de la personne
         type: TEXT
       - name: poste_libelle
-        description: Directrice de cabinet ou Directeur de cabinet
+        description: Type du poste
         tests:
           - not_null    
         type: TEXT
       - name: zone_geographique_libelle
-        description: "Type de poste"
+        description: Libellé du poste
         type: TEXT
         data_tests:
           - not_null  
