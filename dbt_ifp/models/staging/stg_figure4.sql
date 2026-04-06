@@ -10,8 +10,8 @@ select
     "Prénom de l'élu" as prenom_elu,
     "Code sexe" as genre,
     "Date de naissance" as date_naissance,
-    "Code de la catégorie socio-professionnelle" as code_categorie_socprof,
-    "Libellé de la catégorie socio-professionnelle" as nom_categorie_socprof,
+    "Code de la catégorie socio-professionnelle" as code_csp,
+    "Libellé de la catégorie socio-professionnelle" as libelle_csp,
     "Date de début du mandat" as date_debut_mandat,
     source_url
 from
