@@ -3,7 +3,7 @@ import type { ComponentType, SVGProps } from "react";
 type Props = {
   value: number;
   className?: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
   const normalizedValue = 100 - Math.max(0, Math.min(100, value));
@@ -42,7 +42,7 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
           fill="none"
         />
       </g>
-      <g transform="translate(136 136)">
+      {Icon && <g transform="translate(136 136)">
         <Icon
           x={-34.5}
           y={-34.5}
@@ -51,7 +51,7 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
           preserveAspectRatio="xMidYMid meet"
           className="fill-white"
         />
-      </g>
+      </g>}
     </svg>
   );
 };
