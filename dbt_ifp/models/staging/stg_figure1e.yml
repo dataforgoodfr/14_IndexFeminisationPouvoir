@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: stg_figure1e
+    description: >
+      Pourcentage de de femmes dirigeant un cabinet au sein du gouvernement
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+      - name: id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        type: TEXT
+        data_tests:
+          - not_null
+          - unique
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Mme', 'M.']
+      - name: personne_prenom
+        description: Prénom du directeur de cabinet
+        type: TEXT
+      - name: personne_nom
+        description: Nom du directeur de cabinet
+        type: TEXT
+      - name: genre
+        description: F or M
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['F', 'M']
+      - name: groupe_politique_libelle
+        description: Libellé du groupe politique de la personne
+        type: TEXT
+      - name: poste_libelle
+        description: Directrice du cabinet ou Directeur de cabinet
+        tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Directrice du cabinet','Directrice de cabinet', 'Directeur de cabinet','Directeur du cabinet']        
+        type: TEXT
+      - name: nom_cabinet
+        description: nom du complet du cabinet
+        type: TEXT
+        data_tests:
+          - not_null   
+      - name: source_url
+        description: URL de provenance de la données
+        type: TEXT
