@@ -1,24 +1,63 @@
 import { DoughhnutChart } from "./charts/DoughnutChart";
-import { PouvoirLocalIcon } from './icons/pouvoir-local';
+
+type EvolutionBadgeProps = { value: number };
+const EvolutionBadge = ({ value }: EvolutionBadgeProps) => {
+  const label = `${value > 0 ? "+" : ""}${value}%`;
+  const colorClass =
+    value >= 0 ? "bg-green-oxfam-500" : "bg-foundations-rouge-principal";
+  return (
+    <span
+      className={`${colorClass} text-white text-xs font-bold px-2 py-0.5 rounded`}
+    >
+      {label}
+    </span>
+  );
+};
 
 export type PouvoirFigureMiniProps = {
   valeur: number;
-  texte: React.ReactNode;
-  subtexte: React.ReactNode;
+  /** Affiché en majuscules, e.g. "présidant une région" */
+  role: string;
+  annee?: number;
+  evolution?: number;
 };
+
 export const PouvoirFigureMini = ({
   valeur,
-  texte,
-  subtexte,
-}: PouvoirFigureMiniProps) => (
-  <div className="flex flex-col  lg:flex-row gap-9">
-    <DoughhnutChart value={valeur} className="w-32 h-32" icon={PouvoirLocalIcon} />
-    <div className="flex flex-col justify-center">
-      <span className="text-chiffre-xl text-foundations-violet">
-        {valeur.toFixed(2)} %
-      </span>
-      <span className="text-femmes-xl text-foundations-violet">{texte}</span>
-      <span className="text-femmes-xl text-foundations-violet">{subtexte}</span>
+  role,
+  annee,
+  evolution,
+}: PouvoirFigureMiniProps) => {
+  const anneeAffichee = annee ?? new Date().getFullYear();
+  const pourcentageFormate = valeur.toLocaleString("fr-FR", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 1,
+  });
+
+  return (
+    <div className="flex flex-row gap-9 items-center">
+      <DoughhnutChart
+        value={valeur}
+        className="w-[110px] h-[110px] shrink-0"
+        variant="light"
+      />
+      <div className="flex flex-col justify-center">
+        <div className="flex flex-row items-start gap-2">
+          <span className="text-chiffre-l text-purple-oxfam-600 leading-none">
+            {pourcentageFormate}%
+          </span>
+          {evolution !== undefined && <EvolutionBadge value={evolution} />}
+        </div>
+        <span className="text-femmes-xl text-purple-oxfam-600 lowercase">
+          de femmes
+        </span>
+        <span className="header-h3 text-purple-oxfam-600 uppercase">
+          {role}
+        </span>
+        <span className="header-h3 text-purple-oxfam-600 uppercase">
+          en {anneeAffichee}
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};

@@ -21,7 +21,10 @@
   "local": {
     "evolution": 2.5,
     "score": 24.7,
-    "composantes": {}
+    "composantes": {
+      "presidentesRegion": 29.4,
+      "directricesCabinetRegion": 25.0
+    }
   },
   "autre": {
     "score": 19.8,
