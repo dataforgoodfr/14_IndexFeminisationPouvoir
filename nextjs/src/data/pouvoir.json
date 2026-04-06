@@ -23,7 +23,12 @@
     "score": 24.7,
     "composantes": {
       "presidentesRegion": 29.4,
-      "directricesCabinetRegion": 25.0
+      "directricesCabinetRegion": 25.0,
+      "presidentsDepartement": 20.8,
+      "directricesCabinetDepartement": 34.3,
+      "maires": 20.8,
+      "mairesPrefecture": 16.8,
+      "directricesCabinetMairiesPrefecture": 34.3
     }
   },
   "autre": {

@@ -36,8 +36,43 @@ export default function Page() {
             },
           ]}
         />
-        <CollectiviteLocaleBlock titre="Départements" stats={[]} />
-        <CollectiviteLocaleBlock titre="Communes" stats={[]} />
+        <CollectiviteLocaleBlock
+          titre="Départements"
+          dateMiseAJour={new Date("2025-01-01")}
+          stats={[
+            {
+              valeur: composantes.presidentsDepartement,
+              role: "présidant un département",
+              annee: 2025,
+            },
+            {
+              valeur: composantes.directricesCabinetDepartement,
+              role: "directrices de cabinet d'un.e président.e de département",
+              annee: 2025,
+            },
+          ]}
+        />
+        <CollectiviteLocaleBlock
+          titre="Communes"
+          dateMiseAJour={new Date("2025-01-01")}
+          stats={[
+            {
+              valeur: composantes.maires,
+              role: "maires",
+              annee: 2025,
+            },
+            {
+              valeur: composantes.mairesPrefecture,
+              role: "maires de préfecture",
+              annee: 2025,
+            },
+            {
+              valeur: composantes.directricesCabinetMairiesPrefecture,
+              role: "directrices de cabinet des mairies de préfecture",
+              annee: 2025,
+            },
+          ]}
+        />
       </div>
     </>
   );
