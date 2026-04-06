@@ -5,10 +5,10 @@ type Props = {
   className?: string;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
   /**
-   * "dark" (default): designed for dark/purple backgrounds — track is violet-clair,
-   * the non-women arc is erased with white to reveal the track color for women.
-   * "light": designed for white backgrounds — track is violet-très-clair,
-   * the women arc is drawn in violet-principal.
+   * "dark" (défaut) : conçu pour les fonds sombres/violets — la piste est violet-clair,
+   * l'arc non-femmes est effacé en blanc pour révéler la couleur de piste pour les femmes.
+   * "light" : conçu pour les fonds blancs — la piste est violet-très-clair,
+   * l'arc femmes est tracé en violet-principal.
    */
   variant?: "dark" | "light";
 };
@@ -33,8 +33,8 @@ export const DoughhnutChart = ({
   const arcColor =
     variant === "light" ? "var(--color-foundations-violet-principal)" : "white";
 
-  // dark: overlay erases (100-value)% starting from top → women portion = violet-clair arc
-  // light: overlay draws value% starting from top → women portion = violet-principal arc
+  // dark : l'overlay efface (100-valeur)% depuis le haut → portion femmes = arc violet-clair
+  // light : l'overlay trace valeur% depuis le haut → portion femmes = arc violet-principal
   const arcLength =
     variant === "light"
       ? (clampedValue / 100) * circumference
