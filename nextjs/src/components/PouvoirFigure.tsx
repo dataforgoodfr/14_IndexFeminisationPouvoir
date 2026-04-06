@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode, SVGProps } from "react";
-import { DoughhnutChart } from "./charts/DoughnutChart";
+import { DoughnutChart } from "./charts/DoughnutChart";
 
 type BaseProps = { valeur: number };
 
@@ -44,7 +44,7 @@ export const PouvoirFigure = (props: PouvoirFigureProps) => {
     });
     return (
       <div className="flex flex-row gap-9 items-center">
-        <DoughhnutChart
+        <DoughnutChart
           value={valeur}
           className="w-[110px] h-[110px] shrink-0"
           variant="light"
@@ -74,7 +74,7 @@ export const PouvoirFigure = (props: PouvoirFigureProps) => {
   const { icon: Icon, dateMiseàJour, texte } = props;
   return (
     <div className="flex flex-col lg:flex-row gap-9">
-      <DoughhnutChart value={valeur} className="w-68 h-68" icon={Icon} />
+      <DoughnutChart value={valeur} className="w-68 h-68" icon={Icon} />
       <div className="flex flex-col justify-center">
         <span className="text-chiffre-xl text-foundations-blanc">
           {valeur.toFixed(2)} %

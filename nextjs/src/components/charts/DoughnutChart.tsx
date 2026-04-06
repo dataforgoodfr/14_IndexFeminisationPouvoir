@@ -12,7 +12,7 @@ type Props = {
    */
   variant?: "dark" | "light";
 };
-export const DoughhnutChart = ({
+export const DoughnutChart = ({
   value,
   className,
   icon: Icon,
