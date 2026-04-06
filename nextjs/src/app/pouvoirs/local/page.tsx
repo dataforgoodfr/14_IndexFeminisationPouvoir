@@ -1,8 +1,8 @@
+import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
 import { Hero } from "@/components/Hero";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PageTitle } from "@/components/PageTitle";
 import { PouvoirFigure } from "@/components/PouvoirFigure";
-import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
 import pouvoirData from "@/data/pouvoir.json";
 
 const { score, composantes } = pouvoirData.local;
