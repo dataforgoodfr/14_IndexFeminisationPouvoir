@@ -1,4 +1,4 @@
-import { PouvoirFigure } from "./PouvoirFigure";
+import { PouvoirFigureMini } from "./PouvoirFigureMini";
 
 export type StatConfig = {
   valeur: number;
@@ -33,8 +33,7 @@ export const CollectiviteLocaleBlock = ({
             {i > 0 && (
               <div className="border-t border-dashed border-purple-oxfam-300 my-5" />
             )}
-            <PouvoirFigure
-              variant="mini"
+            <PouvoirFigureMini
               valeur={stat.valeur}
               role={stat.role}
               annee={stat.annee}
