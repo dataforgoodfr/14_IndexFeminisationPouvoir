@@ -48,8 +48,8 @@ models:
           - dbt_utils.expression_is_true:
               expression: "ILIKE '%ministre%'"
         type: TEXT
-      - name: zone_geographique_libelle
-        description: "Libellé complet du poste (exemple : Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire)"
+      - name: nom_ministere
+        description: "Libellé du ministère (exemple : Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire)"
         type: TEXT
         data_tests:
           - not_null   
