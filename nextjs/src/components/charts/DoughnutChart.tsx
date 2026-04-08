@@ -3,16 +3,42 @@ import type { ComponentType, SVGProps } from "react";
 type Props = {
   value: number;
   className?: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  /**
+   * "dark" (défaut) : conçu pour les fonds sombres/violets — la piste est violet-clair,
+   * l'arc non-femmes est effacé en blanc pour révéler la couleur de piste pour les femmes.
+   * "light" : conçu pour les fonds blancs — la piste est violet-très-clair,
+   * l'arc femmes est tracé en violet-principal.
+   */
+  variant?: "dark" | "light";
 };
-export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
-  const normalizedValue = 100 - Math.max(0, Math.min(100, value));
+export const DoughnutChart = ({
+  value,
+  className,
+  icon: Icon,
+  variant = "dark",
+}: Props) => {
+  const clampedValue = Math.max(0, Math.min(100, value));
   const center = 136;
   const startAngle = -90 + 12; // Décalage de 15 degrés pour que le début du graphique soit à 12h05
   const radius = 95;
   const strokeWidth = 42;
   const circumference = 2 * Math.PI * radius;
-  const filledLength = (normalizedValue / 100) * circumference;
+
+  const trackColor =
+    variant === "light"
+      ? "var(--color-foundations-violet-tres-clair)"
+      : "var(--color-foundations-violet-clair)";
+
+  const arcColor =
+    variant === "light" ? "var(--color-foundations-violet-principal)" : "white";
+
+  // dark : l'overlay efface (100-valeur)% depuis le haut → portion femmes = arc violet-clair
+  // light : l'overlay trace valeur% depuis le haut → portion femmes = arc violet-principal
+  const arcLength =
+    variant === "light"
+      ? (clampedValue / 100) * circumference
+      : ((100 - clampedValue) / 100) * circumference;
 
   return (
     <svg
@@ -27,7 +53,7 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
           cx={center}
           cy={center}
           r={radius}
-          stroke="var(--color-foundations-violet-clair)"
+          stroke={trackColor}
           strokeWidth={strokeWidth}
           fill="none"
         />
@@ -35,23 +61,25 @@ export const DoughhnutChart = ({ value, className, icon: Icon }: Props) => {
           cx={center}
           cy={center}
           r={radius}
-          stroke="white"
+          stroke={arcColor}
           strokeWidth={strokeWidth}
-          strokeDasharray={`${filledLength} ${circumference - filledLength}`}
+          strokeDasharray={`${arcLength} ${circumference - arcLength}`}
           strokeLinecap="butt"
           fill="none"
         />
       </g>
-      <g transform="translate(136 136)">
-        <Icon
-          x={-34.5}
-          y={-34.5}
-          width={69}
-          height={69}
-          preserveAspectRatio="xMidYMid meet"
-          className="fill-white"
-        />
-      </g>
+      {Icon && (
+        <g transform="translate(136 136)">
+          <Icon
+            x={-34.5}
+            y={-34.5}
+            width={69}
+            height={69}
+            preserveAspectRatio="xMidYMid meet"
+            className="fill-white"
+          />
+        </g>
+      )}
     </svg>
   );
 };
