@@ -291,14 +291,51 @@ class Figure1cSpider(BaseAnnuaireSpider):
 
 
 # Membres du cabinet du premier ministre
+# NB: on utilise la hiérarchie pour récupérer tous les pôles rattachés au cabinet
 class Figure1dSpider(BaseAnnuaireSpider):
     name = "figure1d"
 
     where = 'nom="Cabinet du Premier ministre"'
+    zone_geographique_type = ""
     stop_at_one = False
 
     def matchFonction(self, fonction: str, nom_organisme: str):
+        # On prend toutes les fonctions au sein du cabinet et de ses pôles
         return True
+
+    def getZoneGeographiqueLibelle(self, result: dict):
+        # Récupère dynamiquement le nom de l'entité (ex: "Cabinet du Premier ministre"
+        # ou "Pôle parlementaire", "Pôle diplomatique", etc.)
+        return result.get("nom", "")
+
+    async def parse(self, response: TextResponse, **kwargs):
+        json_response = response.json()
+        results = json_response.get("results", [])
+
+        for result in results:
+            # 1. On extrait d'abord les membres rattachés directement à l'entité principale ou au pôle
+            for item in self.parse_personne(result):
+                yield item
+
+            # 2. On inspecte la hiérarchie pour trouver d'éventuels sous-services (les pôles)
+            hierarchie = json.loads(result.get("hierarchie", "[]") or "[]")
+
+            if len(hierarchie) == 0:
+                continue
+
+            # 3. On extrait les identifiants de ces sous-entités
+            ids = map(lambda x: x.get("service"), hierarchie)
+
+            # 4. On prépare une nouvelle requête pour aller chercher le contenu de ces identifiants
+            params = self.params.copy()
+            params["where"] = f"id in ({','.join(map(addQuotes, ids))})"
+            url = f"{self.start_urls[0]}?{urlencode(params)}"
+
+            yield scrapy.Request(
+                url=url,
+                # On boucle sur la même méthode parse pour extraire les personnes de ces pôles
+                callback=self.parse,
+            )
 
 
 # Directrices de cabinet au sein du gouvernement
