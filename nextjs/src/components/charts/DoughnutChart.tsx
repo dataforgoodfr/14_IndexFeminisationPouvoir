@@ -27,7 +27,7 @@ export const DoughnutChart = ({
 
   const trackColor =
     variant === "light"
-      ? "var(--color-foundations-viole-tres-clair)"
+      ? "var(--color-foundations-violet-tres-clair)"
       : "var(--color-foundations-violet-clair)";
 
   const arcColor =

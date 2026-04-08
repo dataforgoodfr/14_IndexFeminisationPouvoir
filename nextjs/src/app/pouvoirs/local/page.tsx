@@ -5,7 +5,7 @@ import { PageTitle } from "@/components/PageTitle";
 import { PouvoirFigure } from "@/components/PouvoirFigure";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, composantes } = pouvoirData.local;
+const { score, collectivites } = pouvoirData.local;
 
 export default function Page() {
   return (
@@ -20,59 +20,14 @@ export default function Page() {
         />
       </Hero>
       <div className="p-8 flex flex-col gap-8">
-        <CollectiviteLocaleBlock
-          titre="Régions"
-          dateMiseAJour={new Date("2025-01-01")}
-          stats={[
-            {
-              valeur: composantes.presidentesRegion,
-              role: "présidant une région",
-              annee: 2025,
-            },
-            {
-              valeur: composantes.directricesCabinetRegion,
-              role: "directrices de cabinet d'un.e président.e de région",
-              annee: 2025,
-            },
-          ]}
-        />
-        <CollectiviteLocaleBlock
-          titre="Départements"
-          dateMiseAJour={new Date("2025-01-01")}
-          stats={[
-            {
-              valeur: composantes.presidentsDepartement,
-              role: "présidant un département",
-              annee: 2025,
-            },
-            {
-              valeur: composantes.directricesCabinetDepartement,
-              role: "directrices de cabinet d'un.e président.e de département",
-              annee: 2025,
-            },
-          ]}
-        />
-        <CollectiviteLocaleBlock
-          titre="Communes"
-          dateMiseAJour={new Date("2025-01-01")}
-          stats={[
-            {
-              valeur: composantes.maires,
-              role: "maires",
-              annee: 2025,
-            },
-            {
-              valeur: composantes.mairesPrefecture,
-              role: "maires de préfecture",
-              annee: 2025,
-            },
-            {
-              valeur: composantes.directricesCabinetMairiesPrefecture,
-              role: "directrices de cabinet des mairies de préfecture",
-              annee: 2025,
-            },
-          ]}
-        />
+        {collectivites.map(({ titre, annee, dateMiseAJour, stats }) => (
+          <CollectiviteLocaleBlock
+            key={titre}
+            titre={titre}
+            dateMiseAJour={new Date(dateMiseAJour)}
+            stats={stats.map((stat) => ({ ...stat, annee }))}
+          />
+        ))}
       </div>
     </>
   );
