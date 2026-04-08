@@ -400,53 +400,46 @@ class Figure1eSpider(BaseAnnuaireSpider):
             yield from self.parse_personne(cabinet)
 
 
-# Directrices de cabinet d'un.e président-e de département
+# Toutes les personnes rattachées à un Conseil départemental, avec lien vers l'organigramme
+# Nous n'avons pas trouvé de moyen efficace pour extraire les directeurs de cabinet et les DGS à partir
+# des données fournies par l'API. On ajoute cependant l'URL de l'organigramme pour chaque conseil départemental.
 class Figure6bSpider(BaseAnnuaireSpider):
     name = "figure6b"
 
-    where = 'type_organisme="Préfecture, sous-préfecture"'
-    fonctions = ["Directeur de cabinet", "Directrice de cabinet"]
+    where = 'type_organisme="Collectivité locale" and startswith(nom, "Conseil départemental")'
+    zone_geographique_type = "département"
+    stop_at_one = False
 
-    zone_geographique_type = "préfecture"
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # On copie les paramètres de base pour ne pas polluer les autres spiders
+        self.params = super().params.copy()
+        # On AJOUTE 'organigramme' à la liste des champs demandés à l'API !
+        self.params["select"] += ",organigramme"
 
-    def getZoneGeographiqueLibelle(self, result: dict):
-        return prefectures.get(result.get("code_insee_commune", ""), "")
-
-
-# Directrices de cabinet d'un.e président-e de région
-class Figure7bSpider(BaseAnnuaireSpider):
-    name = "figure7b"
-
-    noms_organismes = [
-        "Collectivité de Corse",
-        "Collectivité territoriale de Guyane",
-        "Collectivité territoriale de Martinique",
-    ]
-
-    where = (
-        f'type_organisme="Collectivité locale" and (nom like "Conseil régional - " '
-        f"or nom in ({','.join(map(addQuotes, noms_organismes))}))"
-    )
-
-    fonctions = [
-        "Directeur de cabinet",
-        "Directeur du cabinet",
-        "Directrice de cabinet",
-        "Directrice du cabinet",
-        "Directeur général des services",
-        "Directrice générale des services",
-        "Directeur général des services (DGS)",
-        "Directrice générale des services (DGS)",
-    ]
-
-    zone_geographique_type = "région"
+    def matchFonction(self, fonction: str, nom_organisme: str):
+        # On prend tout le monde
+        return True
 
     def getZoneGeographiqueLibelle(self, result: dict):
-        return (
-            result.get("nom", "")
-            .replace("Conseil régional - ", "")
-            .replace("Collectivité de Corse", "Corse")
-        )
+        return result.get("nom", "").replace("Conseil départemental - ", "").strip()
+
+    def parse_personne(self, result: dict):
+        # 1. Extraction sécurisée de l'URL de l'organigramme
+        # On utilise le 'or "[]"' que tu connais bien maintenant !
+        orga_data = json.loads(result.get("organigramme", "[]") or "[]")
+
+        url_organigramme = ""
+        if len(orga_data) > 0:
+            # On récupère la valeur de la clé 'valeur' dans le premier élément de la liste
+            url_organigramme = orga_data[0].get("valeur", "")
+
+        # 2. On fait tourner la mécanique de base pour extraire les personnes
+        for item in super().parse_personne(result):
+            # L'item est un dictionnaire, on lui ajoute simplement notre nouvelle colonne
+            item["url_organigramme"] = url_organigramme
+
+            yield item
 
 
 # Hautes juridictions
