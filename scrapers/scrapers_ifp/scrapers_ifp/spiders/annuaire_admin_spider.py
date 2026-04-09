@@ -476,7 +476,21 @@ class Figure9Spider(BaseAnnuaireSpider):
     name = "figure9"
 
     where = 'type_organisme="Préfecture, sous-préfecture"'
-    fonctions = ["Préfet", "Préfète"]
+    # Il faudrait creuser les désignations des représentants de l'État dans les territoires d'Outre-mer,
+    # qui varient selon les territoires. Et ne sont peut-être pas très stables dans le temps !
+    fonctions = [
+        "Préfet",
+        "Préfète",
+        "Préfet de région",
+        "Préfète de région",
+        "Préfet délégué",
+        "Préfète déléguée",
+        "Représentant de l'État",
+        "Représentante de l'État",
+        "Haut-commissaire de la République",
+        "Haut-commissaire de la République, haut fonctionnaire de zone de défense et de sécurité Nouvelle-Calédonie",
+        "Préfet de la région Guyane, préfet de la Guyane",
+    ]
 
     zone_geographique_type = "préfecture"
 
