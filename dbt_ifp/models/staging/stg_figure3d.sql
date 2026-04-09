@@ -9,8 +9,10 @@ SELECT
     personne_prenom,
     personne_nom,
     personne_genre AS genre,
-    groupe_politique_libelle,
-    poste_libelle
+
+    --the fields are swapped in the csv file
+    groupe_politique_libelle as poste_libelle,
+    poste_libelle as groupe_politique_libelle
 FROM
     {{ ref('figure3d_' ~ year) }}
 {% if not loop.last %} UNION ALL {% endif %}

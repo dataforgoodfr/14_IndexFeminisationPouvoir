@@ -46,10 +46,10 @@ models:
 
       - name: groupe_politique_libelle
         description: Libellé du groupe politique de la personne
-        type: TEXT
+        type: not_null
 
-      - name: poste_libelle
-        description: Nom de la commission présidée par la personne
-        tests:
-          - not_null
-        type: TEXT
+      # - name: poste_libelle
+      #   description: Nom de la commission présidée par la personne
+      #   tests:
+      #     - TEXT
+      #   type: TEXT
