@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_figma_figma__get_design_context",
+      "Bash(curl -s -o reco-icon-1.png \"https://www.figma.com/api/mcp/asset/882c5de4-1e4b-41ab-8430-81453bb27933\")",
+      "Bash(curl -s -o reco-icon-2.png \"https://www.figma.com/api/mcp/asset/896c4296-44f5-42dc-b643-027398e33cdd\")",
+      "Bash(curl -s -o reco-icon-3.png \"https://www.figma.com/api/mcp/asset/bde52342-ace9-4343-8cf3-db1d552ab6da\")",
+      "Bash(curl -s -o reco-icon-4.png \"https://www.figma.com/api/mcp/asset/d68c06e8-225c-4029-9d36-3ce10bd10aea\")",
+      "Bash(curl -s -o reco-icon-5.png \"https://www.figma.com/api/mcp/asset/51195009-34a1-4356-8ea7-02730d2d41ea\")",
+      "Bash(ls *.svg)",
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(npm install:*)",
+      "Bash(grep:*)",
+      "Bash(git stash:*)",
+      "Bash(./node_modules/.bin/biome check:*)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(kill 71222)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git remote:*)"
+    ]
+  }
+}

@@ -22,31 +22,31 @@ const EVOLUTION_FILTERS = [
 
 const RECOMMENDATIONS = [
   {
-    iconSrc: "/images/reco-icon-1.svg",
+    color: "#F2E100",
     title: "Cadre législatif",
     description:
       "Renforcer les quotas de parité dans les instances décisionnelles et sanctionner le non-respect des obligations légales.",
   },
   {
-    iconSrc: "/images/reco-icon-2.svg",
+    color: "#513893",
     title: "Formation & mentorat",
     description:
       "Développer des programmes de formation et de mentorat pour préparer les femmes à accéder aux postes de décision.",
   },
   {
-    iconSrc: "/images/reco-icon-3.svg",
+    color: "#61A534",
     title: "Culture organisationnelle",
     description:
       "Transformer les cultures organisationnelles pour éliminer les biais de genre et favoriser un environnement inclusif.",
   },
   {
-    iconSrc: "/images/reco-icon-4.svg",
+    color: "#EA8215",
     title: "Transparence & données",
     description:
       "Améliorer la collecte et la publication de données sexuées pour mesurer les progrès et identifier les obstacles.",
   },
   {
-    iconSrc: "/images/reco-icon-5.svg",
+    color: "#05A5D2",
     title: "Engagements volontaires",
     description:
       "Encourager les organisations à prendre des engagements volontaires en faveur de la parité et à en rendre compte.",
