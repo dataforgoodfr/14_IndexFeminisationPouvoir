@@ -167,4 +167,4 @@ scrapers/scrapers_ifp/data/*
 # Sauf le fichier .gitkeep pour conserver data vide dans le repo
 !scrapers/scrapers_ifp/data/.gitkeep
 
-.DS_Store
+.DS_Store.claude/settings.local.json
