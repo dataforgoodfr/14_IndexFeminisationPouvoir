@@ -44,9 +44,15 @@ models:
       - name: zone_geographique_libelle
         description: Lieu d'exercice de la personne qui préside la haute juridiction
         data_type: TEXT 
+        data_tests:
+          - not_null
       - name: zone_geographique_type
         description: Type de pouvoir - Toujours "haute juridiction"
         data_type: TEXT  
+        data_tests:
+          - not_null
       - name: source_url
         description: URL de provenance de la donnée
         data_type: TEXT
+        data_tests:
+          - not_null
