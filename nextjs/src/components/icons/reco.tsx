@@ -9,6 +9,8 @@ export const RecoIcon = ({ color = "#513893", ...props }: IconProps) => (
     viewBox="0 0 81 81"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
     {...props}
   >
     <path d="m80.3127 0h-80.3127v80.3127h80.3127z" fill={color} />

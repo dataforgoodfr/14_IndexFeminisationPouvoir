@@ -91,7 +91,7 @@ export default function Home() {
             Les pouvoirs
           </Link>
           <Link
-            href="/rapport"
+            href="/recommandations"
             className="button font-headline flex gap-3 items-center"
           >
             <BookIcon />
