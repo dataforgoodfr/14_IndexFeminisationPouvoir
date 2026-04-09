@@ -12,3 +12,12 @@ seeds:
 
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
+  
+  - name: figure5b_2026
+    description: Liste des hommes et des femmes maires des préfectures en 2025
+
+  - name: figure3d_2026
+    description: Liste des hommes et des femmes présidant un groupe au sénat en 2025
+  
+  - name: figure7b_2026
+    description: Liste des hommes et des femmes dirigeant un cabinet de région en 2025
