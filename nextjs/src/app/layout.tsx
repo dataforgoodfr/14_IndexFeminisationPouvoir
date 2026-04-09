@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import { Footer } from "@/components/Footer";
 import { Menu } from "@/components/menu";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
           <NextIntlClientProvider>
             <Menu items={navigation} />
             <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
           </NextIntlClientProvider>
         </div>
       </body>
