@@ -490,6 +490,9 @@ class Figure9Spider(BaseAnnuaireSpider):
         "Haut-commissaire de la République",
         "Haut-commissaire de la République, haut fonctionnaire de zone de défense et de sécurité Nouvelle-Calédonie",
         "Préfet de la région Guyane, préfet de la Guyane",
+        "Préfet, administrateur supérieur des Terres australes et antarctiques françaises",
+        "Haut-commissaire de la République, haut fonctionnaire de zone de défense et de sécurité Polynésie française",
+        "Préfet, administrateur supérieur",
     ]
 
     zone_geographique_type = "préfecture"
