@@ -3,12 +3,10 @@ import sys
 import os
 
 # Ajout du chemin pour importer run_spiders
-sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../scrapers_tmp"))
-)
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from scrapers.scrapers_tmp.run_spiders import parse_arguments, SpiderOrchestrator
-from scrapers.scrapers_tmp.scrapers_ifp.settings_manager import (
+from run_spiders import parse_arguments, SpiderOrchestrator
+from scrapers.scrapers_ifp.settings_manager import (
     S3ConfigurationError,
     validate_s3_credentials,
 )
@@ -29,19 +27,19 @@ def test_orchestrator_configures_feeds_local(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.SpiderLoader.from_settings",
+        "run_spiders.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.AsyncCrawlerProcess",
+        "run_spiders.AsyncCrawlerProcess",
         return_value=mock_process,
     )
 
     # Mock de configure_logging pour éviter les effets de bord
-    mocker.patch("scrapers.scrapers_tmp.run_spiders.configure_logging")
+    mocker.patch("run_spiders.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -75,17 +73,17 @@ def test_orchestrator_configures_feeds_s3(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.SpiderLoader.from_settings",
+        "run_spiders.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.AsyncCrawlerProcess",
+        "run_spiders.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_tmp.run_spiders.configure_logging")
+    mocker.patch("run_spiders.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -124,17 +122,17 @@ def test_orchestrator_configures_feeds_both(mocker):
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.SpiderLoader.from_settings",
+        "run_spiders.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.AsyncCrawlerProcess",
+        "run_spiders.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_tmp.run_spiders.configure_logging")
+    mocker.patch("run_spiders.configure_logging")
 
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
@@ -227,17 +225,17 @@ def test_orchestrator_filters_spiders(mocker):
     mock_loader.list.return_value = ["exists", "other"]
     mock_loader.load.return_value = MockSpider
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.SpiderLoader.from_settings",
+        "run_spiders.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.AsyncCrawlerProcess",
+        "run_spiders.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_tmp.run_spiders.configure_logging")
+    mocker.patch("run_spiders.configure_logging")
     mock_process.start.return_value = None
 
     orchestrator = SpiderOrchestrator(
@@ -256,17 +254,17 @@ def test_orchestrator_no_spiders_to_run(mocker):
     mock_loader = mocker.Mock()
     mock_loader.list.return_value = ["s1", "s2"]
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.SpiderLoader.from_settings",
+        "run_spiders.SpiderLoader.from_settings",
         return_value=mock_loader,
     )
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
     mocker.patch(
-        "scrapers.scrapers_tmp.run_spiders.AsyncCrawlerProcess",
+        "run_spiders.AsyncCrawlerProcess",
         return_value=mock_process,
     )
-    mocker.patch("scrapers.scrapers_tmp.run_spiders.configure_logging")
+    mocker.patch("run_spiders.configure_logging")
 
     orchestrator = SpiderOrchestrator(storage="local", run_all=False)
     orchestrator.run()

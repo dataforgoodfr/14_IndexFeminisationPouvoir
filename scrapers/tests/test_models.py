@@ -2,7 +2,7 @@ import pytest
 from pydantic import ValidationError
 
 # Adaptez cet import au chemin exact de votre projet
-from scrapers.scrapers_tmp.scrapers_ifp.models import Personne
+from scrapers.scrapers_ifp.models import Personne
 
 
 # Tests paramétrés sur le parsing des noms ---

@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from scrapers.scrapers_tmp.scrapers_ifp.constants import OUTPUT_DIR, S3_PREFIX
+from scrapers.scrapers_ifp.constants import OUTPUT_DIR, S3_PREFIX
 
 
 # On crée une erreur sur-mesure pour que ce soit très clair

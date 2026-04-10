@@ -1,4 +1,4 @@
-# Scrapy settings for scrapers_tmp project
+# Scrapy settings for scrapers_ifp project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -16,7 +16,7 @@ ADDONS = {}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "scrapers_tmp (+http://www.yourdomain.com)"
+# USER_AGENT = "scrapers_ifp (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,7 +47,7 @@ SPIDER_MIDDLEWARES = {
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "scrapers_tmp.middlewares.ScrapersIfpDownloaderMiddleware": 543,
+#    "scrapers_ifp.middlewares.ScrapersIfpDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -59,7 +59,7 @@ SPIDER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 # ITEM_PIPELINES = {
-#    "scrapers_tmp.pipelines.ScrapersIfpPipeline": 300,
+#    "scrapers_ifp.pipelines.ScrapersIfpPipeline": 300,
 # }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
