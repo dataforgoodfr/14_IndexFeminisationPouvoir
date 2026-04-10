@@ -4,9 +4,9 @@ from pathlib import Path
 import zipfile
 
 from scrapy.http import HtmlResponse, Request
-from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
+from scrapers.scrapers_ifp.models import Personne
 
-from scrapers.scrapers_ifp.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
+from scrapers.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
 
 # On définit les chemins
 TEST_DIR = Path(__file__).parent
@@ -77,17 +77,17 @@ def test_spider_list():
     try:
         # On charge les settings manuellement via le chemin de module complet
         # qui est stable et accessible dans l'environnement de test (local et Docker).
-        from scrapers.scrapers_ifp.scrapers_ifp import settings as scrapy_settings_mod
+        from scrapers.scrapers_ifp import settings as scrapy_settings_mod
 
         settings = Settings()
         settings.setmodule(scrapy_settings_mod, priority="project")
 
         # On force SPIDER_MODULES pour utiliser le chemin complet de module.
-        # Cela évite les ModuleNotFoundError sur 'scrapers_ifp.spiders' car Scrapy
-        # utilisera le chemin absolu 'scrapers.scrapers_ifp.scrapers_ifp.spiders'.
+        # Cela évite les ModuleNotFoundError sur 'scrapers_tmp.spiders' car Scrapy
+        # utilisera le chemin absolu 'scrapers.scrapers_tmp.spiders'.
         settings.set(
             "SPIDER_MODULES",
-            ["scrapers.scrapers_ifp.scrapers_ifp.spiders"],
+            ["scrapers.scrapers_ifp.spiders"],
             priority="cmdline",
         )
 

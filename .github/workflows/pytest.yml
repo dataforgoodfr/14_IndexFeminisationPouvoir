@@ -16,12 +16,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install UV
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
-
-      - name: Install dependencies with UV
-        run: uv sync --all-groups
+      - name: Construire l'image Docker
+        run: docker compose build scrapers
 
       # Run pytest tests, except those requiring a navigator, marked with a "live" tag
-      - name: Run tests
-        run: uv run pytest -v -m "not live" scrapers/tests/
+      - name: Lancer les tests
+        env:
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_REGION: ${{ vars.S3_REGION }}
+          S3_ENDPOINT_URL: ${{ vars.S3_ENDPOINT_URL }}
+          S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+        run: |
+          docker compose run --rm -w /app/scrapers -e PYTHONPATH=/app/scrapers scrapers \
+          uv run pytest -m "not live" -v
