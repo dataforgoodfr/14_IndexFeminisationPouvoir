@@ -442,6 +442,42 @@ class Figure6bSpider(BaseAnnuaireSpider):
             yield item
 
 
+# Directrices de cabinet d'un.e président-e de région
+class Figure7bSpider(BaseAnnuaireSpider):
+    name = "figure7b"
+
+    noms_organismes = [
+        "Collectivité de Corse",
+        "Collectivité territoriale de Guyane",
+        "Collectivité territoriale de Martinique",
+    ]
+
+    where = (
+        f'type_organisme="Collectivité locale" and (nom like "Conseil régional - " '
+        f"or nom in ({','.join(map(addQuotes, noms_organismes))}))"
+    )
+
+    fonctions = [
+        "Directeur de cabinet",
+        "Directeur du cabinet",
+        "Directrice de cabinet",
+        "Directrice du cabinet",
+        "Directeur général des services",
+        "Directrice générale des services",
+        "Directeur général des services (DGS)",
+        "Directrice générale des services (DGS)",
+    ]
+
+    zone_geographique_type = "région"
+
+    def getZoneGeographiqueLibelle(self, result: dict):
+        return (
+            result.get("nom", "")
+            .replace("Conseil régional - ", "")
+            .replace("Collectivité de Corse", "Corse")
+        )
+
+
 # Hautes juridictions
 class Figure8Spider(BaseAnnuaireSpider):
     name = "figure8"
@@ -490,6 +526,9 @@ class Figure9Spider(BaseAnnuaireSpider):
         "Haut-commissaire de la République",
         "Haut-commissaire de la République, haut fonctionnaire de zone de défense et de sécurité Nouvelle-Calédonie",
         "Préfet de la région Guyane, préfet de la Guyane",
+        "Préfet, administrateur supérieur des Terres australes et antarctiques françaises",
+        "Haut-commissaire de la République, haut fonctionnaire de zone de défense et de sécurité Polynésie française",
+        "Préfet, administrateur supérieur",
     ]
 
     zone_geographique_type = "préfecture"
