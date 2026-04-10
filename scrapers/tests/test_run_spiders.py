@@ -6,11 +6,7 @@ import os
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 from run_spiders import parse_arguments, SpiderOrchestrator
-from scrapers.scrapers_ifp.settings_manager import (
-    S3ConfigurationError,
-    validate_s3_credentials,
-)
-
+from scrapers_ifp.settings_manager import S3ConfigurationError, validate_s3_credentials
 
 import scrapy
 
@@ -20,23 +16,21 @@ class MockSpider(scrapy.Spider):
     custom_settings = None
 
 
-def test_orchestrator_configures_feeds_local(mocker):
-    """Vérifie que l'orchestrateur configure bien les FEEDS locaux"""
+@pytest.fixture
+def mock_scrapy(mocker):
+    """
+    Fixture qui prépare les mocks de base pour Scrapy.
+    Évite la répétition du mocking de SpiderLoader, AsyncCrawlerProcess et configure_logging.
+    """
     # Mock de SpiderLoader
     mock_loader = mocker.Mock()
     mock_loader.list.return_value = ["mock_spider"]
     mock_loader.load.return_value = MockSpider
-    mocker.patch(
-        "run_spiders.SpiderLoader.from_settings",
-        return_value=mock_loader,
-    )
+    mocker.patch("run_spiders.SpiderLoader.from_settings", return_value=mock_loader)
 
     # Mock de AsyncCrawlerProcess
     mock_process = mocker.Mock()
-    mocker.patch(
-        "run_spiders.AsyncCrawlerProcess",
-        return_value=mock_process,
-    )
+    mocker.patch("run_spiders.AsyncCrawlerProcess", return_value=mock_process)
 
     # Mock de configure_logging pour éviter les effets de bord
     mocker.patch("run_spiders.configure_logging")
@@ -44,6 +38,12 @@ def test_orchestrator_configures_feeds_local(mocker):
     # On empêche le démarrage réel du process
     mock_process.start.return_value = None
 
+    # On retourne les objets mockés au cas où un test aurait besoin de les modifier
+    return {"loader": mock_loader, "process": mock_process}
+
+
+def test_orchestrator_configures_feeds_local(mock_scrapy):
+    """Vérifie que l'orchestrateur configure bien les FEEDS locaux"""
     orchestrator = SpiderOrchestrator(storage="local", run_all=True)
     orchestrator.run()
 
@@ -55,7 +55,7 @@ def test_orchestrator_configures_feeds_local(mocker):
     assert not any(k.startswith("s3://") for k in feeds.keys())
 
 
-def test_orchestrator_configures_feeds_s3(mocker):
+def test_orchestrator_configures_feeds_s3(mocker, mock_scrapy):
     """Vérifie que l'orchestrateur configure bien les FEEDS S3"""
     mock_env = {
         "S3_ACCESS_KEY": "test_key",
@@ -67,26 +67,6 @@ def test_orchestrator_configures_feeds_s3(mocker):
     mocker.patch(
         "os.getenv", side_effect=lambda key, default=None: mock_env.get(key, default)
     )
-
-    # Mock de SpiderLoader
-    mock_loader = mocker.Mock()
-    mock_loader.list.return_value = ["mock_spider"]
-    mock_loader.load.return_value = MockSpider
-    mocker.patch(
-        "run_spiders.SpiderLoader.from_settings",
-        return_value=mock_loader,
-    )
-
-    # Mock de AsyncCrawlerProcess
-    mock_process = mocker.Mock()
-    mocker.patch(
-        "run_spiders.AsyncCrawlerProcess",
-        return_value=mock_process,
-    )
-    mocker.patch("run_spiders.configure_logging")
-
-    # On empêche le démarrage réel du process
-    mock_process.start.return_value = None
 
     orchestrator = SpiderOrchestrator(storage="s3", run_all=True)
     orchestrator.run()
@@ -104,7 +84,7 @@ def test_orchestrator_configures_feeds_s3(mocker):
     assert os.environ["AWS_REGION_NAME"] == "test_region"
 
 
-def test_orchestrator_configures_feeds_both(mocker):
+def test_orchestrator_configures_feeds_both(mocker, mock_scrapy):
     """Vérifie que l'orchestrateur configure bien les FEEDS local et S3"""
     mock_env = {
         "S3_ACCESS_KEY": "test_key",
@@ -116,26 +96,6 @@ def test_orchestrator_configures_feeds_both(mocker):
     mocker.patch(
         "os.getenv", side_effect=lambda key, default=None: mock_env.get(key, default)
     )
-
-    # Mock de SpiderLoader
-    mock_loader = mocker.Mock()
-    mock_loader.list.return_value = ["mock_spider"]
-    mock_loader.load.return_value = MockSpider
-    mocker.patch(
-        "run_spiders.SpiderLoader.from_settings",
-        return_value=mock_loader,
-    )
-
-    # Mock de AsyncCrawlerProcess
-    mock_process = mocker.Mock()
-    mocker.patch(
-        "run_spiders.AsyncCrawlerProcess",
-        return_value=mock_process,
-    )
-    mocker.patch("run_spiders.configure_logging")
-
-    # On empêche le démarrage réel du process
-    mock_process.start.return_value = None
 
     orchestrator = SpiderOrchestrator(storage="both", run_all=True)
     orchestrator.run()
@@ -218,25 +178,10 @@ def test_parse_arguments_mutually_exclusive(mocker):
         parse_arguments()
 
 
-def test_orchestrator_filters_spiders(mocker):
+def test_orchestrator_filters_spiders(mock_scrapy):
     """Vérifie que l'orchestrateur filtre correctement les spiders"""
-    # Mock de SpiderLoader
-    mock_loader = mocker.Mock()
-    mock_loader.list.return_value = ["exists", "other"]
-    mock_loader.load.return_value = MockSpider
-    mocker.patch(
-        "run_spiders.SpiderLoader.from_settings",
-        return_value=mock_loader,
-    )
-
-    # Mock de AsyncCrawlerProcess
-    mock_process = mocker.Mock()
-    mocker.patch(
-        "run_spiders.AsyncCrawlerProcess",
-        return_value=mock_process,
-    )
-    mocker.patch("run_spiders.configure_logging")
-    mock_process.start.return_value = None
+    # Modification du comportement de la fixture spécifiquement pour ce test
+    mock_scrapy["loader"].list.return_value = ["exists", "other"]
 
     orchestrator = SpiderOrchestrator(
         storage="local", target_spiders=["exists", "missing"], run_all=True
@@ -244,33 +189,20 @@ def test_orchestrator_filters_spiders(mocker):
     orchestrator.run()
 
     # On vérifie que crawl n'a été appelé que pour "exists"
-    assert mock_process.crawl.call_count == 1
-    mock_loader.load.assert_called_once_with("exists")
+    assert mock_scrapy["process"].crawl.call_count == 1
+    mock_scrapy["loader"].load.assert_called_once_with("exists")
 
 
-def test_orchestrator_no_spiders_to_run(mocker):
+def test_orchestrator_no_spiders_to_run(mock_scrapy):
     """Vérifie le cas où aucun spider ne doit être lancé"""
-    # Mock de SpiderLoader
-    mock_loader = mocker.Mock()
-    mock_loader.list.return_value = ["s1", "s2"]
-    mocker.patch(
-        "run_spiders.SpiderLoader.from_settings",
-        return_value=mock_loader,
-    )
-
-    # Mock de AsyncCrawlerProcess
-    mock_process = mocker.Mock()
-    mocker.patch(
-        "run_spiders.AsyncCrawlerProcess",
-        return_value=mock_process,
-    )
-    mocker.patch("run_spiders.configure_logging")
+    # Modification du comportement de la fixture
+    mock_scrapy["loader"].list.return_value = ["s1", "s2"]
 
     orchestrator = SpiderOrchestrator(storage="local", run_all=False)
     orchestrator.run()
 
     # crawl ne doit pas être appelé
-    assert mock_process.crawl.call_count == 0
+    assert mock_scrapy["process"].crawl.call_count == 0
 
 
 def test_parse_arguments_invalid_storage(mocker):
