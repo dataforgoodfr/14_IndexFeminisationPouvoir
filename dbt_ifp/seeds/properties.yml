@@ -1,177 +1,15 @@
 version: 2
 
 seeds:
-  - name: figure2a
-    config:
-      description: "Liste des député·es récupérée par scraping "
-    columns:
-      - name: __id
-        data_type: integer
-        description: "L’id de la ligne"
+  - name: figure2a_2026
+    description: "Liste des député·es récupérée par scraping pour l’année 2026 "
 
-      - name: "code du département"
-        data_type: text
-        description: "Le code du département: 
-        - numéro de département
-        - 'ZZ' pour les circonscriptions des Français·es de l’étranger
-        - null pour les circonscriptions pour les collectivités à statut particulier"
+  - name: figure2c_2026
+    description: "La liste des membres du bureau de l’Assemblée Nationale en 2026"
 
-      - name: "libellé du département"
-        data_type: text
-        description: "Le nom du département: 
-        - nom du département pour les départements français
-        - 'Français Établis Hors De France' pour les circonscriptions des Français·es de l’étranger
-        - null pour les circonscriptions pour les collectivités à status particulier"
+  - name: figure6a_2026
+    description: "Liste des conseillers·ères départementaux·ales récupérée par scraping, pour l’année 2026"
 
-      - name: "code de la collectivité à statut particulier"
-        data_type: text
-        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou 
-        circonscriptions de l’étranger)"
-
-      - name: "libellé de la collectivité à statut particulier"
-        data_type: text
-        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou 
-        circonscriptions de l’étranger)"
-
-      - name: "code de la circonscription législative"
-        data_type: text
-        description: "Le code de la circonscription législative"
-
-      - name: "libellé de la circonscription législative"
-        data_type: text
-        description: "Le nom de la circonscription législative (du type '1ère Circonscription')"
-
-      - name: "nom de l'élu"
-        data_type: text
-        description: "Le nom de l’élu·e dans la circonscription"
-
-      - name: "prénom de l'élu"
-        data_type: text
-        description: "Le prénom de l’élu·e dans la circonscription"
-
-      - name: "Code sexe"
-        data_type: text
-        description: "Le genre de l’élu·e: 'M' ou 'F'"
-
-      - name: "date de naissance"
-        data_type: date
-        description: "La date de naissance de l’élu·e au format YYYY-MM-DD"
-
-      - name: "code de la catégorie socio-professionnelle"
-        data_type: integer
-        description: "Le code de la catégorie socio-professionnelle de l’élu·e"
-
-      - name: "libellé de la catégorie socio-professionnelle"
-        data_type: text
-        description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
-
-      - name: "date de début du mandat"
-        data_type: date
-        description: "La date de début de mandat de l’élu·e"
-
-      - name: "source_scraper"
-        data_type: text
-        description: "Le nom de la figure source scrapée : 'figure2a' pour ce modèle"
-
-
-  - name: figure2c
-    config:
-      description: "La liste des membres du bureau de l’Assemblée Nationale"
-    columns:
-      - name: personne_prenom
-        data_type: text
-        description: "Le prénom de la personne"
-
-      - name: personne_nom
-        data_type: text
-        description: "Le nom de la personne"
-
-      - name: personne_genre
-        data_type: text
-        description: "Le genre de la personne : 'M' ou 'F'"
-
-      - name: groupe_politique_libelle
-        data_type: text
-        description: "Le nom du groupe politique auquel la personne est affiliée"
-
-      - name: poste_libelle
-        data_type: text
-        description: "Le libellé du poste au bureau de l’Assemblée Nationale occupé par la personne"
-
-      - name: zone_geographique_libelle
-        data_type: text
-        description: "Le libellé de la zone géographique dans laquelle la personne a été élue"
-
-      - name: zone_geographique_type
-        data_type: text
-        description: "Le type de zone géographique dans lequel la personne a été élue (à priori toujours 
-        'circonscription')"
-
-
-  - name: figure6a
-    config:
-      description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
-    columns:
-      - name: __id
-        data_type: integer
-        description: "L’id de la ligne"
-
-      - name: code du département
-        data_type: text
-        description: "Le numéro du département"
-
-      - name: libellé du département
-        data_type: text
-        description: "Le nom du département"
-
-      - name: code du canton
-        data_type: integer
-        description: "Le code du canton"
-
-      - name: libellé du canton
-        data_type: text
-        description: "Le nom du canton"
-
-      - name: nom de l'élu
-        data_type: text
-        description: "Le nom de l’élu"
-
-      - name: prénom de l'élu
-        data_type: text
-        description: "Le prénom de l’élu·e"
-
-      - name: code sexe
-        data_type: text
-        description: "Le genre de l’élu·e ('M' ou 'F')"
-
-      - name: date de naissance
-        data_type: date
-        description: "La date de naissance de l’élu·e"
-
-      - name: code de la catégorie socio-professionnelle
-        data_type: integer
-        description: "Le code de la catégorie socio-professionnelle de l’élu·e"
-
-      - name: libellé de la catégorie socio-professionnelle
-        data_type: text
-        description: "Le nom de la catégorie socio-profesionnelle de l’élu·e"
-
-      - name: date de début du mandat
-        data_type: date
-        description: "La date de début du mandat de l’élu·e"
-
-      - name: libellé de la fonction
-        data_type: text
-        description: "Le nom de la fonction de l’élu·e au sein du conseil départemental. Peut être nul"
-
-      - name: date de début de la fonction
-        data_type: date
-        description: "La date de début de la fonction de l’élu·e au sein du conseil départemental. Peut être nul "
-
-      - name: "source_scraper"
-        data_type: text
-        description: "Le nom de la figure source scrapée : 'figure6a' pour ce modèle"
-  
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
 
@@ -190,4 +28,3 @@ seeds:
         zone_geographique_libelle: text
         zone_geographique_type: text
         source_url: text
-
