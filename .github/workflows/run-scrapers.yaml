@@ -24,7 +24,7 @@ jobs:
           S3_ENDPOINT_URL: ${{ vars.S3_ENDPOINT_URL }}
           S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
         run: |
-          docker compose run --rm -w /app/scrapers/scrapers_ifp \
+          docker compose run --rm -w /app/scrapers/scrapers_tmp \
           -e PYTHONPATH=/app scrapers uv run python run_spiders.py \
           --storage both --all-spiders
 
@@ -33,6 +33,6 @@ jobs:
         with:
           name: resultats-scrapers
           # Chemin vers le dossier de sauvegarde des fichiers de scraping
-          path: scrapers/scrapers_ifp/data
+          path: scrapers/scrapers_tmp/data
           # Optionnel : durée de conservation pour ne pas saturer votre espace GitHub
           retention-days: 14

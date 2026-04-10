@@ -1,7 +1,7 @@
 import pytest
 import json
 from scrapy.http import TextResponse, Request
-from scrapers.scrapers_ifp.scrapers_ifp.spiders.rne_spider import (
+from scrapers.scrapers_tmp.scrapers_ifp.spiders.rne_spider import (
     RneSenateursSpider,
 )
 
