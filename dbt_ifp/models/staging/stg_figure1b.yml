@@ -3,7 +3,7 @@ version: 2
 models:
   - name: stg_figure1b
     description: >
-      Pourcentage de femmes aux postes régaliens
+      Liste des ministres aux postes régaliens
     columns:
       - name: annee_partition
         description: année de la récupération des données
@@ -25,10 +25,10 @@ models:
               arguments: 
                 values: ['Mme', 'M.']
       - name: personne_prenom
-        description: Prénom du directeur de cabinet
+        description: Prénom de la ou du ministre
         type: TEXT
       - name: personne_nom
-        description: Nom du directeur de cabinet
+        description: Nom de la ou du ministre
         type: TEXT
       - name: genre
         description: F or M
@@ -38,16 +38,13 @@ models:
           - accepted_values:
               arguments: 
                 values: ['F', 'M']
-      - name: groupe_politique_libelle
-        description: Libellé du groupe politique de la personne
-        type: TEXT
       - name: poste_libelle
-        description: Nom du poste
+        description: Type du poste
         tests:
           - not_null    
         type: TEXT
       - name: zone_geographique_libelle
-        description: Libellé du poste
+        description: Ministère d'exercice
         type: TEXT
         data_tests:
           - not_null  
