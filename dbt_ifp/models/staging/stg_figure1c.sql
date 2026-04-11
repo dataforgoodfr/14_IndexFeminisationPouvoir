@@ -11,6 +11,7 @@ SELECT
     personne_nom,
     personne_genre AS genre,
     poste_libelle,
+    "gouvernement" AS zone_geographique_type,
     source_url
 FROM
     {{ ref('figure1c_' ~ year) }}
