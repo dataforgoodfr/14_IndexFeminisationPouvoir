@@ -33,6 +33,6 @@ jobs:
         with:
           name: resultats-scrapers
           # Chemin vers le dossier de sauvegarde des fichiers de scraping
-          path: scrapers/scrapers_tmp/data
+          path: scrapers/scrapers_ifp/data
           # Optionnel : durée de conservation pour ne pas saturer votre espace GitHub
           retention-days: 14
