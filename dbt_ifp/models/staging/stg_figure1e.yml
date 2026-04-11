@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: stg_figure6b
+  - name: stg_figure1e
     description: >
-      Liste des directeurs et directrices de cabinet d'un-e président-e de département (à partir de 2026)
+      Liste des hommes et des femmes dirigeant un cabinet au sein du gouvernement
     columns:
       - name: annee_partition
         description: année de la récupération des données
@@ -38,30 +38,27 @@ models:
           - accepted_values:
               arguments: 
                 values: ['F', 'M']
-      - name: groupe_politique_libelle
-        description: Libellé du groupe politique de la personne
-        type: TEXT
       - name: poste_libelle
-        description: Directrice de cabinet ou Directeur de cabinet
+        description: Directrice du cabinet ou Directeur de cabinet
         tests:
           - not_null
           - accepted_values:
               arguments: 
-                values: ['Directrice de cabinet', 'Directeur de cabinet']        
+                values: ['Directrice du cabinet','Directrice de cabinet', 'Directeur de cabinet','Directeur du cabinet']        
         type: TEXT
       - name: zone_geographique_libelle
-        description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
+        description: nom du complet du cabinet
         type: TEXT
         data_tests:
-          - not_null   
+          - not_null 
       - name: zone_geographique_type
-        description: toujours "préfecture"
+        description: toujours "gouvernement"
         type: TEXT
         data_tests:
           - not_null
           - accepted_values:
               arguments: 
-                values: ['préfecture']    
+                values: ['gouvernement']    
       - name: source_url
         description: URL de provenance de la données
         type: TEXT

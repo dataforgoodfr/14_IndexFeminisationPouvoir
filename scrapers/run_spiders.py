@@ -8,7 +8,7 @@ from scrapy.utils.project import get_project_settings
 from scrapy.crawler import AsyncCrawlerProcess
 from scrapy.spiderloader import SpiderLoader
 from scrapy.utils.log import configure_logging
-from scrapers.scrapers_ifp.scrapers_ifp.settings_manager import (
+from scrapers.scrapers_ifp.settings_manager import (
     validate_s3_credentials,
     get_feeds_settings,
 )

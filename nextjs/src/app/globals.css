@@ -65,7 +65,7 @@
   ); /* #513893 */
   --color-foundations-violet-clair: var(--color-purple-oxfam-300); /* #CBB8D9 */
   --color-foundations-jaune-oxfam: var(--color-yellow-oxfam-400); /* #F2E100 */
-  --color-foundations-viole-tres-clair: var(
+  --color-foundations-violet-tres-clair: var(
     --color-purple-oxfam-100
   ); /* #E9ECF7 */
   --color-foundations-noir: #000000;
