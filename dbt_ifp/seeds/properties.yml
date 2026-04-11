@@ -12,3 +12,7 @@ seeds:
 
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
+
+  - name: figure10_2026
+    description: >
+      Liste des ambassadrices, ambassadeurs et représentant·es permanent·es dans les organisations internationales
