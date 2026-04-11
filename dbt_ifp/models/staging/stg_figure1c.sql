@@ -10,7 +10,6 @@ SELECT
     personne_prenom,
     personne_nom,
     personne_genre AS genre,
-    groupe_politique_libelle,
     poste_libelle,
     source_url
 FROM
