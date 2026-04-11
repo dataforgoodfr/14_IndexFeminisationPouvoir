@@ -1,6 +1,9 @@
 version: 2
 
 seeds:
+  - name: figure1b_2026
+    description: "Liste des ministres aux postes régaliens pour l'année 2026 "
+
   - name: figure2a_2026
     description: "Liste des député·es récupérée par scraping pour l’année 2026 "
 
