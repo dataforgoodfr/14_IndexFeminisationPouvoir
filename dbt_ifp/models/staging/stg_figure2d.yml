@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_figure2d
+    description: >
+      Liste des président·es d’un groupe politique à l’Assemblée Nationale
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+      - name: id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        type: TEXT
+        data_tests:
+          - not_null
+          - unique
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Mme', 'M.']
+      - name: personne_prenom
+        description: Prénom du / de la président·e de groupe
+        type: TEXT
+      - name: personne_nom
+        description: Nom du / de la président·e de groupe
+        type: TEXT
+      - name: genre
+        description: F or M
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['F', 'M']
+      - name: groupe_politique_libelle
+        description: Libellé du groupe politique de la personne
+        type: TEXT
+      - name: poste_libelle
+        description: "Groupe politique dont la personne est président·e : doublon du champ 'groupe_politique_libelle'"
+        tests:
+          - not_null
+        type: TEXT
+      - name: zone_geographique_libelle
+        description: "Circonscription dans laquelle la personne a été élue, au format Région - Département - n° circo"
+        type: TEXT
+        data_tests:
+          - not_null
+      - name: zone_geographique_type
+        description: toujours "préfecture"
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['circonscription']

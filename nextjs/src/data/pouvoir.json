@@ -21,7 +21,54 @@
   "local": {
     "evolution": 2.5,
     "score": 24.7,
-    "composantes": {}
+    "composantes": {
+      "presidentesRegion": 29.4,
+      "directricesCabinetRegion": 25.0,
+      "presidentsDepartement": 20.8,
+      "directricesCabinetDepartement": 34.3,
+      "maires": 20.8,
+      "mairesPrefecture": 16.8,
+      "directricesCabinetMairiesPrefecture": 34.3
+    },
+    "collectivites": [
+      {
+        "titre": "Régions",
+        "annee": 2025,
+        "dateMiseAJour": "2025-01-01",
+        "stats": [
+          { "valeur": 29.4, "role": "présidant une région" },
+          {
+            "valeur": 25.0,
+            "role": "directrices de cabinet d'un.e président.e de région"
+          }
+        ]
+      },
+      {
+        "titre": "Départements",
+        "annee": 2025,
+        "dateMiseAJour": "2025-01-01",
+        "stats": [
+          { "valeur": 20.8, "role": "présidant un département" },
+          {
+            "valeur": 34.3,
+            "role": "directrices de cabinet d'un.e président.e de département"
+          }
+        ]
+      },
+      {
+        "titre": "Communes",
+        "annee": 2025,
+        "dateMiseAJour": "2025-01-01",
+        "stats": [
+          { "valeur": 20.8, "role": "maires" },
+          { "valeur": 16.8, "role": "maires de préfecture" },
+          {
+            "valeur": 34.3,
+            "role": "directrices de cabinet des mairies de préfecture"
+          }
+        ]
+      }
+    ]
   },
   "autre": {
     "score": 19.8,

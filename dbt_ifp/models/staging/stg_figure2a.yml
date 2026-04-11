@@ -1,9 +1,15 @@
 models:
-  - name: stg_deputees
+  - name: stg_figure2a
     description: "Les données liées aux député·es récupérées par scraping"
     columns:
-      - name: id
+      - name: annee_partition
         data_type: integer
+        description: année de la récupération des données
+        data_tests:
+          - not_null
+
+      - name: id
+        data_type: text
         description: "L’id de la ligne"
         data_tests:
           - unique
@@ -72,13 +78,13 @@ models:
         data_tests:
           - not_null
 
-      - name: code_categorie_socprof
+      - name: code_csp
         data_type: integer
         description: "Le code de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
           - not_null
 
-      - name: nom_categorie_socprof
+      - name: libelle_csp
         data_type: text
         description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
@@ -90,9 +96,6 @@ models:
         data_tests:
           - not_null
 
-      - name: source_scraper
+      - name: source_url
         data_type: text
-        description: "Le nom de la figure source scrapée : 'figure2a' pour ce modèle"
-        data_tests:
-          - not_null
-
+        description: "URL de provenance de la donnée"
