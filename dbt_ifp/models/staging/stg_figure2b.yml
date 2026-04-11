@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: stg_figure6b
+  - name: stg_figure2b
     description: >
-      Liste des directeurs et directrices de cabinet d'un-e président-e de département (à partir de 2026)
+      Liste des président·es de commission à l’Assemblée Nationale
     columns:
       - name: annee_partition
         description: année de la récupération des données
@@ -11,7 +11,7 @@ models:
         data_tests:
           - not_null
       - name: id
-        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        description: ID généré par hachage MD5 personne_raw_text et poste_libelle
         type: TEXT
         data_tests:
           - not_null
@@ -22,13 +22,13 @@ models:
         data_tests:
           - not_null
           - accepted_values:
-              arguments: 
+              arguments:
                 values: ['Mme', 'M.']
       - name: personne_prenom
-        description: Prénom du directeur de cabinet
+        description: Prénom du / de la président·es de commision
         type: TEXT
       - name: personne_nom
-        description: Nom du directeur de cabinet
+        description: Nom du / de la président·es de commision
         type: TEXT
       - name: genre
         description: F or M
@@ -36,32 +36,26 @@ models:
         data_tests:
           - not_null
           - accepted_values:
-              arguments: 
+              arguments:
                 values: ['F', 'M']
       - name: groupe_politique_libelle
         description: Libellé du groupe politique de la personne
         type: TEXT
       - name: poste_libelle
-        description: Directrice de cabinet ou Directeur de cabinet
+        description: Nom de la commision concernée à l’Assemblée Nationale
         tests:
           - not_null
-          - accepted_values:
-              arguments: 
-                values: ['Directrice de cabinet', 'Directeur de cabinet']        
         type: TEXT
       - name: zone_geographique_libelle
-        description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
+        description: "Circonscription dans laquelle la personne a été élue, au format Région - Département - n° circo"
         type: TEXT
         data_tests:
-          - not_null   
+          - not_null
       - name: zone_geographique_type
-        description: toujours "préfecture"
+        description: "toujours 'circonscription'"
         type: TEXT
         data_tests:
           - not_null
           - accepted_values:
-              arguments: 
-                values: ['préfecture']    
-      - name: source_url
-        description: URL de provenance de la données
-        type: TEXT
+              arguments:
+                values: ['circonscription']
