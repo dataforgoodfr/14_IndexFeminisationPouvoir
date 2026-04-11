@@ -10,6 +10,22 @@ seeds:
   
   - name: figure1c_2026
     description: "Liste des membres du cabinet du Président de la République pour l'année 2026"
+    
+    - name: figure1d_2026
+    description: Liste des membres du cabinet du Premier ministre pour l'année 2026
+    config:
+      +column_types:
+        personne_raw_text: text
+        personne_nom_complet: text
+        personne_civilite: text
+        personne_prenom: text
+        personne_nom: text
+        personne_genre: text
+        groupe_politique_libelle: text
+        poste_libelle: text
+        zone_geographique_libelle: text
+        zone_geographique_type: text
+        source_url: text
 
   - name: figure2a_2026
     description: "Liste des député·es récupérée par scraping pour l’année 2026"
@@ -22,6 +38,9 @@ seeds:
 
   - name: figure6a_2026
     description: "Liste des conseillers·ères départementaux·ales récupérée par scraping, pour l’année 2026"
+
+  - name: figure5a_2026
+    description: Liste des hommes et des femmes maires récupérée via l'API du RNE
 
   - name: figure6b_2026
     description: "Liste des directeurs et directrices de cabinet d'un-e président-e de département pour l'année 2026"
