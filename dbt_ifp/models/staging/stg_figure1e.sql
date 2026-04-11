@@ -10,9 +10,9 @@ SELECT
     personne_prenom,
     personne_nom,
     personne_genre AS genre,
-    groupe_politique_libelle,
     poste_libelle,
-    zone_geographique_libelle AS nom_cabinet,
+    zone_geographique_libelle,
+    'gouvernement' as zone_geographique_type,
     source_url
 FROM
     {{ ref('figure1e_' ~ year) }}
