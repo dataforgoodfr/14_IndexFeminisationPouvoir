@@ -1,7 +1,7 @@
 dbt_ifp:
-  target: dev 
+  target: dev
   outputs:
-     dev:
+    dev:
       type: postgres
       host: "{{ env_var('POSTGRES_HOST') }}"
       user: "{{ env_var('POSTGRES_USER') }}"
@@ -9,3 +9,19 @@ dbt_ifp:
       port: 18871
       dbname: "{{ env_var('POSTGRES_DB_NAME') }}"
       schema: dev
+    preprod:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST') }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 18871
+      dbname: "{{ env_var('POSTGRES_DB_NAME') }}"
+      schema: preprod
+    prod:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST') }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: 18871
+      dbname: "{{ env_var('POSTGRES_DB_NAME') }}"
+      schema: public
