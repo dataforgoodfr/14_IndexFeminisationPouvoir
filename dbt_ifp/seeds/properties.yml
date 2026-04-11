@@ -1,11 +1,15 @@
 version: 2
 
 seeds:
+
+  - name: figure1a_2026
+    description: "Liste des hommes et des femmes membres du gouvernement pour l'année 2026"
+
   - name: figure1b_2026
-    description: "Liste des ministres aux postes régaliens pour l'année 2026 "
+    description: "Liste des ministres aux postes régaliens pour l'année 2026"
 
   - name: figure2a_2026
-    description: "Liste des député·es récupérée par scraping pour l’année 2026 "
+    description: "Liste des député·es récupérée par scraping pour l’année 2026"
 
   - name: figure2c_2026
     description: "La liste des membres du bureau de l’Assemblée Nationale en 2026"
@@ -15,3 +19,9 @@ seeds:
 
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
+
+  - name: figure6b_2026
+    description: "Liste des directeurs et directrices de cabinet d'un-e président-e de département pour l'année 2026"
+
+  - name: figure7a_2026
+    description: "Liste des hommes et des femmes présidant une région pour l'année 2026"
