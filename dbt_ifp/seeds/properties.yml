@@ -12,3 +12,6 @@ seeds:
 
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
+
+  - name: figure11_2026
+    description: Liste des hommes et des femmes présidant une haute autorité ou agence française
