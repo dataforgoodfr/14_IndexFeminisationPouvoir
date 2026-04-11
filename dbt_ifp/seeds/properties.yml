@@ -14,7 +14,7 @@ seeds:
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
 
   - name: figure1d_2026
-    description: Liste des membres du cabinet du Premier ministre
+    description: Liste des membres du cabinet du Premier ministre pour l'année 2026
     config:
       +column_types:
         personne_raw_text: text
