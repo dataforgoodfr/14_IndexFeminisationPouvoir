@@ -3,7 +3,7 @@ version: 2
 models:
   - name: stg_figure1e
     description: >
-      Pourcentage de de femmes dirigeant un cabinet au sein du gouvernement
+      Liste des hommes et des femmes dirigeant un cabinet au sein du gouvernement
     columns:
       - name: annee_partition
         description: année de la récupération des données
