@@ -3,7 +3,7 @@ version: 2
 models:
   - name: stg_figure1a
     description: >
-      Pourcentage de femme au gouvernement
+      Liste des hommes et des femmes membres du gouvernement
     columns:
       - name: annee_partition
         description: année de la récupération des données
@@ -25,10 +25,10 @@ models:
               arguments: 
                 values: ['Mme', 'M.']
       - name: personne_prenom
-        description: Prénom du directeur de cabinet
+        description: Prénom de la ou du membre du gouvernement
         type: TEXT
       - name: personne_nom
-        description: Nom du directeur de cabinet
+        description: Nom de la ou du membre du gouvernement
         type: TEXT
       - name: genre
         description: F or M
@@ -38,9 +38,6 @@ models:
           - accepted_values:
               arguments: 
                 values: ['F', 'M']
-      - name: groupe_politique_libelle
-        description: Libellé du groupe politique de la personne
-        type: TEXT
       - name: poste_libelle
         description: Nom du poste
         tests:
@@ -48,7 +45,7 @@ models:
           - dbt_utils.expression_is_true:
               expression: "ILIKE '%ministre%'"
         type: TEXT
-      - name: nom_ministere
+      - name: zone_geographique_libelle
         description: "Libellé du ministère (exemple : Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire)"
         type: TEXT
         data_tests:
