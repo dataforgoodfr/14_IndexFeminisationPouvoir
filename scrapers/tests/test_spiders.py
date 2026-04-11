@@ -83,8 +83,8 @@ def test_spider_list():
         settings.setmodule(scrapy_settings_mod, priority="project")
 
         # On force SPIDER_MODULES pour utiliser le chemin complet de module.
-        # Cela évite les ModuleNotFoundError sur 'scrapers_tmp.spiders' car Scrapy
-        # utilisera le chemin absolu 'scrapers.scrapers_tmp.spiders'.
+        # Cela évite les ModuleNotFoundError sur 'scrapers_ifp.spiders' car Scrapy
+        # utilisera le chemin absolu 'scrapers.scrapers_ifp.spiders'.
         settings.set(
             "SPIDER_MODULES",
             ["scrapers.scrapers_ifp.spiders"],
