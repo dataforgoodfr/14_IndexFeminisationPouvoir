@@ -1,0 +1,97 @@
+models:
+  - name: stg_figure6a
+    description: "Liste des conseillers·ères départementaux·ales récupérée par scraping"
+    columns:
+      - name: annee_partition
+        data_type: integer
+        description: année de la récupération des données
+        data_tests:
+          - not_null
+
+      - name: id
+        data_type: text
+        description: "L’id de la ligne"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: code_departement
+        data_type: text
+        description: "Le numéro du département"
+        data_tests:
+          - not_null
+
+      - name: nom_departement
+        data_type: text
+        description: "Le nom du département"
+        data_tests:
+          - not_null
+
+      - name: code_canton
+        data_type: integer
+        description: "Le code du canton"
+        data_tests:
+          - not_null
+
+      - name: nom_canton
+        data_type: text
+        description: "Le nom du canton"
+        data_tests:
+          - not_null
+
+      - name: nom_elu
+        data_type: text
+        description: "Le nom de l’élu"
+        data_tests:
+          - not_null
+
+      - name: prenom_elu
+        data_type: text
+        description: "Le prénom de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: genre
+        data_type: text
+        description: "Le genre de l’élu·e ('M' ou 'F')"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [ 'M', 'F' ]
+
+      - name: date_naissance
+        data_type: date
+        description: "La date de naissance de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: code_csp
+        data_type: integer
+        description: "Le code de la catégorie socio-professionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: libelle_csp
+        data_type: text
+        description: "Le nom de la catégorie socio-profesionnelle de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: date_debut_mandat
+        data_type: date
+        description: "La date de début du mandat de l’élu·e"
+        data_tests:
+          - not_null
+
+      - name: nom_fonction
+        data_type: text
+        description: "Le nom de la fonction de l’élu·e au sein du conseil départemental. Peut être nul"
+
+      - name: date_debut_fonction
+        data_type: date
+        description: "La date de début de la fonction de l’élu·e au sein du conseil départemental. Peut être nul "
+
+      - name: source_url
+        data_type: text
+        description: "URL de provenance de la donnée"

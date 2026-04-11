@@ -1,0 +1,8 @@
+personne_raw_text,personne_nom_complet,personne_civilite,personne_prenom,personne_nom,personne_genre,groupe_politique_libelle,poste_libelle,zone_geographique_libelle,zone_geographique_type,source_url
+Mme Dominique Estrosi Sassone,Mme Dominique Estrosi Sassone,Mme,Dominique,Sassone,F,,commission des affaires économiques,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+Mme Muriel Jourda,Mme Muriel Jourda,Mme,Muriel,Jourda,F,,commission des lois,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+M. Laurent Lafon,M. Laurent Lafon,M.,Laurent,Lafon,M,,commission de la culture,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+M. Jean-François Longeot,M. Jean-François Longeot,M.,Jean-François,Longeot,M,,commission de l'aménagement du territoire et du développement durable,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+M. Philippe Mouiller,M. Philippe Mouiller,M.,Philippe,Mouiller,M,,commission des affaires sociales,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+M. Cédric Perrin,M. Cédric Perrin,M.,Cédric,Perrin,M,,commission des affaires étrangères,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json
+M. Claude Raynal,M. Claude Raynal,M.,Claude,Raynal,M,,commission des finances,,,https://data.senat.fr/data/senateurs/ODSEN_CUR_COMS.json

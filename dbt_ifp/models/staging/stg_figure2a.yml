@@ -1,20 +1,20 @@
 models:
-  - name: stg_figure3a
-    description: "Liste des sénatrices et sénateurs récupérées via l'API du RNE (Répertoire national des élus)"
+  - name: stg_figure2a
+    description: "Les données liées aux député·es récupérées par scraping"
     columns:
       - name: annee_partition
+        data_type: integer
         description: année de la récupération des données
-        type: INTEGER
         data_tests:
           - not_null
 
       - name: id
-        data_type: integer
+        data_type: text
         description: "L’id de la ligne"
         data_tests:
           - unique
           - not_null
-      
+
       - name: code_departement
         data_type: text
         description: "Le code du département: 
@@ -22,13 +22,34 @@ models:
         - 'ZZ' pour les circonscriptions des Français·es de l’étranger
         - null pour les circonscriptions pour les collectivités à statut particulier"
 
+      - name: nom_departement
+        data_type: text
+        description: "Le nom du département: 
+        - nom du département pour les départements français
+        - 'Français Établis Hors De France' pour les circonscriptions des Français·es de l’étranger
+        - null pour les circonscriptions pour les collectivités à status particulier"
+
       - name: code_collectivite_statut_part
         data_type: text
-        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
+        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou 
+        circonscriptions de l’étranger)"
 
       - name: nom_collectivite_statut_part
         data_type: text
-        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
+        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou 
+        circonscriptions de l’étranger)"
+
+      - name: code_circonscription
+        data_type: text
+        description: "Le code de la circonscription législative"
+        data_tests:
+          - not_null
+
+      - name: nom_circonscription
+        data_type: text
+        description: "Le nom de la circonscription législative (du type '1ère Circonscription')"
+        data_tests:
+          - not_null
 
       - name: nom_elu
         data_type: text
@@ -77,6 +98,4 @@ models:
 
       - name: source_url
         data_type: text
-        description: URL de provenance de la donnée - API du RNE pour ce modèle
-        data_tests:
-          - not_null
+        description: "URL de provenance de la donnée"
