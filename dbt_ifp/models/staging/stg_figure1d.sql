@@ -10,7 +10,8 @@ SELECT
     personne_prenom,
     personne_nom,
     personne_genre AS genre,
-    poste_libelle,    
+    poste_libelle,
+    zone_geographique_libelle,
     source_url
 FROM
     {{ ref('figure1d_' ~ year) }}

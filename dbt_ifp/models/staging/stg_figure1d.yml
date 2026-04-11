@@ -43,6 +43,11 @@ models:
         tests:
           - not_null
         type: TEXT
+      - name: zone_geographique_libelle
+        description: Nom du cabinet ou du pôle
+        type: TEXT
+        data_tests:
+          - not_null 
       - name: source_url
         description: URL de provenance de la données
         type: TEXT
