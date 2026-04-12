@@ -4,6 +4,7 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
+    DISTINCT
     {{ year }} AS annee_partition,
     md5(personne_raw_text || zone_geographique_libelle) AS id,
     personne_civilite,
