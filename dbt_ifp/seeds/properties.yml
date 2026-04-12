@@ -35,7 +35,19 @@ seeds:
 
   - name: figure2c_2026
     description: "La liste des membres du bureau de l’Assemblée Nationale en 2026"
-    
+
+  - name: figure3a_2026
+    description: "Liste des sénatrices et sénateurs récupérée via l'API du RNE en 2026"
+
+  - name: figure3b_2026
+    description: "Liste des femmes et hommes présidant une commission au Sénat en 2026"
+
+  - name: figure3c_2026
+    description: "Liste des femmes et hommes au sein du bureau du Sénat en 2026"
+   
+  - name: figure4_2026
+    description: "Liste des député·es européens récupérée par scraping API data.gouv.fr en 2026"
+
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
 
