@@ -11,7 +11,7 @@ seeds:
   - name: figure1c_2026
     description: "Liste des membres du cabinet du Président de la République pour l'année 2026"
     
-    - name: figure1d_2026
+  - name: figure1d_2026
     description: Liste des membres du cabinet du Premier ministre pour l'année 2026
     config:
       +column_types:
@@ -27,7 +27,7 @@ seeds:
         zone_geographique_type: text
         source_url: text
  
- - name: figure1e_2026
+  - name: figure1e_2026
     description: "Liste des hommes et des femmes dirigeant un cabinet au sein du gouvernement pour l'année 2026"
 
   - name: figure2a_2026
