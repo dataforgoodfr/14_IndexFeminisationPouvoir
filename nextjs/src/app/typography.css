@@ -48,11 +48,14 @@
     @apply font-lato text-[24px] font-bold;
     line-height: 1.25;
   }
+  
   .text-intitule-xs {
     @apply font-tstar text-[18px];
     line-height: 1.25;
   }
-
+  .text-chiffre-xxs {
+    @apply font-tstar text-[18px] font-bold;
+  }
   .text-chiffre-s {
     @apply font-tstar text-[40px] leading-none font-bold;
   }

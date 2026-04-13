@@ -10,6 +10,13 @@
     background-image: var(--hero-svg-url);
   }
 
+  .bg-chiffres-outremers {
+    @apply relative z-1 bg-foundations-blanc;
+  }
+  .bg-chiffres-outremers::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-chiffres.svg)] bg-center bg-no-repeat -z-1;
+  }
+
   /* Inequal sign */
   .bg-svg-inequal {
     @apply relative z-1;
