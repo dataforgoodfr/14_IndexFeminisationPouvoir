@@ -4,6 +4,7 @@ import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { PageTitle } from "@/components/PageTitle";
+import { Standings } from "@/components/Standings";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 
 type DataPouvoirLocal = Record<
@@ -36,7 +37,7 @@ export default async function Page() {
     {} as Record<string, { percentage: number; evolution: number }>,
   );
 
-  const dataPerRegion = data_pouvoir_local.regions.reduce(
+  const dataPerRegionMetropole = data_pouvoir_local.regions.reduce(
     (acc, region) => {
       acc[region.nom] = {
         percentage: region.percentage,
@@ -46,6 +47,9 @@ export default async function Page() {
     },
     {} as Record<string, { percentage: number; evolution: number }>,
   );
+
+  // Combine data of Metropole Region and OutreMer
+  const dataPerRegion = { ...dataPerRegionMetropole, ...dataPerRegionOutreMer };
 
   return (
     <div>
@@ -77,7 +81,7 @@ export default async function Page() {
           <FranceMapSVG
             fillColor="var(--color-purple-oxfam-600)"
             className="size-130"
-            dataPerRegion={dataPerRegion}
+            dataPerRegion={dataPerRegionMetropole}
           />
         </div>
 
@@ -103,15 +107,50 @@ export default async function Page() {
         {/* Column 3, Rows 2-3: Buttons */}
         <div className="row-span-1 flex flex-col gap-y-[16px] items-center justify-start">
           <button type="button" className="cursor-pointer">
-            <QuestionMarkIcon className="w-16 h-16" />
+            <QuestionMarkIcon className="w-[50px] h-[50px]" />
           </button>
           <button type="button" className="cursor-pointer">
-            <DownloadIcon className="w-16 h-16" />
+            <DownloadIcon className="w-[50px] h-[50px]" />
           </button>
         </div>
       </div>
       {/* Bloc Classement */}
-      <div></div>
+      <div className="flex flex-row gap-x-[46px] px-[215px] py-[65px] items-start justify-center bg-foundations-violet-tres-clair">
+        <div className="flex-1 flex flex-col gap-y-[34px] text-left items-end justify-end">
+          <div className="flex-2">
+            <h3 className="header-h3 text-foundations-violet-principal">
+              Les principaux exécutifs locaux dans une région
+            </h3>
+            <div className="bg-violet-500 w-full h-[5px]"></div>
+            <p className="body2-regular text-foundations-noir">
+              Selon les critères de l’index d’Oxfam à savoir les principaux
+              exécutifs locaux dans une région (présidence de région, présidence
+              de département et mairie de la préfecture du département), le
+              classement des régions françaises.
+            </p>
+            <p className="label-regular text-foundations-violet-principal">
+              Dernière mise à jour : JJ/MM/AAAA
+            </p>
+          </div>
+          <div className="flex-1 flex flex-col gap-y-[16px]">
+            <button type="button" className="cursor-pointer">
+              <QuestionMarkIcon className="w-[50px] h-[50px]" />
+            </button>
+            <button type="button" className="cursor-pointer">
+              <DownloadIcon className="w-[50px] h-[50px]" />
+            </button>
+          </div>
+        </div>
+        <div className="flex-2">
+          <Standings
+            data={Object.entries(dataPerRegion).map(([regionName, data]) => ({
+              regionName,
+              percentage: data.percentage,
+              evolution: data.evolution,
+            }))}
+          />
+        </div>
+      </div>
       {/* Bloc Contenu Texte */}
       <div></div>
     </div>

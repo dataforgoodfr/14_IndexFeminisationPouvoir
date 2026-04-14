@@ -11,10 +11,25 @@
   }
 
   .bg-chiffres-outremers {
-    @apply relative z-1 bg-foundations-blanc;
+    @apply relative z-1;
   }
   .bg-chiffres-outremers::after {
     @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-chiffres.svg)] bg-center bg-no-repeat -z-1;
+  }
+
+  .bg-evolution-red {
+    @apply relative z-1;
+  }
+  .bg-evolution-red::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-evolution-red.svg)] bg-center bg-no-repeat -z-1;
+  }
+
+  .bg-evolution-green {
+    @apply relative z-1;
+  }
+
+  .bg-evolution-green::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-evolution-green.svg)] bg-center bg-no-repeat -z-1;
   }
 
   /* Inequal sign */
