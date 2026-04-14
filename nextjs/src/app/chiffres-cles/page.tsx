@@ -7,20 +7,15 @@ import pouvoirData from "@/data/pouvoir.json";
 
 type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
 
-type Data = Record<
-  Pouvoir,
-  { score: number; evolution: number; composantes: Record<string, number> }
->;
+type Stat = { score: number; evolution: number };
+type Data = Record<Pouvoir, Stat & { composantes: Record<string, Stat> }>;
 
 const fetchData = async () => {
   return pouvoirData as Data;
 };
 
-type CardProps = {
+type CardProps = Stat & {
   pouvoir: Pouvoir;
-  score: number;
-  evolution: number;
-  composantes: Record<string, number>;
 };
 
 const PouvoirCard = async ({ pouvoir, score, evolution }: CardProps) => {

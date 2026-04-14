@@ -27,7 +27,7 @@ export default function Page() {
           Femmes au postes régaliens
         </h2>
         <GenderDistributionChart
-          pourcentage={composantes.ministeres_regaliens}
+          pourcentage={composantes.ministeres_regaliens.score}
         />
         <h2
           className="text-2xl/relaxed font-bold text-center"
@@ -35,14 +35,16 @@ export default function Page() {
         >
           Femmes au Gouvernement
         </h2>
-        <GenderDistributionChart pourcentage={composantes.gouvernement} />
+        <GenderDistributionChart pourcentage={composantes.gouvernement.score} />
         <h2
           className="text-2xl/relaxed font-bold text-center"
           id="cabinet-president"
         >
           Cabinet du président de la république
         </h2>
-        <GenderDistributionChart pourcentage={composantes.cabinet_presidence} />
+        <GenderDistributionChart
+          pourcentage={composantes.cabinet_presidence.score}
+        />
         <h2
           className="text-2xl/relaxed font-bold text-center"
           id="cabinet-premier-ministre"
@@ -50,7 +52,7 @@ export default function Page() {
           Cabinet du premier ministre
         </h2>
         <GenderDistributionChart
-          pourcentage={composantes.cabiner_premier_ministre}
+          pourcentage={composantes.cabiner_premier_ministre.score}
         />
         <h2
           className="text-2xl/relaxed font-bold text-center"
@@ -59,7 +61,7 @@ export default function Page() {
           Femme dirigeant un cabinet au gouvernement
         </h2>
         <GenderDistributionChart
-          pourcentage={composantes.directrices_cabinet_gouvernement}
+          pourcentage={composantes.directrices_cabinet_gouvernement.score}
         />
       </div>
     </>

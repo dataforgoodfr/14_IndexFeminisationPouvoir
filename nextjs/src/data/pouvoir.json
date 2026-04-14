@@ -3,12 +3,33 @@
   "executif": {
     "score": 29.61,
     "evolution": 2.5,
+    "annee": 2025,
     "composantes": {
-      "gouvernement": 50,
-      "ministeres_regaliens": 0,
-      "cabinet_presidence": 35.2,
-      "cabiner_premier_ministre": 42.9,
-      "directrices_cabinet_gouvernement": 20
+      "gouvernement": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 50
+      },
+      "ministeres_regaliens": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 0
+      },
+      "cabinet_presidence": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 35.2
+      },
+      "cabiner_premier_ministre": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 42.9
+      },
+      "directrices_cabinet_gouvernement": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 20
+      }
     }
   },
   "parlementaire": {
@@ -49,13 +70,41 @@
     "evolution": 2.5,
     "score": 24.7,
     "composantes": {
-      "presidentesRegion": 29.4,
-      "directricesCabinetRegion": 25.0,
-      "presidentsDepartement": 20.8,
-      "directricesCabinetDepartement": 34.3,
-      "maires": 20.8,
-      "mairesPrefecture": 16.8,
-      "directricesCabinetMairiesPrefecture": 34.3
+      "presidentesRegion": {
+        "score": 29.4,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetRegion": {
+        "score": 25.0,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "presidentsDepartement": {
+        "score": 20.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetDepartement": {
+        "score": 34.3,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "maires": {
+        "score": 20.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "mairesPrefecture": {
+        "score": 16.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetMairiesPrefecture": {
+        "score": 34.3,
+        "annee": 2025,
+        "evolution": 2.5
+      }
     },
     "collectivites": [
       {

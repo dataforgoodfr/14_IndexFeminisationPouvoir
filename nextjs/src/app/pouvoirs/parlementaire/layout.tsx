@@ -12,7 +12,6 @@ import { parlementaire } from "@/data/pouvoir.json";
 const {
   composantes: { assemblee_nationale, europeen, senat },
   score,
-  annee,
 } = parlementaire;
 export default function PouvoirLayout({
   children,
