@@ -98,7 +98,10 @@ export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
     const isEvolutionPositive = evolution > 0;
     const isEvolutionNegative = evolution < 0;
     return (
-      <div key={om.nom} className="flex flex-col items-center justify-center -gap-[6px]">
+      <div
+        key={om.nom}
+        className="flex flex-col items-center justify-center -gap-[6px]"
+      >
         <div className="w-[110px] h-[120px] overflow-hidden">
           <OutreMerMapSVG
             regionName={om.nom}

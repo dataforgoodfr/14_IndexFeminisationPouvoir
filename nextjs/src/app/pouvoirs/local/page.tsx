@@ -1,9 +1,9 @@
 import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
-import { Hero } from "@/components/Hero";
-import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import type { TerritoryType } from "@/components/FranceMapSVG";
 import { FranceMapSVG } from "@/components/FranceMapSVG";
+import { Hero } from "@/components/Hero";
 import { DownloadIcon } from "@/components/icons/download";
+import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";

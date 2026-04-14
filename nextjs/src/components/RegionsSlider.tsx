@@ -25,7 +25,6 @@ interface RegionsSliderProps {
 export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? regions.length - 1 : prev - 1));
@@ -40,10 +39,8 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    setTouchEnd(e.changedTouches[0].clientX);
-    
     if (touchStart === null) return;
-    
+
     const distance = touchStart - e.changedTouches[0].clientX;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
