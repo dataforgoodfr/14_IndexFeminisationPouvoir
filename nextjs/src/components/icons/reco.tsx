@@ -2,7 +2,10 @@ type IconProps = React.SVGProps<SVGSVGElement> & {
   color?: string;
 };
 
-export const RecoIcon = ({ color = "#513893", ...props }: IconProps) => (
+export const RecoIcon = ({
+  color = "var(--color-foundations-violet-principal)",
+  ...props
+}: IconProps) => (
   <svg
     width="81"
     height="81"

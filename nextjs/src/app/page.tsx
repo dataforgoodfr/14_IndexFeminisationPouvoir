@@ -22,31 +22,31 @@ const EVOLUTION_FILTERS = [
 
 const RECOMMENDATIONS = [
   {
-    color: "#F2E100",
+    color: "var(--color-foundations-jaune-oxfam)",
     title: "Cadre législatif",
     description:
       "Renforcer les quotas de parité dans les instances décisionnelles et sanctionner le non-respect des obligations légales.",
   },
   {
-    color: "#513893",
+    color: "var(--color-foundations-violet-principal)",
     title: "Formation & mentorat",
     description:
       "Développer des programmes de formation et de mentorat pour préparer les femmes à accéder aux postes de décision.",
   },
   {
-    color: "#61A534",
+    color: "var(--color-foundations-vert-principal)",
     title: "Culture organisationnelle",
     description:
       "Transformer les cultures organisationnelles pour éliminer les biais de genre et favoriser un environnement inclusif.",
   },
   {
-    color: "#EA8215",
+    color: "var(--color-foundations-orange-site)",
     title: "Transparence & données",
     description:
       "Améliorer la collecte et la publication de données sexuées pour mesurer les progrès et identifier les obstacles.",
   },
   {
-    color: "#05A5D2",
+    color: "var(--color-foundations-bleu-site)",
     title: "Engagements volontaires",
     description:
       "Encourager les organisations à prendre des engagements volontaires en faveur de la parité et à en rendre compte.",
@@ -71,7 +71,7 @@ export default function Home() {
         <h1 className="header-h1 text-foundations-violet-principal text-center max-w-[964px]">
           Le pouvoir, nom masculin&nbsp;: l'index de féminisation du pouvoir
         </h1>
-        <p className="header-h4 text-[#4a4a4a] text-center max-w-[558px]">
+        <p className="header-h4 text-foundations-gris-fonce text-center max-w-[558px]">
           Une analyse complète de la représentation des femmes dans les
           instances de pouvoir en France, en Europe et dans le monde
         </p>
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
         {/* Right column */}
         <div className="flex flex-col items-center gap-[13px] w-[443px] shrink-0">
-          <DoughnutChart value={overallTaux} className="size-[272px]" />
+          <DoughnutChart value={overallTaux} variant="light" className="size-[272px]" />
           <div className="border border-foundations-violet-tres-clair flex flex-col gap-[10px] p-4 w-[344px]">
             <div className="flex items-center gap-2">
               <span className="header-h1 text-foundations-violet-principal leading-none">
@@ -152,7 +152,7 @@ export default function Home() {
               Taux de féminisation du pouvoir en France
             </p>
             <p className="label-medium text-foundations-violet-principal">
-              Dernière mise à jour : 2025
+              Dernière mise à jour : {pouvoirData.dateMiseAJour}
             </p>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function Home() {
 
       {/* 5. Quote block */}
       <section className="bg-foundations-violet-principal px-[52px] py-[60px]">
-        <p className="header-h1 text-white text-center max-w-[1377px] mx-auto">
+        <p className="body4-medium text-white text-center max-w-[1377px] mx-auto">
           En 80 ans, le pouvoir s'est lentement féminisé, néanmoins le compte
           n'y est pas, les plus hautes sphères du pouvoir français restent
           encore très (trop) masculines. La parité et la participation égale des
