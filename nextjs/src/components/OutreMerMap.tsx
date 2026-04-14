@@ -90,7 +90,7 @@ type OutreMerGridProps = {
 
 export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
   const data_maps_svg = DataMapSVG as DataMapsProps;
-  const OutreMerNameList = data_maps_svg["outre-mer"];
+  const OutreMerNameList = data_maps_svg["outre-mer"].slice(0, 8);
 
   const outreMerDivHtml = OutreMerNameList.map((om) => {
     const percentage = dataPerRegion?.[om.nom]?.percentage || 0;
@@ -98,7 +98,7 @@ export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
     const isEvolutionPositive = evolution > 0;
     const isEvolutionNegative = evolution < 0;
     return (
-      <div key={om.nom} className="-gap-[6px]">
+      <div key={om.nom} className="flex flex-col items-center justify-center -gap-[6px]">
         <div className="w-[110px] h-[120px] overflow-hidden">
           <OutreMerMapSVG
             regionName={om.nom}

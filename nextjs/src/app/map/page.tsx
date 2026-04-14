@@ -58,11 +58,11 @@ export default async function Page() {
       <PageTitle title="Pouvoir local" subtitle="Texte à ajouter" />
 
       {/* Bandeau de Recherche */}
-      <div className="sticky top-0 z-10 flex flex-col items-center justify-center pb-[20px] pt-[20px] bg-foundations-violet-principal w-full max-h-[142px] gap-[17px]">
+      <div className="sticky top-0 z-10 flex flex-col items-center justify-center pb-[20px] pt-[20px] bg-foundations-violet-principal w-full gap-[17px]">
         <p className="flex-1 body4-medium text-foundations-blanc">
           Chiffres en détails
         </p>
-        <div className="flex-1 flex flex-row gap-[16px]">
+        <div className="flex-1 flex flex-col md:flex-row gap-[16px]">
           <select className="body1-regular border border-foundations-violet-tres-clair rounded-[8px] bg-foundations-blanc text-foundations-noir h-[48px] w-[288px] pr-[16px] pl-[16px]">
             <option value="regions">Régions</option>
             <option value="departements">Départements</option>
@@ -77,19 +77,19 @@ export default async function Page() {
       </div>
 
       {/* Bloc Principal region */}
-      <div className="flex -gap-y-[60px] py-[68px] px-[70px]">
-        <div className="grid grid-cols-[6fr_6fr_1fr] grid-rows-[1fr_2fr_2fr] gap-x-[40px] ">
+      <div className="flex flex-col md:flex-row -gap-y-[60px] py-[68px] px-[20px] md:px-[70px]">
+        <div className="grid grid-cols-1 md:grid-cols-[6fr_6fr_1fr] grid-rows-auto md:grid-rows-[1fr_2fr_2fr] gap-x-[40px] gap-y-[40px] md:gap-y-0">
           {/* Column 1: FranceMap spans all 3 rows */}
-          <div className="row-span-3 overflow-hidden">
+          <div className="md:row-span-3 overflow-hidden">
             <FranceMapSVG
               fillColor="var(--color-purple-oxfam-600)"
-              className="size-130"
+              className="size-80 md:size-130"
               dataPerRegion={dataPerRegionMetropole}
             />
           </div>
 
           {/* Column 2, Row 1: Title */}
-          <div className="row-span-1 flex flex-col text-left items-start gap-y-[10px] px-[10px]">
+          <div className="md:row-span-1 flex flex-col text-left items-start gap-y-[10px] px-[10px]">
             <h2 className="header-h3 text-foundations-violet-principal">
               Les femmes maires par régions
             </h2>
@@ -103,12 +103,12 @@ export default async function Page() {
           <div></div>
 
           {/* Column 2, Rows 2-3: OutreMer Grid */}
-          <div className="row-span-2 grid grid-cols-4 gap-x-[8px] gap-y-[17px]">
+          <div className="md:row-span-2 grid grid-cols-2 md:grid-cols-4 gap-x-[8px] gap-y-[17px]">
             <OutreMerGrid dataPerRegion={dataPerRegionOutreMer} />
           </div>
 
           {/* Column 3, Rows 2-3: Buttons */}
-          <div className="row-span-1 flex flex-col gap-y-[16px] items-center justify-start">
+          <div className="md:row-span-1 flex flex-row gap-x-[16px] md:flex-col md:gap-y-[16px] items-center justify-center md:justify-start">
             <button type="button" className="cursor-pointer">
               <QuestionMarkIcon className="w-[50px] h-[50px]" />
             </button>
@@ -120,8 +120,8 @@ export default async function Page() {
       </div>
 
       {/* Bloc Classement */}
-      <div className="flex flex-row gap-x-[46px] px-[215px] py-[65px] items-start justify-center bg-foundations-violet-tres-clair">
-        <div className="flex-1 flex flex-col gap-y-[34px] text-left items-end justify-end">
+      <div className="flex flex-col md:flex-row gap-x-[46px] gap-y-[40px] px-[20px] md:px-[215px] py-[65px] items-start justify-center bg-foundations-violet-tres-clair">
+        <div className="flex-1 flex flex-col gap-y-[34px] text-left items-start md:items-end justify-end">
           <div className="flex-2">
             <h3 className="header-h3 text-foundations-violet-principal">
               Les principaux exécutifs locaux dans une région
@@ -157,7 +157,7 @@ export default async function Page() {
         </div>
       </div>
       {/* Bloc Contenu Texte */}
-      <div className="flex flex-row gap-x-[33px] px-[100px] py-[44px] bg-foundations-blanc items-stretch justify-center">
+      <div className="flex flex-col md:flex-row gap-x-[33px] gap-y-[40px] px-[20px] md:px-[100px] py-[44px] bg-foundations-blanc items-stretch justify-center">
         <div className="flex-1 min-w-0">
           <RegionsSlider
             regions={regionsDescriptions.top5}
