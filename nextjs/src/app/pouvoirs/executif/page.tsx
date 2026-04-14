@@ -1,8 +1,8 @@
 import GenderDistributionChart from "@/components/charts/GenderDistributionChart";
 import { Hero } from "@/components/Hero";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
-import { PageTitle } from "@/components/PageTitle";
-import { PouvoirFigure } from "@/components/PouvoirFigure";
+import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
+import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
 const { composantes, score } = pouvoirData.executif;
@@ -12,11 +12,11 @@ export default function Page() {
     <>
       <PageTitle title="Pouvoir éxécutif" subtitle="Texte à ajouter" />
       <Hero>
-        <PouvoirFigure
+        <PouvoirFigureXL
           valeur={score}
           icon={PouvoirExecutifIcon}
           dateMiseàJour={new Date()}
-          texte="Texte à ajouter"
+          intitule="au sein du pouvoir éxécutif"
         />
       </Hero>
       <div className="p-8 flex flex-col gap-8">

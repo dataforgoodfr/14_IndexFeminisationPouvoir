@@ -25,8 +25,8 @@ export const NavigationParlementaireSection = ({
   return (
     <>
       {/* Purple banner - always shown. Desktop: navs are absolutely positioned inside. */}
-      <div className="w-full lg:relative flex flex-col items-center justify-center lg:mb-38">
-        <div className="w-full bg-foundations-violet-principal h-28 flex items-center justify-center">
+      <div className="w-full lg:relative flex flex-col items-center justify-start lg:mb-38">
+        <div className="w-full bg-foundations-violet-principal h-28 flex items-center lg:items-start lg:py-6 justify-center">
           <div className="body4-medium text-foundations-blanc">
             Les chiffres en détails
           </div>

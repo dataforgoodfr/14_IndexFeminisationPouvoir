@@ -17,13 +17,31 @@
     "evolution": 2.5,
     "composantes": {
       "assemblee_nationale": {
+        "annee": 2025,
         "score": 28.6,
         "evolution": 2.5,
         "composantes": {
           "deputees": 36,
-          "presidente_commission_an": 37.5,
-          "bureau": ""
+          "bureau": 59,
+          "presidente_commission": 37.5,
+          "presidente_groupe": 37.5
         }
+      },
+      "senat": {
+        "annee": 2025,
+        "score": 24.7,
+        "evolution": 2.5,
+        "composantes": {
+          "senatrices": 25,
+          "bureau": 50,
+          "presidente_commission": 33.3,
+          "presidente_groupe": 33.3
+        }
+      },
+      "europeen": {
+        "annee": 2025,
+        "score": 31.2,
+        "evolution": 2.5
       }
     }
   },

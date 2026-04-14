@@ -1,4 +1,4 @@
-import { PouvoirFigureMini } from "./PouvoirFigureMini";
+import { PouvoirFigureL } from "./PouvoirFigureL";
 
 export type StatConfig = {
   valeur: number;
@@ -22,7 +22,7 @@ export const CollectiviteLocaleBlock = ({
   return (
     <div className="relative pt-5 pb-2">
       {/* Badge titre — chevauche le bord supérieur de la carte */}
-      <div className="absolute top-0 left-4 -translate-y-1/2 z-10 bg-purple-oxfam-600 rounded-md px-10 py-2">
+      <div className="absolute top-0 left-4 -translate-y-1/2 z-10 bg-foundations-violet-principal rounded-md px-10 py-2">
         <span className="header-h3 text-white">{titre}</span>
       </div>
 
@@ -35,11 +35,12 @@ export const CollectiviteLocaleBlock = ({
               "border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
             }
           >
-            <PouvoirFigureMini
+            <PouvoirFigureL
               valeur={stat.valeur}
-              label={stat.role}
+              intitule={stat.role}
               annee={stat.annee}
               evolution={stat.evolution}
+              withChart
             />
           </div>
         ))}
@@ -47,7 +48,7 @@ export const CollectiviteLocaleBlock = ({
 
       {/* Date de mise à jour — sous la carte, alignée à droite */}
       {dateMiseAJour && (
-        <p className="text-right text-xs text-purple-oxfam-600 mt-1">
+        <p className="text-right text-xs text-foundations-violet-principal mt-1">
           Dernière mise à jour :{" "}
           {dateMiseAJour.toLocaleDateString("fr-FR", {
             day: "2-digit",

@@ -4,13 +4,13 @@ import { ParlementEuropéenIcon } from "@/components/icons/parlement-euro";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
 import { SénatIcon } from "@/components/icons/senat";
 import { NavigationParlementaireSection } from "@/components/NavigationParlementaireSection";
-import { PageTitle } from "@/components/PageTitle";
-import { PouvoirFigure } from "@/components/PouvoirFigure";
-import { PouvoirFigureMini } from "@/components/PouvoirFigureMini";
+import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
+import { PageTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
 const {
-  composantes: { assemblee_nationale },
+  composantes: { assemblee_nationale, europeen, senat },
   score,
   annee,
 } = parlementaire;
@@ -23,11 +23,12 @@ export default function PouvoirLayout({
     <>
       <PageTitle title="Pouvoir parlementaire" subtitle="Texte à ajouter" />
       <Hero>
-        <PouvoirFigure
+        <PouvoirFigureXL
           valeur={score}
           icon={PouvoirParlementaireIcon}
           dateMiseàJour={new Date()}
-          texte="Texte à ajouter"
+          prelabel="au sein des"
+          intitule="parlements"
         />
       </Hero>
       <h2
@@ -38,29 +39,32 @@ export default function PouvoirLayout({
       </h2>
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-4 mb-16">
         <div className="flex-1 flex flex-col">
-          <PouvoirFigureMini
+          <PouvoirFigureL
+            intitule="députées"
             valeur={assemblee_nationale.score}
-            label="députées"
-            annee={annee}
+            annee={assemblee_nationale.annee}
             evolution={assemblee_nationale.evolution}
+            withChart
           />
         </div>
-        <div className="hidden lg:block border-l-2 border-dashed border-foundations-violet-principal" />
+        <div className="divider-dashed" />
         <div className="flex-1 flex flex-col">
-          <PouvoirFigureMini
-            valeur={assemblee_nationale.score}
-            label="députées"
-            annee={annee}
-            evolution={assemblee_nationale.evolution}
+          <PouvoirFigureL
+            intitule="sénatrices"
+            valeur={senat.score}
+            annee={senat.annee}
+            evolution={senat.evolution}
+            withChart
           />
         </div>
-        <div className="hidden lg:block border-l-2 border-dashed border-foundations-violet-principal" />
+        <div className="divider-dashed" />
         <div className="flex-1 flex flex-col">
-          <PouvoirFigureMini
-            valeur={assemblee_nationale.score}
-            label="députées"
-            annee={annee}
-            evolution={assemblee_nationale.evolution}
+          <PouvoirFigureL
+            intitule="députées européennes"
+            valeur={europeen.score}
+            annee={europeen.annee}
+            evolution={europeen.evolution}
+            withChart
           />
         </div>
       </div>

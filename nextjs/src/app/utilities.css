@@ -29,4 +29,15 @@
       @apply fill-white;
     }
   }
+
+  .divider {
+    @apply rounded bg-foundations-violet-clair h-1.5 w-15;
+  }
+
+  .divider-dashed {
+    @apply hidden lg:block border-l-2 border-dashed border-foundations-violet-principal;
+  }
+  .divider-dashed-horizontal {
+    @apply hidden lg:block border-t-2 border-dashed border-foundations-violet-principal;
+  }
 }
