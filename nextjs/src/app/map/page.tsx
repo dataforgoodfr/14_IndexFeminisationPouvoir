@@ -75,45 +75,48 @@ export default async function Page() {
       </div>
 
       {/* Bloc Principal region */}
-      <div className="grid grid-cols-[6fr_6fr_1fr] grid-rows-[1fr_2fr_2fr] gap-x-[40px] py-[68px]">
-        {/* Column 1: FranceMap spans all 3 rows */}
-        <div className="row-span-3 overflow-hidden">
-          <FranceMapSVG
-            fillColor="var(--color-purple-oxfam-600)"
-            className="size-130"
-            dataPerRegion={dataPerRegionMetropole}
-          />
-        </div>
+      <div className="flex -gap-y-[60px] py-[68px] px-[70px]">
+        <div className="grid grid-cols-[6fr_6fr_1fr] grid-rows-[1fr_2fr_2fr] gap-x-[40px] ">
+          {/* Column 1: FranceMap spans all 3 rows */}
+          <div className="row-span-3 overflow-hidden">
+            <FranceMapSVG
+              fillColor="var(--color-purple-oxfam-600)"
+              className="size-130"
+              dataPerRegion={dataPerRegionMetropole}
+            />
+          </div>
 
-        {/* Column 2, Row 1: Title */}
-        <div className="row-span-1 flex flex-col text-left items-start gap-y-[10px] px-[10px]">
-          <h2 className="header-h3 text-foundations-violet-principal">
-            Les femmes maires par régions
-          </h2>
-          <h3 className="label-regular text-foundations-violet-principal">
-            Dernière mise à jour: JJ/MM/AAAA
-          </h3>
-          <div className="bg-foundations-violet-clair rounded-[6px] w-[36px] h-[6px]"></div>
-        </div>
+          {/* Column 2, Row 1: Title */}
+          <div className="row-span-1 flex flex-col text-left items-start gap-y-[10px] px-[10px]">
+            <h2 className="header-h3 text-foundations-violet-principal">
+              Les femmes maires par régions
+            </h2>
+            <h3 className="label-regular text-foundations-violet-principal">
+              Dernière mise à jour: JJ/MM/AAAA
+            </h3>
+            <div className="bg-foundations-violet-clair rounded-[6px] w-[36px] h-[6px]"></div>
+          </div>
 
-        {/* Column 3, Row 1: Empty */}
-        <div></div>
+          {/* Column 3, Row 1: Empty */}
+          <div></div>
 
-        {/* Column 2, Rows 2-3: OutreMer Grid */}
-        <div className="row-span-2 grid grid-cols-4 gap-x-[8px] gap-y-[17px]">
-          <OutreMerGrid dataPerRegion={dataPerRegionOutreMer} />
-        </div>
+          {/* Column 2, Rows 2-3: OutreMer Grid */}
+          <div className="row-span-2 grid grid-cols-4 gap-x-[8px] gap-y-[17px]">
+            <OutreMerGrid dataPerRegion={dataPerRegionOutreMer} />
+          </div>
 
-        {/* Column 3, Rows 2-3: Buttons */}
-        <div className="row-span-1 flex flex-col gap-y-[16px] items-center justify-start">
-          <button type="button" className="cursor-pointer">
-            <QuestionMarkIcon className="w-[50px] h-[50px]" />
-          </button>
-          <button type="button" className="cursor-pointer">
-            <DownloadIcon className="w-[50px] h-[50px]" />
-          </button>
+          {/* Column 3, Rows 2-3: Buttons */}
+          <div className="row-span-1 flex flex-col gap-y-[16px] items-center justify-start">
+            <button type="button" className="cursor-pointer">
+              <QuestionMarkIcon className="w-[50px] h-[50px]" />
+            </button>
+            <button type="button" className="cursor-pointer">
+              <DownloadIcon className="w-[50px] h-[50px]" />
+            </button>
+          </div>
         </div>
       </div>
+
       {/* Bloc Classement */}
       <div className="flex flex-row gap-x-[46px] px-[215px] py-[65px] items-start justify-center bg-foundations-violet-tres-clair">
         <div className="flex-1 flex flex-col gap-y-[34px] text-left items-end justify-end">
@@ -152,7 +155,10 @@ export default async function Page() {
         </div>
       </div>
       {/* Bloc Contenu Texte */}
-      <div></div>
+      <div>
+
+
+      </div>
     </div>
   );
 }
