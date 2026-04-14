@@ -27,15 +27,17 @@ export const CollectiviteLocaleBlock = ({
       </div>
 
       {/* Carte bordée */}
-      <div className="bg-white border-2 border-purple-oxfam-100 px-16 pt-12 pb-8">
-        {stats.map((stat, i) => (
-          <div key={`${stat.role}-${i}`}>
-            {i > 0 && (
-              <div className="border-t border-dashed border-purple-oxfam-300 my-5" />
-            )}
+      <div className="bg-white border-2 border-purple-oxfam-100 px-16 py-4">
+        {stats.map((stat) => (
+          <div
+            key={stat.role}
+            className={
+              "border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
+            }
+          >
             <PouvoirFigureMini
               valeur={stat.valeur}
-              role={stat.role}
+              label={stat.role}
               annee={stat.annee}
               evolution={stat.evolution}
             />

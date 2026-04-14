@@ -19,14 +19,14 @@ const EvolutionBadge = ({ value }: EvolutionBadgeProps) => {
 export type PouvoirFigureMiniProps = {
   valeur: number;
   /** Affiché en majuscules, e.g. "présidant une région" */
-  role: string;
+  label: string;
   annee?: number;
   evolution?: number;
 };
 
 export const PouvoirFigureMini = ({
   valeur,
-  role,
+  label,
   annee,
   evolution,
 }: PouvoirFigureMiniProps) => {
@@ -54,7 +54,7 @@ export const PouvoirFigureMini = ({
           de femmes
         </span>
         <span className="header-h3 text-purple-oxfam-600 uppercase">
-          {role}
+          {label}
         </span>
         <span className="header-h3 text-purple-oxfam-600 uppercase">
           en {anneeAffichee}

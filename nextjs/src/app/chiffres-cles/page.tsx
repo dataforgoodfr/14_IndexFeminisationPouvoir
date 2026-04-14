@@ -13,7 +13,6 @@ type Data = Record<
 >;
 
 const fetchData = async () => {
-  await new Promise((res) => setTimeout(res, 300));
   return pouvoirData as Data;
 };
 

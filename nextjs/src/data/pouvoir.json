@@ -13,10 +13,18 @@
   },
   "parlementaire": {
     "score": 28.6,
+    "annee": 2025,
     "evolution": 2.5,
     "composantes": {
-      "deputees": 36,
-      "presidente_commission_an": 37.5
+      "assemblee_nationale": {
+        "score": 28.6,
+        "evolution": 2.5,
+        "composantes": {
+          "deputees": 36,
+          "presidente_commission_an": 37.5,
+          "bureau": ""
+        }
+      }
     }
   },
   "local": {
@@ -37,7 +45,10 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 29.4, "role": "présidant une région" },
+          {
+            "valeur": 29.4,
+            "role": "présidant une région"
+          },
           {
             "valeur": 25.0,
             "role": "directrices de cabinet d'un.e président.e de région"
@@ -49,7 +60,10 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 20.8, "role": "présidant un département" },
+          {
+            "valeur": 20.8,
+            "role": "présidant un département"
+          },
           {
             "valeur": 34.3,
             "role": "directrices de cabinet d'un.e président.e de département"
@@ -61,8 +75,14 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 20.8, "role": "maires" },
-          { "valeur": 16.8, "role": "maires de préfecture" },
+          {
+            "valeur": 20.8,
+            "role": "maires"
+          },
+          {
+            "valeur": 16.8,
+            "role": "maires de préfecture"
+          },
           {
             "valeur": 34.3,
             "role": "directrices de cabinet des mairies de préfecture"
