@@ -24,6 +24,8 @@ interface RegionsSliderProps {
 
 export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? regions.length - 1 : prev - 1));
@@ -31,6 +33,26 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === regions.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    
+    if (touchStart === null) return;
+    
+    const distance = touchStart - e.changedTouches[0].clientX;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
   };
 
   const currentRegion = regions[currentIndex];
@@ -44,6 +66,8 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
   return (
     <div
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       className={`grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full ${backgroundColor}`}
     >
       {/* Top Row */}
@@ -88,7 +112,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
       {/* Middle Center: Description */}
       <div className="flex ">
-        <p className="body2-regular bg-foundations-blanc text-center rounded-[6px] p-[30px] ">
+        <p className="body2-regular bg-foundations-blanc text-center rounded-[6px] p-[30px] w-full ">
           {currentRegion.description}
         </p>
       </div>
