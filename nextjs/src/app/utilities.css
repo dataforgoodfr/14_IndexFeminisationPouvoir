@@ -10,6 +10,20 @@
     background-image: var(--hero-svg-url);
   }
 
+  .bg-svg-tree-red {
+    @apply relative bg-foundations-rouge-principal z-1;
+  }
+  .bg-svg-tree-red::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-trees.svg)] bg-cover -z-1 opacity-10;
+  }
+
+  .bg-svg-tree-green {
+    @apply relative bg-green-oxfam-600 z-1;
+  }
+  .bg-svg-tree-green::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/bg-trees.svg)] bg-cover -z-1 opacity-15;
+  }
+
   .bg-chiffres-outremers {
     @apply relative z-1;
   }
@@ -39,6 +53,22 @@
   .bg-svg-inequal::after {
     @apply content-[""] absolute inset-0 pointer-events-none bg-center bg-no-repeat -z-1 opacity-25;
     background-image: var(--inequal-svg-url);
+  }
+
+  /* White Inequal sign */
+  .bg-svg-inequal-white {
+    @apply relative z-1;
+  }
+  .bg-svg-inequal-white::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal-white.svg)] bg-center bg-no-repeat -z-1;
+  }
+
+  /* White Equal sign */
+  .bg-svg-equal-white {
+    @apply relative z-1;
+  }
+  .bg-svg-equal-white::after {
+    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/equal-white.svg)] bg-center bg-no-repeat -z-1;
   }
 
   /* Button */

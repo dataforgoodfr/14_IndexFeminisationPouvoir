@@ -9,7 +9,7 @@ export const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => (
     className={cn("size-6", props.className)}
   >
     <title>Loupe plus d'infos</title>
-    <g clip-path="url(#clip0_6909_19801)">
+    <g clipPath="url(#clip0_6909_19801)">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

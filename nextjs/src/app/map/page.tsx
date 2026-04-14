@@ -4,8 +4,10 @@ import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { PageTitle } from "@/components/PageTitle";
+import { RegionsSlider } from "@/components/RegionsSlider";
 import { Standings } from "@/components/Standings";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
+import regionsDescriptions from "@/data/regions-descriptions.json";
 
 type DataPouvoirLocal = Record<
   TerritoryType,
@@ -155,9 +157,21 @@ export default async function Page() {
         </div>
       </div>
       {/* Bloc Contenu Texte */}
-      <div>
-
-
+      <div className="flex flex-row gap-x-[33px] px-[100px] py-[44px] bg-foundations-blanc items-stretch justify-center">
+        <div className="flex-1 min-w-0">
+          <RegionsSlider
+            regions={regionsDescriptions.top5}
+            title="Une progressive féminisation du pouvoir local"
+            variant="top"
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <RegionsSlider
+            regions={regionsDescriptions.bottom5}
+            title="Le Boys Club des territoires"
+            variant="bottom"
+          />
+        </div>
       </div>
     </div>
   );
