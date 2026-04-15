@@ -1,5 +1,4 @@
 import { SearchIcon } from "@/components/icons/search";
-import { ThumbDownIcon } from "@/components/icons/thumbdown";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
 
 interface StandingLineProps {
@@ -40,8 +39,8 @@ export const StandingLine: React.FC<StandingLineProps> = ({
           />
         )}
         {iconType === "down" && (
-          <ThumbDownIcon
-            className="w-5 h-5"
+          <ThumbUpIcon
+            className="w-5 h-5 rotate-180"
             fill="var(--color-foundations-rouge-principal)"
           />
         )}

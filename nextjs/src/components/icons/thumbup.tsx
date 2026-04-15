@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 export const ThumbUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
+    viewBox="-1.5 -1.5 25 25"
     fill="white"
     {...props}
     className={cn("size-6", props.className)}

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
-import { ThumbDownIcon } from "./icons/thumbdown";
 import { ThumbUpIcon } from "./icons/thumbup";
 export interface RegionDescription {
   rank: number;
@@ -73,7 +72,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       {/* Top Middle: Title */}
       <div className="flex flex-row gap-[12px]">
         <div
-          className={`flex-2 flex items-center justify-center ${backgroundEqual}`}
+          className={`flex-2 flex items-center justify-center ${backgroundEqual} min-h-[75px] min-w-[85px]`}
         >
           {variant === "top" ? (
             <ThumbUpIcon
@@ -81,9 +80,9 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
               className="size-12"
             />
           ) : (
-            <ThumbDownIcon
+            <ThumbUpIcon
               fill="var(--color-foundations-violet-principal)"
-              className="size-12"
+              className="size-12 rotate-180"
             />
           )}
         </div>
