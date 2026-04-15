@@ -10,7 +10,11 @@ const { composantes, score } = pouvoirData.executif;
 export default function Page() {
   return (
     <>
-      <PageTitle title="Pouvoir éxécutif" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="pouvoir-executif"
+        title="Pouvoir éxécutif"
+        subtitle="Texte à ajouter"
+      />
       <Hero>
         <PouvoirFigureXL
           valeur={score}

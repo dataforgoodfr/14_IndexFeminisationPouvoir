@@ -20,7 +20,11 @@ export default function PouvoirLayout({
 }>) {
   return (
     <>
-      <PageTitle title="Pouvoir parlementaire" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="pouvoir-parlementaire"
+        title="Pouvoir parlementaire"
+        subtitle="Texte à ajouter"
+      />
       <Hero>
         <PouvoirFigureXL
           valeur={score}

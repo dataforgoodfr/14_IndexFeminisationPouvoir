@@ -10,7 +10,7 @@ const { annee, score, composantes } = parlementaire.composantes.senat;
 export default function Page() {
   return (
     <>
-      <SectionTitle title="Sénat" />
+      <SectionTitle id="senat" title="Sénat" />
       <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4  mb-12">
         <div className="w-full lg:w-lg">
           <ParlementChart parite={score / 100} />

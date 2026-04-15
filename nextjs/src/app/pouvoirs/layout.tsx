@@ -27,7 +27,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirExecutifIcon}
-              href="/pouvoirs/executif"
+              href="/pouvoirs/executif#pouvoir-executif"
             />
             <PouvoirSelector
               title={
@@ -37,7 +37,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirParlementaireIcon}
-              href="/pouvoirs/parlementaire"
+              href="/pouvoirs/parlementaire#pouvoir-parlementaire"
             />
             <PouvoirSelector
               title={
@@ -47,7 +47,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirLocalIcon}
-              href="/pouvoirs/local"
+              href="/pouvoirs/local#pouvoir-local"
             />
             <PouvoirSelector
               title={
@@ -57,7 +57,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={AutresPouvoirsIcon}
-              href="/pouvoirs/autres"
+              href="/pouvoirs/autres#autres-pouvoirs"
             />
             <PouvoirSelector
               title={
@@ -67,7 +67,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={MondeIcon}
-              href="/pouvoirs/monde"
+              href="/pouvoirs/monde#dans-le-monde"
             />
           </div>
         </div>
