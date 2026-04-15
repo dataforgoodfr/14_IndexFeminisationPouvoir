@@ -1,5 +1,7 @@
+import Link from "next/link";
 import ParlementChart from "@/components/charts/ParlementChart";
 import { InfoBox } from "@/components/InfoBox";
+import { BookIcon } from "@/components/icons/book";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
@@ -51,6 +53,22 @@ export default function Page() {
             intitule="présidant un groupe parlementaire"
             annee={annee}
           />
+        </div>
+      </div>
+      <div className="w-full p-11 bg-foundations-violet-clair flex flex-col items-center justify-center gap-4 mb-12">
+        <div className="max-w-170 text-center flex flex-col items-center justify-center gap-4">
+          <p className="body1-regular">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+            vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada
+            lectus, at congue magna velit eu felis.
+          </p>
+          <p className="body1-medium">Pour en savoir plus :</p>
+          <p>
+            <Link href="/rapport" className="hidden lg:block button">
+              <BookIcon />
+              <span>Lire le rapport</span>
+            </Link>
+          </p>
         </div>
       </div>
     </>
