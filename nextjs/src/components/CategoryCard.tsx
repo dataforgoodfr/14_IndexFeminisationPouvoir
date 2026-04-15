@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import type { SVGProps } from "react";
 
@@ -5,7 +6,7 @@ type CategoryCardProps = {
   icon: React.ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
-  href: string;
+  href: Route;
 };
 
 export function CategoryCard({
@@ -24,7 +25,7 @@ export function CategoryCard({
           {title}
         </p>
       </div>
-      <div className="h-[6px] w-[60px] bg-foundations-violet-clair rounded-[6px] shrink-0" />
+      <div className="h-1.5 w-15 bg-foundations-violet-clair rounded-md shrink-0" />
       <div className="flex flex-col gap-4 items-center justify-center p-4 w-full">
         <p className="body2-regular text-black text-center">{description}</p>
       </div>

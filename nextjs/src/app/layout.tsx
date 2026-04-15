@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import type { CSSProperties } from "react";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Index de Féminisation du Pouvoir",
 };
 
-const navigation = [
-  { name: "Chiffres clés", href: "/chiffres-cles/", current: true },
-  { name: "Pouvoirs", href: "/pouvoirs/", current: false },
-  { name: "Recommandations", href: "/recommandations/", current: false },
-  { name: "Méthode de calcul", href: "/methode/", current: false },
+const navigation: { name: string; href: Route; current: boolean }[] = [
+  { name: "Chiffres clés", href: "/chiffres-cles", current: true },
+  { name: "Pouvoirs", href: "/pouvoirs", current: false },
+  { name: "Recommandations", href: "/recommandations", current: false },
+  { name: "Méthode de calcul", href: "/methodologie", current: false },
 ];
 
 export default function RootLayout({

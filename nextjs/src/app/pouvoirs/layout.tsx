@@ -1,5 +1,6 @@
 "use client";
-import Link, { type LinkProps } from "next/link";
+import type { Route } from "next";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { HTMLAttributes, JSX } from "react";
 import { MondeIcon } from "@/components/icons/monde";
@@ -79,9 +80,10 @@ export default function PouvoirLayout({
   );
 }
 
-type PouvoirSelectorProps = LinkProps & {
+type PouvoirSelectorProps = {
   title: React.ReactNode;
   icon: (props: HTMLAttributes<HTMLOrSVGElement>) => JSX.Element;
+  href: Route;
 };
 const PouvoirSelector = ({
   title,
