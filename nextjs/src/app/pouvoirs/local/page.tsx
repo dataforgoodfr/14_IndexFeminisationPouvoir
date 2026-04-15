@@ -57,7 +57,11 @@ export default async function Page() {
 
   return (
     <>
-      <PageTitle title="Pouvoir local" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="pouvoir-local"
+        title="Pouvoir local"
+        subtitle="Texte à ajouter"
+      />
       <Hero>
         <PouvoirFigureXL
           valeur={score}

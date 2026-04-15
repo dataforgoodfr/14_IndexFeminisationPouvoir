@@ -9,7 +9,7 @@ const { annee, score } = parlementaire.composantes.europeen;
 export default function Page() {
   return (
     <>
-      <SectionTitle title="Parlement Européen" />
+      <SectionTitle id="parlement-europeen" title="Parlement Européen" />
       <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 mb-12">
         <div className="w-full lg:w-lg">
           <ParlementChart parite={score / 100} />

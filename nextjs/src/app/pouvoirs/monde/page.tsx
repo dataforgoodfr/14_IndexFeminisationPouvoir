@@ -3,7 +3,11 @@ import { PageTitle } from "@/components/titles";
 export default function Page() {
   return (
     <div>
-      <PageTitle title="Dans le monde" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="dans-le-monde"
+        title="Dans le monde"
+        subtitle="Texte à ajouter"
+      />
     </div>
   );
 }
