@@ -23,7 +23,6 @@ export const CollectiviteLocaleBlock = ({
   <Block
     titre={titre}
     dateMiseAJour={dateMiseAJour}
-    cardClassName="px-16 pt-8 pb-4"
   >
     {stats.map((stat) => (
       <div

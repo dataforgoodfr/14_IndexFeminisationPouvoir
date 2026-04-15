@@ -19,13 +19,13 @@ export const Block = ({
 }: BlockProps) => (
   <div className={cn("relative pt-5 pb-2", className)}>
     {/* Badge titre centré sur la bordure supérieure de la carte */}
-    <div className="absolute top-0 left-4 -translate-y-1/2 z-10 bg-foundations-violet-principal rounded-md px-10 py-2">
+    <div className="absolute min-w-40 text-center top-8 -left-4 z-10 bg-foundations-violet-principal rounded-md px-6 py-2">
       <span className="header-h3 text-white">{titre}</span>
     </div>
 
     {/* Carte bordée */}
     <div
-      className={cn("bg-white border-2 border-purple-oxfam-100", cardClassName)}
+      className={cn("bg-white border-2 border-purple-oxfam-100 px-16 py-4 pt-12", cardClassName)}
     >
       {children}
     </div>

@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: pas d'autre clé que l'index, acceptable car non dynamique */
 "use client";
 
 import Image from "next/image";
@@ -20,7 +19,6 @@ import { cn } from "@/lib/utils";
 
 type AutreComposantes = (typeof pouvoirData)["autre"]["composantes"];
 
-// ---- Types d'onglets ----
 type TabId =
   | "hautes_juridictions"
   | "prefectures"
@@ -28,15 +26,14 @@ type TabId =
   | "haute_autorite"
   | "partis_politiques";
 
-const TABS: { id: TabId; label: string; illustration?: string }[] = [
+const TABS: { id: TabId; label: string }[] = [
   {
     id: "hautes_juridictions",
     label: "Hautes juridictions",
-    illustration: "/images/juridictions/tab-hautes-juridictions.png",
   },
   { id: "prefectures", label: "Préfectures" },
   { id: "ambassades", label: "Ambassades" },
-  { id: "haute_autorite", label: "Haute autorité\u00a0/ Agences de l'état" },
+  { id: "haute_autorite", label: "Haute autorité / Agences de l'état" },
   { id: "partis_politiques", label: "Partis politiques" },
 ];
 
@@ -53,9 +50,6 @@ const TabStub = ({ titre }: { titre: string }) => (
   </div>
 );
 
-// ---- Contenu Hautes juridictions ----
-// TODO: les valeurs de score et d'évolution dans pouvoir.json sont des données
-// provisoires en attente des chiffres définitifs. À mettre à jour avant mise en prod.
 const HautesJuridictionsContent = ({
   data,
 }: {
@@ -123,7 +117,7 @@ const HautesJuridictionsContent = ({
           titre="Conseil constitutionnel"
           dateMiseAJour={new Date(conseil_constitutionnel.dateMiseAJour)}
           className="flex-1 min-w-0"
-          cardClassName="px-8 py-6 h-full"
+          cardClassName="pt-20"
         >
           <div className="flex flex-col gap-6">
             {/* Icônes genrées : femmes (robe) puis hommes */}
@@ -171,7 +165,7 @@ const HautesJuridictionsContent = ({
           titre="Magistrature"
           dateMiseAJour={new Date(magistrature.dateMiseAJour)}
           className="flex-1 min-w-0"
-          cardClassName="px-8 py-6 h-full"
+          cardClassName="pt-16"
         >
           <div className="grid grid-cols-2 gap-x-6">
             <div className="border-b border-dashed border-purple-oxfam-300 py-3">
