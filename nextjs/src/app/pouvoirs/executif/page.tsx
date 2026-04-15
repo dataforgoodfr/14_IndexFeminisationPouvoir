@@ -19,7 +19,7 @@ export default function Page() {
         <PouvoirFigureXL
           valeur={score}
           icon={PouvoirExecutifIcon}
-          dateMiseàJour={new Date()}
+          dateMiseAJour={new Date()}
           intitule="au sein du pouvoir éxécutif"
         />
       </Hero>

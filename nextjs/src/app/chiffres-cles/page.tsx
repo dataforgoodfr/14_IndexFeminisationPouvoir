@@ -62,12 +62,6 @@ export default async function Page() {
           éxecutifs, législatifs et locaux pour évaluer l'évolution de la partie
           dans les sphères de pouvoir.
         </div>
-        <Link
-          href="/methodologie"
-          className="mt-4 w-xs p-2 flex items-center justify-center"
-        >
-          <Tooltip text="Méthodologie de calcul" />
-        </Link>
       </div>
 
       {/* Right Part */}

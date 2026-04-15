@@ -1,20 +1,20 @@
-import Link from "next/link";
+import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
+import { BlocClassement } from "@/components/BlocClassement";
 import ParlementChart from "@/components/charts/ParlementChart";
 import { InfoBox } from "@/components/InfoBox";
-import { BookIcon } from "@/components/icons/book";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score, composantes } =
+const { annee, score, composantes, analyse, parite_groupes } =
   parlementaire.composantes.assemblee_nationale;
 
 export default function Page() {
   return (
     <>
       <SectionTitle id="assemblee-nationale" title="Assemblée Nationale" />
-      <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 mb-12">
+      <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 ">
         <div className="w-full lg:w-lg">
           <ParlementChart parite={score / 100} />
         </div>
@@ -55,21 +55,18 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="w-full p-11 bg-foundations-violet-clair flex flex-col items-center justify-center gap-4 mb-12">
-        <div className="max-w-170 text-center flex flex-col items-center justify-center gap-4">
-          <p className="body1-regular">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada
-            lectus, at congue magna velit eu felis.
-          </p>
-          <p className="body1-medium">Pour en savoir plus :</p>
-          <p>
-            <Link href="/rapport" className="hidden lg:block button">
-              <BookIcon />
-              <span>Lire le rapport</span>
-            </Link>
-          </p>
-        </div>
+      <div className="w-full">
+        <BlocAnalyseRapport description={analyse} />
+        <BlocClassement
+          title="Taux de parité des groupes politiques"
+          description={parite_groupes.description}
+          data={parite_groupes.data.map(({ nom, score, evolution }) => ({
+            label: nom,
+            percentage: score,
+            evolution,
+          }))}
+          derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
+        />
       </div>
     </>
   );

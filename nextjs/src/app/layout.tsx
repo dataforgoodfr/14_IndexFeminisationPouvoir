@@ -25,9 +25,17 @@ export default function RootLayout({
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const svgRoot = `${basePath}/images/`;
   const cssVariables: CSSProperties &
-    Record<"--hero-svg-url" | "--inequal-svg-url", string> = {
+    Record<
+      | "--hero-svg-url"
+      | "--inequal-svg-url"
+      | "--evolution-red-svg-url"
+      | "--evolution-green-svg-url",
+      string
+    > = {
     "--hero-svg-url": `url(${svgRoot}hero.svg)`,
     "--inequal-svg-url": `url(${svgRoot}inequal.svg)`,
+    "--evolution-red-svg-url": `url(${svgRoot}bg-evolution-red.svg)`,
+    "--evolution-green-svg-url": `url(${svgRoot}bg-evolution-green.svg)`,
   };
 
   return (

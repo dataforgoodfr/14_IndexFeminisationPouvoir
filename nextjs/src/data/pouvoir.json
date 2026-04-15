@@ -41,22 +41,66 @@
         "annee": 2025,
         "score": 28.6,
         "evolution": 2.5,
+        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "deputees": 36,
           "bureau": 59,
           "presidente_commission": 37.5,
           "presidente_groupe": 37.5
+        },
+        "parite_groupes": {
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "dateMiseAJour": "2025-01-01",
+          "data": [
+            {
+              "nom": "Écologistes",
+              "score": 40,
+              "evolution": 2.5
+            },
+            {
+              "nom": "EPR",
+              "score": 25,
+              "evolution": 2.5
+            },
+            {
+              "nom": "LFI",
+              "score": 30,
+              "evolution": 2.5
+            }
+          ]
         }
       },
       "senat": {
         "annee": 2025,
         "score": 24.7,
         "evolution": 2.5,
+        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "senatrices": 25,
           "bureau": 50,
           "presidente_commission": 33.3,
           "presidente_groupe": 33.3
+        },
+        "parite_groupes": {
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "dateMiseAJour": "2025-01-01",
+          "data": [
+            {
+              "nom": "Écologistes",
+              "score": 40,
+              "evolution": 2.5
+            },
+            {
+              "nom": "EPR",
+              "score": 25,
+              "evolution": 2.5
+            },
+            {
+              "nom": "LFI",
+              "score": 30,
+              "evolution": 2.5
+            }
+          ]
         }
       },
       "europeen": {
