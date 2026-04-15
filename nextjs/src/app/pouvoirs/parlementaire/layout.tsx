@@ -3,9 +3,9 @@ import { AssembleeNationaleIcon } from "@/components/icons/assemblee-nationale";
 import { ParlementEuropéenIcon } from "@/components/icons/parlement-euro";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
 import { SénatIcon } from "@/components/icons/senat";
-import { NavigationParlementaireSection } from "@/components/NavigationParlementaireSection";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
+import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
@@ -68,7 +68,7 @@ export default function PouvoirLayout({
         </div>
       </div>
 
-      <NavigationParlementaireSection
+      <SectionGroup
         navItems={[
           {
             label: "Assemblée Nationale",
@@ -88,7 +88,7 @@ export default function PouvoirLayout({
         ]}
       >
         {children}
-      </NavigationParlementaireSection>
+      </SectionGroup>
     </>
   );
 }

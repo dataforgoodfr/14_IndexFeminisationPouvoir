@@ -1,11 +1,12 @@
 "use client";
 
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
-import { NavigationParlementaire } from "./NavigationParlementaire";
+import { SectionNavigation } from "./SectionNavigation";
 
 type NavItem = {
   label: string;
-  href: string;
+  href: Route;
   icon: React.ReactNode;
 };
 
@@ -14,10 +15,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const NavigationParlementaireSection = ({
-  navItems,
-  children,
-}: Props) => {
+export const SectionGroup = ({ navItems, children }: Props) => {
   const pathname = usePathname().replace(/\/$/, "");
   const activeItem = navItems.find((item) => item.href === pathname);
   const inactiveItems = navItems.filter((item) => item.href !== pathname);
@@ -33,7 +31,7 @@ export const NavigationParlementaireSection = ({
         </div>
         <div className="hidden lg:flex lg:absolute top-20 flex-row w-auto gap-4">
           {navItems.map((item) => (
-            <NavigationParlementaire
+            <SectionNavigation
               key={item.href}
               label={item.label}
               href={item.href}
@@ -46,7 +44,7 @@ export const NavigationParlementaireSection = ({
       {/* Mobile: active nav above children */}
       {activeItem && (
         <div className="lg:hidden w-full">
-          <NavigationParlementaire
+          <SectionNavigation
             label={activeItem.label}
             href={activeItem.href}
             icon={activeItem.icon}
@@ -60,7 +58,7 @@ export const NavigationParlementaireSection = ({
       {inactiveItems.length > 0 && (
         <div className="lg:hidden flex flex-col gap-4 w-full">
           {inactiveItems.map((item) => (
-            <NavigationParlementaire
+            <SectionNavigation
               key={item.href}
               label={item.label}
               href={item.href}

@@ -1,20 +1,20 @@
 "use client";
 
-import type { LinkProps } from "next/link";
+import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-type NavigationParlementaireProps = {
+type SectionNavigationProps = {
   label: string;
-  href: LinkProps["href"];
+  href: Route;
   icon: React.ReactNode;
 };
-export const NavigationParlementaire = ({
+export const SectionNavigation = ({
   label,
   href,
   icon,
-}: NavigationParlementaireProps) => {
+}: SectionNavigationProps) => {
   const pathname = usePathname().replace(/\/$/, "");
   const isActive = pathname === href;
   return (
