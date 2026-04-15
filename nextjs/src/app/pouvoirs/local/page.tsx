@@ -6,13 +6,13 @@ import { DownloadIcon } from "@/components/icons/download";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
+import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { Standings } from "@/components/Standings";
+import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
-import { PageTitle } from "@/components/titles";
-import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 
 const { score, collectivites } = pouvoirData.local;
 
