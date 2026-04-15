@@ -141,7 +141,11 @@ export default function Home() {
         </div>
         {/* Right column */}
         <div className="flex flex-col items-center gap-[13px] w-[443px] shrink-0">
-          <DoughnutChart value={overallTaux} variant="light" className="size-[272px]" />
+          <DoughnutChart
+            value={overallTaux}
+            variant="light"
+            className="size-[272px]"
+          />
           <div className="border border-foundations-violet-tres-clair flex flex-col gap-[10px] p-4 w-[344px]">
             <div className="flex items-center gap-2">
               <span className="header-h1 text-foundations-violet-principal leading-none">
