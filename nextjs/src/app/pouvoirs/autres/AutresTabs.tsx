@@ -4,9 +4,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import { InfoBox } from "@/components/InfoBox";
+import { ConseilConstitutionnelIcon } from "@/components/icons/conseil-constitutionnel";
+import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
+import { CourCassationIcon } from "@/components/icons/cour-cassation";
+import { CourComptesIcon } from "@/components/icons/cour-comptes";
+import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
 import { FemmeIcon } from "@/components/icons/femme";
 import { HommeIcon } from "@/components/icons/homme";
-import { ScaleIcon } from "@/components/icons/scale";
 import { JuridictionCard } from "@/components/JuridictionCard";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
@@ -121,57 +125,23 @@ const HautesJuridictionsContent = ({
       <div className="flex flex-wrap gap-8 justify-center">
         <JuridictionCard
           name="Cour de cassation"
-          icon={
-            <Image
-              src="/images/juridictions/cour-cassation.png"
-              alt=""
-              width={64}
-              height={64}
-              className="max-h-16 max-w-16 object-contain"
-            />
-          }
+          icon={<CourCassationIcon className="size-16" />}
         />
         <JuridictionCard
           name="Conseil d'État"
-          icon={
-            <Image
-              src="/images/juridictions/conseil-etat.png"
-              alt=""
-              width={64}
-              height={64}
-              className="max-h-16 max-w-16 object-contain"
-            />
-          }
+          icon={<ConseilEtatIcon className="size-16" />}
         />
         <JuridictionCard
           name="Conseil Constitutionnel"
-          icon={
-            <Image
-              src="/images/juridictions/conseil-constitutionnel.png"
-              alt=""
-              width={64}
-              height={64}
-              className="max-h-16 max-w-16 object-contain"
-            />
-          }
+          icon={<ConseilConstitutionnelIcon className="size-16" />}
         />
         <JuridictionCard
           name="Cour de Justice de la République"
-          icon={
-            <ScaleIcon className="size-16 fill-foundations-violet-principal" />
-          }
+          icon={<CourJusticeRepubliqueIcon className="size-16" />}
         />
         <JuridictionCard
           name="Cour des comptes"
-          icon={
-            <Image
-              src="/images/juridictions/cour-comptes.png"
-              alt=""
-              width={64}
-              height={64}
-              className="max-h-16 max-w-16 object-contain"
-            />
-          }
+          icon={<CourComptesIcon className="size-16" />}
         />
       </div>
 
