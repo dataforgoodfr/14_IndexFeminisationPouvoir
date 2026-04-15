@@ -1,3 +1,4 @@
+import { Block } from "./Block";
 import { PouvoirFigureL } from "./PouvoirFigureL";
 
 export type StatConfig = {
@@ -18,45 +19,25 @@ export const CollectiviteLocaleBlock = ({
   titre,
   stats,
   dateMiseAJour,
-}: CollectiviteLocaleBlockProps) => {
-  return (
-    <div className="relative pt-5 pb-2">
-      {/* Badge titre — chevauche le bord supérieur de la carte */}
-      <div className="absolute min-w-40 text-center top-8 -left-4 z-10 bg-foundations-violet-principal rounded-md px-6 py-2">
-        <span className="header-h3 text-white">{titre}</span>
+}: CollectiviteLocaleBlockProps) => (
+  <Block
+    titre={titre}
+    dateMiseAJour={dateMiseAJour}
+    cardClassName="px-16 pt-8 pb-4"
+  >
+    {stats.map((stat) => (
+      <div
+        key={stat.role}
+        className="border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
+      >
+        <PouvoirFigureL
+          valeur={stat.valeur}
+          intitule={stat.role}
+          annee={stat.annee}
+          evolution={stat.evolution}
+          withChart
+        />
       </div>
-
-      {/* Carte bordée */}
-      <div className="bg-white border-2 border-purple-oxfam-100 px-16 py-4 pt-12">
-        {stats.map((stat) => (
-          <div
-            key={stat.role}
-            className={
-              "border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
-            }
-          >
-            <PouvoirFigureL
-              valeur={stat.valeur}
-              intitule={stat.role}
-              annee={stat.annee}
-              evolution={stat.evolution}
-              withChart
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Date de mise à jour — sous la carte, alignée à droite */}
-      {dateMiseAJour && (
-        <p className="text-right text-xs text-foundations-violet-principal mt-1">
-          Dernière mise à jour :{" "}
-          {dateMiseAJour.toLocaleDateString("fr-FR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
-        </p>
-      )}
-    </div>
-  );
-};
+    ))}
+  </Block>
+);

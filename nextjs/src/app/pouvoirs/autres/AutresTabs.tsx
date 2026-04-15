@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Block } from "@/components/Block";
 import { InfoBox } from "@/components/InfoBox";
 import { ConseilConstitutionnelIcon } from "@/components/icons/conseil-constitutionnel";
 import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
@@ -38,36 +39,6 @@ const TABS: { id: TabId; label: string; illustration?: string }[] = [
   { id: "haute_autorite", label: "Haute autorité\u00a0/ Agences de l'état" },
   { id: "partis_politiques", label: "Partis politiques" },
 ];
-
-// ---- Panneau avec badge-titre (pattern CollectiviteLocaleBlock) ----
-const LabeledPanel = ({
-  titre,
-  children,
-  dateMiseAJour,
-}: {
-  titre: string;
-  children: React.ReactNode;
-  dateMiseAJour?: Date;
-}) => (
-  <div className="relative pt-5 pb-2 flex-1 min-w-0">
-    <div className="absolute top-0 left-4 -translate-y-1/2 z-10 bg-foundations-violet-principal rounded-md px-10 py-2">
-      <span className="header-h3 text-white">{titre}</span>
-    </div>
-    <div className="bg-white border-2 border-purple-oxfam-100 px-8 py-6 h-full">
-      {children}
-    </div>
-    {dateMiseAJour && (
-      <p className="text-right text-xs text-foundations-violet-principal mt-1">
-        Dernière mise à jour :{" "}
-        {dateMiseAJour.toLocaleDateString("fr-FR", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })}
-      </p>
-    )}
-  </div>
-);
 
 // ---- Stub minimal pour les onglets non encore conçus ----
 const TabStub = ({ titre }: { titre: string }) => (
@@ -148,9 +119,11 @@ const HautesJuridictionsContent = ({
       {/* Deux panneaux de détail côte à côte */}
       <div className="flex flex-col lg:flex-row gap-8 items-stretch">
         {/* Panneau Conseil constitutionnel */}
-        <LabeledPanel
+        <Block
           titre="Conseil constitutionnel"
           dateMiseAJour={new Date(conseil_constitutionnel.dateMiseAJour)}
+          className="flex-1 min-w-0"
+          cardClassName="px-8 py-6 h-full"
         >
           <div className="flex flex-col gap-6">
             {/* Icônes genrées : femmes (robe) puis hommes */}
@@ -191,12 +164,14 @@ const HautesJuridictionsContent = ({
               </p>
             </InfoBox>
           </div>
-        </LabeledPanel>
+        </Block>
 
         {/* Panneau Magistrature — grille 2 colonnes */}
-        <LabeledPanel
+        <Block
           titre="Magistrature"
           dateMiseAJour={new Date(magistrature.dateMiseAJour)}
+          className="flex-1 min-w-0"
+          cardClassName="px-8 py-6 h-full"
         >
           <div className="grid grid-cols-2 gap-x-6">
             <div className="border-b border-dashed border-purple-oxfam-300 py-3">
@@ -248,7 +223,7 @@ const HautesJuridictionsContent = ({
               </InfoBox>
             </div>
           </div>
-        </LabeledPanel>
+        </Block>
       </div>
     </div>
   );
