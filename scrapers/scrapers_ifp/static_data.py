@@ -126,9 +126,10 @@ prefectures = {
     "97411": "La Réunion",
     "97416": "Terres australes et antarctiques françaises",
     "97502": "Saint-Pierre-et-Miquelon",
-    "98609": "Wallis-et-Futuna",
+    "98613": "Wallis-et-Futuna",
     "97611": "Mayotte",
     "97701": "Saint-Barthélemy",
+    "98735": "Papeete",
     "97801": "Saint-Martin",
     "98818": "Nouvelle-Calédonie",
 }

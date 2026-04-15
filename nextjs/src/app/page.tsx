@@ -69,7 +69,7 @@ export default function Home() {
           instances de pouvoir en France, en Europe et dans le monde
         </p>
         <Image
-          src="/images/homepage-hero-image.png"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/homepage-hero-image.png`}
           alt="Collage de photos illustrant la féminisation du pouvoir"
           width={1023}
           height={1116}

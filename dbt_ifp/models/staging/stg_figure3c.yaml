@@ -1,21 +1,23 @@
-version: 2
+version: 1
 
 models:
-  - name: stg_figure6b
+  - name: stg_figure3c
     description: >
-      Liste des directeurs et directrices de cabinet d'un-e président-e de département (à partir de 2026)
+      Pourcentage de femmes au sein du bureau du Sénat
     columns:
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
+
       - name: id
-        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        description: ID généré par hachage MD5 personne_raw_text, personne_genre et poste_libelle
         type: TEXT
         data_tests:
           - not_null
           - unique
+
       - name: personne_civilite
         description: civilité Mme ou M.
         type: TEXT
@@ -24,12 +26,15 @@ models:
           - accepted_values:
               arguments: 
                 values: ['Mme', 'M.']
+
       - name: personne_prenom
-        description: Prénom du directeur de cabinet
+        description: Prénom de la personne
         type: TEXT
+
       - name: personne_nom
-        description: Nom du directeur de cabinet
+        description: Nom de la personne
         type: TEXT
+
       - name: genre
         description: F or M
         type: TEXT
@@ -38,30 +43,17 @@ models:
           - accepted_values:
               arguments: 
                 values: ['F', 'M']
+
       - name: groupe_politique_libelle
         description: Libellé du groupe politique de la personne
         type: TEXT
+
       - name: poste_libelle
-        description: Directrice de cabinet ou Directeur de cabinet
+        description: Nom de la commission présidée par la personne
         tests:
           - not_null
-          - accepted_values:
-              arguments: 
-                values: ['Directrice de cabinet', 'Directeur de cabinet']        
         type: TEXT
-      - name: zone_geographique_libelle
-        description: "Zone géographiqe (exemple : Caen, Tarbes, Fort-de-France)"
-        type: TEXT
-        data_tests:
-          - not_null   
-      - name: zone_geographique_type
-        description: toujours "préfecture"
-        type: TEXT
-        data_tests:
-          - not_null
-          - accepted_values:
-              arguments: 
-                values: ['préfecture']    
+
       - name: source_url
         description: URL de provenance de la données
         type: TEXT
