@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Gauge from "@/components/Gauge";
-import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
 
 type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
