@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-import { DoughnutChart } from "./charts/DoughnutChart";
 import { EvolutionBadge } from "./EvolutionBadge";
 import { FemmeIcon } from "./icons/femme";
 
