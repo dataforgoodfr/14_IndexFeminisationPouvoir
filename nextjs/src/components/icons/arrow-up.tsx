@@ -8,7 +8,7 @@ export const ArrowUpIcon = (_props: React.SVGProps<SVGSVGElement>) => (
     aria-label="flèche vers le haut"
   >
     <circle cx="10" cy="10" r="10" fill="#61A534" />
-    <g clipPath="url(#clip0_7154_11754)">
+    <g clipPath="url(#arrow-up-clip)">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -17,7 +17,7 @@ export const ArrowUpIcon = (_props: React.SVGProps<SVGSVGElement>) => (
       />
     </g>
     <defs>
-      <clipPath id="clip0_7154_11754">
+      <clipPath id="arrow-up-clip">
         <rect
           width="8.8"
           height="12"

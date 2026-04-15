@@ -8,7 +8,7 @@ export const ArrowDownIcon = (_props: React.SVGProps<SVGSVGElement>) => (
     aria-label="Fleche vers le bas"
   >
     <circle cx="10" cy="10" r="10" fill="#FF003D" />
-    <g clipPath="url(#clip0_7154_11744)">
+    <g clipPath="url(#arrow-down-clip)">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -17,7 +17,7 @@ export const ArrowDownIcon = (_props: React.SVGProps<SVGSVGElement>) => (
       />
     </g>
     <defs>
-      <clipPath id="clip0_7154_11744">
+      <clipPath id="arrow-down-clip">
         <rect
           width="8.8"
           height="12"
