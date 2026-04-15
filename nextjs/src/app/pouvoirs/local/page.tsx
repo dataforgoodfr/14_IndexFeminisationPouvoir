@@ -28,7 +28,6 @@ type DataPouvoirLocal = Record<
 >;
 
 const fetchData = async () => {
-  await new Promise((res) => setTimeout(res, 300));
   return dataPouvoirLocal as DataPouvoirLocal;
 };
 
