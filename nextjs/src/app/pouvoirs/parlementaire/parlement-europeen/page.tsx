@@ -8,7 +8,7 @@ const { annee, score } = parlementaire.composantes.europeen;
 
 export default function Page() {
   return (
-    <>
+    <div className="contents" data-current-parlement="parlement-europeen">
       <SectionTitle title="Parlement Européen" />
       <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 mb-12">
         <div className="w-full lg:w-lg">
@@ -32,6 +32,6 @@ export default function Page() {
           </p>
         </InfoBox>
       </div>
-    </>
+    </div>
   );
 }

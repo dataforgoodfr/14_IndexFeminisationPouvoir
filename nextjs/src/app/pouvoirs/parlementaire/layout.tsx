@@ -19,7 +19,7 @@ export default function PouvoirLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="contents" data-current-pouvoir="parlementaire">
       <PageTitle title="Pouvoir parlementaire" subtitle="Texte à ajouter" />
       <Hero>
         <PouvoirFigureXL
@@ -74,21 +74,24 @@ export default function PouvoirLayout({
             label: "Assemblée Nationale",
             href: "/pouvoirs/parlementaire/assemblee-nationale",
             icon: <AssembleeNationaleIcon />,
+            parlementKey: "assemblee-nationale",
           },
           {
             label: "Sénat",
             href: "/pouvoirs/parlementaire/senat",
             icon: <SénatIcon />,
+            parlementKey: "senat",
           },
           {
             label: "Parlement Européen",
             href: "/pouvoirs/parlementaire/parlement-europeen",
             icon: <ParlementEuropéenIcon />,
+            parlementKey: "parlement-europeen",
           },
         ]}
       >
         {children}
       </NavigationParlementaireSection>
-    </>
+    </div>
   );
 }

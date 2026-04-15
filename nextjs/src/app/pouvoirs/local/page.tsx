@@ -56,7 +56,7 @@ export default async function Page() {
   const dataPerRegion = { ...dataPerRegionMetropole, ...dataPerRegionOutreMer };
 
   return (
-    <>
+    <div className="contents" data-current-pouvoir="local">
       <PageTitle title="Pouvoir local" subtitle="Texte à ajouter" />
       <Hero>
         <PouvoirFigureXL
@@ -193,6 +193,6 @@ export default async function Page() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -125,3 +125,64 @@ body {
   color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Active states for PouvoirSelector and NavigationParlementaire — driven by hidden data
+   markers on the current page so no client-side JS or usePathname() is needed. */
+
+/* ── PouvoirSelector ──────────────────────────────────────────────────── */
+.pouvoirs-wrapper:has([data-current-pouvoir="executif"]) [data-nav-pouvoir="executif"],
+.pouvoirs-wrapper:has([data-current-pouvoir="parlementaire"]) [data-nav-pouvoir="parlementaire"],
+.pouvoirs-wrapper:has([data-current-pouvoir="local"]) [data-nav-pouvoir="local"],
+.pouvoirs-wrapper:has([data-current-pouvoir="autres"]) [data-nav-pouvoir="autres"],
+.pouvoirs-wrapper:has([data-current-pouvoir="monde"]) [data-nav-pouvoir="monde"] {
+  border-color: var(--color-foundations-violet-principal);
+  background-color: var(--color-foundations-violet-principal);
+
+  & svg {
+    fill: white;
+  }
+
+  & .nav-text {
+    color: white;
+  }
+}
+
+/* ── NavigationParlementaire ──────────────────────────────────────────── */
+
+/* Active card styling */
+.pouvoirs-wrapper:has([data-current-parlement="assemblee-nationale"]) [data-nav-parlement="assemblee-nationale"] .nav-parlement-card,
+.pouvoirs-wrapper:has([data-current-parlement="senat"]) [data-nav-parlement="senat"] .nav-parlement-card,
+.pouvoirs-wrapper:has([data-current-parlement="parlement-europeen"]) [data-nav-parlement="parlement-europeen"] .nav-parlement-card {
+  background-color: var(--color-foundations-blanc);
+  border-bottom-width: 4px;
+  border-left-width: 0;
+
+  & .nav-icon-desktop {
+    display: block;
+  }
+
+  & .nav-arrow-bottom {
+    display: block;
+  }
+
+  & .nav-arrow-left {
+    display: none;
+  }
+}
+
+/* Mobile active section: hide all items by default, show only the current one */
+.parlement-active-section [data-nav-parlement] {
+  display: none;
+}
+.pouvoirs-wrapper:has([data-current-parlement="assemblee-nationale"]) .parlement-active-section [data-nav-parlement="assemblee-nationale"],
+.pouvoirs-wrapper:has([data-current-parlement="senat"]) .parlement-active-section [data-nav-parlement="senat"],
+.pouvoirs-wrapper:has([data-current-parlement="parlement-europeen"]) .parlement-active-section [data-nav-parlement="parlement-europeen"] {
+  display: block;
+}
+
+/* Mobile inactive section: hide the active item */
+.pouvoirs-wrapper:has([data-current-parlement="assemblee-nationale"]) .parlement-inactive-section [data-nav-parlement="assemblee-nationale"],
+.pouvoirs-wrapper:has([data-current-parlement="senat"]) .parlement-inactive-section [data-nav-parlement="senat"],
+.pouvoirs-wrapper:has([data-current-parlement="parlement-europeen"]) .parlement-inactive-section [data-nav-parlement="parlement-europeen"] {
+  display: none;
+}

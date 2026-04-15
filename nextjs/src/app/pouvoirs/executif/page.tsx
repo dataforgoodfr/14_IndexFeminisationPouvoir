@@ -9,7 +9,7 @@ const { composantes, score } = pouvoirData.executif;
 
 export default function Page() {
   return (
-    <>
+    <div className="contents" data-current-pouvoir="executif">
       <PageTitle title="Pouvoir éxécutif" subtitle="Texte à ajouter" />
       <Hero>
         <PouvoirFigureXL
@@ -64,6 +64,6 @@ export default function Page() {
           pourcentage={composantes.directrices_cabinet_gouvernement.score}
         />
       </div>
-    </>
+    </div>
   );
 }
