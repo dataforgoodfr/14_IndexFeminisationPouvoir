@@ -4,7 +4,8 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import Link, { type LinkProps } from "next/link";
+import type { Route } from "next";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC } from "react";
 import { cn } from "@/lib/utils";
@@ -12,7 +13,7 @@ import { BookIcon } from "./icons/book";
 
 type NavigationItem = {
   name: string;
-  href: LinkProps["href"];
+  href: Route;
 };
 
 export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
