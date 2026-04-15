@@ -167,14 +167,17 @@
         "score": 0,
         "annee": 2025,
         "evolution": -1.2,
+        "dateMiseAJour": "2025-01-01",
         "conseil_constitutionnel": {
           "femmes": 3,
           "total": 9,
           "score": 33.3,
           "annee": 2025,
-          "evolution": -1.2
+          "evolution": -1.2,
+          "dateMiseAJour": "2025-01-01"
         },
         "magistrature": {
+          "dateMiseAJour": "2025-01-01",
           "juges": { "score": 70, "annee": 2025, "evolution": -1.2 },
           "president_tribunal": {
             "score": 54,
