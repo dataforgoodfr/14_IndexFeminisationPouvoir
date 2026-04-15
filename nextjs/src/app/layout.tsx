@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
@@ -21,8 +22,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const svgRoot = `${basePath}/images/`;
+  const cssVariables: CSSProperties &
+    Record<"--hero-svg-url" | "--inequal-svg-url", string> = {
+    "--hero-svg-url": `url(${svgRoot}hero.svg)`,
+    "--inequal-svg-url": `url(${svgRoot}inequal.svg)`,
+  };
+
   return (
-    <html lang="fr">
+    <html lang="fr" style={cssVariables}>
       <body
         className={`${OxfamHeadline.variable} ${OxfamTstarPro.variable} ${Lato.variable} antialiased`}
       >

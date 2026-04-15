@@ -6,7 +6,8 @@
     @apply relative bg-purple-oxfam-600 z-1;
   }
   .bg-svg-purple::after {
-    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/hero.svg)] bg-auto -z-1;
+    @apply content-[""] absolute inset-0 pointer-events-none bg-auto -z-1;
+    background-image: var(--hero-svg-url);
   }
 
   /* Inequal sign */
@@ -14,7 +15,8 @@
     @apply relative z-1;
   }
   .bg-svg-inequal::after {
-    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal.svg)] bg-center bg-no-repeat -z-1 opacity-25;
+    @apply content-[""] absolute inset-0 pointer-events-none bg-center bg-no-repeat -z-1 opacity-25;
+    background-image: var(--inequal-svg-url);
   }
 
   /* Button */
@@ -26,5 +28,16 @@
     & svg {
       @apply fill-white;
     }
+  }
+
+  .divider {
+    @apply rounded bg-foundations-violet-clair h-1.5 w-15;
+  }
+
+  .divider-dashed {
+    @apply hidden lg:block border-l-2 border-dashed border-foundations-violet-principal;
+  }
+  .divider-dashed-horizontal {
+    @apply hidden lg:block border-t-2 border-dashed border-foundations-violet-principal;
   }
 }

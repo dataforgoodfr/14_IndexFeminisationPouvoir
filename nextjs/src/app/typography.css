@@ -2,95 +2,128 @@
 @layer utilities {
   .header-h {
     @apply font-lato font-black text-[50px];
+    line-height: 1.25;
   }
   .header-h1 {
     @apply font-headline text-[45px] lg:text-[50px];
+    line-height: 1.25;
   }
   .header-h2 {
     @apply font-lato font-black text-[44px];
+    line-height: 1.25;
   }
   .header-h3 {
     @apply font-lato font-black text-[22px];
+    line-height: 1.25;
   }
   .header-h4 {
     @apply font-lato font-black text-[18px];
+    line-height: 1.25;
   }
   .body1-medium {
     @apply font-lato font-bold text-[16px];
+    line-height: 1.25;
   }
   .body1-regular {
     @apply font-lato font-normal text-[16px];
+    line-height: 1.25;
   }
   .body2-medium {
     @apply font-lato font-bold text-[14px];
+    line-height: 1.25;
   }
   .body2-regular {
     @apply font-lato font-normal text-[14px];
+    line-height: 1.25;
   }
   .body3-medium {
     @apply font-lato font-bold text-[12px];
+    line-height: 1.25;
   }
   .body3-regular {
     @apply font-lato font-normal text-[12px];
-  }
-  .text-chiffre-xl {
-    @apply font-tstar text-[71px] font-bold;
-  }
-  .text-chiffre-l {
-    @apply font-tstar text-[50px] font-bold;
-  }
-  .text-chiffre-s {
-    @apply font-tstar text-[40px] font-bold;
-  }
-  .text-femmes-xl {
-    @apply font-lato text-[21px] font-normal lowercase;
-  }
-  .text-intitule-l {
-    @apply font-tstar text-[24px] uppercase;
-  }
-  .text-intitule-xl {
-    @apply font-tstar text-[33px] uppercase;
-  }
-  .text-femmes-s {
-    @apply font-lato text-[16px] font-normal lowercase;
-  }
-  .text-intitule-s {
-    @apply font-tstar text-[20px] uppercase;
-  }
-  .text-intitule-xs {
-    @apply font-tstar text-[18px];
-  }
-  .text-intitule-m {
-    @apply font-tstar text-[22px] uppercase;
+    line-height: 1.25;
   }
   .body4-medium {
     @apply font-lato text-[24px] font-bold;
+    line-height: 1.25;
   }
+  .text-intitule-xs {
+    @apply font-tstar text-[18px];
+    line-height: 1.25;
+  }
+
+  .text-chiffre-s {
+    @apply font-tstar text-[40px] leading-none font-bold;
+  }
+  .text-intitule-s {
+    @apply font-lato text-[20px] uppercase;
+    line-height: 1.25;
+  }
+  .text-femmes-s {
+    @apply font-lato text-[16px] font-normal lowercase;
+    line-height: 1.25;
+  }
+
+  .text-intitule-m {
+    @apply font-lato font-black text-[22px] uppercase;
+    line-height: 1.25;
+  }
+
+  .text-chiffre-l {
+    @apply font-tstar text-[50px] leading-none font-bold;
+  }
+  .text-intitule-l {
+    @apply font-lato font-black text-[24px] uppercase;
+    line-height: 1.25;
+  }
+
+  .text-chiffre-xl {
+    @apply font-tstar text-[71px] leading-none font-bold;
+  }
+  .text-femmes-xl {
+    @apply font-lato text-[21px] font-normal lowercase;
+    line-height: 1.25;
+  }
+  .text-intitule-xl {
+    @apply font-lato font-black text-[33px] uppercase;
+    line-height: 1.25;
+  }
+
   .label-medium {
     @apply font-lato text-[12px] font-bold;
+    line-height: 1.25;
   }
   .label-regular {
     @apply font-lato text-[12px] font-normal;
+    line-height: 1.25;
   }
   .button1-semibold {
     @apply font-headline text-[22px] font-normal;
+    line-height: 1.25;
   }
   .button2-semibold {
     @apply font-tstar text-[20px] font-bold uppercase;
+    line-height: 1.25;
   }
   .button3-semibold {
     @apply font-lato text-[16px] font-bold;
+    line-height: 1.25;
   }
   .link1-medium {
     @apply font-lato text-[16px] font-bold;
+    line-height: 1.25;
   }
   .link1-regular {
     @apply font-lato text-[16px] font-normal;
+    line-height: 1.25;
   }
   .link2-medium {
     @apply font-lato text-[14px] font-bold;
+    line-height: 1.25;
   }
   .link2-regular {
     @apply font-lato text-[14px] font-normal;
+    line-height: 1.25;
   }
 }
