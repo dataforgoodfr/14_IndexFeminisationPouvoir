@@ -10,8 +10,14 @@ type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
 type Stat = { score: number; evolution: number };
 type Data = Record<Pouvoir, Stat & { composantes: Record<string, Stat> }>;
 
-const fetchData = async () => {
-  return pouvoirData as Data;
+const fetchData = async (): Promise<Data> => {
+  const { autre, executif, local, parlementaire } = pouvoirData;
+  return {
+    executif,
+    parlementaire,
+    local,
+    autre,
+  };
 };
 
 type CardProps = Stat & {
