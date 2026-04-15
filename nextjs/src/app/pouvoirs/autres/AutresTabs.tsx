@@ -243,7 +243,7 @@ export const AutresTabs = ({
       <div
         role="tablist"
         aria-label="Catégories des autres pouvoirs"
-        className="flex flex-col lg:flex-row justify-center gap-2 px-4 py-4 bg-foundations-violet-tres-clair"
+        className="flex flex-col lg:flex-row justify-center gap-2 px-4 py-4"
       >
         {TABS.map((tab) => {
           const isActive = activeTab === tab.id;
