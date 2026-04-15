@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
+import { EvolutionSection } from "@/components/EvolutionSection";
 import { BookIcon } from "@/components/icons/book";
 import { MondeIcon } from "@/components/icons/monde";
 import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
@@ -11,14 +12,6 @@ import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementai
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
 import pouvoirData from "@/data/pouvoir.json";
-
-const EVOLUTION_FILTERS = [
-  "Gouvernement",
-  "Postes régaliens",
-  "Assemblée nationale",
-  "Sénat",
-  "Commission européenne",
-];
 
 const RECOMMENDATIONS = [
   {
@@ -209,34 +202,7 @@ export default function Home() {
       </section>
 
       {/* 4. Évolution des indicateurs */}
-      <section className="bg-foundations-violet-clair flex flex-col items-center gap-[43px] px-[14px] py-[12px]">
-        <h2 className="header-h1 text-white">Évolution des indicateurs</h2>
-        <p className="header-h4 text-foundations-violet-principal">
-          Sélectionnez une catégorie pour visualiser les données détaillées
-        </p>
-        {/* Filter tabs */}
-        <div className="flex gap-4 flex-wrap justify-center">
-          {EVOLUTION_FILTERS.map((filter, i) => (
-            <button
-              key={filter}
-              type="button"
-              className={`body1-medium px-4 py-2 rounded-[3.75px] border ${
-                i === 0
-                  ? "bg-foundations-violet-principal text-white border-foundations-violet-principal"
-                  : "bg-white text-foundations-violet-principal border-foundations-violet-principal"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-        {/* Chart placeholder */}
-        <div className="bg-foundations-violet-tres-clair rounded-[14px] h-[359px] w-full max-w-[813px] flex items-center justify-center">
-          <p className="body1-medium text-foundations-violet-principal">
-            Graphique à venir
-          </p>
-        </div>
-      </section>
+      <EvolutionSection />
 
       {/* 5. Quote block */}
       <section className="bg-foundations-violet-principal px-[52px] py-[60px]">
