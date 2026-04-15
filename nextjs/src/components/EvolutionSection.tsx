@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { EvolutionLineChart } from "@/components/charts/EvolutionLineChart";
 import evolutionData from "@/data/evolution.json";
@@ -34,7 +35,7 @@ export function EvolutionSection() {
             key={key}
             type="button"
             onClick={() => setActive(key)}
-            className={`body1-medium px-4 py-2 rounded-[3.75px] border transition-colors ${
+            className={`body1-medium cursor-pointer px-4 py-2 rounded-[3.75px] border transition-colors ${
               active === key
                 ? "bg-foundations-violet-principal text-white border-foundations-violet-principal"
                 : "bg-white text-foundations-violet-principal border-foundations-violet-principal"
@@ -62,13 +63,13 @@ export function EvolutionSection() {
 
       {/* Action buttons */}
       <div className="flex gap-[34px] items-center">
-        <button
-          type="button"
+        <Link
+          href="/methodologie"
           aria-label="Méthodologie"
           className="flex items-center justify-center w-[52px] h-[52px] rounded-full bg-foundations-violet-principal text-white text-xl font-bold border-4 border-foundations-violet-principal"
         >
           ?
-        </button>
+        </Link>
         <button
           type="button"
           aria-label="Télécharger les données"
