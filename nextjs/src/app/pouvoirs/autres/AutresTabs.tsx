@@ -1,9 +1,11 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: pas d'autre clé que l'index, acceptable car non dynamique */
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { InfoBox } from "@/components/InfoBox";
-import { PersonIcon } from "@/components/icons/person";
+import { FemmeIcon } from "@/components/icons/femme";
+import { HommeIcon } from "@/components/icons/homme";
 import { ScaleIcon } from "@/components/icons/scale";
 import { JuridictionCard } from "@/components/JuridictionCard";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
@@ -21,8 +23,12 @@ type TabId =
   | "haute_autorite"
   | "partis_politiques";
 
-const TABS: { id: TabId; label: string }[] = [
-  { id: "hautes_juridictions", label: "Hautes juridictions" },
+const TABS: { id: TabId; label: string; illustration?: string }[] = [
+  {
+    id: "hautes_juridictions",
+    label: "Hautes juridictions",
+    illustration: "/images/juridictions/tab-hautes-juridictions.png",
+  },
   { id: "prefectures", label: "Préfectures" },
   { id: "ambassades", label: "Ambassades" },
   { id: "haute_autorite", label: "Haute autorité\u00a0/ Agences de l'état" },
@@ -111,19 +117,62 @@ const HautesJuridictionsContent = ({
         />
       </div>
 
-      {/* Cartes des 5 institutions
-          TODO: ajouter les logos officiels de chaque institution (fichiers SVG à sourcer) */}
+      {/* Cartes des 5 institutions */}
       <div className="flex flex-wrap gap-8 justify-center">
-        <JuridictionCard name="Cour de cassation" />
-        <JuridictionCard name="Conseil d'État" />
-        <JuridictionCard name="Conseil Constitutionnel" />
+        <JuridictionCard
+          name="Cour de cassation"
+          icon={
+            <Image
+              src="/images/juridictions/cour-cassation.png"
+              alt=""
+              width={64}
+              height={64}
+              className="max-h-16 max-w-16 object-contain"
+            />
+          }
+        />
+        <JuridictionCard
+          name="Conseil d'État"
+          icon={
+            <Image
+              src="/images/juridictions/conseil-etat.png"
+              alt=""
+              width={64}
+              height={64}
+              className="max-h-16 max-w-16 object-contain"
+            />
+          }
+        />
+        <JuridictionCard
+          name="Conseil Constitutionnel"
+          icon={
+            <Image
+              src="/images/juridictions/conseil-constitutionnel.png"
+              alt=""
+              width={64}
+              height={64}
+              className="max-h-16 max-w-16 object-contain"
+            />
+          }
+        />
         <JuridictionCard
           name="Cour de Justice de la République"
           icon={
             <ScaleIcon className="size-16 fill-foundations-violet-principal" />
           }
         />
-        <JuridictionCard name="Cour des comptes" />
+        <JuridictionCard
+          name="Cour des comptes"
+          icon={
+            <Image
+              src="/images/juridictions/cour-comptes.png"
+              alt=""
+              width={64}
+              height={64}
+              className="max-h-16 max-w-16 object-contain"
+            />
+          }
+        />
       </div>
 
       {/* Deux panneaux de détail côte à côte */}
@@ -134,23 +183,24 @@ const HautesJuridictionsContent = ({
           dateMiseAJour={new Date(conseil_constitutionnel.dateMiseAJour)}
         >
           <div className="flex flex-col gap-6">
-            {/* 3F + 6M icônes */}
+            {/* Icônes genrées : femmes (robe) puis hommes */}
             <div
               role="img"
               aria-label={`${conseil_constitutionnel.femmes} femmes et ${conseil_constitutionnel.total - conseil_constitutionnel.femmes} hommes au Conseil Constitutionnel`}
               className="flex flex-row gap-3 justify-center"
             >
-              {Array.from({ length: conseil_constitutionnel.total }, (_, i) => (
-                <PersonIcon
-                  key={i}
-                  filled={i < conseil_constitutionnel.femmes}
-                />
-              ))}
+              {Array.from({ length: conseil_constitutionnel.total }, (_, i) =>
+                i < conseil_constitutionnel.femmes ? (
+                  <FemmeIcon key={i} className="h-12 w-auto" />
+                ) : (
+                  <HommeIcon key={i} className="h-12 w-auto" />
+                ),
+              )}
             </div>
-            {/* Stat 1/3 */}
+            {/* Stat fraction */}
             <div className="flex flex-col">
               <span className="text-chiffre-l text-foundations-violet-principal leading-none">
-                {conseil_constitutionnel.femmes}/{conseil_constitutionnel.total}
+                {conseil_constitutionnel.fraction}
               </span>
               <span className="text-femmes-xl lowercase text-foundations-violet-principal">
                 de femmes
@@ -173,12 +223,12 @@ const HautesJuridictionsContent = ({
           </div>
         </LabeledPanel>
 
-        {/* Panneau Magistrature */}
+        {/* Panneau Magistrature — grille 2 colonnes */}
         <LabeledPanel
           titre="Magistrature"
           dateMiseAJour={new Date(magistrature.dateMiseAJour)}
         >
-          <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-2 gap-x-6">
             <div className="border-b border-dashed border-purple-oxfam-300 py-3">
               <PouvoirFigureS
                 valeur={magistrature.juges.score}
@@ -219,12 +269,14 @@ const HautesJuridictionsContent = ({
                 evolution={magistrature.procureures_generaux.evolution}
               />
             </div>
-            <InfoBox>
-              <p className="body1-regular">
-                Dans le monde de la justice, la magistrature s'est fortement
-                féminisée. Néanmoins le plafond de verre persiste.
-              </p>
-            </InfoBox>
+            <div className="py-3">
+              <InfoBox>
+                <p className="body1-regular">
+                  Dans le monde de la justice, la magistrature s'est fortement
+                  féminisée. Néanmoins le plafond de verre persiste.
+                </p>
+              </InfoBox>
+            </div>
           </div>
         </LabeledPanel>
       </div>
@@ -266,6 +318,15 @@ export const AutresTabs = ({
                   : "bg-foundations-violet-tres-clair border-l-4 lg:border-l-0 border-foundations-violet-principal hover:bg-foundations-violet-clair",
               )}
             >
+              {isActive && tab.illustration && (
+                <Image
+                  src={tab.illustration}
+                  alt=""
+                  width={80}
+                  height={40}
+                  className="h-10 w-auto mb-1 object-contain"
+                />
+              )}
               <h4 className="header-h4 text-center">{tab.label}</h4>
               {isActive && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-10 border-r-10 border-t-10 border-l-transparent border-r-transparent border-t-foundations-violet-principal hidden lg:block" />

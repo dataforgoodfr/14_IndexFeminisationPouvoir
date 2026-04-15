@@ -171,6 +171,7 @@
         "conseil_constitutionnel": {
           "femmes": 3,
           "total": 9,
+          "fraction": "1/3",
           "score": 33.3,
           "annee": 2025,
           "evolution": -1.2,
