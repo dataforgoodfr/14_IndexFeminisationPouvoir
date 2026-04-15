@@ -161,6 +161,63 @@
   "autre": {
     "score": 19.8,
     "evolution": -1.2,
-    "composantes": {}
+    "annee": 2025,
+    "composantes": {
+      "hautes_juridictions": {
+        "score": 0,
+        "annee": 2025,
+        "evolution": -1.2,
+        "conseil_constitutionnel": {
+          "femmes": 3,
+          "total": 9,
+          "score": 33.3,
+          "annee": 2025,
+          "evolution": -1.2
+        },
+        "magistrature": {
+          "juges": { "score": 70, "annee": 2025, "evolution": -1.2 },
+          "president_tribunal": {
+            "score": 54,
+            "annee": 2025,
+            "evolution": -1.2
+          },
+          "procureures_republique": {
+            "score": 36,
+            "annee": 2025,
+            "evolution": -1.2
+          },
+          "president_cour_appel": {
+            "score": 37.2,
+            "annee": 2025,
+            "evolution": -1.2
+          },
+          "procureures_generaux": {
+            "score": 37,
+            "annee": 2025,
+            "evolution": -1.2
+          }
+        }
+      },
+      "prefectures": {
+        "score": 0,
+        "annee": 2025,
+        "evolution": 0
+      },
+      "ambassades": {
+        "score": 0,
+        "annee": 2025,
+        "evolution": 0
+      },
+      "haute_autorite": {
+        "score": 0,
+        "annee": 2025,
+        "evolution": 0
+      },
+      "partis_politiques": {
+        "score": 0,
+        "annee": 2025,
+        "evolution": 0
+      }
+    }
   }
 }
