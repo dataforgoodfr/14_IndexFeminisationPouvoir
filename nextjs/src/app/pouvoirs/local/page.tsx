@@ -27,12 +27,8 @@ type DataPouvoirLocal = Record<
   }>
 >;
 
-const fetchData = async () => {
-  return dataPouvoirLocal as DataPouvoirLocal;
-};
-
 export default async function Page() {
-  const data_pouvoir_local = await fetchData();
+  const data_pouvoir_local = dataPouvoirLocal as DataPouvoirLocal;
 
   const dataPerRegionOutreMer = data_pouvoir_local["outre-mer"].reduce(
     (acc, om) => {
