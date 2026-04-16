@@ -1,9 +1,9 @@
 import { StandingLine } from "./StandingLine";
 
 interface StandingData {
-  regionName: string;
+  label: string;
   percentage: number;
-  evolution: number;
+  evolution?: number;
 }
 
 interface StandingsProps {
@@ -19,9 +19,9 @@ export const Standings: React.FC<StandingsProps> = ({ data }) => {
       <div>
         {sortedData.map((item, index) => (
           <StandingLine
-            key={item.regionName}
+            key={item.label}
             rank={index + 1}
-            regionName={item.regionName}
+            label={item.label}
             percentage={item.percentage}
             evolution={item.evolution}
             iconType={

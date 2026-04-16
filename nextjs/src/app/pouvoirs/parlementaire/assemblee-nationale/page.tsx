@@ -1,3 +1,5 @@
+import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
+import { BlocClassement } from "@/components/BlocClassement";
 import ParlementChart from "@/components/charts/ParlementChart";
 import { InfoBox } from "@/components/InfoBox";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
@@ -5,14 +7,14 @@ import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score, composantes } =
+const { annee, score, composantes, analyse, parite_groupes } =
   parlementaire.composantes.assemblee_nationale;
 
 export default function Page() {
   return (
     <>
       <SectionTitle id="assemblee-nationale" title="Assemblée Nationale" />
-      <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 mb-12">
+      <div className="mt-8 max-w-4xl flex flex-col items-center justify-center gap-4 ">
         <div className="w-full lg:w-lg">
           <ParlementChart parite={score / 100} />
         </div>
@@ -35,23 +37,39 @@ export default function Page() {
         <div className="divider-dashed-horizontal w-full my-8" />
         <div className="flex flex-col lg:flex-row my-4 lg:my-0 gap-12 lg:gap-6">
           <PouvoirFigureS
-            valeur={composantes.presidente_commission}
+            valeur={composantes.presidente_commission.score}
             intitule="présidant une commission"
-            annee={annee}
+            evolution={composantes.presidente_commission.evolution}
+            annee={composantes.presidente_commission.annee}
           />
           <div className="divider-dashed" />
           <PouvoirFigureS
-            valeur={composantes.bureau}
+            valeur={composantes.bureau.score}
             intitule="au bureau de l'assemblée nationale"
-            annee={annee}
+            annee={composantes.bureau.annee}
+            evolution={composantes.bureau.evolution}
           />
           <div className="divider-dashed" />
           <PouvoirFigureS
-            valeur={composantes.presidente_groupe}
+            valeur={composantes.presidente_groupe.score}
             intitule="présidant un groupe parlementaire"
-            annee={annee}
+            annee={composantes.presidente_groupe.annee}
+            evolution={composantes.presidente_groupe.evolution}
           />
         </div>
+      </div>
+      <div className="w-full">
+        <BlocAnalyseRapport description={analyse} />
+        <BlocClassement
+          title="Taux de parité des groupes politiques"
+          description={parite_groupes.description}
+          data={parite_groupes.data.map(({ nom, score, evolution }) => ({
+            label: nom,
+            percentage: score,
+            evolution,
+          }))}
+          derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
+        />
       </div>
     </>
   );

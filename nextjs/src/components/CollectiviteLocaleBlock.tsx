@@ -1,4 +1,5 @@
 import { PouvoirFigureL } from "./PouvoirFigureL";
+import { ShortDate } from "./ShortDate";
 
 export type StatConfig = {
   valeur: number;
@@ -49,12 +50,7 @@ export const CollectiviteLocaleBlock = ({
       {/* Date de mise à jour — sous la carte, alignée à droite */}
       {dateMiseAJour && (
         <p className="text-right text-xs text-foundations-violet-principal mt-1">
-          Dernière mise à jour :{" "}
-          {dateMiseAJour.toLocaleDateString("fr-FR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
+          Dernière mise à jour : <ShortDate date={dateMiseAJour} />
         </p>
       )}
     </div>

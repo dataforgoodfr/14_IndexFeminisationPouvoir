@@ -1,26 +1,22 @@
 import { SearchIcon } from "@/components/icons/search";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
+import { EvolutionBadge } from "./EvolutionBadge";
 
 interface StandingLineProps {
   rank: number;
-  regionName: string;
+  label: string;
   percentage: number;
-  evolution: number;
+  evolution?: number;
   iconType?: "up" | "down" | "none";
 }
 
 export const StandingLine: React.FC<StandingLineProps> = ({
   rank,
-  regionName,
+  label,
   percentage,
   evolution,
   iconType = "none",
 }) => {
-  const isEvolutionPositive = evolution > 0;
-  let bgEvolution = "bg-evolution-red";
-  if (isEvolutionPositive) {
-    bgEvolution = "bg-evolution-green";
-  }
   let backgroundColor = "bg-foundations-violet-tres-clair";
   if (rank % 2 === 1) {
     backgroundColor = "bg-foundations-blanc";
@@ -28,7 +24,7 @@ export const StandingLine: React.FC<StandingLineProps> = ({
 
   return (
     <div
-      className={`flex flex-row items-center gap-x-[20px] px-[10px] py-[5px] ${backgroundColor}`}
+      className={`flex flex-row items-center gap-x-2 lg:gap-x-5 px-2.5 py-1.25 ${backgroundColor}`}
     >
       {/* Icon */}
       <div className="flex-1">
@@ -46,10 +42,10 @@ export const StandingLine: React.FC<StandingLineProps> = ({
         )}
       </div>
 
-      {/* Region Name */}
+      {/* Label */}
       <div className="flex-9">
         <p className="body1-medium text-foundations-noir">
-          {rank}. {regionName}
+          {rank}. {label}
         </p>
       </div>
 
@@ -61,12 +57,9 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       </div>
 
       {/* Evolution */}
-      <div className={`flex-2 flex justify-center ${bgEvolution}`}>
-        <p className="label-medium text-foundations-blanc">
-          {evolution > 0 ? "+" : ""}
-          {evolution}%
-        </p>
-      </div>
+      {evolution !== undefined && (
+        <EvolutionBadge value={evolution} className="flex-3" />
+      )}
       <div className="flex-1 flex justify-end">
         <button type="button" className="cursor-pointer">
           <SearchIcon

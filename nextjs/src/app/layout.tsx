@@ -1,5 +1,4 @@
 import type { Metadata, Route } from "next";
-import type { CSSProperties } from "react";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
@@ -24,14 +23,21 @@ export default function RootLayout({
 }>) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const svgRoot = `${basePath}/images/`;
-  const cssVariables: CSSProperties &
-    Record<"--hero-svg-url" | "--inequal-svg-url", string> = {
+  // On injecte des variables CSS pour les SVG utilisés dans des utilitaires Tailwind
+  // afin de régler le problème de base path sur github pages.
+  const svgIcons: Record<string, string> = {
     "--hero-svg-url": `url(${svgRoot}hero.svg)`,
     "--inequal-svg-url": `url(${svgRoot}inequal.svg)`,
+    "--evolution-red-svg-url": `url(${svgRoot}bg-evolution-red.svg)`,
+    "--evolution-green-svg-url": `url(${svgRoot}bg-evolution-green.svg)`,
+    "--bg-trees-svg-url": `url(${svgRoot}bg-trees.svg)`,
+    "--bg-chiffres-svg-url": `url(${svgRoot}bg-chiffres.svg)`,
+    "--inequal-white-svg-url": `url(${svgRoot}inequal-white.svg)`,
+    "--equal-white-svg-url": `url(${svgRoot}equal-white.svg)`,
   };
 
   return (
-    <html lang="fr" style={cssVariables}>
+    <html lang="fr" style={svgIcons}>
       <body
         className={`${OxfamHeadline.variable} ${OxfamTstarPro.variable} ${Lato.variable} antialiased`}
       >

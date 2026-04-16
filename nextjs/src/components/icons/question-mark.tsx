@@ -14,8 +14,8 @@ export const QuestionMarkIcon = ({
     fill="black"
     {...props}
     className={cn("size-6", props.className)}
+    aria-hidden="true"
   >
-    <title>Point d'interrogation</title>
     <rect
       x="2"
       y="2"

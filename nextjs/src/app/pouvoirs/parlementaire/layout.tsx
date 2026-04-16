@@ -29,7 +29,7 @@ export default function PouvoirLayout({
         <PouvoirFigureXL
           valeur={score}
           icon={PouvoirParlementaireIcon}
-          dateMiseàJour={new Date()}
+          dateMiseAJour={new Date()}
           prelabel="au sein des"
           intitule="parlements"
         />

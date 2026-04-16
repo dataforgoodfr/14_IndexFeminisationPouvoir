@@ -112,7 +112,7 @@ export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
           />
         </div>
         <div className="flex flex-row justify-center items-center gap-2">
-          <h2 className="text-chiffre-xxs bg-chiffres-outremers px-[15px] py-[1.5px] text-foundations-violet-principal">
+          <h2 className="text-chiffre-xxs svg-bg svg-chiffres-outremers px-[15px] py-[1.5px] text-foundations-violet-principal">
             {percentage} %
           </h2>
           {isEvolutionPositive && <ArrowUpIcon />}

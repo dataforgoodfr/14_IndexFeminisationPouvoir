@@ -1,12 +1,12 @@
-<svg width="1438" height="486" viewBox="0 0 1438 486" fill="none" xmlns="http://www.w3.org/2000/svg"
+<svg width="1049" height="788" viewBox="0 0 1049 788" fill="none" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-    <rect width="1440" height="486" transform="translate(-2)" fill="#513893" />
-    <rect width="1440" height="486" transform="translate(-2)" fill="url(#pattern0_6909_19473)" fill-opacity="0.2" />
+    <rect width="1049" height="788" fill="#513893" />
+    <rect width="1049" height="788" fill="url(#pattern0_6389_2746)" fill-opacity="0.2" />
     <defs>
-        <pattern id="pattern0_6909_19473" patternUnits="userSpaceOnUse" patternTransform="matrix(1053 0 0 790 0 0)"
+        <pattern id="pattern0_6389_2746" patternUnits="userSpaceOnUse" patternTransform="matrix(1053 0 0 790 0 0)"
             preserveAspectRatio="none" viewBox="0 0 1053 790" width="1" height="1">
-            <g id="pattern0_6909_19473_inner">
-                <g clip-path="url(#clip0_6909_19473)">
+            <g id="pattern0_6389_2746_inner">
+                <g clip-path="url(#clip0_6389_2746)">
                     <path
                         d="M1023.71 72.9242C1033.23 88.789 1036.7 107.758 1046.43 123.642C1048.82 121.63 1050.97 119.426 1053 117.089V42.191C1043.33 52.7484 1034.38 64.1105 1023.71 72.9242Z"
                         fill="#513893" />
@@ -175,7 +175,7 @@
                 </g>
             </g>
         </pattern>
-        <clipPath id="clip0_6909_19473">
+        <clipPath id="clip0_6389_2746">
             <rect width="1053" height="790" fill="white" />
         </clipPath>
     </defs>
