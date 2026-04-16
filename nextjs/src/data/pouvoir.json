@@ -43,10 +43,26 @@
         "evolution": 2.5,
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
-          "deputees": 36,
-          "bureau": 59,
-          "presidente_commission": 37.5,
-          "presidente_groupe": 37.5
+          "deputees": {
+            "score": 36,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "bureau": {
+            "score": 59,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_commission": {
+            "score": 37.5,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_groupe": {
+            "score": 37.5,
+            "annee": 2025,
+            "evolution": 2.5
+          }
         },
         "parite_groupes": {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",

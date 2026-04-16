@@ -37,21 +37,24 @@ export default function Page() {
         <div className="divider-dashed-horizontal w-full my-8" />
         <div className="flex flex-col lg:flex-row my-4 lg:my-0 gap-12 lg:gap-6">
           <PouvoirFigureS
-            valeur={composantes.presidente_commission}
+            valeur={composantes.presidente_commission.score}
             intitule="présidant une commission"
-            annee={annee}
+            evolution={composantes.presidente_commission.evolution}
+            annee={composantes.presidente_commission.annee}
           />
           <div className="divider-dashed" />
           <PouvoirFigureS
-            valeur={composantes.bureau}
+            valeur={composantes.bureau.score}
             intitule="au bureau de l'assemblée nationale"
-            annee={annee}
+            annee={composantes.bureau.annee}
+            evolution={composantes.bureau.evolution}
           />
           <div className="divider-dashed" />
           <PouvoirFigureS
-            valeur={composantes.presidente_groupe}
+            valeur={composantes.presidente_groupe.score}
             intitule="présidant un groupe parlementaire"
-            annee={annee}
+            annee={composantes.presidente_groupe.annee}
+            evolution={composantes.presidente_groupe.evolution}
           />
         </div>
       </div>

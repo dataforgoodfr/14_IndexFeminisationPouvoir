@@ -19,7 +19,7 @@ export const BlocClassement = ({
   derniereMiseAJour,
 }: BlockClassementProps) => {
   return (
-    <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-start justify-center bg-foundations-violet-tres-clair">
+    <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-center lg:items-start justify-center bg-foundations-violet-tres-clair">
       <div className="flex-1 flex flex-col gap-y-8.5 text-left items-start md:items-end justify-end">
         <div className="max-w-70">
           <h3 className="header-h3 text-foundations-violet-principal">
@@ -35,21 +35,6 @@ export const BlocClassement = ({
             </p>
           )}
         </div>
-        <div className="flex-auto flex flex-col gap-y-4">
-          <Link href="/methode">
-            <Tooltip
-              text="Méthode de calcul"
-              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-
-          <Link href="/telecharger">
-            <Tooltip
-              text="Télécharger les données"
-              icon={<DownloadIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-        </div>
       </div>
       <div className="flex-2">
         <Standings
@@ -59,6 +44,21 @@ export const BlocClassement = ({
             evolution,
           }))}
         />
+      </div>
+      <div className="flex flex-row lg:flex-col lg:justify-between gap-4">
+        <Link href="/methodologie">
+          <Tooltip
+            text="Méthode de calcul"
+            icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+          />
+        </Link>
+
+        <Link href="/telecharger">
+          <Tooltip
+            text="Télécharger les données"
+            icon={<DownloadIcon className="w-12.5 h-12.5" />}
+          />
+        </Link>
       </div>
     </div>
   );
