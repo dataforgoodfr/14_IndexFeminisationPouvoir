@@ -16,11 +16,8 @@
   }
 
   /* Purple background with SVG pattern overlay (20% opacity) */
-  .svg-purple {
-    @apply relative bg-purple-oxfam-600 z-1;
-  }
   .svg-purple::after {
-    @apply bg-auto -z-1;
+    @apply bg-top bg-repeat bg-auto;
     background-image: var(--hero-svg-url);
   }
 
