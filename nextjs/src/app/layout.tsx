@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Index de Féminisation du Pouvoir",
 };
 
-const navigation: { name: string; href: Route; current: boolean }[] = [
-  { name: "Chiffres clés", href: "/chiffres-cles", current: true },
-  { name: "Pouvoirs", href: "/pouvoirs", current: false },
-  { name: "Recommandations", href: "/recommandations", current: false },
-  { name: "Méthode de calcul", href: "/methodologie", current: false },
+const navigation: { name: string; href: Route }[] = [
+  { name: "Pouvoirs", href: "/pouvoirs" },
+  { name: "Recommandations", href: "/recommandations" },
+  { name: "Pionnières", href: "/pionnieres" },
+  { name: "Méthode de calcul", href: "/methodologie" },
 ];
 
 export default function RootLayout({
