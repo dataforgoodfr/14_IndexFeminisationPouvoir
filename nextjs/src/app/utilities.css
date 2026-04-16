@@ -33,7 +33,7 @@
 
   .bg-evolution-red,
   .bg-evolution-green {
-    @apply relative z-1;
+    @apply relative z-1 h-5 w-13.25 flex items-center justify-center;
   }
   .bg-evolution-red::after,
   .bg-evolution-green::after {

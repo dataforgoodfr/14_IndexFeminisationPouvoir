@@ -36,7 +36,7 @@ export const BlocClassement = ({
           )}
         </div>
       </div>
-      <div className="flex-2">
+      <div className="flex-2 w-full">
         <Standings
           data={data.map(({ label, percentage, evolution }) => ({
             label,
