@@ -99,7 +99,7 @@ const PouvoirSelector = ({
         "border border-purple-oxfam-100 flex-none self-stretch",
         "bg-foundations-blanc",
         "hover:border hover:border-foundations-violet-principal hover:bg-foundations-violet-principal",
-        "group bg-svg-inequal",
+        "group svg svg-inequal",
         pathname === linkProps.href &&
           "border-foundations-violet-principal bg-foundations-violet-principal",
       )}

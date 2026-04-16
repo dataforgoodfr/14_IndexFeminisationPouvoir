@@ -53,18 +53,18 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
   const currentRegion = regions[currentIndex];
 
-  let backgroundColor = "bg-svg-tree-red";
-  let backgroundEqual = "bg-svg-inequal-white";
+  let backgroundColor = "svg-tree-red";
+  let backgroundEqual = "svg-inequal-white";
   if (variant === "top") {
-    backgroundColor = "bg-svg-tree-green";
-    backgroundEqual = "bg-svg-equal-white";
+    backgroundColor = "svg-tree-green";
+    backgroundEqual = "svg-equal-white";
   }
 
   return (
     <div
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={`grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full ${backgroundColor}`}
+      className={`grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full svg-bg ${backgroundColor}`}
     >
       {/* Top Row */}
       <div></div>
@@ -72,7 +72,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       {/* Top Middle: Title */}
       <div className="flex flex-row gap-[12px]">
         <div
-          className={`flex-2 flex items-center justify-center ${backgroundEqual} min-h-[75px] min-w-[85px]`}
+          className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-[75px] min-w-[85px]`}
         >
           {variant === "top" ? (
             <ThumbUpIcon
