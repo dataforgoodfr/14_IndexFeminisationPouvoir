@@ -110,9 +110,6 @@ export default function Page() {
         aussi méconnue."
       />
       <Hero>
-        {/* Top white triangle */}
-        <span className="absolute -top-80 left-[calc(50%-24px)] inline-block h-0 w-0 border-l-24 border-l-transparent border-r-24 border-r-transparent border-t-24 border-t-white lg:-top-55" />
-
         <p className="text-foundations-blanc max-w-sm lg:max-w-2xl text-center body1-medium">
           Rendons-leur ce qui leur appartient, et faisons connaitre l'histoire
           de ces femmes pionnières qui se sont battues pour que le pouvoir ne
