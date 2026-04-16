@@ -12,7 +12,7 @@ export default function Page() {
     <>
       <PageTitle
         id="pouvoir-executif"
-        title="Pouvoir éxécutif"
+        title="Pouvoir exécutif"
         subtitle="Texte à ajouter"
       />
       <Hero>
@@ -20,7 +20,7 @@ export default function Page() {
           valeur={score}
           icon={PouvoirExecutifIcon}
           dateMiseàJour={new Date()}
-          intitule="au sein du pouvoir éxécutif"
+          intitule="au sein du pouvoir exécutif"
         />
       </Hero>
       <div className="p-8 flex flex-col gap-8">

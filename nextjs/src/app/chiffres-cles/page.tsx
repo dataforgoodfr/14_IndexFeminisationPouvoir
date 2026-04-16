@@ -59,7 +59,7 @@ export default async function Page() {
           L'index de Féminisation du Pouvoir mesure la représentation des femmes
           dans les différentes instances décisionnelles depuis 2010. <br />
           Cet indicateur composite analyse la présence féminine dans les organes
-          éxecutifs, législatifs et locaux pour évaluer l'évolution de la partie
+          exécutifs, législatifs et locaux pour évaluer l'évolution de la partie
           dans les sphères de pouvoir.
         </div>
         <Link
