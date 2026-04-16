@@ -1,5 +1,4 @@
 import type { Metadata, Route } from "next";
-import type { CSSProperties } from "react";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
