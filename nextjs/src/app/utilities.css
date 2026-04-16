@@ -44,18 +44,14 @@
     background-image: var(--bg-chiffres-svg-url);
   }
 
-  .evolution-red,
-  .evolution-green {
+  .svg-evolution-red,
+  .svg-evolution-green {
     @apply h-5 w-13.25 flex items-center justify-center;
   }
-  .evolution-red::after,
-  .evolution-green::after {
-    @apply bg-center bg-no-repeat -z-1;
-  }
-  .evolution-red::after {
+  .svg-evolution-red::after {
     background-image: var(--evolution-red-svg-url);
   }
-  .evolution-green::after {
+  .svg-evolution-green::after {
     background-image: var(--evolution-green-svg-url);
   }
 
