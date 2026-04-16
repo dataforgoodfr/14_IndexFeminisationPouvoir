@@ -96,13 +96,11 @@
 
   /* Carousel */
   .carousel-copy-enter-right {
-    animation: carousel-copy-enter-right 520ms
-      cubic-bezier(0.22, 1, 0.36, 1);
+    animation: carousel-copy-enter-right 520ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .carousel-copy-enter-left {
-    animation: carousel-copy-enter-left 520ms
-      cubic-bezier(0.22, 1, 0.36, 1);
+    animation: carousel-copy-enter-left 520ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   @keyframes carousel-copy-enter-right {
