@@ -13,9 +13,10 @@ type NavItem = {
 type Props = {
   navItems: NavItem[];
   children: React.ReactNode;
+  banner: React.ReactNode;
 };
 
-export const SectionGroup = ({ navItems, children }: Props) => {
+export const SectionGroup = ({ navItems, children, banner }: Props) => {
   const pathname = usePathname().replace(/\/$/, "");
   const activeItem = navItems.find((item) => item.href === pathname);
   const inactiveItems = navItems.filter((item) => item.href !== pathname);
@@ -24,12 +25,8 @@ export const SectionGroup = ({ navItems, children }: Props) => {
     <>
       {/* Purple banner - always shown. Desktop: navs are absolutely positioned inside. */}
       <div className="w-full lg:relative flex flex-col items-center justify-start lg:mb-38">
-        <div className="w-full bg-foundations-violet-principal h-28 flex items-center lg:items-start lg:py-6 justify-center">
-          <div className="body4-medium text-foundations-blanc">
-            Les chiffres en détails
-          </div>
-        </div>
-        <div className="hidden lg:flex lg:absolute top-20 flex-row w-auto gap-4">
+        {banner}
+        <div className="hidden lg:flex lg:absolute lg:top-full lg:-mt-10 items-start flex-row w-auto gap-4 z-2">
           {navItems.map((item) => (
             <SectionNavigation
               key={item.href}

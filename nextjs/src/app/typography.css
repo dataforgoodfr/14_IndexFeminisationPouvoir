@@ -50,7 +50,7 @@
   }
 
   .text-intitule-xs {
-    @apply font-tstar text-[18px];
+    @apply font-tstar text-[18px] uppercase;
     line-height: 1.25;
   }
   .text-chiffre-xxs {
@@ -60,7 +60,7 @@
     @apply font-tstar text-[40px] leading-none font-bold;
   }
   .text-intitule-s {
-    @apply font-lato text-[20px] uppercase;
+    @apply font-tstar text-[20px] uppercase;
     line-height: 1.25;
   }
   .text-femmes-s {
