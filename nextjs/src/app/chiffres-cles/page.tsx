@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Gauge from "@/components/Gauge";
 import pouvoirData from "@/data/pouvoir.json";
