@@ -56,3 +56,6 @@ seeds:
     
   - name: figure7b_2026
     description: Liste des hommes et des femmes dirigeant un cabinet de région en 2025
+  
+  - name: figure8_2026
+    description: Liste des hommes et des femmes présidant une haute juridiction
