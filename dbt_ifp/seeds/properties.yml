@@ -47,7 +47,7 @@ seeds:
 
   - name: figure6a_2026
     description: "Liste des conseillers·ères départementaux·ales récupérée par scraping, pour l’année 2026"
-
+  
   - name: figure6b_2026
     description: "Liste des directeurs et directrices de cabinet d'un-e président-e de département pour l'année 2026"
 
@@ -59,3 +59,6 @@ seeds:
   
   - name: figure8_2026
     description: Liste des hommes et des femmes présidant une haute juridiction
+
+  - name: figure9_2026
+    description: Liste des préfètes et préfets
