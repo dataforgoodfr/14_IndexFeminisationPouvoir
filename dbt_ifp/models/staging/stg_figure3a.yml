@@ -77,6 +77,6 @@ models:
 
       - name: source_url
         data_type: text
-        description: "URL de provenance de la donnée: API du RNE pour ce modèle"
+        description: URL de provenance de la donnée - API du RNE pour ce modèle
         data_tests:
           - not_null

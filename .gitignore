@@ -168,3 +168,5 @@ scrapers/scrapers_ifp/data/*
 !scrapers/scrapers_ifp/data/.gitkeep
 
 .DS_Store
+
+.claude/settings.local.json

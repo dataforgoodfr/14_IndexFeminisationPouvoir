@@ -27,5 +27,46 @@
         "composantes": {}
       }
     }
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Le pouvoir, nom masculin : l'index de féminisation du pouvoir",
+      "subtitle": "Une analyse complète de la représentation des femmes dans les instances de pouvoir en France, en Europe et dans le monde",
+      "cta_pouvoirs": "Les pouvoirs",
+      "cta_rapport": "Lire le rapport",
+      "collage_alt": "Collage de photos illustrant la féminisation du pouvoir"
+    },
+    "presentation": {
+      "title": "Présentation de l'Index",
+      "body": "L'Index de Féminisation au Pouvoir mesure la représentation des femmes dans les différentes instances décisionnelles depuis 2010. Cet indicateur composite analyse la présence féminine dans les organes exécutifs, législatifs et locaux pour évaluer l'évolution de la parité dans les sphères de pouvoir.",
+      "taux_label": "Taux de féminisation du pouvoir en France",
+      "last_updated": "Dernière mise à jour : "
+    },
+    "categories": {
+      "title": "Explorer les données",
+      "subtitle": "Sélectionnez une catégorie pour visualiser les données détaillées",
+      "cta": "Consulter",
+      "parlementaire_desc": "La parité au sein du Parlement a progressé plus lentement que celle du gouvernement",
+      "executif_desc": "La représentation des femmes dans les instances exécutives de l'État",
+      "local_desc": "La parité dans les collectivités territoriales et les instances locales",
+      "autres_desc": "La représentation des femmes dans les autres sphères de pouvoir",
+      "monde_desc": "La féminisation du pouvoir à l'échelle européenne et mondiale"
+    },
+    "evolution": {
+      "title": "Évolution des indicateurs",
+      "subtitle": "Sélectionnez une catégorie pour visualiser les données détaillées",
+      "chart_placeholder": "Graphique à venir",
+      "filter_gouvernement": "Gouvernement",
+      "filter_regaliens": "Postes régaliens",
+      "filter_an": "Assemblée nationale",
+      "filter_senat": "Sénat",
+      "filter_europe": "Commission européenne"
+    },
+    "quote": "En 80 ans, le pouvoir s'est lentement féminisé, néanmoins le compte n'y est pas, les plus hautes sphères du pouvoir français restent encore très (trop) masculines. La parité et la participation égale des femmes à la vie publique restent un combat essentiel pour faire avancer les droits des femmes.",
+    "recommandations": {
+      "title": "Recommandations",
+      "subtitle": "Principales pistes d'action pour promouvoir la féminisation du pouvoir",
+      "cta": "Lire les recommandations"
+    }
   }
 }
