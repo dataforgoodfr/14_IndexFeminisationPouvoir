@@ -1,30 +1,26 @@
 import GenderDistributionChart from "@/components/charts/GenderDistributionChart";
 import { Hero } from "@/components/Hero";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
-import { PageTitle } from "@/components/PageTitle";
-import { PouvoirFigure } from "@/components/PouvoirFigure";
+import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
+import { PageTitle } from "@/components/titles";
+import pouvoirData from "@/data/pouvoir.json";
 
-const executif = {
-  gouvernement: 50,
-  postes_regaliens: 0,
-  cabinet_president: 35.2,
-  cabinet_premier_ministre: 42.9,
-  cabinet_gouvernement: 20,
-};
+const { composantes, score } = pouvoirData.executif;
+
 export default function Page() {
-  const parite =
-    Object.values(executif).reduce((acc, val) => acc + val, 0) /
-    Object.keys(executif).length;
-
   return (
     <>
-      <PageTitle title="Pouvoir éxécutif" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="pouvoir-executif"
+        title="Pouvoir éxécutif"
+        subtitle="Texte à ajouter"
+      />
       <Hero>
-        <PouvoirFigure
-          valeur={parite}
+        <PouvoirFigureXL
+          valeur={score}
           icon={PouvoirExecutifIcon}
-          dateMiseàJour={new Date()}
-          texte="Texte à ajouter"
+          dateMiseAJour={new Date()}
+          intitule="au sein du pouvoir éxécutif"
         />
       </Hero>
       <div className="p-8 flex flex-col gap-8">
@@ -34,21 +30,25 @@ export default function Page() {
         >
           Femmes au postes régaliens
         </h2>
-        <GenderDistributionChart pourcentage={executif.postes_regaliens} />
+        <GenderDistributionChart
+          pourcentage={composantes.ministeres_regaliens.score}
+        />
         <h2
           className="text-2xl/relaxed font-bold text-center"
           id="gouvernement"
         >
           Femmes au Gouvernement
         </h2>
-        <GenderDistributionChart pourcentage={executif.gouvernement} />
+        <GenderDistributionChart pourcentage={composantes.gouvernement.score} />
         <h2
           className="text-2xl/relaxed font-bold text-center"
           id="cabinet-president"
         >
           Cabinet du président de la république
         </h2>
-        <GenderDistributionChart pourcentage={executif.cabinet_president} />
+        <GenderDistributionChart
+          pourcentage={composantes.cabinet_presidence.score}
+        />
         <h2
           className="text-2xl/relaxed font-bold text-center"
           id="cabinet-premier-ministre"
@@ -56,7 +56,7 @@ export default function Page() {
           Cabinet du premier ministre
         </h2>
         <GenderDistributionChart
-          pourcentage={executif.cabinet_premier_ministre}
+          pourcentage={composantes.cabiner_premier_ministre.score}
         />
         <h2
           className="text-2xl/relaxed font-bold text-center"
@@ -64,7 +64,9 @@ export default function Page() {
         >
           Femme dirigeant un cabinet au gouvernement
         </h2>
-        <GenderDistributionChart pourcentage={executif.cabinet_gouvernement} />
+        <GenderDistributionChart
+          pourcentage={composantes.directrices_cabinet_gouvernement.score}
+        />
       </div>
     </>
   );

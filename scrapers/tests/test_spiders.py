@@ -1,24 +1,18 @@
 import io
+import os
 from pathlib import Path
 import zipfile
 
 from scrapy.http import HtmlResponse, Request
-from scrapers.scrapers_ifp.scrapers_ifp.models import Personne
+from scrapers.scrapers_ifp.models import Personne
 
-# Import de votre spider. Adaptez le chemin selon l'arborescence de votre projet.
-from scrapers.scrapers_ifp.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
+from scrapers.scrapers_ifp.spiders.assemblee_spider import Figure2bSpider
 
 # On définit les chemins
 TEST_DIR = Path(__file__).parent
 DATA_DIR = TEST_DIR / "data"
-
-
-# 1. On calcule le chemin vers la racine du projet (le dossier parent de 'tests').
-TEST_DIR = Path(__file__).parent
 PROJECT_ROOT = TEST_DIR.parent
-
-# Le dossier qui contient 'scrapy.cfg'
-scrapy_project_dir = PROJECT_ROOT / "scrapers_ifp"
+scrapy_project_dir = (PROJECT_ROOT / "scrapers_ifp").resolve()
 
 
 def loadZip(name: str):
@@ -69,3 +63,68 @@ def test_spider_figure2b():
 
     expected_dump = expected.model_dump()
     assert result_dump == expected_dump, "Résultat incorrect."
+
+
+def test_spider_list():
+    """Valide la liste de l'ensemble des spiders en utilisant les settings Scrapy."""
+    # On se déplace dans le répertoire du projet Scrapy pour être cohérent avec l'environnement réel
+    original_cwd = os.getcwd()
+    os.chdir(scrapy_project_dir)
+
+    from scrapy.settings import Settings
+    from scrapy.spiderloader import SpiderLoader
+
+    try:
+        # On charge les settings manuellement via le chemin de module complet
+        # qui est stable et accessible dans l'environnement de test (local et Docker).
+        from scrapers.scrapers_ifp import settings as scrapy_settings_mod
+
+        settings = Settings()
+        settings.setmodule(scrapy_settings_mod, priority="project")
+
+        # On force SPIDER_MODULES pour utiliser le chemin complet de module.
+        # Cela évite les ModuleNotFoundError sur 'scrapers_ifp.spiders' car Scrapy
+        # utilisera le chemin absolu 'scrapers.scrapers_ifp.spiders'.
+        settings.set(
+            "SPIDER_MODULES",
+            ["scrapers.scrapers_ifp.spiders"],
+            priority="cmdline",
+        )
+
+        spider_loader = SpiderLoader.from_settings(settings)
+        spiders = sorted(spider_loader.list())
+    finally:
+        os.chdir(original_cwd)
+
+    expected_spiders = sorted(
+        [
+            "figure10",
+            "figure11",
+            "figure1a",
+            "figure1b",
+            "figure1c",
+            "figure1d",
+            "figure1e",
+            "figure2a",
+            "figure2b",
+            "figure2c",
+            "figure2d",
+            "figure3a",
+            "figure3b",
+            "figure3c",
+            "figure3d",
+            "figure4",
+            "figure5a",
+            "figure5b",
+            "figure6a",
+            "figure6b",
+            "figure7a",
+            "figure7b",
+            "figure8",
+            "figure9",
+        ]
+    )
+
+    assert spiders == expected_spiders, (
+        f"La liste des spiders est incorrecte. \nAttendus : {expected_spiders}\nObtenus : {spiders}"
+    )
