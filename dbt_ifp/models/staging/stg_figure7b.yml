@@ -3,7 +3,7 @@ version: 1
 models:
   - name: stg_figure7b
     description: >
-      Pourcentage de femmes directrices de cabinet des Régions
+      Liste des hommes et femmes dirigeant un cabinet de région
     columns:
       - name: annee_partition
         description: année de la récupération des données
