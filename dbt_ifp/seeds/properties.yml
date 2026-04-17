@@ -31,10 +31,16 @@ seeds:
     description: "Liste des hommes et des femmes dirigeant un cabinet au sein du gouvernement pour l'année 2026"
 
   - name: figure2a_2026
-    description: "Liste des député·es récupérée par scraping pour l’année 2026"
+    description: "Liste des député·es pour l’année 2026"
+    
+  - name: figure2b_2026
+    description: Liste des président·es de commission à l’Assemblée Nationale pour l'année 2026
 
   - name: figure2c_2026
     description: "La liste des membres du bureau de l’Assemblée Nationale en 2026"
+    
+  - name: figure2d_2026
+    description: Liste des président·es d’un groupe politique à l’Assemblée Nationale pour l'année 2026
 
   - name: figure3a_2026
     description: "Liste des sénatrices et sénateurs récupérée via l'API du RNE en 2026"
@@ -44,21 +50,40 @@ seeds:
 
   - name: figure3c_2026
     description: "Liste des femmes et hommes au sein du bureau du Sénat en 2026"
-   
+
+  - name: figure3d_2026
+    description: Liste des hommes et des femmes présidant un groupe au sénat en 2025
+
   - name: figure4_2026
     description: "Liste des député·es européens récupérée par scraping API data.gouv.fr en 2026"
 
   - name: figure5a_2026
     description: Liste des hommes et des femmes maires récupérée via l'API du RNE
+  
+  - name: figure5b_2026
+    description: Liste des hommes et des femmes maires des préfectures en 2025
 
   - name: figure6a_2026
     description: "Liste des conseillers·ères départementaux·ales récupérée par scraping, pour l’année 2026"
-
-  - name: figure5a_2026
-    description: Liste des hommes et des femmes maires récupérée via l'API du RNE
-
+  
   - name: figure6b_2026
     description: "Liste des directeurs et directrices de cabinet d'un-e président-e de département pour l'année 2026"
 
   - name: figure7a_2026
     description: "Liste des hommes et des femmes présidant une région pour l'année 2026"
+    
+  - name: figure7b_2026
+    description: Liste des hommes et des femmes dirigeant un cabinet de région en 2025
+  
+  - name: figure8_2026
+    description: Liste des hommes et des femmes présidant une haute juridiction
+
+  - name: figure9_2026
+    description: Liste des préfètes et préfets
+ 
+  - name: figure10_2026
+    description: >
+      Liste des ambassadrices, ambassadeurs et représentant·es permanent·es dans les organisations internationales
+
+  - name: figure11_2026
+    description: Liste des hommes et des femmes présidant une haute autorité ou agence française
