@@ -1,34 +1,186 @@
 {
+  "dateMiseAJour": "2025",
   "executif": {
     "score": 29.61,
     "evolution": 2.5,
+    "annee": 2025,
     "composantes": {
-      "gouvernement": 50,
-      "ministeres_regaliens": 0,
-      "cabinet_presidence": 35.2,
-      "cabiner_premier_ministre": 42.9,
-      "directrices_cabinet_gouvernement": 20
+      "gouvernement": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 50
+      },
+      "ministeres_regaliens": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 0
+      },
+      "cabinet_presidence": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 35.2
+      },
+      "cabiner_premier_ministre": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 42.9
+      },
+      "directrices_cabinet_gouvernement": {
+        "annee": 2025,
+        "evolution": 2.5,
+        "score": 20
+      }
     }
   },
   "parlementaire": {
     "score": 28.6,
+    "annee": 2025,
     "evolution": 2.5,
     "composantes": {
-      "deputees": 36,
-      "presidente_commission_an": 37.5
+      "assemblee_nationale": {
+        "annee": 2025,
+        "score": 28.6,
+        "evolution": 2.5,
+        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "composantes": {
+          "deputees": {
+            "score": 36,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "bureau": {
+            "score": 59,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_commission": {
+            "score": 37.5,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_groupe": {
+            "score": 37.5,
+            "annee": 2025,
+            "evolution": 2.5
+          }
+        },
+        "parite_groupes": {
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "dateMiseAJour": "2025-01-01",
+          "data": [
+            {
+              "nom": "Écologistes",
+              "score": 40,
+              "evolution": 2.5
+            },
+            {
+              "nom": "EPR",
+              "score": 25,
+              "evolution": 2.5
+            },
+            {
+              "nom": "LFI",
+              "score": 30,
+              "evolution": 2.5
+            }
+          ]
+        }
+      },
+      "senat": {
+        "annee": 2025,
+        "score": 24.7,
+        "evolution": 2.5,
+        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "composantes": {
+          "senatrices": {
+            "score": 25,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "bureau": {
+            "score": 50,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_commission": {
+            "score": 33.3,
+            "annee": 2025,
+            "evolution": 2.5
+          },
+          "presidente_groupe": {
+            "score": 33.3,
+            "annee": 2025,
+            "evolution": 2.5
+          }
+        },
+        "parite_groupes": {
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "dateMiseAJour": "2025-01-01",
+          "data": [
+            {
+              "nom": "Écologistes",
+              "score": 40,
+              "evolution": 2.5
+            },
+            {
+              "nom": "EPR",
+              "score": 25,
+              "evolution": 2.5
+            },
+            {
+              "nom": "LFI",
+              "score": 30,
+              "evolution": 2.5
+            }
+          ]
+        }
+      },
+      "europeen": {
+        "annee": 2025,
+        "score": 31.2,
+        "evolution": 2.5
+      }
     }
   },
   "local": {
     "evolution": 2.5,
     "score": 24.7,
     "composantes": {
-      "presidentesRegion": 29.4,
-      "directricesCabinetRegion": 25.0,
-      "presidentsDepartement": 20.8,
-      "directricesCabinetDepartement": 34.3,
-      "maires": 20.8,
-      "mairesPrefecture": 16.8,
-      "directricesCabinetMairiesPrefecture": 34.3
+      "presidentesRegion": {
+        "score": 29.4,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetRegion": {
+        "score": 25.0,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "presidentsDepartement": {
+        "score": 20.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetDepartement": {
+        "score": 34.3,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "maires": {
+        "score": 20.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "mairesPrefecture": {
+        "score": 16.8,
+        "annee": 2025,
+        "evolution": 2.5
+      },
+      "directricesCabinetMairiesPrefecture": {
+        "score": 34.3,
+        "annee": 2025,
+        "evolution": 2.5
+      }
     },
     "collectivites": [
       {
@@ -36,7 +188,10 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 29.4, "role": "présidant une région" },
+          {
+            "valeur": 29.4,
+            "role": "présidant une région"
+          },
           {
             "valeur": 25.0,
             "role": "directrices de cabinet d'un.e président.e de région"
@@ -48,7 +203,10 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 20.8, "role": "présidant un département" },
+          {
+            "valeur": 20.8,
+            "role": "présidant un département"
+          },
           {
             "valeur": 34.3,
             "role": "directrices de cabinet d'un.e président.e de département"
@@ -60,8 +218,14 @@
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
         "stats": [
-          { "valeur": 20.8, "role": "maires" },
-          { "valeur": 16.8, "role": "maires de préfecture" },
+          {
+            "valeur": 20.8,
+            "role": "maires"
+          },
+          {
+            "valeur": 16.8,
+            "role": "maires de préfecture"
+          },
           {
             "valeur": 34.3,
             "role": "directrices de cabinet des mairies de préfecture"

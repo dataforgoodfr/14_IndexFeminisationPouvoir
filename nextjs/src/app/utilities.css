@@ -1,20 +1,74 @@
 @layer utilities {
   /* ===== Background Pattern Utilities ===== */
 
-  /* Purple background with SVG pattern overlay (20% opacity) */
-  .bg-svg-purple {
-    @apply relative bg-purple-oxfam-600 z-1;
+  .svg {
+    @apply relative z-1;
   }
-  .bg-svg-purple::after {
-    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/hero.svg)] bg-auto -z-1;
+  .svg-bg {
+    @apply relative -z-1;
+  }
+  .svg::after,
+  .svg-bg::after {
+    @apply content-[""] absolute inset-0 pointer-events-none;
+  }
+  .svg-bg::after {
+    @apply bg-center bg-no-repeat -z-1;
+  }
+
+  /* Purple background with SVG pattern overlay (20% opacity) */
+  .svg-purple::after {
+    @apply bg-top bg-auto;
+    background-image: var(--hero-svg-url);
+    background-size: cover;
+  }
+
+  .svg-tree-red {
+    @apply relative bg-foundations-rouge-principal z-1;
+  }
+  .svg-tree-red::after {
+    @apply bg-cover -z-1 opacity-10;
+    background-image: var(--bg-trees-svg-url);
+  }
+
+  .svg-tree-green {
+    @apply relative bg-green-oxfam-600 z-1;
+  }
+  .svg-tree-green::after {
+    @apply bg-cover -z-1 opacity-15;
+    background-image: var(--bg-trees-svg-url);
+  }
+
+  .svg-chiffres-outremers::after {
+    background-image: var(--bg-chiffres-svg-url);
+  }
+
+  .svg-evolution-red,
+  .svg-evolution-green {
+    @apply h-5 w-13.25 flex items-center justify-center;
+  }
+  .svg-evolution-red::after {
+    background-image: var(--evolution-red-svg-url);
+  }
+  .svg-evolution-green::after {
+    background-image: var(--evolution-green-svg-url);
   }
 
   /* Inequal sign */
-  .bg-svg-inequal {
-    @apply relative z-1;
+  .svg-inequal::after {
+    @apply bg-center bg-no-repeat opacity-25;
+    background-image: var(--inequal-svg-url);
   }
-  .bg-svg-inequal::after {
-    @apply content-[""] absolute inset-0 pointer-events-none bg-[url(/images/inequal.svg)] bg-center bg-no-repeat -z-1 opacity-25;
+
+  /* White Inequal sign */
+  .svg-inequal-white::after {
+    @apply content-[""] absolute inset-0 pointer-events-none;
+    background-image: var(--inequal-white-svg-url);
+  }
+
+  /* White Equal sign */
+  .svg-equal-white::after {
+    @apply content-[""] absolute inset-0 pointer-events-none;
+    background-image: var(--equal-white-svg-url);
   }
 
   /* Button */
@@ -26,5 +80,16 @@
     & svg {
       @apply fill-white;
     }
+  }
+
+  .divider {
+    @apply rounded bg-foundations-violet-clair h-1.5 w-15;
+  }
+
+  .divider-dashed {
+    @apply hidden lg:block border-l-2 border-dashed border-foundations-violet-principal;
+  }
+  .divider-dashed-horizontal {
+    @apply hidden lg:block border-t-2 border-dashed border-foundations-violet-principal;
   }
 }

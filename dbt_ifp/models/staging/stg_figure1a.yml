@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: stg_figure1a
+    description: >
+      Liste des hommes et des femmes membres du gouvernement
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+        data_tests:
+          - not_null
+      - name: id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        type: TEXT
+        data_tests:
+          - not_null
+          - unique
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Mme', 'M.']
+      - name: personne_prenom
+        description: Prénom de la ou du membre du gouvernement
+        type: TEXT
+      - name: personne_nom
+        description: Nom de la ou du membre du gouvernement
+        type: TEXT
+      - name: genre
+        description: F or M
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['F', 'M']
+      - name: poste_libelle
+        description: Nom du poste
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "ILIKE '%ministre%'"
+        type: TEXT
+      - name: zone_geographique_libelle
+        description: "Libellé du ministère (exemple : Ministère de l’Agriculture, de l'Agro-alimentaire et de la Souveraineté alimentaire)"
+        type: TEXT
+        data_tests:
+          - not_null   
+      - name: zone_geographique_type
+        description: toujours "gouvernement"
+        type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['gouvernement']    
+      - name: source_url
+        description: URL de provenance de la données
+        type: TEXT

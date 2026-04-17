@@ -1,4 +1,7 @@
-import Link, { type LinkProps } from "next/link";
+"use client";
+import type { Route } from "next";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { HTMLAttributes, JSX } from "react";
 import { MondeIcon } from "@/components/icons/monde";
 import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
@@ -25,7 +28,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirExecutifIcon}
-              href="/pouvoirs/executif"
+              href="/pouvoirs/executif#pouvoir-executif"
             />
             <PouvoirSelector
               title={
@@ -35,7 +38,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirParlementaireIcon}
-              href="/pouvoirs/parlementaire"
+              href="/pouvoirs/parlementaire#pouvoir-parlementaire"
             />
             <PouvoirSelector
               title={
@@ -45,7 +48,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={PouvoirLocalIcon}
-              href="/pouvoirs/local"
+              href="/pouvoirs/local#pouvoir-local"
             />
             <PouvoirSelector
               title={
@@ -55,7 +58,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={AutresPouvoirsIcon}
-              href="/pouvoirs/autres"
+              href="/pouvoirs/autres#autres-pouvoirs"
             />
             <PouvoirSelector
               title={
@@ -65,7 +68,7 @@ export default function PouvoirLayout({
                 </>
               }
               icon={MondeIcon}
-              href="/pouvoirs/monde"
+              href="/pouvoirs/monde#dans-le-monde"
             />
           </div>
         </div>
@@ -77,15 +80,18 @@ export default function PouvoirLayout({
   );
 }
 
-type PouvoirSelectorProps = LinkProps & {
+type PouvoirSelectorProps = {
   title: React.ReactNode;
   icon: (props: HTMLAttributes<HTMLOrSVGElement>) => JSX.Element;
+  href: Route;
 };
 const PouvoirSelector = ({
   title,
   icon: Icon,
   ...linkProps
 }: PouvoirSelectorProps) => {
+  const pathname = usePathname().replace(/\/$/, "");
+
   return (
     <Link
       className={cn(
@@ -93,13 +99,25 @@ const PouvoirSelector = ({
         "border border-purple-oxfam-100 flex-none self-stretch",
         "bg-foundations-blanc",
         "hover:border hover:border-foundations-violet-principal hover:bg-foundations-violet-principal",
-        "group bg-svg-inequal",
+        "group svg svg-inequal",
+        pathname === linkProps.href &&
+          "border-foundations-violet-principal bg-foundations-violet-principal",
       )}
       {...linkProps}
     >
-      <Icon className="w-18 h-18 group-hover:fill-white" />
+      <Icon
+        className={cn(
+          "w-18 h-18 group-hover:fill-white",
+          pathname === linkProps.href && "fill-white",
+        )}
+      />
 
-      <div className="text-center header-h4 group-hover:text-white whitespace-break-spaces w-full">
+      <div
+        className={cn(
+          "text-center header-h4 group-hover:text-white whitespace-break-spaces w-full",
+          pathname === linkProps.href && "text-white",
+        )}
+      >
         {title}
       </div>
     </Link>
