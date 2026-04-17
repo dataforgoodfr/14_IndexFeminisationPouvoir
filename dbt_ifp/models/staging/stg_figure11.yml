@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_figure11
+    description: Liste des hommes et des femmes présidant une haute autorité ou agence française
+    columns:
+      - name: annee_partition
+        description: année de la récupération des données
+        data_type: INTEGER
+        data_tests:
+          - not_null
+      - name: id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        data_type: TEXT
+        data_tests:
+          - not_null
+          - unique
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        data_type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['Mme', 'M.']
+      - name: personne_prenom
+        description: Prénom de la personne 
+        data_type: TEXT
+      - name: personne_nom
+        description: Nom de la personne 
+        data_type: TEXT
+      - name: genre 
+        description: Genre de la personne (F or M)
+        data_type: TEXT
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: 
+                values: ['F', 'M']
+      - name: poste_libelle
+        description: Intitulé du poste de la personne      
+        data_type: TEXT
+      - name: zone_geographique_libelle
+        description: Lieu d'exercice de la personne
+        data_type: TEXT 
+        data_tests:
+          - not_null
+      - name: zone_geographique_type
+        description: Type de pouvoir - Toujours "haute autorité ou agence"
+        data_type: TEXT  
+        data_tests:
+          - not_null
+      - name: source_url
+        description: URL de provenance de la donnée
+        data_type: TEXT
+        data_tests:
+          - not_null

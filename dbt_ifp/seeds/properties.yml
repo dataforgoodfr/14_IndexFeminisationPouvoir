@@ -66,3 +66,6 @@ seeds:
   - name: figure10_2026
     description: >
       Liste des ambassadrices, ambassadeurs et représentant·es permanent·es dans les organisations internationales
+
+  - name: figure11_2026
+    description: Liste des hommes et des femmes présidant une haute autorité ou agence française
