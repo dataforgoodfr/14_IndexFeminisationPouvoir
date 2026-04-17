@@ -1,9 +1,13 @@
-import { PageTitle } from "@/components/PageTitle";
+import { PageTitle } from "@/components/titles";
 
 export default function Page() {
   return (
     <div>
-      <PageTitle title="Autres pouvoirs" subtitle="Texte à ajouter" />
+      <PageTitle
+        id="autres-pouvoirs"
+        title="Autres pouvoirs"
+        subtitle="Texte à ajouter"
+      />
     </div>
   );
 }

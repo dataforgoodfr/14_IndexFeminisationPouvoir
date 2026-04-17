@@ -1,27 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Gauge from "@/components/Gauge";
-import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
 
 type Pouvoir = "executif" | "parlementaire" | "local" | "autre";
 
-type Data = Record<
-  Pouvoir,
-  { score: number; evolution: number; composantes: Record<string, number> }
->;
+type Stat = { score: number; evolution: number };
+type Data = Record<Pouvoir, Stat & { composantes: Record<string, Stat> }>;
 
-const fetchData = async () => {
-  await new Promise((res) => setTimeout(res, 300));
-  return pouvoirData as Data;
+const fetchData = async (): Promise<Data> => {
+  const { autre, executif, local, parlementaire } = pouvoirData;
+  return {
+    executif,
+    parlementaire,
+    local,
+    autre,
+  };
 };
 
-type CardProps = {
+type CardProps = Stat & {
   pouvoir: Pouvoir;
-  score: number;
-  evolution: number;
-  composantes: Record<string, number>;
 };
 
 const PouvoirCard = async ({ pouvoir, score, evolution }: CardProps) => {
@@ -62,12 +60,6 @@ export default async function Page() {
           éxecutifs, législatifs et locaux pour évaluer l'évolution de la partie
           dans les sphères de pouvoir.
         </div>
-        <Link
-          href="/methodologie"
-          className="mt-4 w-xs p-2 flex items-center justify-center"
-        >
-          <Tooltip text="Méthodologie de calcul" />
-        </Link>
       </div>
 
       {/* Right Part */}
@@ -99,12 +91,12 @@ export default async function Page() {
           ))}
         </div>
 
-        <Link
+        {/* <Link
           href="/evolution-donnees"
           className="flex items-center justify-center p-2 underline"
         >
           Voir les évolutions
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

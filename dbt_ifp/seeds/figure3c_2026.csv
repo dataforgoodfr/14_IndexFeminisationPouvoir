@@ -1,0 +1,27 @@
+personne_raw_text,personne_nom_complet,personne_civilite,personne_prenom,personne_nom,personne_genre,groupe_politique_libelle,poste_libelle,zone_geographique_libelle,zone_geographique_type,source_url
+M. Jean-Michel Arnaud,M. Jean-Michel Arnaud,M.,Jean-Michel,Arnaud,M,UC,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Guy Benarroche,M. Guy Benarroche,M.,Guy,Benarroche,M,GEST,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. François Bonhomme,M. François Bonhomme,M.,François,Bonhomme,M,Les Républicains,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Nicole Bonnefoy,Mme Nicole Bonnefoy,Mme,Nicole,Bonnefoy,F,SER,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Alexandra Borchio Fontimp,Mme Alexandra Borchio Fontimp,Mme,Alexandra,Fontimp,F,Les Républicains,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Céline Brulin,Mme Céline Brulin,Mme,Céline,Brulin,F,CRCE-K,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Bernard Buis,M. Bernard Buis,M.,Bernard,Buis,M,RDPI,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Marie-Arlette Carlotti,Mme Marie-Arlette Carlotti,Mme,Marie-Arlette,Carlotti,F,SER,Questeure du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Anne Chain-Larché,Mme Anne Chain-Larché,Mme,Anne,Chain-Larché,F,Les Républicains,Vice-présidente du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Olivier Cigolotti,M. Olivier Cigolotti,M.,Olivier,Cigolotti,M,UC,Questeur du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Catherine Conconne,Mme Catherine Conconne,Mme,Catherine,Conconne,F,SER,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Sonia de La Provôté,Mme Sonia de La Provôté,Mme,Sonia,de La Provôté,F,UC,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Catherine Di Folco,Mme Catherine Di Folco,Mme,Catherine,Di Folco,F,Les Républicains,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Fabien Genet,M. Fabien Genet,M.,Fabien,Genet,M,Les Républicains,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Véronique Guillotin,Mme Véronique Guillotin,Mme,Véronique,Guillotin,F,RDSE,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Loïc Hervé,M. Loïc Hervé,M.,Loïc,Hervé,M,UC,Vice-président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Xavier Iacovelli,M. Xavier Iacovelli,M.,Xavier,Iacovelli,M,RDPI,Vice-président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Gérard Larcher,M. Gérard Larcher,M.,Gérard,Larcher,M,Les Républicains,Président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Antoine Lefèvre,M. Antoine Lefèvre,M.,Antoine,Lefèvre,M,Les Républicains,Questeur du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Didier Mandelli,M. Didier Mandelli,M.,Didier,Mandelli,M,Les Républicains,Vice-président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Alain Marc,M. Alain Marc,M.,Alain,Marc,M,Les Indépendants,Vice-président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Pierre Ouzoulias,M. Pierre Ouzoulias,M.,Pierre,Ouzoulias,M,CRCE-K,Vice-président du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Marie-Pierre Richer,Mme Marie-Pierre Richer,Mme,Marie-Pierre,Richer,F,Les Républicains,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Sylvie Robert,Mme Sylvie Robert,Mme,Sylvie,Robert,F,SER,Vice-présidente du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+M. Mickaël Vallet,M. Mickaël Vallet,M.,Mickaël,Vallet,M,SER,Secrétaire du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
+Mme Sylvie Vermeillet,Mme Sylvie Vermeillet,Mme,Sylvie,Vermeillet,F,UC,Vice-présidente du Sénat,,,https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json
