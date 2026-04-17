@@ -67,7 +67,8 @@ export default async function Page() {
           valeur={score}
           icon={PouvoirLocalIcon}
           dateMiseAJour={new Date()}
-          intitule="au sein du pouvoir local"
+          prelabel="au sein du"
+          intitule="pouvoir local"
         />
       </Hero>
       <div className="p-8 flex flex-col gap-8">
