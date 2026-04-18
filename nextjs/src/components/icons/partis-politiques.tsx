@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export const PartisPolitiquesIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="82"
