@@ -7,6 +7,7 @@ import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
 import { CourCassationIcon } from "@/components/icons/cour-cassation";
 import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
+import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
 import { JuridictionCard } from "@/components/JuridictionCard";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
@@ -57,6 +58,7 @@ export default function HautesJuridictionsPage() {
           annee={ANNEE}
           evolution={hj.evolution}
           withChart
+          icon={HautesJuridictionsIcon}
         />
       </div>
 
