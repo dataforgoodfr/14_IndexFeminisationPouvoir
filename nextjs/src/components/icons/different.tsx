@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export const DifferentIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="37"

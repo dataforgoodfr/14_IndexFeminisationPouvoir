@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export const HautesJuridictionsIcon = (
   props: React.SVGProps<SVGSVGElement>,
 ) => (

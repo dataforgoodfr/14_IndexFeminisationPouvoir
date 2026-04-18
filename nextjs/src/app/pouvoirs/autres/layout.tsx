@@ -1,11 +1,11 @@
 import type { Route } from "next";
+import { Hero } from "@/components/Hero";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
+import { AutresPouvoirIcon } from "@/components/icons/autres-pouvoirs";
 import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
 import { PartisPolitiquesIcon } from "@/components/icons/partis-politiques";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
-import { AutresPouvoirIcon } from "@/components/icons/autres-pouvoirs";
-import { Hero } from "@/components/Hero";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { SectionNavigation } from "@/components/SectionNavigation";
 import { PageTitle } from "@/components/titles";
