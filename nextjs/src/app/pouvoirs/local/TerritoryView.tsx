@@ -26,7 +26,7 @@ export function TerritoryView({
   return (
     <div className="flex flex-col items-center justify-center w-full">
       {/* Bloc Data + MAP + Buttons*/}
-      <div className="flex-1 flex flex-row items-stretch justify-center w-full gap-[50px] py-[68px] px-[100px]">
+      <div className="flex-1 flex md:flex-row flex-col items-stretch justify-center w-full gap-[50px] py-[68px] md:px-25 px-8">
         {/* Bloc Data */}
         <div className="flex-8 flex flex-col gap-y-[6px]">
           <h2 className="header-h2 text-foundations-violet-principal">
@@ -52,25 +52,25 @@ export function TerritoryView({
           <MapComponent
             dataPerZone={dataPerZone}
             zoneName={territoryName}
-            className="w-126 h-69"
+            className="md:w-126 md:h-69 w-110 h-55"
             onDepartementClick={onDepartementClick}
           />
         </div>
-        <div className="flex-1 flex flex-col items-center justify-center gap-[16px]">
+        <div className="flex-1 flex md:flex-col md:flex-row items-center justify-center gap-[16px]">
           {/* Buttons */}
-            <Link href="/methodologie">
+          <Link href="/methodologie">
             <Tooltip
-                text="Méthode de calcul"
-                icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+              text="Méthode de calcul"
+              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
             />
-            </Link>
+          </Link>
 
-            <Link href="/telecharger">
+          <Link href="/telecharger">
             <Tooltip
-                text="Télécharger les données"
-                icon={<DownloadIcon className="w-12.5 h-12.5" />}
+              text="Télécharger les données"
+              icon={<DownloadIcon className="w-12.5 h-12.5" />}
             />
-            </Link>
+          </Link>
         </div>
       </div>
       {/* Bloc Slider */}

@@ -116,7 +116,7 @@ export const OutreMerGrid = ({
             regionName={om.nom}
             fillColor="var(--color-purple-oxfam-600)"
             clickable={true}
-            className="size-24"
+            className="md:size-24 h-9 w-24"
             iconType="none"
             onTerritoryClick={onRegionClick}
           />

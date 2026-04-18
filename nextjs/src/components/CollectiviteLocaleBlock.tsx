@@ -28,7 +28,7 @@ export const CollectiviteLocaleBlock = ({
       </div>
 
       {/* Carte bordée */}
-      <div className="bg-white border-2 border-purple-oxfam-100 px-16 py-4">
+      <div className="bg-white border-2 border-purple-oxfam-100 md:px-16 px-1 py-4 overflow-hidden">
         {stats.map((stat) => (
           <div
             key={stat.role}

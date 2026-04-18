@@ -9,11 +9,11 @@ import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
+import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
-import { Tooltip } from "@/components/Tooltip";
 
 export type zoneData = Array<{
   code: string;
