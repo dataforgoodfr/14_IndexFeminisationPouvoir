@@ -23,7 +23,7 @@ export const PouvoirFigureS = ({
 
   return (
     <div className="flex flex-row gap-3 items-start">
-      <div className="w-6">
+      <div className="w-6 shrink-0">
         <FemmeIcon />
       </div>
       <div className="flex-auto flex justify-center flex-col max-w-45">
