@@ -32,7 +32,7 @@ const INSTITUTION_ICONS: Record<
 
 export default function HautesJuridictionsPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-11 px-4">
+    <div className="flex flex-col items-center gap-12 py-11 px-4 max-w-screen-xl mx-auto w-full">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
@@ -114,8 +114,8 @@ export default function HautesJuridictionsPage() {
           dateMiseAJour={new Date(mag.dateMiseAJour)}
           className="flex-1 min-w-0"
         >
-          <div className="grid grid-cols-2">
-            <div className="min-w-0 p-4 border-b border-r border-foundations-violet-clair">
+          <div className="grid grid-cols-[1fr_auto_1fr]">
+            <div className="min-w-0 p-4">
               <PouvoirFigureS
                 valeur={mag.juges.score}
                 intitule="juges"
@@ -123,7 +123,10 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.juges.evolution}
               />
             </div>
-            <div className="min-w-0 p-4 border-b border-foundations-violet-clair">
+            <div className="flex items-center px-2">
+              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
+            </div>
+            <div className="min-w-0 p-4">
               <PouvoirFigureS
                 valeur={mag.presidents_tribunal.score}
                 intitule="présidant un tribunal"
@@ -131,7 +134,10 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.presidents_tribunal.evolution}
               />
             </div>
-            <div className="min-w-0 p-4 border-b border-r border-foundations-violet-clair">
+            <div className="col-span-3 flex justify-center py-1">
+              <div className="w-4/5 border-t border-dotted border-foundations-violet-clair" />
+            </div>
+            <div className="min-w-0 p-4">
               <PouvoirFigureS
                 valeur={mag.procureures_republique.score}
                 intitule="procureures de la République"
@@ -139,7 +145,10 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.procureures_republique.evolution}
               />
             </div>
-            <div className="min-w-0 p-4 border-b border-foundations-violet-clair">
+            <div className="flex items-center px-2">
+              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
+            </div>
+            <div className="min-w-0 p-4">
               <PouvoirFigureS
                 valeur={mag.presidents_cour_appel.score}
                 intitule="présidant une cour d'appel"
@@ -147,13 +156,19 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.presidents_cour_appel.evolution}
               />
             </div>
-            <div className="min-w-0 p-4 border-r border-foundations-violet-clair">
+            <div className="col-span-3 flex justify-center py-1">
+              <div className="w-4/5 border-t border-dotted border-foundations-violet-clair" />
+            </div>
+            <div className="min-w-0 p-4">
               <PouvoirFigureS
                 valeur={mag.procureures_generaux.score}
                 intitule="procureures généraux"
                 annee={ANNEE}
                 evolution={mag.procureures_generaux.evolution}
               />
+            </div>
+            <div className="flex items-center px-2">
+              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
             </div>
             <div className="min-w-0 p-4">
               <InfoBox>
