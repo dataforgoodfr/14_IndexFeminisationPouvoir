@@ -1,16 +1,16 @@
+import type { ComponentType, SVGProps } from "react";
 import { Block } from "@/components/Block";
+import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
-import { JuridictionCard } from "@/components/JuridictionCard";
-import { PersonGrid } from "@/components/PersonGrid";
-import { PouvoirFigureL } from "@/components/PouvoirFigureL";
-import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { ConseilConstitutionnelIcon } from "@/components/icons/conseil-constitutionnel";
 import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
 import { CourCassationIcon } from "@/components/icons/cour-cassation";
 import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
-import { EvolutionBadge } from "@/components/EvolutionBadge";
-import type { ComponentType, SVGProps } from "react";
+import { JuridictionCard } from "@/components/JuridictionCard";
+import { PersonGrid } from "@/components/PersonGrid";
+import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { hautes_juridictions: hj } = autresData;
@@ -62,6 +62,7 @@ export default function HautesJuridictionsPage() {
       <div className="flex flex-wrap gap-8 justify-center">
         {hj.institutions.map((institution) => {
           const Icon = INSTITUTION_ICONS[institution.id];
+          if (!Icon) return null;
           return (
             <JuridictionCard
               key={institution.id}
