@@ -45,7 +45,7 @@ export default function Page() {
           intitule="pouvoir local"
         />
       </Hero>
-      <div className="p-8 flex flex-col gap-8">
+      <div className="p-8 flex flex-col gap-8 w-full">
         {collectivites.map(({ titre, annee, dateMiseAJour, stats }) => (
           <CollectiviteLocaleBlock
             key={titre}

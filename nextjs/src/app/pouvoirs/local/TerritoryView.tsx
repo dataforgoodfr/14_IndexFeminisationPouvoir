@@ -31,7 +31,7 @@ export function TerritoryView({
   return (
     <div className="flex flex-col items-center justify-center w-full">
       {/* Bloc Data + MAP + Buttons*/}
-      <div className="flex-1 flex flex-row items-stretch justify-center w-full gap-12.5 py-17 px-25">
+      <div className="flex-1 flex md:flex-row flex-col items-stretch justify-center w-full gap-12.5 py-17 md:px-25 px-8">
         {/* Bloc Data */}
         <div className="flex-8 flex flex-col gap-y-1.5">
           <h2 className="header-h2 text-foundations-violet-principal">
@@ -57,11 +57,11 @@ export function TerritoryView({
           <MapComponent
             dataPerZone={dataPerZone}
             zoneName={territoryName}
-            className="w-126 h-69"
+            className="md:w-126 md:h-69 w-110 h-55"
             onDepartementClick={onDepartementChange}
           />
         </div>
-        <div className="flex-1 flex flex-col items-center justify-center gap-4">
+        <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-4">
           {/* Buttons */}
           <Link href="/methodologie">
             <Tooltip

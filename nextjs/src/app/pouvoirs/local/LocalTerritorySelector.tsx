@@ -11,7 +11,7 @@ import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
-import data_pouvoir_local from "@/data/pouvoir_local.json";
+import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
@@ -22,7 +22,7 @@ const {
   departements,
   regions,
   annee,
-} = data_pouvoir_local;
+} = dataPouvoirLocal;
 
 export function LocalTerritorySelector() {
   const searchParams = useSearchParams();
