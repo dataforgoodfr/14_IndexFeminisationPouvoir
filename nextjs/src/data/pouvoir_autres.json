@@ -7,7 +7,10 @@
       { "id": "cour-cassation", "label": "Cour de\ncassation" },
       { "id": "conseil-etat", "label": "Conseil\nd'Etat" },
       { "id": "conseil-constitutionnel", "label": "Conseil\nConstitutionnel" },
-      { "id": "cour-justice-republique", "label": "Cour de Justice de la République" },
+      {
+        "id": "cour-justice-republique",
+        "label": "Cour de Justice de la République"
+      },
       { "id": "cour-comptes", "label": "Cour des\ncomptes" }
     ],
     "conseil_constitutionnel": {
@@ -21,6 +24,7 @@
       "juges": { "score": 70, "evolution": 0 },
       "presidents_tribunal": { "score": 54, "evolution": 0 },
       "procureures_republique": { "score": 36, "evolution": 0 },
+      "presidents_cour_appel": { "score": 37.2, "evolution": 0 },
       "procureures_generaux": { "score": 37, "evolution": 0 },
       "dateMiseAJour": "2025-01-01",
       "infobox": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste."
