@@ -1,11 +1,22 @@
-export const ArrowUpIcon = (_props: React.SVGProps<SVGSVGElement>) => (
+import { cn } from "@/lib/utils";
+
+type ArrowUpIconProps = React.SVGProps<SVGSVGElement> & {
+  size?: number; // Size in SVG units for use inside parent SVGs
+};
+export const ArrowUpIcon = ({
+  size = 25,
+  className,
+  ...props
+}: ArrowUpIconProps) => (
   <svg
-    width="25"
-    height="25"
+    width={size}
+    height={size}
     viewBox="-2.5 -2.5 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-label="flèche vers le haut"
+    aria-label="Fleche vers le Haut"
+    {...props}
+    className={cn("w-6 h-6", className)}
   >
     <circle cx="10" cy="10" r="10" fill="#61A534" />
     <g clipPath="url(#arrow-up-clip)">

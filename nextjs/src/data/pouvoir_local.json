@@ -610,7 +610,7 @@
       "nom": "Paris",
       "code_region": "11",
       "percentage": 22,
-      "evolution": -0.0
+      "evolution": -1
     },
     {
       "code": "76",
@@ -802,5 +802,7 @@
       "percentage": 21,
       "evolution": 2.0
     }
-  ]
+  ],
+  "annee": 2025,
+  "dateMiseAJour": "2025-01-01"
 }
