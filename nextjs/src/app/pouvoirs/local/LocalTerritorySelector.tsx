@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BlocClassement } from "@/components/BlocClassement";
 import type { TerritoryType } from "@/components/FranceMapSVG";
@@ -12,6 +13,7 @@ import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
+import { Tooltip } from "@/components/Tooltip";
 
 export type zoneData = Array<{
   code: string;
@@ -186,12 +188,19 @@ export function LocalTerritorySelector() {
 
                 {/* Column 3, Rows 2-3: Buttons */}
                 <div className="md:row-span-1 flex flex-row gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start">
-                  <button type="button" className="cursor-pointer">
-                    <QuestionMarkIcon className="w-12.5 h-12.5" />
-                  </button>
-                  <button type="button" className="cursor-pointer">
-                    <DownloadIcon className="w-12.5 h-12.5" />
-                  </button>
+                  <Link href="/methodologie">
+                    <Tooltip
+                      text="Méthode de calcul"
+                      icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+                    />
+                  </Link>
+
+                  <Link href="/telecharger">
+                    <Tooltip
+                      text="Télécharger les données"
+                      icon={<DownloadIcon className="w-12.5 h-12.5" />}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
