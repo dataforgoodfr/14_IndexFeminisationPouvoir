@@ -115,6 +115,7 @@ export default function HautesJuridictionsPage() {
           className="flex-1 min-w-0"
         >
           <div className="flex flex-col gap-4">
+            {/* Row 1 */}
             <div className="flex flex-row gap-6 flex-wrap">
               <PouvoirFigureS
                 valeur={mag.juges.score}
@@ -131,6 +132,7 @@ export default function HautesJuridictionsPage() {
               />
             </div>
             <hr className="border-foundations-violet-clair" />
+            {/* Row 2 */}
             <div className="flex flex-row gap-6 flex-wrap">
               <PouvoirFigureS
                 valeur={mag.procureures_republique.score}
@@ -139,17 +141,26 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.procureures_republique.evolution}
               />
               <div className="w-px bg-foundations-violet-clair self-stretch hidden lg:block" />
-              <div className="flex flex-col gap-4">
-                <PouvoirFigureS
-                  valeur={mag.procureures_generaux.score}
-                  intitule="procureures généraux"
-                  annee={ANNEE}
-                  evolution={mag.procureures_generaux.evolution}
-                />
-                <InfoBox>
-                  <p className="body2-regular">{mag.infobox}</p>
-                </InfoBox>
-              </div>
+              <PouvoirFigureS
+                valeur={mag.presidents_cour_appel.score}
+                intitule="présidant une cour d'appel"
+                annee={ANNEE}
+                evolution={mag.presidents_cour_appel.evolution}
+              />
+            </div>
+            <hr className="border-foundations-violet-clair" />
+            {/* Row 3 */}
+            <div className="flex flex-row gap-6 flex-wrap">
+              <PouvoirFigureS
+                valeur={mag.procureures_generaux.score}
+                intitule="procureures généraux"
+                annee={ANNEE}
+                evolution={mag.procureures_generaux.evolution}
+              />
+              <div className="w-px bg-foundations-violet-clair self-stretch hidden lg:block" />
+              <InfoBox>
+                <p className="body2-regular">{mag.infobox}</p>
+              </InfoBox>
             </div>
           </div>
         </Block>
