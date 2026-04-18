@@ -1,3 +1,4 @@
+import type { ComponentType, SVGProps } from "react";
 import { cn } from "@/lib/utils";
 import { DoughnutChart } from "./charts/DoughnutChart";
 import { EvolutionBadge } from "./EvolutionBadge";
@@ -9,6 +10,7 @@ export type PouvoirFigureLProps = {
   annee?: number;
   evolution?: number;
   withChart?: boolean;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
 export const PouvoirFigureL = ({
@@ -17,6 +19,7 @@ export const PouvoirFigureL = ({
   annee,
   evolution,
   withChart,
+  icon,
 }: PouvoirFigureLProps) => {
   const anneeAffichee = annee ?? new Date().getFullYear();
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
@@ -31,6 +34,7 @@ export const PouvoirFigureL = ({
           value={valeur}
           className="w-28 h-28 shrink-0"
           variant="light"
+          icon={icon}
         />
       )}
       <div
