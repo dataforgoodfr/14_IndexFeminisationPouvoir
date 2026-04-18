@@ -8,7 +8,10 @@ import DataMapSVG from "@/data/maps_svg.json";
 import { cn } from "@/lib/utils";
 import { ClickablePath } from "./ClickableMap";
 
-type OutreMerMapSVGProps = React.SVGProps<SVGSVGElement> & MapRegionSVGProps;
+type OutreMerMapSVGProps = React.SVGProps<SVGSVGElement> &
+  MapRegionSVGProps & {
+    onTerritoryClick?: (regionName: string) => void;
+  };
 
 export const OutreMerMapSVG = ({
   fillColor = "#f2e100",
@@ -20,6 +23,7 @@ export const OutreMerMapSVG = ({
   textCoordinates = { x: 25, y: 25 },
   className = "",
   iconType = "none",
+  onTerritoryClick,
   ...props
 }: OutreMerMapSVGProps) => {
   const data_maps_svg = DataMapSVG as DataMapsProps;
@@ -62,6 +66,7 @@ export const OutreMerMapSVG = ({
               iconType={iconType}
               className={className}
               textCoordinates={textCoordinates}
+              onTerritoryClick={onTerritoryClick}
             />
           )}
           {!clickable && (
@@ -86,9 +91,13 @@ type OutreMerGridProps = {
       evolution: number;
     }
   >;
+  onRegionClick?: (regionName: string) => void;
 };
 
-export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
+export const OutreMerGrid = ({
+  dataPerRegion,
+  onRegionClick,
+}: OutreMerGridProps) => {
   const data_maps_svg = DataMapSVG as DataMapsProps;
   const OutreMerNameList = data_maps_svg["outre-mer"].slice(0, 8);
 
@@ -102,23 +111,24 @@ export const OutreMerGrid = ({ dataPerRegion }: OutreMerGridProps) => {
         key={om.nom}
         className="flex flex-col items-center justify-center -gap-[6px]"
       >
-        <div className="w-[110px] h-[120px] overflow-hidden">
+        <div className="flex-6 flex justify-center items-end w-[110px] h-[120px] overflow-hidden">
           <OutreMerMapSVG
             regionName={om.nom}
             fillColor="var(--color-purple-oxfam-600)"
             clickable={true}
-            className="size-100"
+            className="size-24"
             iconType="none"
+            onTerritoryClick={onRegionClick}
           />
         </div>
-        <div className="flex flex-row justify-center items-center gap-2">
+        <div className="flex-1 flex flex-row justify-center items-center gap-0.5">
           <h2 className="text-chiffre-xxs svg-bg svg-chiffres-outremers px-[15px] py-[1.5px] text-foundations-violet-principal">
             {percentage} %
           </h2>
-          {isEvolutionPositive && <ArrowUpIcon />}
-          {isEvolutionNegative && <ArrowDownIcon />}
+          {isEvolutionPositive && <ArrowUpIcon className="w-7 h-7" />}
+          {isEvolutionNegative && <ArrowDownIcon className="w-7 h-7" />}
         </div>
-        <h2 className="body2-medium text-center text-foundations-violet-principal">
+        <h2 className="flex-3 flex body2-medium items-start text-center text-foundations-violet-principal">
           {om.nom.toUpperCase()}
         </h2>
       </div>
