@@ -1,4 +1,4 @@
-export const ConseilConstitutionnelIcon = (
+export const ConseilEtatIcon = (
   props: React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
