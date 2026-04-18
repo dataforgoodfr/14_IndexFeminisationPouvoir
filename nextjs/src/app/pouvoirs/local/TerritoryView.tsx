@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PouvoirLocalFigure } from "@/components/PouvoirLocalFigure";
 import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
+import { Tooltip } from "@/components/Tooltip";
 
 interface TerritoryViewProps {
   territoryName: string;
@@ -61,12 +63,19 @@ export function TerritoryView({
         </div>
         <div className="flex-1 flex flex-col items-center justify-center gap-4">
           {/* Buttons */}
-          <button type="button" className="cursor-pointer">
-            <QuestionMarkIcon className="w-12.5 h-12.5" />
-          </button>
-          <button type="button" className="cursor-pointer">
-            <DownloadIcon className="w-12.5 h-12.5" />
-          </button>
+          <Link href="/methodologie">
+            <Tooltip
+              text="Méthode de calcul"
+              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+            />
+          </Link>
+
+          <Link href="/telecharger">
+            <Tooltip
+              text="Télécharger les données"
+              icon={<DownloadIcon className="w-12.5 h-12.5" />}
+            />
+          </Link>
         </div>
       </div>
       {/* Bloc Slider */}

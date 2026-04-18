@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BlocClassement } from "@/components/BlocClassement";
@@ -9,6 +10,7 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
+import { Tooltip } from "@/components/Tooltip";
 import data_pouvoir_local from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
@@ -217,12 +219,19 @@ export function LocalTerritorySelector() {
 
                 {/* Column 3, Rows 2-3: Buttons */}
                 <div className="md:row-span-1 flex flex-row gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start">
-                  <button type="button" className="cursor-pointer">
-                    <QuestionMarkIcon className="w-12.5 h-12.5" />
-                  </button>
-                  <button type="button" className="cursor-pointer">
-                    <DownloadIcon className="w-12.5 h-12.5" />
-                  </button>
+                  <Link href="/methodologie">
+                    <Tooltip
+                      text="Méthode de calcul"
+                      icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+                    />
+                  </Link>
+
+                  <Link href="/telecharger">
+                    <Tooltip
+                      text="Télécharger les données"
+                      icon={<DownloadIcon className="w-12.5 h-12.5" />}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
