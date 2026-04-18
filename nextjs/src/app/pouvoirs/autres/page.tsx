@@ -50,13 +50,15 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Overall stat */}
-      <PouvoirFigureL
-        valeur={hj.score}
-        intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
-        annee={ANNEE}
-        evolution={hj.evolution}
-        withChart
-      />
+      <div className="w-full max-w-3xl">
+        <PouvoirFigureL
+          valeur={hj.score}
+          intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
+          annee={ANNEE}
+          evolution={hj.evolution}
+          withChart
+        />
+      </div>
 
       {/* Institution cards */}
       <div className="flex flex-wrap gap-8 justify-center">
