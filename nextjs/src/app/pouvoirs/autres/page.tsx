@@ -114,16 +114,16 @@ export default function HautesJuridictionsPage() {
           dateMiseAJour={new Date(mag.dateMiseAJour)}
           className="flex-1 min-w-0"
         >
-          <div className="flex flex-col gap-4">
-            {/* Row 1 */}
-            <div className="flex flex-row gap-6 flex-wrap">
+          <div className="grid grid-cols-2">
+            <div className="min-w-0 p-4 border-b border-r border-foundations-violet-clair">
               <PouvoirFigureS
                 valeur={mag.juges.score}
                 intitule="juges"
                 annee={ANNEE}
                 evolution={mag.juges.evolution}
               />
-              <div className="w-px bg-foundations-violet-clair self-stretch hidden lg:block" />
+            </div>
+            <div className="min-w-0 p-4 border-b border-foundations-violet-clair">
               <PouvoirFigureS
                 valeur={mag.presidents_tribunal.score}
                 intitule="présidant un tribunal"
@@ -131,16 +131,15 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.presidents_tribunal.evolution}
               />
             </div>
-            <hr className="border-foundations-violet-clair" />
-            {/* Row 2 */}
-            <div className="flex flex-row gap-6 flex-wrap">
+            <div className="min-w-0 p-4 border-b border-r border-foundations-violet-clair">
               <PouvoirFigureS
                 valeur={mag.procureures_republique.score}
                 intitule="procureures de la République"
                 annee={ANNEE}
                 evolution={mag.procureures_republique.evolution}
               />
-              <div className="w-px bg-foundations-violet-clair self-stretch hidden lg:block" />
+            </div>
+            <div className="min-w-0 p-4 border-b border-foundations-violet-clair">
               <PouvoirFigureS
                 valeur={mag.presidents_cour_appel.score}
                 intitule="présidant une cour d'appel"
@@ -148,16 +147,15 @@ export default function HautesJuridictionsPage() {
                 evolution={mag.presidents_cour_appel.evolution}
               />
             </div>
-            <hr className="border-foundations-violet-clair" />
-            {/* Row 3 */}
-            <div className="flex flex-row gap-6 flex-wrap">
+            <div className="min-w-0 p-4 border-r border-foundations-violet-clair">
               <PouvoirFigureS
                 valeur={mag.procureures_generaux.score}
                 intitule="procureures généraux"
                 annee={ANNEE}
                 evolution={mag.procureures_generaux.evolution}
               />
-              <div className="w-px bg-foundations-violet-clair self-stretch hidden lg:block" />
+            </div>
+            <div className="min-w-0 p-4">
               <InfoBox>
                 <p className="body2-regular">{mag.infobox}</p>
               </InfoBox>
