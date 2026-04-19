@@ -16,7 +16,7 @@ const ANNEE = 2025;
 
 export default function AmbassadesPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-[1200px] mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-screen-xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
           Ambassades
