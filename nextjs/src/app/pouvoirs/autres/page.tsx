@@ -1,5 +1,5 @@
-import type { ComponentType, SVGProps } from "react";
 import Link from "next/link";
+import type { ComponentType, SVGProps } from "react";
 import { Block } from "@/components/Block";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
@@ -12,10 +12,10 @@ import { DownloadIcon } from "@/components/icons/download";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { JuridictionCard } from "@/components/JuridictionCard";
-import { Tooltip } from "@/components/Tooltip";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
+import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { hautes_juridictions: hj } = autresData;
