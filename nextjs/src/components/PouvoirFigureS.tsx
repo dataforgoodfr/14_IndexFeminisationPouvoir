@@ -23,7 +23,7 @@ export const PouvoirFigureS = ({
 
   return (
     <div className="flex flex-row gap-3 items-start">
-      <div className="w-6">
+      <div className="w-6 shrink-0">
         <FemmeIcon />
       </div>
       <div className="flex-auto flex justify-center flex-col max-w-45">
@@ -35,8 +35,8 @@ export const PouvoirFigureS = ({
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
           <span className="text-femmes-s lowercase">de femmes</span>
-          <span className="header-h3 uppercase">{intitule}</span>
-          <span className="header-h3 uppercase">en {anneeAffichee}</span>
+          <span className="header-h4 uppercase">{intitule}</span>
+          <span className="header-h4 uppercase">en {anneeAffichee}</span>
         </div>
       </div>
     </div>
