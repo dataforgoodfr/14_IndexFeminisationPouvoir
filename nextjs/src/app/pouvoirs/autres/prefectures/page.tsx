@@ -4,6 +4,7 @@ import { DownloadIcon } from "@/components/icons/download";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { Tooltip } from "@/components/Tooltip";
+import { InfoBox } from "@/components/InfoBox";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import autresData from "@/data/pouvoir_autres.json";
 
@@ -61,14 +62,16 @@ export default function PrefecturesPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-3">
-            {pref.description.map((point, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: static list
-              <p key={i} className="body2-regular text-black">
-                {point}
-              </p>
-            ))}
-          </div>
+          <InfoBox>
+            <div className="flex flex-col gap-3">
+              {pref.description.map((point, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: static list
+                <p key={i} className="body2-regular">
+                  {point}
+                </p>
+              ))}
+            </div>
+          </InfoBox>
         </div>
       </div>
     </div>
