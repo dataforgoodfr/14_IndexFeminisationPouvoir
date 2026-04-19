@@ -14,7 +14,7 @@ export const PageTitle = ({ id, title, subtitle }: TitleProps) => (
     </h1>
     <div className="divider" />
     {subtitle && (
-      <span className="text-lg text-center text-black">{subtitle}</span>
+      <span className="text-md text-center text-black max-w-[620px]">{subtitle}</span>
     )}
   </div>
 );
