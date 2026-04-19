@@ -5,6 +5,7 @@ export const AutresPouvoirIcon = (props: React.SVGProps<SVGSVGElement>) => (
     viewBox="0 0 76 109"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
     {...props}
   >
     <path

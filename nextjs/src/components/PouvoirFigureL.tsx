@@ -30,7 +30,7 @@ export const PouvoirFigureL = ({
   });
 
   return (
-    <div className="flex flex-row gap-9 items-top">
+    <div className="flex flex-row gap-9 items-start">
       {withChart && (
         <DoughnutChart
           value={valeur}
