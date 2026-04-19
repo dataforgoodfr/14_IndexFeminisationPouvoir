@@ -82,7 +82,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Institution cards */}
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex gap-8 justify-center w-full max-w-[1008px] overflow-x-auto">
         {hj.institutions.map((institution) => {
           const Icon = INSTITUTION_ICONS[institution.id];
           if (!Icon) return null;
