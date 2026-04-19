@@ -1,6 +1,4 @@
-export const ConseilEtatIcon = (
-  props: React.SVGProps<SVGSVGElement>,
-) => (
+export const ConseilEtatIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="76"
     height="76"

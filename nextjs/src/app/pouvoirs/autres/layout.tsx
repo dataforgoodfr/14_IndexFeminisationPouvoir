@@ -33,7 +33,7 @@ export default function AutresLayout({
           intitule="au sein des autres pouvoirs"
         />
       </Hero>
-      <nav className="bg-foundations-violet-principal flex flex-wrap justify-center gap-4 px-4 pb-6">
+      <nav className="flex flex-wrap justify-center gap-4 px-4 pb-6">
         <SectionNavigation
           href="/pouvoirs/autres"
           label="Hautes juridictions"

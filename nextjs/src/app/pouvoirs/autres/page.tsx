@@ -33,7 +33,7 @@ const INSTITUTION_ICONS: Record<
 
 export default function HautesJuridictionsPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-11 px-4 max-w-screen-xl mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-[1200px] mx-auto w-full">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
@@ -51,7 +51,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Overall stat */}
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-xl">
         <PouvoirFigureL
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
@@ -117,6 +117,7 @@ export default function HautesJuridictionsPage() {
           titre="Magistrature"
           dateMiseAJour={new Date(mag.dateMiseAJour)}
           className="flex-1 min-w-0"
+          cardClassName="px-0"
         >
           <div className="grid grid-cols-[1fr_auto_1fr]">
             <div className="min-w-0 p-4">
