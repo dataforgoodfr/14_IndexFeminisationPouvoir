@@ -74,7 +74,6 @@ export default function AmbassadesPage() {
       <div className="flex flex-col lg:flex-row gap-8 w-full max-w-[900px]">
         <Block
           titre="G7"
-          dateMiseAJour={new Date(amb.dateMiseAJour)}
           className="flex-1 min-w-0"
           cardClassName="pt-16 px-4 pb-6"
         >
@@ -104,7 +103,6 @@ export default function AmbassadesPage() {
 
         <Block
           titre="G20"
-          dateMiseAJour={new Date(amb.dateMiseAJour)}
           className="flex-1 min-w-0"
           cardClassName="pt-16 px-4 pb-6"
         >
