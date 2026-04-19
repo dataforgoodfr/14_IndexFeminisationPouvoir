@@ -1,4 +1,4 @@
-import worldData from "@/data/maps_world_svg.json";
+import { WORLD_PATHS } from "./world-map-paths";
 
 type WorldMapSVGProps = {
   femmeAmbassadrices: string[];
@@ -13,20 +13,25 @@ export const WorldMapSVG = ({
   fillColorFemme = "var(--color-purple-oxfam-600)",
   className,
 }: WorldMapSVGProps) => {
-  const femmeSet = new Set(femmeAmbassadrices);
+  const highlightCSS = femmeAmbassadrices.length > 0
+    ? `${femmeAmbassadrices.map((id) => `#${id}`).join(",")} { fill: ${fillColorFemme}; }`
+    : "";
+
   return (
     <svg
-      viewBox={worldData.viewBox}
+      viewBox="0 0 689 453"
       className={className}
       aria-label="Carte mondiale des ambassadrices de France"
       role="img"
     >
-      {worldData.countries.map((country) => (
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted static CSS targeting SVG IDs */}
+      {highlightCSS && <style dangerouslySetInnerHTML={{ __html: highlightCSS }} />}
+      {WORLD_PATHS.map((country) => (
         <path
           key={country.id}
           id={country.id}
           d={country.d}
-          fill={femmeSet.has(country.id) ? fillColorFemme : fillColorDefault}
+          fill={fillColorDefault}
           stroke="white"
           strokeWidth={0.5}
         />
