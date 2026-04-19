@@ -55,7 +55,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Overall stat */}
-      <div className="w-full max-w-[768px] flex flex-row items-start gap-9">
+      <div className="w-full max-w-xl">
         <PouvoirFigureL
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
@@ -134,7 +134,7 @@ export default function HautesJuridictionsPage() {
           titre="Magistrature"
           dateMiseAJour={new Date(mag.dateMiseAJour)}
           className="flex-1 min-w-0"
-          cardClassName="px-4 pt-16"
+          cardClassName="px-0"
         >
           <div className="grid grid-cols-[1fr_auto_1fr]">
             <div className="min-w-0 p-4">
