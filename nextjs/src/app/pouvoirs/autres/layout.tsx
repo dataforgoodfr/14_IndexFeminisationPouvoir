@@ -35,7 +35,7 @@ export default function AutresLayout({
       </Hero>
       <nav className="flex flex-wrap justify-center gap-4 px-4 pb-6">
         <SectionNavigation
-          href="/pouvoirs/autres"
+          href={"/pouvoirs/autres" as Route}
           label="Hautes juridictions"
           icon={<HautesJuridictionsIcon className="w-20 h-20" />}
         />
