@@ -59,6 +59,7 @@ export default function HautesJuridictionsPage() {
           evolution={hj.evolution}
           withChart
           icon={HautesJuridictionsIcon}
+          chartClassName="w-[164px] h-[164px]"
         />
       </div>
 
@@ -117,7 +118,7 @@ export default function HautesJuridictionsPage() {
           titre="Magistrature"
           dateMiseAJour={new Date(mag.dateMiseAJour)}
           className="flex-1 min-w-0"
-          cardClassName="px-0"
+          cardClassName="px-4"
         >
           <div className="grid grid-cols-[1fr_auto_1fr]">
             <div className="min-w-0 p-4">
