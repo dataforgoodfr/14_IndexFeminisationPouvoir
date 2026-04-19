@@ -29,7 +29,11 @@ export default function PrefecturesPage() {
       </div>
 
       <div className="w-full flex flex-col lg:flex-row items-start gap-12">
-        <FranceDepartementsOutremerSVG className="w-full lg:w-1/2 shrink-0" />
+        <FranceDepartementsOutremerSVG
+          className="w-full lg:w-1/2 shrink-0"
+          departementsFemmesPrefetes={pref.departements_femmes_prefetes}
+          outreMerFemmesPrefetes={pref.outre_mer_femmes_prefetes}
+        />
 
         <div className="flex flex-col gap-8 flex-1">
           <div className="flex flex-row items-start gap-9">

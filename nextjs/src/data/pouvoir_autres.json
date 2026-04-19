@@ -32,7 +32,9 @@
       { "nom": "Saint-Pierre-et-Miquelon", "percentage": 0, "evolution": 0 },
       { "nom": "Kanaky-Nouvelle-Calédonie", "percentage": 0, "evolution": 0 },
       { "nom": "Polynésie Française", "percentage": 0, "evolution": 0 }
-    ]
+    ],
+    "departements_femmes_prefetes": [],
+    "outre_mer_femmes_prefetes": []
   },
   "ambassades": {
     "score": 34.9,
