@@ -11,6 +11,7 @@ export type PouvoirFigureLProps = {
   evolution?: number;
   withChart?: boolean;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  chartClassName?: string;
 };
 
 export const PouvoirFigureL = ({
@@ -20,6 +21,7 @@ export const PouvoirFigureL = ({
   evolution,
   withChart,
   icon,
+  chartClassName,
 }: PouvoirFigureLProps) => {
   const anneeAffichee = annee ?? new Date().getFullYear();
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
@@ -32,7 +34,7 @@ export const PouvoirFigureL = ({
       {withChart && (
         <DoughnutChart
           value={valeur}
-          className="w-28 h-28 shrink-0"
+          className={cn("w-28 h-28 shrink-0", chartClassName)}
           variant="light"
           icon={icon}
         />
