@@ -1,4 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
+import Link from "next/link";
 import { Block } from "@/components/Block";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
@@ -7,8 +8,11 @@ import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
 import { CourCassationIcon } from "@/components/icons/cour-cassation";
 import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
+import { DownloadIcon } from "@/components/icons/download";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
+import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { JuridictionCard } from "@/components/JuridictionCard";
+import { Tooltip } from "@/components/Tooltip";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
@@ -51,7 +55,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Overall stat */}
-      <div className="w-full max-w-[768px]">
+      <div className="w-full max-w-[768px] flex flex-row items-start gap-9">
         <PouvoirFigureL
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
@@ -61,6 +65,20 @@ export default function HautesJuridictionsPage() {
           icon={HautesJuridictionsIcon}
           chartClassName="w-[164px] h-[164px]"
         />
+        <div className="flex flex-col gap-4 shrink-0">
+          <Link href="/methodologie">
+            <Tooltip
+              text="Méthode de calcul"
+              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+            />
+          </Link>
+          <Link href="/telecharger">
+            <Tooltip
+              text="Télécharger les données"
+              icon={<DownloadIcon className="w-12.5 h-12.5" />}
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Institution cards */}
