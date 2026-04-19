@@ -1,5 +1,6 @@
 export const DifferentIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    aria-hidden="true"
     width="37"
     height="34"
     viewBox="0 0 37 34"

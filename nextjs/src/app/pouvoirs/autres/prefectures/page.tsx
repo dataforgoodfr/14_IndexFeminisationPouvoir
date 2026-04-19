@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { FranceDepartementsOutremerSVG } from "@/components/FranceDepartementsOutremerSVG";
+import { InfoBox } from "@/components/InfoBox";
 import { DownloadIcon } from "@/components/icons/download";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
-import { Tooltip } from "@/components/Tooltip";
-import { InfoBox } from "@/components/InfoBox";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { prefectures: pref } = autresData;

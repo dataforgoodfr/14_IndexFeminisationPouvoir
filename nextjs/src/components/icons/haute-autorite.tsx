@@ -1,5 +1,6 @@
 export const HauteAutoritéIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    aria-hidden="true"
     width="82"
     height="76"
     viewBox="0 0 82 76"

@@ -5,9 +5,9 @@ import { InfoBox } from "@/components/InfoBox";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
 import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
-import { Tooltip } from "@/components/Tooltip";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { Tooltip } from "@/components/Tooltip";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
 import autresData from "@/data/pouvoir_autres.json";
 
@@ -78,7 +78,10 @@ export default function AmbassadesPage() {
           cardClassName="pt-16 px-4 pb-6"
         >
           <div className="flex flex-col gap-5">
-            <PersonGrid femmes={amb.g7.femmes} hommes={amb.g7.total - amb.g7.femmes} />
+            <PersonGrid
+              femmes={amb.g7.femmes}
+              hommes={amb.g7.total - amb.g7.femmes}
+            />
             <div className="flex flex-row gap-2 items-start">
               <span
                 className="text-chiffre-l text-foundations-violet-principal leading-none"
@@ -107,7 +110,10 @@ export default function AmbassadesPage() {
           cardClassName="pt-16 px-4 pb-6"
         >
           <div className="flex flex-col gap-5">
-            <PersonGrid femmes={amb.g20.femmes} hommes={amb.g20.total - amb.g20.femmes} />
+            <PersonGrid
+              femmes={amb.g20.femmes}
+              hommes={amb.g20.total - amb.g20.femmes}
+            />
             <div className="flex flex-row gap-2 items-start">
               <span
                 className="text-chiffre-l text-foundations-violet-principal leading-none"
@@ -140,7 +146,9 @@ export default function AmbassadesPage() {
           {amb.objectifs.map((obj, i) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: static list
             <li key={i} className="body2-regular text-black flex gap-2">
-              <span className="text-foundations-violet-principal shrink-0">•</span>
+              <span className="text-foundations-violet-principal shrink-0">
+                •
+              </span>
               {obj}
             </li>
           ))}

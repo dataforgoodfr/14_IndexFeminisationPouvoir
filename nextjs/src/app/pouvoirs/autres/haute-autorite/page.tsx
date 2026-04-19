@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Block } from "@/components/Block";
 import { InfoBox } from "@/components/InfoBox";
-import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
 import { DownloadIcon } from "@/components/icons/download";
+import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
-import { Tooltip } from "@/components/Tooltip";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { haute_autorite: ha } = autresData;

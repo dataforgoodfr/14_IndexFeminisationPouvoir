@@ -1,5 +1,6 @@
 export const PartisPolitiquesIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    aria-hidden="true"
     width="82"
     height="82"
     viewBox="0 0 82 82"

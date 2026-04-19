@@ -4,8 +4,8 @@ import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
 import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
-import { Tooltip } from "@/components/Tooltip";
 import { PersonGrid } from "@/components/PersonGrid";
+import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { partis_politiques: pp } = autresData;

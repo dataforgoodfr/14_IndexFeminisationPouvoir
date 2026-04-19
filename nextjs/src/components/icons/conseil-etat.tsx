@@ -1,5 +1,6 @@
 export const ConseilEtatIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    aria-hidden="true"
     width="76"
     height="76"
     viewBox="0 0 76 76"
