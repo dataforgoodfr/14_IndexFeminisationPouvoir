@@ -14,12 +14,13 @@ export const WorldMapSVG = ({
 }: WorldMapSVGProps) => {
   const highlightRule =
     femmeAmbassadrices.length > 0
-      ? `${femmeAmbassadrices.map((id) => `#${id}`).join(",")} { fill: ${fillColorFemme}; }`
+      ? `${femmeAmbassadrices.map((id) => `#world-map #${id}`).join(",")} { fill: ${fillColorFemme}; }`
       : "";
-  const css = `path { fill: ${fillColorDefault}; stroke: white; stroke-width: 1.1; } ${highlightRule}`;
+  const css = `#world-map path { fill: ${fillColorDefault}; stroke: white; stroke-width: 1.1; } ${highlightRule}`;
 
   return (
     <svg
+      id="world-map"
       viewBox="0 0 689 453"
       aria-label="Carte mondiale des ambassadrices de France"
       role="img"
