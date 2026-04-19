@@ -42,7 +42,7 @@ export const PouvoirFigureL = ({
       <div
         className={cn(
           "flex justify-center",
-          withChart ? "flex-col " : "flex-row items-center gap-4",
+          withChart ? "flex-col" : "flex-row items-center gap-4",
         )}
       >
         <div className="flex flex-row items-start gap-2">

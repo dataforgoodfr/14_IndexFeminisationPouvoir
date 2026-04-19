@@ -111,10 +111,7 @@ export default function HautesJuridictionsPage() {
               hommes={cc.membres_total - cc.membres_femmes}
             />
             <div className="flex flex-row gap-2 items-start">
-              <span
-                className="text-chiffre-l text-foundations-violet-principal leading-none"
-                style={{ fontFamily: "var(--font-oxfam-tstar-pro)" }}
-              >
+              <span className="text-chiffre-l text-foundations-violet-principal leading-none">
                 {cc.membres_femmes}/{cc.membres_total}
               </span>
               <EvolutionBadge value={cc.evolution} />
