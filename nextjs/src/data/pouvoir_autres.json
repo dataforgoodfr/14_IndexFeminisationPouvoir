@@ -1,4 +1,84 @@
 {
+  "prefectures": {
+    "score": 29.4,
+    "evolution": 0,
+    "dateMiseAJour": "2025-01-01",
+    "description": [
+      "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
+      "Représente le Premier ministre et chaque ministre dans les départements pour la mise en œuvre de la politique nationale et communautaire.",
+      "Est chargée de l'ordre public, de la sécurité et de la protection de la population."
+    ],
+    "regions": [
+      { "nom": "Auvergne-Rhône-Alpes", "percentage": 29, "evolution": 0 },
+      { "nom": "Bourgogne-Franche-Comté", "percentage": 25, "evolution": 0 },
+      { "nom": "Bretagne", "percentage": 33, "evolution": 0 },
+      { "nom": "Centre-Val de Loire", "percentage": 30, "evolution": 0 },
+      { "nom": "Corse", "percentage": 0, "evolution": 0 },
+      { "nom": "Grand Est", "percentage": 28, "evolution": 0 },
+      { "nom": "Hauts-de-France", "percentage": 27, "evolution": 0 },
+      { "nom": "Île-de-France", "percentage": 35, "evolution": 0 },
+      { "nom": "Normandie", "percentage": 30, "evolution": 0 },
+      { "nom": "Nouvelle-Aquitaine", "percentage": 31, "evolution": 0 },
+      { "nom": "Occitanie", "percentage": 28, "evolution": 0 },
+      { "nom": "Pays de la Loire", "percentage": 32, "evolution": 0 },
+      { "nom": "Provence-Alpes-Côte d'Azur", "percentage": 29, "evolution": 0 }
+    ],
+    "outre_mer": [
+      { "nom": "Guadeloupe", "percentage": 50, "evolution": 0 },
+      { "nom": "Martinique", "percentage": 100, "evolution": 0 },
+      { "nom": "Guyane", "percentage": 0, "evolution": 0 },
+      { "nom": "La Réunion", "percentage": 0, "evolution": 0 },
+      { "nom": "Mayotte", "percentage": 100, "evolution": 0 },
+      { "nom": "Saint-Pierre-et-Miquelon", "percentage": 0, "evolution": 0 },
+      { "nom": "Kanaky-Nouvelle-Calédonie", "percentage": 0, "evolution": 0 },
+      { "nom": "Polynésie Française", "percentage": 0, "evolution": 0 }
+    ]
+  },
+  "ambassades": {
+    "score": 34.9,
+    "evolution": 0,
+    "dateMiseAJour": "2025-01-01",
+    "description": [
+      "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
+      "Nommé·e par le Président de la République en Conseil des ministres sur proposition du ministre des Affaires étrangères."
+    ],
+    "g7": {
+      "femmes": 1,
+      "total": 7,
+      "infobox": "La France ne compte qu'une seule ambassadrice dans les pays du G7 en 2025."
+    },
+    "g20": {
+      "femmes": 3,
+      "total": 10,
+      "infobox": "Sur les 10 pays analysés du G20 hors G7, la France compte 3 ambassadrices en 2025."
+    },
+    "mais_aussi": "Les représentants de la France auprès des grandes organisations internationales (UE, OTAN, ONU à New York et Genève, UNESCO, Conseil de l'Europe) sont majoritairement des hommes.",
+    "objectifs": [
+      "40\u00a0% de femmes aux postes d'encadrement supérieur d'ici 2027",
+      "40\u00a0% de femmes lors des premières nominations d'ici 2026"
+    ],
+    "pays_femmes_ambassadrices": []
+  },
+  "haute_autorite": {
+    "score": 34.3,
+    "evolution": 0,
+    "dateMiseAJour": "2025-01-01",
+    "description": [
+      "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
+      "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
+      "Pour l'indice d'Oxfam, environ un tiers de ces organismes sont présidés par des femmes."
+    ],
+    "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française."
+  },
+  "partis_politiques": {
+    "score": 10,
+    "evolution": 0,
+    "dateMiseAJour": "2025-01-01",
+    "femmes": 1,
+    "total": 10,
+    "context": "Les partis politiques continuent de structurer la vie politique française. Oxfam a analysé les principaux partis en France représentés à l'Assemblée nationale.",
+    "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme\u00a0: Les Écologistes, dirigé par Marine Tondelier."
+  },
   "hautes_juridictions": {
     "score": 0,
     "evolution": 0,
