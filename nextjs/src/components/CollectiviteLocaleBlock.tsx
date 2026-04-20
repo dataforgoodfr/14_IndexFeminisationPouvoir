@@ -1,5 +1,6 @@
 import { PouvoirFigureL } from "./PouvoirFigureL";
 import { ShortDate } from "./ShortDate";
+import { TitreBadge } from "./TitreBadge";
 
 export type StatConfig = {
   valeur: number;
@@ -21,14 +22,12 @@ export const CollectiviteLocaleBlock = ({
   dateMiseAJour,
 }: CollectiviteLocaleBlockProps) => {
   return (
-    <div className="relative pt-5 pb-2">
+    <div className="relative pt-8 pb-2">
       {/* Badge titre — chevauche le bord supérieur de la carte */}
-      <div className="absolute top-0 left-4 -translate-y-1/2 z-10 bg-foundations-violet-principal rounded-md px-10 py-2">
-        <span className="header-h3 text-white">{titre}</span>
-      </div>
+      <TitreBadge titre={titre} className="absolute top-12 -left-8 z-10 w-44" />
 
       {/* Carte bordée */}
-      <div className="bg-white border-2 border-purple-oxfam-100 px-16 py-4">
+      <div className="bg-white border-2 border-purple-oxfam-100 px-16 pt-12 pb-4">
         {stats.map((stat) => (
           <div
             key={stat.role}

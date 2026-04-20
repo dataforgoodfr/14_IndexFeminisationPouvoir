@@ -6,6 +6,7 @@ import { SénatIcon } from "@/components/icons/senat";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { SectionGroup } from "@/components/SectionGroup";
+import { TitreBadge } from "@/components/TitreBadge";
 import { PageTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
@@ -40,8 +41,14 @@ export default function PouvoirLayout({
       >
         Taux de parité parlementaire
       </h2>
+
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-4 mb-16">
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col items-center gap-12">
+          <TitreBadge
+            titre="Assemblée Nationale"
+            className="shrink-0 w-fit px-10"
+          />
+
           <PouvoirFigureL
             intitule="députées"
             valeur={assemblee_nationale.score}
@@ -50,25 +57,33 @@ export default function PouvoirLayout({
             withChart
           />
         </div>
-        <div className="divider-dashed" />
-        <div className="flex-1 flex flex-col">
-          <PouvoirFigureL
-            intitule="sénatrices"
-            valeur={senat.score}
-            annee={senat.annee}
-            evolution={senat.evolution}
-            withChart
-          />
+        <div className="flex-1 flex flex-col items-center gap-12">
+          <TitreBadge titre="Sénat" className="shrink-0 w-fit px-10" />
+
+          <div className="divider-dashed h-full pl-6">
+            <PouvoirFigureL
+              intitule="sénatrices"
+              valeur={senat.score}
+              annee={senat.annee}
+              evolution={senat.evolution}
+              withChart
+            />
+          </div>
         </div>
-        <div className="divider-dashed" />
-        <div className="flex-1 flex flex-col">
-          <PouvoirFigureL
-            intitule="députées européennes"
-            valeur={europeen.score}
-            annee={europeen.annee}
-            evolution={europeen.evolution}
-            withChart
+        <div className="flex-1 flex flex-col items-center gap-12">
+          <TitreBadge
+            titre="Parlement Européen"
+            className="shrink-0 w-fit px-10"
           />
+          <div className="divider-dashed h-full pl-6">
+            <PouvoirFigureL
+              intitule="députées européennes"
+              valeur={europeen.score}
+              annee={europeen.annee}
+              evolution={europeen.evolution}
+              withChart
+            />
+          </div>
         </div>
       </div>
 
@@ -90,6 +105,13 @@ export default function PouvoirLayout({
             icon: <ParlementEuropéenIcon />,
           },
         ]}
+        banner={
+          <div className="w-full bg-foundations-violet-principal h-28 flex items-center lg:items-start lg:py-6 justify-center">
+            <div className="body4-medium text-foundations-blanc">
+              Les chiffres en détails
+            </div>
+          </div>
+        }
       >
         {children}
       </SectionGroup>

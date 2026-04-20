@@ -91,7 +91,7 @@ export function EvolutionLineChart({
         width={SVG_WIDTH}
         height={SVG_HEIGHT}
         rx={14}
-        fill="#e9ecf7"
+        className="fill-foundations-violet-tres-clair"
       />
 
       {/* Y-axis grid lines and labels */}
@@ -104,7 +104,7 @@ export function EvolutionLineChart({
               y1={y}
               x2={MARGIN.left + CHART_WIDTH}
               y2={y}
-              stroke="#cbb8d9"
+              className="stroke-foundations-violet-clair"
               strokeWidth={1}
               strokeDasharray={tick === 0 ? "none" : "4 3"}
             />
@@ -130,8 +130,8 @@ export function EvolutionLineChart({
       {/* Line */}
       <path
         d={linePath}
-        stroke="#513893"
         strokeWidth={2}
+        className="stroke-foundations-violet-principal"
         fill="none"
         strokeLinejoin="round"
       />
@@ -144,7 +144,7 @@ export function EvolutionLineChart({
           y1={baseline}
           x2={p.startX}
           y2={presidentLabelY + 20}
-          stroke="#513893"
+          className="stroke-foundations-violet-principal"
           strokeWidth={1}
           opacity={0.4}
         />
@@ -155,7 +155,7 @@ export function EvolutionLineChart({
         y1={baseline}
         x2={x(maxYear)}
         y2={presidentLabelY + 20}
-        stroke="#513893"
+        className="stroke-foundations-violet-principal"
         strokeWidth={1}
         opacity={0.4}
       />
@@ -229,7 +229,13 @@ export function EvolutionLineChart({
         return (
           <g key={`pt-${d.annee}`}>
             {/* Square marker */}
-            <rect x={cx - 3} y={cy - 3} width={6} height={6} fill="#513893" />
+            <rect
+              x={cx - 3}
+              y={cy - 3}
+              width={6}
+              height={6}
+              className="fill-foundations-violet-principal"
+            />
             {/* Percentage label above */}
             <text
               x={cx}
@@ -238,7 +244,7 @@ export function EvolutionLineChart({
               fontSize={12}
               fontFamily="Lato, sans-serif"
               fontWeight={700}
-              fill="#513893"
+              className="fill-foundations-violet-principal"
             >
               {d.valeur}%
             </text>
