@@ -1,0 +1,68 @@
+{
+  "region": {
+    "conseilRegional": {
+      "largeItems": [{ "valeur": 42.5, "evolution": 1.2 }],
+      "smallItems": [
+        { "valeur": 1, "evolution": 0 },
+        { "valeur": 1, "evolution": 100 }
+      ]
+    },
+    "conseilDepartementaux": {
+      "largeItems": [{ "valeur": 40.3, "evolution": 0.8 }],
+      "smallItems": [
+        { "valeur": 37.6, "evolution": 0.5 },
+        { "valeur": 39.4, "evolution": 1.0 }
+      ]
+    },
+    "conseilCommunautaires": {
+      "largeItems": [{ "valeur": 39.8, "evolution": 0.5 }],
+      "smallItems": [{ "valeur": 36.5, "evolution": -0.3 }]
+    },
+    "mairesCounseilMunicipaux": {
+      "largeItems": [
+        { "valeur": 37.2, "evolution": 1.1 },
+        { "valeur": 35.8, "evolution": 0.8 },
+        { "valeur": 36.4, "evolution": 1.3 }
+      ],
+      "smallItems": [
+        { "valeur": 34.1, "evolution": 0.6 },
+        { "valeur": 33.5, "evolution": 0.4 },
+        { "valeur": 35.9, "evolution": 1.0 },
+        { "valeur": 32.7, "evolution": 0.2 },
+        { "valeur": 34.8, "evolution": 0.7 },
+        { "valeur": 36.1, "evolution": 1.2 }
+      ]
+    },
+    "communesPlus1000": {
+      "largeItems": [{ "valeur": 40.5, "evolution": 1.4 }]
+    }
+  },
+  "departement": {
+    "conseilDepartemental": {
+      "largeItems": [{ "valeur": 41.8, "evolution": 1.0 }],
+      "smallItems": [
+        { "valeur": 0, "evolution": 0 },
+        { "valeur": 1, "evolution": 100 }
+      ]
+    },
+    "conseilCommunautaires": {
+      "largeItems": [{ "valeur": 39.2, "evolution": 0.6 }],
+      "smallItems": [{ "valeur": 35.9, "evolution": -0.1 }]
+    },
+    "mairesCounseilMunicipaux": {
+      "largeItems": [
+        { "valeur": 36.9, "evolution": 1.2 },
+        { "valeur": 35.5, "evolution": 0.9 },
+        { "valeur": 36.2, "evolution": 1.1 }
+      ],
+      "smallItems": [
+        { "valeur": 33.8, "evolution": 0.5 },
+        { "valeur": 33.2, "evolution": 0.3 },
+        { "valeur": 35.6, "evolution": 0.9 },
+        { "valeur": 32.4, "evolution": 0.1 },
+        { "valeur": 34.5, "evolution": 0.6 },
+        { "valeur": 35.8, "evolution": 1.1 }
+      ]
+    }
+  }
+}

@@ -6,6 +6,10 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PouvoirLocalFigure } from "@/components/PouvoirLocalFigure";
 import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
+import {
+  type SliderGroup,
+  TerritorySlider,
+} from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
 
 interface TerritoryViewProps {
@@ -15,6 +19,15 @@ interface TerritoryViewProps {
   onDepartementChange: (departementName: string) => void;
   dateMiseAJour: Date;
   annee: number;
+  sliderGroups?: SliderGroup[];
+  sliderTextLabels?: Record<
+    string,
+    Record<
+      string,
+      { title: string; largeItems: string[]; smallItems: string[] }
+    >
+  >;
+  sliderGroupKeys?: string[];
 }
 
 export function TerritoryView({
@@ -22,8 +35,11 @@ export function TerritoryView({
   territoryType,
   dataPerZone,
   onDepartementChange,
-  dateMiseAJour,
   annee,
+  sliderGroups,
+  sliderTextLabels,
+  sliderGroupKeys,
+  dateMiseAJour,
 }: TerritoryViewProps) {
   const MapComponent =
     territoryType === "region" ? RegionWithDeptMapSVG : DeptMapSVG;
@@ -61,7 +77,7 @@ export function TerritoryView({
             onDepartementClick={onDepartementChange}
           />
         </div>
-        <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-4">
+        <div className="flex-1 flex md:flex-col flex-row items-center justify-center gap-4">
           {/* Buttons */}
           <Link href="/methodologie">
             <Tooltip
@@ -79,8 +95,19 @@ export function TerritoryView({
         </div>
       </div>
       {/* Bloc Slider */}
-      <div className="flex-1 flex flex-row">
-        {/* Ici le composant slider */}
+      <div className="w-full bg-purple-oxfam-50">
+        {sliderGroups &&
+          sliderTextLabels &&
+          sliderGroupKeys &&
+          sliderGroups.length > 0 && (
+            <TerritorySlider
+              groups={sliderGroups}
+              textLabels={sliderTextLabels}
+              groupKeys={sliderGroupKeys}
+              territoryType={territoryType}
+              dateMiseAJour={dateMiseAJour}
+            />
+          )}
       </div>
     </div>
   );

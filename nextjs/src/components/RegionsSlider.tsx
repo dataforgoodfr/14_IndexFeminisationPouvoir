@@ -129,13 +129,13 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       <div></div>
 
       {/* Bottom Middle: Indicator Dots */}
-      <div className="flex flex-row gap-x-[8px] items-center justify-center">
+      <div className="flex flex-row gap-x-[15px] items-center justify-center">
         {regions.map((element, index) => (
           <button
             key={element.region}
             onClick={() => setCurrentIndex(index)}
             type="button"
-            className={`w-[8px] h-[8px] rounded-full transition-colors ${
+            className={`w-[15px] h-[15px] rounded-full transition-colors ${
               index === currentIndex
                 ? "bg-purple-oxfam-600"
                 : "bg-foundations-violet-tres-clair hover:bg-purple-oxfam-300"

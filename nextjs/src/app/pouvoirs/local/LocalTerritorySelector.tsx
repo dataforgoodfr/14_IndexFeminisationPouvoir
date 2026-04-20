@@ -10,9 +10,12 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
+import type { SliderGroup, SliderItem } from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
+import sliderTextData from "@/data/territory-sliders-text.json";
+import sliderValuesData from "@/data/territory-sliders-values.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
 
@@ -38,6 +41,62 @@ export function LocalTerritorySelector() {
     ...dataPerOutreMer,
     ...dataPerDepartement,
   };
+
+  // Memoize slider data for region
+  const regionSliderData = useMemo(() => {
+    const typeData = sliderValuesData[
+      "region" as keyof typeof sliderValuesData
+    ] as Record<string, Record<string, unknown>>;
+    const groupKeys = Object.keys(typeData);
+
+    const groups: SliderGroup[] = groupKeys.map((key) => {
+      const textRaw = (
+        sliderTextData["region" as keyof typeof sliderTextData] as Record<
+          string,
+          Record<string, unknown>
+        >
+      )?.[key];
+      const textSection = textRaw as Record<string, unknown>;
+      const title = (textSection?.title as string | undefined) || key;
+      return {
+        title,
+        largeItems:
+          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
+        smallItems:
+          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
+      };
+    });
+
+    return { groups, keys: groupKeys };
+  }, []);
+
+  // Memoize slider data for departement
+  const departementSliderData = useMemo(() => {
+    const typeData = sliderValuesData[
+      "departement" as keyof typeof sliderValuesData
+    ] as Record<string, Record<string, unknown>>;
+    const groupKeys = Object.keys(typeData);
+
+    const groups: SliderGroup[] = groupKeys.map((key) => {
+      const textRaw = (
+        sliderTextData["departement" as keyof typeof sliderTextData] as Record<
+          string,
+          Record<string, unknown>
+        >
+      )?.[key];
+      const textSection = textRaw as Record<string, unknown>;
+      const title = (textSection?.title as string | undefined) || key;
+      return {
+        title,
+        largeItems:
+          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
+        smallItems:
+          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
+      };
+    });
+
+    return { groups, keys: groupKeys };
+  }, []);
 
   // All regions combined
   const allRegions = [
@@ -120,58 +179,29 @@ export function LocalTerritorySelector() {
           Chiffres en détails
         </p>
         <div className="flex-1 flex flex-col md:flex-row gap-4">
-          <div className="relative">
-            <select
-              value={selectedRegion}
-              onChange={(event) => handleRegionChange(event.target.value)}
-              className="body1-regular border border-transparent rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs px-4 pr-12 border-r-8"
-            >
-              {allRegions.map((region) => (
-                <option key={region.code || "all"} value={region.nom}>
-                  {region.nom}
-                </option>
-              ))}
-            </select>
-            {selectedRegion !== "Toutes les régions" && (
-              <button
-                type="button"
-                onClick={() => {
-                  updateSearchParams({ region: null, departement: null });
-                }}
-                className="absolute right-8 top-1/2 -translate-y-1/2 text-foundations-noir hover:text-foundations-violet-principal text-sm"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+          <select
+            value={selectedRegion}
+            onChange={handleRegionChange}
+            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
+          >
+            {allRegions.map((region) => (
+              <option key={region.code || "all"} value={region.nom}>
+                {region.nom}
+              </option>
+            ))}
+          </select>
 
-          <div className="relative">
-            <select
-              value={selectedDepartement}
-              onChange={(event) => handleDepartementChange(event.target.value)}
-              className="body1-regular border border-transparent rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs px-4 pr-12 border-r-8"
-            >
-              {filteredDepartements.map((dept) => (
-                <option key={dept.code || "all"} value={dept.nom}>
-                  {dept.nom}
-                </option>
-              ))}
-            </select>
-            {selectedDepartement !== "Tous les départements" && (
-              <button
-                type="button"
-                onClick={() =>
-                  updateSearchParams({
-                    region: selectedRegion,
-                    departement: null,
-                  })
-                }
-                className="absolute right-8 top-1/2 -translate-y-1/2 text-foundations-noir hover:text-foundations-violet-principal text-sm"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+          <select
+            value={selectedDepartement}
+            onChange={handleDepartementChange}
+            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
+          >
+            {filteredDepartements.map((dept) => (
+              <option key={dept.code || "all"} value={dept.nom}>
+                {dept.nom}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -270,23 +300,45 @@ export function LocalTerritorySelector() {
 
         {isRegionSelected && (
           <TerritoryView
+            annee={annee}
             territoryName={selectedRegion}
             territoryType="region"
             dataPerZone={allDataPerZone}
             onDepartementChange={handleDepartementChange}
-            dateMiseAJour={new Date(dateMiseAJour)}
-            annee={annee}
+            sliderGroups={regionSliderData.groups}
+            sliderGroupKeys={regionSliderData.keys}
+            sliderTextLabels={
+              sliderTextData as unknown as Record<
+                string,
+                Record<
+                  string,
+                  { title: string; largeItems: string[]; smallItems: string[] }
+                >
+              >
+            }
+            dateMiseAJour={new Date()}
           />
         )}
 
         {isDepartementSelected && (
           <TerritoryView
+            annee={annee}
             territoryName={selectedDepartement}
             territoryType="departement"
             dataPerZone={allDataPerZone}
             onDepartementChange={handleDepartementChange}
-            dateMiseAJour={new Date(dateMiseAJour)}
-            annee={annee}
+            sliderGroups={departementSliderData.groups}
+            sliderGroupKeys={departementSliderData.keys}
+            sliderTextLabels={
+              sliderTextData as unknown as Record<
+                string,
+                Record<
+                  string,
+                  { title: string; largeItems: string[]; smallItems: string[] }
+                >
+              >
+            }
+            dateMiseAJour={new Date()}
           />
         )}
       </div>

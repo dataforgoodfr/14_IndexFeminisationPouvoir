@@ -11,7 +11,7 @@ export const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <title>Chevron gauche</title>
     <path
       d="M0.75 24.75L12.75 12.75L0.750001 0.75"
-      stroke="white"
+      stroke={!props.className?.includes("stroke-") ? "white" : undefined}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -30,7 +30,7 @@ export const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <title>Chevron droite</title>
     <path
       d="M12.75 0.75L0.75 12.75L12.75 24.75"
-      stroke="white"
+      stroke={!props.className?.includes("stroke-") ? "white" : undefined}
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
