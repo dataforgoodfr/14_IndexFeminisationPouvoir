@@ -9,9 +9,12 @@ import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
+import type { SliderGroup, SliderItem } from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
+import sliderTextData from "@/data/territory-sliders-text.json";
+import sliderValuesData from "@/data/territory-sliders-values.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
 
@@ -42,6 +45,62 @@ export function LocalTerritorySelector() {
     ...dataPerOutreMer,
     ...dataPerDepartement,
   };
+
+  // Memoize slider data for region
+  const regionSliderData = useMemo(() => {
+    const typeData = sliderValuesData[
+      "region" as keyof typeof sliderValuesData
+    ] as Record<string, Record<string, unknown>>;
+    const groupKeys = Object.keys(typeData);
+
+    const groups: SliderGroup[] = groupKeys.map((key) => {
+      const textRaw = (
+        sliderTextData["region" as keyof typeof sliderTextData] as Record<
+          string,
+          Record<string, unknown>
+        >
+      )?.[key];
+      const textSection = textRaw as Record<string, unknown>;
+      const title = (textSection?.title as string | undefined) || key;
+      return {
+        title,
+        largeItems:
+          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
+        smallItems:
+          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
+      };
+    });
+
+    return { groups, keys: groupKeys };
+  }, []);
+
+  // Memoize slider data for departement
+  const departementSliderData = useMemo(() => {
+    const typeData = sliderValuesData[
+      "departement" as keyof typeof sliderValuesData
+    ] as Record<string, Record<string, unknown>>;
+    const groupKeys = Object.keys(typeData);
+
+    const groups: SliderGroup[] = groupKeys.map((key) => {
+      const textRaw = (
+        sliderTextData["departement" as keyof typeof sliderTextData] as Record<
+          string,
+          Record<string, unknown>
+        >
+      )?.[key];
+      const textSection = textRaw as Record<string, unknown>;
+      const title = (textSection?.title as string | undefined) || key;
+      return {
+        title,
+        largeItems:
+          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
+        smallItems:
+          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
+      };
+    });
+
+    return { groups, keys: groupKeys };
+  }, []);
 
   // All regions combined
   const allRegions = [
@@ -122,7 +181,7 @@ export function LocalTerritorySelector() {
           <select
             value={selectedRegion}
             onChange={handleRegionChange}
-            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-[48px] w-[288px] pr-[16px] pl-[16px]"
+            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
           >
             {allRegions.map((region) => (
               <option key={region.code || "all"} value={region.nom}>
@@ -134,7 +193,7 @@ export function LocalTerritorySelector() {
           <select
             value={selectedDepartement}
             onChange={handleDepartementChange}
-            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-[48px] w-[288px] pr-[16px] pl-[16px]"
+            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
           >
             {filteredDepartements.map((dept) => (
               <option key={dept.code || "all"} value={dept.nom}>
@@ -243,6 +302,18 @@ export function LocalTerritorySelector() {
             territoryType="region"
             dataPerZone={allDataPerZone}
             onDepartementClick={handleDepartementClick}
+            sliderGroups={regionSliderData.groups}
+            sliderGroupKeys={regionSliderData.keys}
+            sliderTextLabels={
+              sliderTextData as unknown as Record<
+                string,
+                Record<
+                  string,
+                  { title: string; largeItems: string[]; smallItems: string[] }
+                >
+              >
+            }
+            dateMiseAJour={new Date()}
           />
         )}
 
@@ -252,6 +323,18 @@ export function LocalTerritorySelector() {
             territoryType="departement"
             dataPerZone={allDataPerZone}
             onDepartementClick={handleDepartementClick}
+            sliderGroups={departementSliderData.groups}
+            sliderGroupKeys={departementSliderData.keys}
+            sliderTextLabels={
+              sliderTextData as unknown as Record<
+                string,
+                Record<
+                  string,
+                  { title: string; largeItems: string[]; smallItems: string[] }
+                >
+              >
+            }
+            dateMiseAJour={new Date()}
           />
         )}
       </div>

@@ -7,6 +7,8 @@ export type PouvoirFigureSProps = {
   intitule: string;
   annee?: number;
   evolution?: number;
+  hidePercentage?: boolean;
+  textFemmes?: string;
 };
 
 export const PouvoirFigureS = ({
@@ -14,6 +16,8 @@ export const PouvoirFigureS = ({
   intitule,
   annee,
   evolution,
+  hidePercentage,
+  textFemmes = "de femmes",
 }: PouvoirFigureSProps) => {
   const anneeAffichee = annee ?? new Date().getFullYear();
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
@@ -29,12 +33,13 @@ export const PouvoirFigureS = ({
       <div className="flex-auto flex justify-center flex-col max-w-45">
         <div className="flex flex-row items-start gap-2">
           <span className="text-chiffre-s text-foundations-violet-principal leading-none">
-            {pourcentageFormate}%
+            {pourcentageFormate}
+            {!hidePercentage && "%"}
           </span>
           {evolution !== undefined && <EvolutionBadge value={evolution} />}
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
-          <span className="text-femmes-s lowercase">de femmes</span>
+          <span className="text-femmes-s lowercase">{textFemmes}</span>
           <span className="header-h3 uppercase">{intitule}</span>
           <span className="header-h3 uppercase">en {anneeAffichee}</span>
         </div>
