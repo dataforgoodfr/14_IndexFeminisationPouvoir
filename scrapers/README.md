@@ -1,133 +1,87 @@
-# Les sources de données
-La source de données suivante est utilisée largement pour le scraping dans [annuaire_admin_spider.py](https://github.com/dataforgoodfr/14_IndexFeminisationPouvoir/blob/f116a88d49927e4bc26af823e9f05a9d7b5b8cb0/scrapers/scrapers_ifp/scrapers_ifp/spiders/annuaire_admin_spider.py) :
-- [api-lannuaire-administration](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/information/). Une documentation succincte: [documentation succincte](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration/attachments/documentation_technique_api_annuaire_de_l_administration_pdf/).
+# Module Scrapers - Index de Féminisation du Pouvoir
 
-Cet autre annuaire de l'administration :
-- [api-lannuaire-administration-locale-competence-geographique](https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration-locale-competence-geographique/information/) avec [cette documentation](https://api-lannuaire.service-public.gouv.fr/api/datasets/1.0/api-lannuaire-administration-locale-competence-geographique/attachments/documentation_technique_api_annuaire_administration_competence_geographique_pdf/)
+Ce répertoire contient l'ensemble des outils de collecte de données nécessaires à l'alimentation de l'Index de
+Féminisation du Pouvoir. La logique de scraping est centralisée ici pour permettre une exécution isolée et
+reproductible.
 
-n'a pas été utilisé, mais pourrait-être une alternative pour certains pouvoirs locaux.
+## Architecture et utilisation de Scrapy
 
-# Utilisation de Docker
+Le projet s'appuie sur le framework Python **Scrapy**, qui permet d'extraire de manière structurée et asynchrone les
+informations depuis diverses sources web.
 
-Ce projet peut être exécuté localement à l’aide de Docker et Docker Compose. *Cela permet de
-vous assurer que vous fonctionnez avec le même environnement que celui utilisé pour lancer
-les scrapers servant aux validations d'OXFAM.*
+Si vous n'êtes pas familier avec Scrapy, vous pouvez consulter la documentation
+officielle à l'adresse suivante : [Scrapy Documentation](https://docs.scrapy.org/en/latest/), et suivre le tutoriel
+[Scrapy Tutorial](https://docs.scrapy.org/en/latest/intro/tutorial.html).
 
-## Prérequis
+L'arborescence du répertoire est organisée comme suit :
 
-Assurez-vous d’avoir installé :
+* **scrapers_ifp/** : Contient le cœur du bot Scrapy, incluant les spiders (scripts d'extraction), les items (définition
+  des données), les pipelines (traitement post-extraction) et les paramètres de configuration.
+* **tests/** : Regroupe l'ensemble des tests unitaires et d'intégration validant le comportement du code, notamment pour
+  l'orchestrateur et les spiders.
+* **run_spiders.py** : Script principal servant d'orchestrateur pour lancer, filtrer et configurer le stockage des
+  différents spiders.
+* **scrapy.cfg** : Fichier de configuration standard requis par l'outil en ligne de commande Scrapy.
 
-* Docker
-* Docker Compose (inclus avec Docker Desktop)
+## Gestion des dépendances avec uv
 
-Vérifiez l’installation :
+Le projet utilise [uv](https://docs.astral.sh/uv/), un gestionnaire de paquets et d'environnements virtuels Python.
 
-```bash
-docker --version
-docker compose version
+Dans les commandes d'exécution (notamment via Docker), vous remarquerez l'utilisation systématique du préfixe `uv run`.
+Cela permet de s'assurer que le code (que ce soient les tests ou les scrapers) est exécuté de manière sécurisée et
+isolée, en s'appuyant très exactement sur les versions des bibliothèques définies dans le projet, sans risque de
+conflit.
+
+## Utilisation de Docker
+
+Pour garantir un environnement de développement et d'exécution constant, l'utilisation de Docker est fortement
+recommandée.
+
+Si Docker n'est pas encore présent sur votre machine, veuillez suivre
+la [procédure officielle d'installation de Docker](https://docs.docker.com/get-docker/).
+
+Pour construire l'image du conteneur (le build), placez-vous à la racine globale du projet (le répertoire parent qui
+contient le dossier scrapers) et exécutez la commande suivante :
+
+    docker compose build scrapers
+
+Pour lancer la suite de tests Pytest à l'intérieur du conteneur, placez-vous également à la racine du projet et utilisez
+cette commande :
+
+    docker compose run --rm -w /app/scrapers -e PYTHONPATH=/app/scrapers scrapers uv run pytest -m "not live" -v
+
+Pour exécuter les scrapers via l'orchestrateur run_spiders.py, lancez la commande de base suivante depuis la racine du
+projet :
+
+    docker compose run --rm -w /app/scrapers -e PYTHONPATH=/app scrapers uv run python run_spiders.py
+
+Cette commande accepte plusieurs options pour personnaliser l'exécution :
+
+* -`-storage local`, `--storage s3` ou `--storage both` : Définit la destination de sauvegarde des fichiers CSV générés
+  (en local dans le dossier data, sur AWS S3, ou sur les deux). Le stockage par défaut est local.
+* `--spiders spider1 spider2` : Permet de cibler et de lancer uniquement une liste de spiders spécifiques.
+* `--all-spiders` : Indique s'il faut lancer l'intégralité des spiders disponibles (activé par défaut).
+  C'est l'option par défaut.
+
+Lors du développement et de la mise au point d'un spider, il est recommandé de lancer un scraper
+spécifique avec des sorties de données locales en utilisant la commande:
+
+```aiignore
+    docker compose run --rm -w /app/scrapers \
+          -e PYTHONPATH=/app scrapers uv run python run_spiders.py \
+          --storage local --spiders my_spider_name
 ```
 
----
+Les sorties se trouvent dans le dossier `scrapers/scrapers_ifp/data`.
 
-## Construire le conteneur pour le premier démarrage, ou après changement des dépendances
+## Qualité et livraison de code
 
-Depuis la racine du projet, exécutez :
+Afin de maintenir une base de code saine et de garantir l'intégrité des données collectées, des vérifications
+doivent-être effectuées avant toute livraison de code (Pull Request).
 
-```bash
-docker compose build scrapers
-```
+Il est nécessaire d'utiliser les outils de **pre-commit** en local avant de soumettre vos modifications. Ces outils se
+chargent de formater le code et de vérifier sa conformité avec les standards du projet.
 
-Cette commande va :
-
-1. Construire l’image Docker
-2. Installer les dépendances
-
----
-
-## Accéder au conteneur
-
-La commande suivante démarre le conteneur en mode détaché :
-
-```bash
-docker compose up -d scrapers
-```
-
-ensuite, vous pouvez "entrer dans le conteneur" avec la commande :
-```bash
-docker compose exec scrapers bash
-```
-
-et lancer des commandes python comme `uv run main`
-
----
-
-## Arrêter le conteneur
-
-Lancez la commande :
-
-```bash
-docker compose down
-```
-
----
-
-## Nettoyage (optionnel)
-
-Supprimer conteneurs, réseaux et volumes :
-
-```bash
-docker compose down -v
-```
-# Pour faire fonctionner le scraper `scrapy`
-
-Ce (court) chapitre fournit les instructions d'installation, la configuration de l'environnement, ainsi que le code
-source des principaux composants (Modèles, Spiders, Tests) pour faire fonctionner un premier scraper, correspondant à la
-figure 2c.
-
-**Pour l'instant il faut activer la branche `figure2c-scrapy-init-bureau-assemblee`**!
-
----
-
-# Prérequis et Installation (`uv`)
-
-Le projet utilise **`uv`** comme gestionnaire de paquets Python, qui est le standard pour les projets "Data for Good".
-
-## Installer `uv`
-
-Voir [cette URL](https://docs.astral.sh/uv/getting-started/installation/), l'installation dépendant de votre OS.
-
-## Initialiser le projet
-
-`uv sync`
-
-## Installer les navigateurs Playwright
-
-`uv run playwright install`
-
-# Faire fonctionner le premier scaper
-
-## Obtenir vos premières données !
-
-Dans le répertoire `14_IndexFeminisationPouvoir/scrapers/scrapers_ifp`, lancer la commande
-
-`uv run scrapy crawl -O ./data/raw/figure2c.jl figure2c`
-
-**Vous obtiendrez les premières sorties!** Et si vous préférez des sorties en `csv`:commande
-
-`uv run scrapy crawl -O ./data/raw/figure2c.csv figure2c`
-
-## Lancer tous les scapers avec Docker
-
-Utiliser la commande : `docker compose run --rm -w /app/scrapers/scrapers_ifp -e PYTHONPATH=/app scrapers uv run python run_spiders.py --storage local`
-
-## Il y a aussi des tests automatiques `pytest`
-
-Vous pouvez les lancer par
-`uv run pytest -v ./tests` depuis le répertoire racine du repo.
-
-# Remarques
-
-Vous pouvez aussi utiliser le conteneur Docker pour lancer les scrapers et les tests automatiques.
-
-
-
+Vous devez aussi lancer l'ensemble des tests **pytest** (via la commande Docker indiquée
+précédemment). Le code livré doit passer ces tests avec succès. Aucune modification ne pourra être fusionnée si la suite
+de tests présente des erreurs.
