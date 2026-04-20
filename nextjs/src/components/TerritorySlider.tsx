@@ -120,78 +120,77 @@ export function TerritorySlider({
           <div className="flex-7 flex flex-col items-center justify-start w-full px-[25px] py-[30px] gap-[28px] bg-foundations-blanc">
             {/* Title*/}
             <div className="flex flex-col items-center justify-center gap-y-[10px] w-full">
-                <h3 className="header-h3 text-foundations-violet-principal">
-                  {currentGroup.title}
-                </h3>
-                <p className="label-medium text-foundations-noir">
-                  {`Dernière mise à jour: ${dateMiseAJour?.toLocaleDateString("fr-FR")}` ||
-                    `Dernière mise à jour: ${annee}`}
-                </p>
-                <div className="bg-foundations-violet-clair rounded-md w-9 h-1.5 mb-5" />
+              <h3 className="header-h3 text-foundations-violet-principal">
+                {currentGroup.title}
+              </h3>
+              <p className="label-medium text-foundations-noir">
+                {`Dernière mise à jour: ${dateMiseAJour?.toLocaleDateString("fr-FR")}` ||
+                  `Dernière mise à jour: ${annee}`}
+              </p>
+              <div className="bg-foundations-violet-clair rounded-md w-9 h-1.5 mb-5" />
             </div>
 
             {/* Bloc Chiffres */}
             <div className="flex flex-col items-center justify-center gap-y-[16px] w-full">
-                
-                {/* Large figures - conditional layout */}
-                {currentGroup.largeItems.length === 1 ? (
+              {/* Large figures - conditional layout */}
+              {currentGroup.largeItems.length === 1 ? (
                 // Single FigureL: centered with separator
-                  <PouvoirFigureL
-                      valeur={currentGroup.largeItems[0].valeur}
-                      intitule={
-                      textLabels[territoryType]?.[groupKey]?.largeItems?.[0] ||
-                      "Item 1"
-                      }
-                      evolution={currentGroup.largeItems[0].evolution}
-                      annee={annee}
-                      withChart
-                  />
-                ) : (
+                <PouvoirFigureL
+                  valeur={currentGroup.largeItems[0].valeur}
+                  intitule={
+                    textLabels[territoryType]?.[groupKey]?.largeItems?.[0] ||
+                    "Item 1"
+                  }
+                  evolution={currentGroup.largeItems[0].evolution}
+                  annee={annee}
+                  withChart
+                />
+              ) : (
                 // Multiple FigureL: main on left, remaining on right with DONT between
                 <div className="flex items-center justify-center w-full gap-8">
-                    {/* Left: Main FigureL */}
-                    <PouvoirFigureL
-                        valeur={currentGroup.largeItems[0].valeur}
-                        intitule={
-                        textLabels[territoryType]?.[groupKey]?.largeItems?.[0] ||
-                        "Item 1"
-                        }
-                        evolution={currentGroup.largeItems[0].evolution}
-                        annee={annee}
-                        withChart
-                    />
-                    {/* Center: DONT block */}
-                    <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
-                        DONT :
-                    </div>
-                    {/* Right: Remaining FigureL */}
-                    <div className="flex flex-col items-start justify-start gap-6">
+                  {/* Left: Main FigureL */}
+                  <PouvoirFigureL
+                    valeur={currentGroup.largeItems[0].valeur}
+                    intitule={
+                      textLabels[territoryType]?.[groupKey]?.largeItems?.[0] ||
+                      "Item 1"
+                    }
+                    evolution={currentGroup.largeItems[0].evolution}
+                    annee={annee}
+                    withChart
+                  />
+                  {/* Center: DONT block */}
+                  <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
+                    DONT :
+                  </div>
+                  {/* Right: Remaining FigureL */}
+                  <div className="flex flex-col items-start justify-start gap-6">
                     {currentGroup.largeItems.slice(1).map((item, idx) => {
                       const largeItemIdx = idx + 1;
                       return (
                         <PouvoirFigureL
-                            key={`${groupKey}-large-${largeItemIdx}`}
-                            valeur={item.valeur}
-                            intitule={
+                          key={`${groupKey}-large-${largeItemIdx}`}
+                          valeur={item.valeur}
+                          intitule={
                             textLabels[territoryType]?.[groupKey]?.largeItems?.[
-                                largeItemIdx
+                              largeItemIdx
                             ] || `Item ${largeItemIdx + 1}`
-                            }
-                            evolution={item.evolution}
-                            annee={annee}
-                            withChart
+                          }
+                          evolution={item.evolution}
+                          annee={annee}
+                          withChart
                         />
                       );
                     })}
-                    </div>
+                  </div>
                 </div>
-                )}
-                
-                {/* Separator */}
-                {(currentGroup.smallItems.length !== 0) && (
+              )}
+
+              {/* Separator */}
+              {currentGroup.smallItems.length !== 0 && (
                 <div className="relative w-full flex items-center py-[26px] px-[127px]">
                   <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
-                  {(currentGroup.largeItems.length === 1) && (
+                  {currentGroup.largeItems.length === 1 && (
                     <div className="absolute left-1/2 -translate-x-1/2 px-4">
                       <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
                         DONT :
@@ -199,26 +198,35 @@ export function TerritorySlider({
                     </div>
                   )}
                 </div>
-                )
-                }
+              )}
 
-                {/* Small figures - adaptive grid columns based on count */}
-                {currentGroup.smallItems.length > 0 && (
+              {/* Small figures - adaptive grid columns based on count */}
+              {currentGroup.smallItems.length > 0 && (
                 <div className="w-full">
                   {(() => {
-                    const colCount = Math.min(currentGroup.smallItems.length,3);
-                    const rows = splitIntoRows(currentGroup.smallItems, colCount);
-                    
+                    const colCount = Math.min(
+                      currentGroup.smallItems.length,
+                      3,
+                    );
+                    const rows = splitIntoRows(
+                      currentGroup.smallItems,
+                      colCount,
+                    );
+
                     return rows.map((row, rowIdx) => (
                       <div key={`${groupKey}-row-${row.startIdx}`}>
                         <div className="flex w-full">
                           {row.items.map((item, colIdx) => {
                             const itemIdx = row.startIdx + colIdx;
-                            const itemTitle = texts[itemIdx] || `Item ${itemIdx + 1}`;
+                            const itemTitle =
+                              texts[itemIdx] || `Item ${itemIdx + 1}`;
                             const isRaw = isRawValue(itemTitle);
-                            
+
                             return (
-                              <div key={`${groupKey}-small-${itemIdx}-${itemTitle}`} className="flex-1 flex justify-center items-start">
+                              <div
+                                key={`${groupKey}-small-${itemIdx}-${itemTitle}`}
+                                className="flex-1 flex justify-center items-start"
+                              >
                                 <div className="flex-1 flex justify-center">
                                   <PouvoirFigureS
                                     valeur={item.valeur}
@@ -226,7 +234,10 @@ export function TerritorySlider({
                                     evolution={item.evolution}
                                     annee={annee}
                                     hidePercentage={isRaw}
-                                    textFemmes={getFemmesText(item.valeur, isRaw)}
+                                    textFemmes={getFemmesText(
+                                      item.valeur,
+                                      isRaw,
+                                    )}
                                   />
                                 </div>
                                 {colIdx < row.items.length - 1 && (
@@ -237,15 +248,15 @@ export function TerritorySlider({
                           })}
                         </div>
                         {rowIdx < rows.length - 1 && (
-                        <div className="relative w-full flex items-center py-[26px] px-[127px]">
-                          <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
-                        </div>
+                          <div className="relative w-full flex items-center py-[26px] px-[127px]">
+                            <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
+                          </div>
                         )}
                       </div>
                     ));
                   })()}
                 </div>
-                )}
+              )}
             </div>
           </div>
           {/* Next button and label */}
