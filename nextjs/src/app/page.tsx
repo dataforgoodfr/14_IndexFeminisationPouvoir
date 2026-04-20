@@ -205,8 +205,8 @@ export default function Home() {
       <EvolutionSection />
 
       {/* 5. Quote block */}
-      <section className="bg-foundations-violet-principal px-[52px] py-[60px]">
-        <p className="body4-medium text-white text-center max-w-[1377px] mx-auto">
+      <section className="bg-foundations-violet-principal px-13 py-15">
+        <p className="body4-medium text-white text-center max-w-344 mx-auto">
           En 80 ans, le pouvoir s'est lentement féminisé, néanmoins le compte
           n'y est pas, les plus hautes sphères du pouvoir français restent
           encore très (trop) masculines. La parité et la participation égale des
@@ -216,24 +216,24 @@ export default function Home() {
       </section>
 
       {/* 6. Recommandations */}
-      <section className="bg-white flex flex-col items-center gap-[38px] px-[88px] py-[60px]">
-        <div className="flex flex-col items-center gap-[10px] text-center">
+      <section className="bg-white flex flex-col items-center gap-9.5 px-13 py-15">
+        <div className="flex flex-col items-center gap-2.5 text-center">
           <h2 className="header-h1 text-foundations-violet-principal">
             Recommandations
           </h2>
-          <p className="body2-regular text-[#8d8d8d]">
+          <p className="body2-regular text-foundations-violet-tres-clair">
             Principales pistes d'action pour promouvoir la féminisation du
             pouvoir
           </p>
         </div>
         {/* Row 1: 3 cards */}
-        <div className="flex gap-[26px] flex-wrap justify-center">
+        <div className="flex gap-6.5 flex-wrap justify-center">
           {RECOMMENDATIONS.slice(0, 3).map((reco) => (
             <RecommendationCard key={reco.title} {...reco} />
           ))}
         </div>
         {/* Row 2: 2 cards */}
-        <div className="flex gap-[26px] flex-wrap justify-center">
+        <div className="flex gap-6.5 flex-wrap justify-center">
           {RECOMMENDATIONS.slice(3).map((reco) => (
             <RecommendationCard key={reco.title} {...reco} />
           ))}

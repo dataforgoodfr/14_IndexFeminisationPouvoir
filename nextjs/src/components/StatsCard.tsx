@@ -7,7 +7,7 @@ type StatsCardProps = {
 export function StatsCard({ label, score, evolution }: StatsCardProps) {
   const isPositive = evolution >= 0;
   return (
-    <div className="bg-white border border-[#dde1e6] rounded-[6px] p-4 flex flex-col gap-[5px] shrink-0">
+    <div className="bg-white border border-[#dde1e6] rounded-md p-4 flex flex-col gap-1 shrink-0">
       <p className="body1-medium text-foundations-violet-principal whitespace-nowrap">
         {label}
       </p>

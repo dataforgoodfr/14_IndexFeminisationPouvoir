@@ -34,9 +34,9 @@ export const PouvoirFigureS = ({
           {evolution !== undefined && <EvolutionBadge value={evolution} />}
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
-          <span className="text-femmes-s lowercase">de femmes</span>
-          <span className="header-h3 uppercase">{intitule}</span>
-          <span className="header-h3 uppercase">en {anneeAffichee}</span>
+          <span className="text-femmes-s">de femmes</span>
+          <span className="text-intitule-s">{intitule}</span>
+          <span className="text-intitule-xs">en {anneeAffichee}</span>
         </div>
       </div>
     </div>
