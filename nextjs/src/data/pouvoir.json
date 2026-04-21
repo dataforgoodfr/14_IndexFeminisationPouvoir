@@ -4,6 +4,7 @@
     "score": 29.61,
     "evolution": 2.5,
     "annee": 2025,
+    "dateMiseAJour": "2025-01-01",
     "composantes": {
       "gouvernement": {
         "annee": 2025,
@@ -35,6 +36,7 @@
   "parlementaire": {
     "score": 28.6,
     "annee": 2025,
+    "dateMiseAJour": "2025-01-01",
     "evolution": 2.5,
     "composantes": {
       "assemblee_nationale": {
@@ -145,6 +147,8 @@
   "local": {
     "evolution": 2.5,
     "score": 24.7,
+    "annee": 2025,
+    "dateMiseAJour": "2025-01-01",
     "composantes": {
       "presidentesRegion": {
         "score": 29.4,
@@ -236,6 +240,8 @@
   },
   "autre": {
     "score": 19.8,
+    "annee": 2025,
+    "dateMiseAJour": "2025-01-01",
     "evolution": -1.2,
     "composantes": {}
   }

@@ -5,7 +5,7 @@ export type StatConfig = {
   valeur: number;
   evolution?: number;
   role: string;
-  annee?: number;
+  annee: number;
 };
 
 type CollectiviteLocaleBlockProps = {
