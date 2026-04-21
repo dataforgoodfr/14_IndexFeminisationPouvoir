@@ -10,29 +10,26 @@ import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { Tooltip } from "@/components/Tooltip";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
 import autresData from "@/data/pouvoir_autres.json";
+import { ShortDate } from "@/components/ShortDate";
 
 const { ambassades: amb } = autresData;
-const ANNEE = 2025;
+const ANNEE = new Date(amb.dateMiseAJour).getFullYear();
 
 export default function AmbassadesPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-screen-xl mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
           Ambassades
         </h2>
         <p className="body2-regular text-black">
           Dernière mise à jour :{" "}
-          {new Date(amb.dateMiseAJour).toLocaleDateString("fr-FR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
+          <ShortDate date={new Date(amb.dateMiseAJour)} />
         </p>
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
-      <div className="w-full max-w-[768px] flex flex-col gap-3">
+      <div className="w-full max-w-3xl flex flex-col gap-3">
         {amb.description.map((point, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: static list
           <p key={i} className="body2-regular text-black">
@@ -41,10 +38,10 @@ export default function AmbassadesPage() {
         ))}
       </div>
 
-      <div className="w-full max-w-[768px] flex flex-row items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
         <PouvoirFigureL
           valeur={amb.score}
-          intitule="femmes ambassadrices de France"
+          intitule="ambassadrices de France"
           annee={ANNEE}
           evolution={amb.evolution}
           withChart
@@ -68,10 +65,10 @@ export default function AmbassadesPage() {
 
       <WorldMapSVG
         femmeAmbassadrices={amb.pays_femmes_ambassadrices}
-        className="w-full max-w-[900px]"
+        className="w-full max-w-225"
       />
 
-      <div className="flex flex-col lg:flex-row gap-8 w-full max-w-[900px]">
+      <div className="flex flex-col lg:flex-row gap-8 w-full max-w-225">
         <Block
           titre="G7"
           className="flex-1 min-w-0"
@@ -137,7 +134,7 @@ export default function AmbassadesPage() {
         </Block>
       </div>
 
-      <div className="w-full max-w-[768px] flex flex-col gap-4">
+      <div className="w-full max-w-3xl flex flex-col gap-4">
         <h3 className="header-h3 text-foundations-violet-principal uppercase">
           Mais aussi...
         </h3>

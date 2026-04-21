@@ -17,12 +17,13 @@ import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
+import { ShortDate } from "@/components/ShortDate";
 
 const { hautes_juridictions: hj } = autresData;
 const cc = hj.conseil_constitutionnel;
 const mag = hj.magistrature;
 
-const ANNEE = 2025;
+const ANNEE = new Date(hj.dateMiseAJour).getFullYear();
 
 const INSTITUTION_ICONS: Record<
   string,
@@ -37,25 +38,20 @@ const INSTITUTION_ICONS: Record<
 
 export default function HautesJuridictionsPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-screen-xl mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
           Hautes juridictions
         </h2>
         <p className="body2-regular text-black">
-          Dernière mise à jour :{" "}
-          {new Date(hj.dateMiseAJour).toLocaleDateString("fr-FR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
+          Dernière mise à jour : <ShortDate date={new Date(hj.dateMiseAJour)} />
         </p>
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
       {/* Overall stat */}
-      <div className="w-full max-w-xl">
+      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
         <PouvoirFigureL
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
@@ -82,7 +78,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Institution cards */}
-      <div className="flex gap-4 w-full max-w-[1008px]">
+      <div className="flex gap-4 w-full max-w-252">
         {hj.institutions.map((institution) => {
           const Icon = INSTITUTION_ICONS[institution.id];
           if (!Icon) return null;
@@ -97,7 +93,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Detail blocks */}
-      <div className="flex flex-col lg:flex-row gap-8 w-full max-w-screen-xl">
+      <div className="flex flex-col lg:flex-row gap-8 w-full max-w-7xl">
         {/* Conseil constitutionnel */}
         <Block
           titre="Conseil constitutionnel"

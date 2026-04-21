@@ -7,29 +7,25 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PersonGrid } from "@/components/PersonGrid";
 import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
+import { ShortDate } from "@/components/ShortDate";
 
 const { partis_politiques: pp } = autresData;
-const ANNEE = 2025;
+const ANNEE = new Date(pp.dateMiseAJour).getFullYear();
 
 export default function PartisPolitiquesPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-screen-xl mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
           Partis politiques
         </h2>
         <p className="body2-regular text-black">
-          Dernière mise à jour :{" "}
-          {new Date(pp.dateMiseAJour).toLocaleDateString("fr-FR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          })}
+          Dernière mise à jour : <ShortDate date={new Date(pp.dateMiseAJour)} />
         </p>
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
-      <div className="w-full max-w-[768px] flex flex-row items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
         <div className="flex flex-col gap-5 flex-1">
           <PersonGrid femmes={pp.femmes} hommes={pp.total - pp.femmes} />
           <div className="flex flex-row gap-2 items-start">
@@ -68,8 +64,8 @@ export default function PartisPolitiquesPage() {
       <Block
         titre="Contexte"
         dateMiseAJour={new Date(pp.dateMiseAJour)}
-        className="w-full max-w-[768px]"
-        cardClassName="pt-12 px-6 pb-6"
+        className="w-full max-w-3xl"
+        cardClassName="pt-16 px-6 pb-6"
       >
         <div className="flex flex-col gap-4">
           <p className="body2-regular text-black">{pp.context}</p>

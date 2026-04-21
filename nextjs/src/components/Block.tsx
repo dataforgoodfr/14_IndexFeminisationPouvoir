@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ShortDate } from "./ShortDate";
 
 type BlockProps = {
   titre: string;
@@ -36,12 +37,7 @@ export const Block = ({
     {/* Date de mise à jour — sous la carte, alignée à droite */}
     {dateMiseAJour && (
       <p className="text-right text-xs text-foundations-violet-principal mt-1">
-        Dernière mise à jour :{" "}
-        {dateMiseAJour.toLocaleDateString("fr-FR", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })}
+        Dernière mise à jour : <ShortDate date={new Date(dateMiseAJour)} />
       </p>
     )}
   </div>
