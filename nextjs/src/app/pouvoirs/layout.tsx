@@ -90,7 +90,9 @@ const PouvoirSelector = ({
   icon: Icon,
   ...linkProps
 }: PouvoirSelectorProps) => {
-  const pathname = usePathname().replace(/\/$/, "");
+  const activePath = usePathname().replace(/\/$/, "");
+  const selectorPath = linkProps.href.replace(/#.+$/, "").replace(/\/$/, "");
+  const isActive = activePath === selectorPath;
 
   return (
     <Link
