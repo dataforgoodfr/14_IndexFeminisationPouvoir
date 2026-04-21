@@ -1,3 +1,5 @@
+"""Script permettant de générer un fichier Excel pour Oxfam à partir des figures générées par les scrapers"""
+
 from pathlib import Path
 import pandas as pd
 import logging
@@ -91,6 +93,8 @@ def main():
     "figure{figure_name}_{year}.csv . The reference file for the expected number of rows per figure must be at
     dbt_ifp/excel_reports/reference_figures.csv
     The output excel sheet is generated at dbt_ifp/excel_reports/rapport_figures.xlsx
+
+    To run : uv run dbt_ifp/excel_reports/rapport_figures.py from the project root
     """
 
     seeds_dict = get_seeds_dict()
