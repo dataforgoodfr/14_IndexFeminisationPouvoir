@@ -102,7 +102,7 @@ const PouvoirSelector = ({
         "bg-foundations-blanc",
         "hover:border hover:border-foundations-violet-principal hover:bg-foundations-violet-principal",
         "group svg svg-inequal",
-        pathname === linkProps.href &&
+        isActive &&
           "border-foundations-violet-principal bg-foundations-violet-principal",
       )}
       {...linkProps}
@@ -110,14 +110,14 @@ const PouvoirSelector = ({
       <Icon
         className={cn(
           "w-18 h-18 group-hover:fill-white",
-          pathname === linkProps.href && "fill-white",
+          isActive && "fill-white",
         )}
       />
 
       <div
         className={cn(
           "text-center header-h4 group-hover:text-white whitespace-break-spaces w-full",
-          pathname === linkProps.href && "text-white",
+          isActive && "text-white",
         )}
       >
         {title}
