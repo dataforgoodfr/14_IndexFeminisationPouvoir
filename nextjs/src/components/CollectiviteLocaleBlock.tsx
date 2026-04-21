@@ -1,6 +1,5 @@
+import { Block } from "./Block";
 import { PouvoirFigureL } from "./PouvoirFigureL";
-import { ShortDate } from "./ShortDate";
-import { TitreBadge } from "./TitreBadge";
 
 export type StatConfig = {
   valeur: number;
@@ -22,36 +21,23 @@ export const CollectiviteLocaleBlock = ({
   dateMiseAJour,
 }: CollectiviteLocaleBlockProps) => {
   return (
-    <div className="relative pt-8 pb-2">
-      {/* Badge titre — chevauche le bord supérieur de la carte */}
-      <TitreBadge titre={titre} className="absolute top-12 -left-8 z-10 w-44" />
-
-      {/* Carte bordée */}
-      <div className="bg-white border-2 border-purple-oxfam-100 px-16 pt-12 pb-4">
-        {stats.map((stat) => (
-          <div
-            key={stat.role}
-            className={
-              "border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
-            }
-          >
-            <PouvoirFigureL
-              valeur={stat.valeur}
-              intitule={stat.role}
-              annee={stat.annee}
-              evolution={stat.evolution}
-              withChart
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Date de mise à jour — sous la carte, alignée à droite */}
-      {dateMiseAJour && (
-        <p className="text-right text-xs text-foundations-violet-principal mt-1">
-          Dernière mise à jour : <ShortDate date={dateMiseAJour} />
-        </p>
-      )}
-    </div>
+    <Block titre={titre} dateMiseAJour={dateMiseAJour}>
+      {stats.map((stat) => (
+        <div
+          key={stat.role}
+          className={
+            "border-b border-dashed border-purple-oxfam-300 py-6 last:border-b-0"
+          }
+        >
+          <PouvoirFigureL
+            valeur={stat.valeur}
+            intitule={stat.role}
+            annee={stat.annee}
+            evolution={stat.evolution}
+            withChart
+          />
+        </div>
+      ))}
+    </Block>
   );
 };

@@ -1,0 +1,33 @@
+{
+  "hautes_juridictions": {
+    "score": 0,
+    "evolution": 0,
+    "dateMiseAJour": "2025-01-01",
+    "institutions": [
+      { "id": "cour-cassation", "label": "Cour de\ncassation" },
+      { "id": "conseil-etat", "label": "Conseil\nd'Etat" },
+      { "id": "conseil-constitutionnel", "label": "Conseil\nConstitutionnel" },
+      {
+        "id": "cour-justice-republique",
+        "label": "Cour de Justice de la République"
+      },
+      { "id": "cour-comptes", "label": "Cour des\ncomptes" }
+    ],
+    "conseil_constitutionnel": {
+      "membres_femmes": 3,
+      "membres_total": 9,
+      "evolution": 0,
+      "dateMiseAJour": "2025-01-01",
+      "infobox": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14\u00a0% des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992."
+    },
+    "magistrature": {
+      "juges": { "score": 70, "evolution": 0 },
+      "presidents_tribunal": { "score": 54, "evolution": 0 },
+      "procureures_republique": { "score": 36, "evolution": 0 },
+      "presidents_cour_appel": { "score": 37.2, "evolution": 0 },
+      "procureures_generaux": { "score": 37, "evolution": 0 },
+      "dateMiseAJour": "2025-01-01",
+      "infobox": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste."
+    }
+  }
+}
