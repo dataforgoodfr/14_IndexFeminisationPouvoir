@@ -15,9 +15,9 @@ import { JuridictionCard } from "@/components/JuridictionCard";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
+import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
-import { ShortDate } from "@/components/ShortDate";
 
 const { hautes_juridictions: hj } = autresData;
 const cc = hj.conseil_constitutionnel;

@@ -5,9 +5,9 @@ import { DownloadIcon } from "@/components/icons/download";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
-import { ShortDate } from "@/components/ShortDate";
 
 const { prefectures: pref } = autresData;
 const ANNEE = new Date(pref.dateMiseAJour).getFullYear();

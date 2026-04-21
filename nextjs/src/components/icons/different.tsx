@@ -6,7 +6,6 @@ export const DifferentIcon = (props: React.SVGProps<SVGSVGElement>) => (
     viewBox="0 0 37 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
     {...props}
   >
     <g clip-path="url(#clip0_7736_2347)">

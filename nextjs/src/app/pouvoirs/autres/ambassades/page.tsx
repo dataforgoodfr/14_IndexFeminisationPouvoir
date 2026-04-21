@@ -7,10 +7,10 @@ import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
 import autresData from "@/data/pouvoir_autres.json";
-import { ShortDate } from "@/components/ShortDate";
 
 const { ambassades: amb } = autresData;
 const ANNEE = new Date(amb.dateMiseAJour).getFullYear();

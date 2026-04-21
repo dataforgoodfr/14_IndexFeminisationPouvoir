@@ -5,9 +5,9 @@ import { InfoBox } from "@/components/InfoBox";
 import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PersonGrid } from "@/components/PersonGrid";
+import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
-import { ShortDate } from "@/components/ShortDate";
 
 const { partis_politiques: pp } = autresData;
 const ANNEE = new Date(pp.dateMiseAJour).getFullYear();
