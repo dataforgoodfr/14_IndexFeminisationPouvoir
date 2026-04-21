@@ -11,10 +11,12 @@ import type { FC } from "react";
 import { cn } from "@/lib/utils";
 import { BookIcon } from "./icons/book";
 
-type NavigationItem = {
+export type NavigationItem = {
   name: string;
-  href: Route;
-};
+} & (
+  | { href: Route; submenu?: never }
+  | { submenu: React.ReactNode; href?: never }
+);
 
 export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
   const pathname = usePathname();
@@ -84,19 +86,38 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
             <div className="hidden w-full md:ml-6 md:flex justify-between items-center">
               <div className="flex space-x-4 items-center justify-center">
                 {items.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    aria-current={pathname === item.href ? "page" : undefined}
-                    className={cn(
-                      "block rounded-md px-2 py-2 header-h4",
-                      pathname === item.href
-                        ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
-                        : "text-foundations-blanc  hover:bg-black/5 hover:shadow-sm",
+                  <div key={item.name} className="group/menu py-7">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        aria-current={
+                          pathname === item.href ? "page" : undefined
+                        }
+                        className={cn(
+                          "block rounded-md px-2 py-2 header-h4",
+                          pathname === item.href
+                            ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
+                            : "text-foundations-blanc  hover:bg-black/5 hover:shadow-sm",
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <span
+                        className={cn(
+                          "block rounded-md px-2 py-2 header-h4 text-foundations-blanc",
+                        )}
+                      >
+                        {item.name}
+                      </span>
                     )}
-                  >
-                    {item.name}
-                  </Link>
+                    {/* Hover submenu */}
+                    {item.submenu && (
+                      <div className="flex flex-row absolute left-1/2 -translate-x-1/2 mt-6.5 invisible bg-foundations-violet-tres-clair group-hover/menu:visible z-10 w-screen justify-center">
+                        {item.submenu}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
               <Link href="/rapport" className="hidden lg:block button">
@@ -110,22 +131,41 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
 
       <DisclosurePanel className="lg:hidden">
         <div className="space-y-1 pl-2 pr-4 pt-2 pb-3">
-          {items.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as={Link}
-              href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
-              className={cn(
-                pathname === item.href
-                  ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
-                  : "text-foundation-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
-                "block rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out",
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+          {items.map((item) =>
+            item.submenu ? (
+              <Disclosure key={item.name}>
+                <DisclosureButton
+                  className={cn(
+                    "w-full text-left rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out flex items-center justify-between",
+                    pathname === item.href
+                      ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
+                      : "text-foundations-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
+                  )}
+                >
+                  <span>{item.name}</span>
+                  <span className="border-t-8 border-t-white border-l-6 border-l-transparent border-r-6 border-r-transparent"></span>
+                </DisclosureButton>
+                <DisclosurePanel className="pl-4 space-y-1 bg-black/5 rounded mt-1">
+                  {item.submenu}
+                </DisclosurePanel>
+              </Disclosure>
+            ) : item.href ? (
+              <DisclosureButton
+                key={item.name}
+                as={Link}
+                href={item.href}
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={cn(
+                  pathname === item.href
+                    ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
+                    : "text-foundations-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
+                  "block rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out",
+                )}
+              >
+                {item.name}
+              </DisclosureButton>
+            ) : null,
+          )}
         </div>
       </DisclosurePanel>
     </Disclosure>
