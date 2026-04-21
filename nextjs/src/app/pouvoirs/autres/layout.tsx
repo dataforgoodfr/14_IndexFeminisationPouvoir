@@ -11,7 +11,7 @@ import { SectionNavigation } from "@/components/SectionNavigation";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score } = pouvoirData.autre;
+const { score, dateMiseAJour, annee } = pouvoirData.autre;
 
 export default function AutresLayout({
   children,
@@ -29,7 +29,8 @@ export default function AutresLayout({
         <PouvoirFigureXL
           valeur={score}
           icon={AutresPouvoirIcon}
-          dateMiseAJour={new Date("2025-01-01")}
+          dateMiseAJour={new Date(dateMiseAJour)}
+          annee={annee}
           intitule="au sein des autres pouvoirs"
         />
       </Hero>

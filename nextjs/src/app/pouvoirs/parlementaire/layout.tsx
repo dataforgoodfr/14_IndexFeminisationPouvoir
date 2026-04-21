@@ -13,6 +13,8 @@ import { parlementaire } from "@/data/pouvoir.json";
 const {
   composantes: { assemblee_nationale, europeen, senat },
   score,
+  annee,
+  dateMiseAJour,
 } = parlementaire;
 export default function PouvoirLayout({
   children,
@@ -30,7 +32,8 @@ export default function PouvoirLayout({
         <PouvoirFigureXL
           valeur={score}
           icon={PouvoirParlementaireIcon}
-          dateMiseAJour={new Date()}
+          annee={annee}
+          dateMiseAJour={new Date(dateMiseAJour)}
           prelabel="au sein des"
           intitule="parlements"
         />

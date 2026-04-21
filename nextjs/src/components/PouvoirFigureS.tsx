@@ -5,7 +5,7 @@ export type PouvoirFigureSProps = {
   valeur: number;
   /** Affiché en majuscules, e.g. "présidant une région" */
   intitule: string;
-  annee?: number;
+  annee: number;
   evolution?: number;
 };
 
@@ -15,7 +15,7 @@ export const PouvoirFigureS = ({
   annee,
   evolution,
 }: PouvoirFigureSProps) => {
-  const anneeAffichee = annee ?? new Date().getFullYear();
+  const anneeAffichee = annee;
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 1,

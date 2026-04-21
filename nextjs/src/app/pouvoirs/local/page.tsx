@@ -14,7 +14,7 @@ import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { BlocClassement } from "../../../components/BlocClassement";
 
-const { score, collectivites } = pouvoirData.local;
+const { score, collectivites, annee, dateMiseAJour } = pouvoirData.local;
 
 type DataPouvoirLocal = Record<
   TerritoryType,
@@ -66,7 +66,8 @@ export default async function Page() {
         <PouvoirFigureXL
           valeur={score}
           icon={PouvoirLocalIcon}
-          dateMiseAJour={new Date()}
+          dateMiseAJour={new Date(dateMiseAJour)}
+          annee={annee}
           prelabel="au sein du"
           intitule="pouvoir local"
         />
@@ -157,7 +158,7 @@ export default async function Page() {
             exécutifs locaux dans une région (présidence de région, présidence
             de département et mairie de la préfecture du département), le
             classement des régions françaises."
-        derniereMiseAJour={new Date()}
+        derniereMiseAJour={new Date(dateMiseAJour)}
       />
       {/* Bloc Contenu Texte */}
       <div className="flex flex-col md:flex-row gap-x-8 gap-y-10 px-5 md:px-25 py-11 bg-foundations-blanc items-stretch justify-center">

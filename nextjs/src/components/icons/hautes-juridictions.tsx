@@ -2,12 +2,12 @@ export const HautesJuridictionsIcon = (
   props: React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
+    aria-hidden="true"
     width="81"
     height="81"
     viewBox="0 0 81 81"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
     {...props}
   >
     <path

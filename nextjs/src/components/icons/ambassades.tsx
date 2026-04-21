@@ -1,11 +1,11 @@
 export const AmbassadesIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
+    aria-hidden="true"
     width="82"
     height="80"
     viewBox="0 0 82 80"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
     {...props}
   >
     <path

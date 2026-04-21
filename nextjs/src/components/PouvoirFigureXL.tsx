@@ -7,7 +7,7 @@ export type PouvoirFigureXLProps = {
   prelabel?: string;
   dateMiseAJour: Date;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  annee?: number;
+  annee: number;
 };
 export const PouvoirFigureXL = ({
   valeur,
@@ -15,7 +15,7 @@ export const PouvoirFigureXL = ({
   dateMiseAJour,
   prelabel,
   intitule,
-  annee = new Date().getFullYear(),
+  annee,
 }: PouvoirFigureXLProps) => (
   <div className="flex flex-col lg:flex-row gap-9">
     <DoughnutChart value={valeur} className="w-68 h-68" icon={Icon} />
