@@ -6,7 +6,7 @@ import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score } = pouvoirData.executif;
+const { score, annee, dateMiseAJour } = pouvoirData.executif;
 
 export default function Page({ children }: { children: React.ReactNode }) {
   return (
@@ -50,7 +50,8 @@ export default function Page({ children }: { children: React.ReactNode }) {
             <PouvoirFigureXL
               valeur={score}
               icon={PouvoirExecutifIcon}
-              dateMiseAJour={new Date()}
+              dateMiseAJour={new Date(dateMiseAJour)}
+              annee={annee}
               prelabel="au sein du"
               intitule="pouvoir exécutif"
             />
