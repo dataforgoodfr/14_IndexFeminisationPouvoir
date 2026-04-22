@@ -1,37 +1,58 @@
+import { cn } from "@/lib/utils";
+
 type TitleProps = {
   id: string;
   title: string;
   subtitle?: string;
+  classes?: {
+    root?: string;
+    title?: string;
+    divider?: string;
+    subtitle?: string;
+  };
 };
 
-export const PageTitle = ({ id, title, subtitle }: TitleProps) => (
-  <div className="flex flex-col gap-2.5 items-center">
+export const PageTitle = ({ id, title, subtitle, classes }: TitleProps) => (
+  <div className={cn("flex flex-col gap-2.5 items-center", classes?.root)}>
     <h1
       id={id}
-      className="header-h1 text-foundations-violet-principal text-center"
+      className={cn(
+        "header-h1 text-foundations-violet-principal text-center",
+        classes?.title,
+      )}
     >
       {title}
     </h1>
-    <div className="divider" />
+    <div className={cn("divider", classes?.divider)} />
     {subtitle && (
-      <span className="text-md text-center text-black max-w-[620px]">
+      <span
+        className={cn(
+          "text-lg text-center text-black max-w-2xl",
+          classes?.subtitle,
+        )}
+      >
         {subtitle}
       </span>
     )}
   </div>
 );
 
-export const SectionTitle = ({ id, title, subtitle }: TitleProps) => (
-  <div className="flex flex-col gap-2.5 items-center">
+export const SectionTitle = ({ id, title, subtitle, classes }: TitleProps) => (
+  <div className={cn("flex flex-col gap-2.5 items-center", classes?.root)}>
     <h2
       id={id}
-      className="header-h2 text-foundations-violet-principal text-center"
+      className={cn(
+        "header-h2 text-foundations-violet-principal text-center",
+        classes?.title,
+      )}
     >
       {title}
     </h2>
-    <div className="divider" />
+    <div className={cn("divider", classes?.divider)} />
     {subtitle && (
-      <span className="text-lg text-center text-black">{subtitle}</span>
+      <span className={cn("text-lg text-center text-black", classes?.subtitle)}>
+        {subtitle}
+      </span>
     )}
   </div>
 );
