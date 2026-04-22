@@ -103,11 +103,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                         {item.name}
                       </Link>
                     ) : (
-                      <span
-                        className={cn(
-                          "block rounded-md px-2 py-2 header-h4 text-foundations-blanc",
-                        )}
-                      >
+                      <span className="block rounded-md px-2 py-2 header-h4 hover:shadow-sm hover:bg-black/5 cursor-pointer">
                         {item.name}
                       </span>
                     )}
