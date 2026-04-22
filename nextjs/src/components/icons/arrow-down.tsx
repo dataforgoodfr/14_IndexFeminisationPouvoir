@@ -1,11 +1,22 @@
-export const ArrowDownIcon = (_props: React.SVGProps<SVGSVGElement>) => (
+import { cn } from "@/lib/utils";
+
+type ArrowDownIconProps = React.SVGProps<SVGSVGElement> & {
+  size?: number; // Size in SVG units for use inside parent SVGs
+};
+export const ArrowDownIcon = ({
+  size = 25,
+  className,
+  ...props
+}: ArrowDownIconProps) => (
   <svg
-    width="25"
-    height="25"
+    width={size}
+    height={size}
     viewBox="-2.5 -2.5 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label="Fleche vers le bas"
+    {...props}
+    className={cn("w-6 h-6", className)}
   >
     <circle cx="10" cy="10" r="10" fill="#FF003D" />
     <g clipPath="url(#arrow-down-clip)">

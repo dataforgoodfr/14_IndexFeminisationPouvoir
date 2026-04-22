@@ -14,6 +14,8 @@ export type DataMapsProps = Record<
     nom: string;
     className?: string;
     textCoordinates?: { x: number; y: number };
+    regionName?: string; // Only for departements
+    iconSize?: number; // Only for departements
   }>
 >;
 
@@ -35,7 +37,7 @@ export type MapRegionSVGProps = MapSVGProps & {
 };
 
 export type MultipleRegionSVGProps = MapSVGProps & {
-  dataPerRegion?: Record<
+  dataPerZone?: Record<
     string,
     {
       percentage: number;
@@ -44,7 +46,10 @@ export type MultipleRegionSVGProps = MapSVGProps & {
   >;
 };
 
-type FranceMapSVGProps = React.SVGProps<SVGSVGElement> & MultipleRegionSVGProps;
+type FranceMapSVGProps = React.SVGProps<SVGSVGElement> &
+  MultipleRegionSVGProps & {
+    onRegionChange?: (regionName: string) => void;
+  };
 
 const FranceMapSVG = ({
   fillColor = "#513893",
@@ -52,30 +57,29 @@ const FranceMapSVG = ({
   strokeWidth = 2,
   width = 500,
   height = 500,
-  dataPerRegion,
+  dataPerZone,
+  onRegionChange,
   ...props
 }: FranceMapSVGProps) => {
   const data_maps_svg = DataMapSVG as DataMapsProps;
   const regionsList = data_maps_svg.regions;
 
-  // From dataPerRegion, we generate textList, iconList and tooltipList with the same order as regionsList
+  // From dataPerZone, we generate textList, iconList and tooltipList with the same order as regionsList
   const textList = regionsList.map((region) => {
-    const percentage = dataPerRegion
-      ? dataPerRegion[region.nom]?.percentage
-      : 0;
-    return percentage ? `${percentage}%` : "";
+    const percentage = dataPerZone ? dataPerZone[region.nom]?.percentage : 0;
+    return percentage !== undefined && percentage !== null
+      ? `${percentage}%`
+      : "";
   });
 
   const iconList = regionsList.map((region) => {
-    const evolution = dataPerRegion ? dataPerRegion[region.nom]?.evolution : 0;
+    const evolution = dataPerZone ? dataPerZone[region.nom]?.evolution : 0;
     return evolution > 0 ? "up" : evolution < 0 ? "down" : "none";
   });
 
   const tooltipList = regionsList.map((region) => {
-    const percentage = dataPerRegion
-      ? dataPerRegion[region.nom]?.percentage
-      : 0;
-    const evolution = dataPerRegion ? dataPerRegion[region.nom]?.evolution : 0;
+    const percentage = dataPerZone ? dataPerZone[region.nom]?.percentage : 0;
+    const evolution = dataPerZone ? dataPerZone[region.nom]?.evolution : 0;
     return `${region.nom}\n${percentage}%\nEvolution: ${evolution > 0 ? "+" : ""}${evolution}%`;
   });
 
@@ -106,6 +110,7 @@ const FranceMapSVG = ({
           className={region.className || "body1-medium text-white"}
           textCoordinates={region.textCoordinates}
           tooltipText={tooltipList[regionsList.indexOf(region)]}
+          onTerritoryChange={onRegionChange}
         />
       ))}
     </svg>

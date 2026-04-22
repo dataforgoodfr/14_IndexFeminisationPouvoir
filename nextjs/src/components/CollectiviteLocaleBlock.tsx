@@ -33,7 +33,7 @@ export const CollectiviteLocaleBlock = ({
             valeur={stat.valeur}
             intitule={stat.role}
             annee={stat.annee}
-            evolution={stat.evolution}
+            evolution={888}
             withChart
           />
         </div>
