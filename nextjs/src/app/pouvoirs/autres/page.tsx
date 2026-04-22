@@ -1,22 +1,19 @@
-import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 import { Block } from "@/components/Block";
-import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
 import { ConseilConstitutionnelIcon } from "@/components/icons/conseil-constitutionnel";
 import { ConseilEtatIcon } from "@/components/icons/conseil-etat";
 import { CourCassationIcon } from "@/components/icons/cour-cassation";
 import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
-import { DownloadIcon } from "@/components/icons/download";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { JuridictionCard } from "@/components/JuridictionCard";
+import { LiensCTA } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { PouvoirFigureRelative } from "@/components/PouvoirFigureRelative";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { ShortDate } from "@/components/ShortDate";
-import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { hautes_juridictions: hj } = autresData;
@@ -36,9 +33,60 @@ const INSTITUTION_ICONS: Record<
   "cour-comptes": CourComptesIcon,
 };
 
+const MAGISTRATURE_FIGURES = [
+  {
+    valeur: mag.juges.score,
+    intitule: "juges",
+    evolution: mag.juges.evolution,
+  },
+  {
+    valeur: mag.presidents_tribunal.score,
+    intitule: "présidant un tribunal",
+    evolution: mag.presidents_tribunal.evolution,
+  },
+  {
+    valeur: mag.procureures_republique.score,
+    intitule: "procureures de la République",
+    evolution: mag.procureures_republique.evolution,
+  },
+  {
+    valeur: mag.presidents_cour_appel.score,
+    intitule: "présidant une cour d'appel",
+    evolution: mag.presidents_cour_appel.evolution,
+  },
+  {
+    valeur: mag.procureures_generaux.score,
+    intitule: "procureures générales",
+    evolution: mag.procureures_generaux.evolution,
+  },
+];
+
+function MagistratureGridCell({
+  children,
+  withRightBorder,
+  withBottomBorder,
+}: {
+  children: React.ReactNode;
+  withRightBorder?: boolean;
+  withBottomBorder?: boolean;
+}) {
+  return (
+    <div className="relative min-w-0 p-6 flex flex-col items-center lg:items-start justify-center">
+      {children}
+
+      {withRightBorder && (
+        <span className="pointer-events-none absolute right-0 top-1/2 hidden h-[80%] -translate-y-1/2 border-r border-dashed border-foundations-violet-clair lg:block" />
+      )}
+      {withBottomBorder && (
+        <span className="pointer-events-none absolute bottom-0 left-1/2 w-[80%] -translate-x-1/2 border-b border-dashed border-foundations-violet-clair " />
+      )}
+    </div>
+  );
+}
+
 export default function HautesJuridictionsPage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
+    <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-4 py-12 sm:px-6 lg:px-12">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h1 text-foundations-violet-principal text-center">
@@ -51,7 +99,7 @@ export default function HautesJuridictionsPage() {
       </div>
 
       {/* Overall stat */}
-      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-col items-center lg:flex-row lg:items-start gap-9">
         <PouvoirFigureL
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
@@ -61,24 +109,11 @@ export default function HautesJuridictionsPage() {
           icon={HautesJuridictionsIcon}
           chartClassName="w-[164px] h-[164px]"
         />
-        <div className="flex flex-col gap-4 shrink-0">
-          <Link href="/methodologie">
-            <Tooltip
-              text="Méthode de calcul"
-              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-          <Link href="/telecharger">
-            <Tooltip
-              text="Télécharger les données"
-              icon={<DownloadIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-        </div>
+        <LiensCTA />
       </div>
 
       {/* Institution cards */}
-      <div className="flex gap-4 w-full max-w-252">
+      <div className="flex flex-col lg:flex-row gap-4 w-full max-w-252">
         {hj.institutions.map((institution) => {
           const Icon = INSTITUTION_ICONS[institution.id];
           if (!Icon) return null;
@@ -87,6 +122,7 @@ export default function HautesJuridictionsPage() {
               key={institution.id}
               icon={Icon}
               label={institution.label}
+              description={institution.description}
             />
           );
         })}
@@ -106,19 +142,13 @@ export default function HautesJuridictionsPage() {
               femmes={cc.membres_femmes}
               hommes={cc.membres_total - cc.membres_femmes}
             />
-            <div className="flex flex-row gap-2 items-start">
-              <span className="text-chiffre-l text-foundations-violet-principal leading-none">
-                {cc.membres_femmes}/{cc.membres_total}
-              </span>
-              <EvolutionBadge value={cc.evolution} />
-              <div className="flex flex-col text-foundations-violet-principal">
-                <span className="text-femmes-xl lowercase">de femmes</span>
-                <span className="header-h3 uppercase">
-                  au conseil constitutionnel
-                </span>
-                <span className="header-h3 uppercase">en {ANNEE}</span>
-              </div>
-            </div>
+            <PouvoirFigureRelative
+              femmes={cc.membres_femmes}
+              total={cc.membres_total}
+              intitule="au conseil constitutionnel"
+              annee={ANNEE}
+              evolution={cc.evolution}
+            />
             <InfoBox>
               <p className="body2-regular">{cc.infobox}</p>
             </InfoBox>
@@ -132,67 +162,31 @@ export default function HautesJuridictionsPage() {
           className="flex-1 min-w-0"
           cardClassName="px-0"
         >
-          <div className="grid grid-cols-[1fr_auto_1fr]">
-            <div className="min-w-0 p-4">
-              <PouvoirFigureS
-                valeur={mag.juges.score}
-                intitule="juges"
-                annee={ANNEE}
-                evolution={mag.juges.evolution}
-              />
-            </div>
-            <div className="flex items-center px-2">
-              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
-            </div>
-            <div className="min-w-0 p-4">
-              <PouvoirFigureS
-                valeur={mag.presidents_tribunal.score}
-                intitule="présidant un tribunal"
-                annee={ANNEE}
-                evolution={mag.presidents_tribunal.evolution}
-              />
-            </div>
-            <div className="col-span-3 flex justify-center py-1">
-              <div className="w-4/5 border-t border-dotted border-foundations-violet-clair" />
-            </div>
-            <div className="min-w-0 p-4">
-              <PouvoirFigureS
-                valeur={mag.procureures_republique.score}
-                intitule="procureures de la République"
-                annee={ANNEE}
-                evolution={mag.procureures_republique.evolution}
-              />
-            </div>
-            <div className="flex items-center px-2">
-              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
-            </div>
-            <div className="min-w-0 p-4">
-              <PouvoirFigureS
-                valeur={mag.presidents_cour_appel.score}
-                intitule="présidant une cour d'appel"
-                annee={ANNEE}
-                evolution={mag.presidents_cour_appel.evolution}
-              />
-            </div>
-            <div className="col-span-3 flex justify-center py-1">
-              <div className="w-4/5 border-t border-dotted border-foundations-violet-clair" />
-            </div>
-            <div className="min-w-0 p-4">
-              <PouvoirFigureS
-                valeur={mag.procureures_generaux.score}
-                intitule="procureures généraux"
-                annee={ANNEE}
-                evolution={mag.procureures_generaux.evolution}
-              />
-            </div>
-            <div className="flex items-center px-2">
-              <div className="h-30 border-l border-dotted border-foundations-violet-clair" />
-            </div>
-            <div className="min-w-0 p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {MAGISTRATURE_FIGURES.map((figure, index) => {
+              const isLastItem = index === MAGISTRATURE_FIGURES.length - 1;
+              const isLeftColumn = index % 2 === 0 && !isLastItem;
+
+              return (
+                <MagistratureGridCell
+                  key={figure.intitule}
+                  withBottomBorder={!isLastItem}
+                  withRightBorder={isLeftColumn}
+                >
+                  <PouvoirFigureS
+                    valeur={figure.valeur}
+                    intitule={figure.intitule}
+                    annee={ANNEE}
+                    evolution={figure.evolution}
+                  />
+                </MagistratureGridCell>
+              );
+            })}
+            <MagistratureGridCell>
               <InfoBox>
                 <p className="body2-regular">{mag.infobox}</p>
               </InfoBox>
-            </div>
+            </MagistratureGridCell>
           </div>
         </Block>
       </div>

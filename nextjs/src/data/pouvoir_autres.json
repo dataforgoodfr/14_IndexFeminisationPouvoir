@@ -9,32 +9,115 @@
       "Est chargée de l'ordre public, de la sécurité et de la protection de la population."
     ],
     "regions": [
-      { "nom": "Auvergne-Rhône-Alpes", "percentage": 29, "evolution": 0 },
-      { "nom": "Bourgogne-Franche-Comté", "percentage": 25, "evolution": 0 },
-      { "nom": "Bretagne", "percentage": 33, "evolution": 0 },
-      { "nom": "Centre-Val de Loire", "percentage": 30, "evolution": 0 },
-      { "nom": "Corse", "percentage": 0, "evolution": 0 },
-      { "nom": "Grand Est", "percentage": 28, "evolution": 0 },
-      { "nom": "Hauts-de-France", "percentage": 27, "evolution": 0 },
-      { "nom": "Île-de-France", "percentage": 35, "evolution": 0 },
-      { "nom": "Normandie", "percentage": 30, "evolution": 0 },
-      { "nom": "Nouvelle-Aquitaine", "percentage": 31, "evolution": 0 },
-      { "nom": "Occitanie", "percentage": 28, "evolution": 0 },
-      { "nom": "Pays de la Loire", "percentage": 32, "evolution": 0 },
-      { "nom": "Provence-Alpes-Côte d'Azur", "percentage": 29, "evolution": 0 }
+      {
+        "nom": "Auvergne-Rhône-Alpes",
+        "percentage": 29,
+        "evolution": 0
+      },
+      {
+        "nom": "Bourgogne-Franche-Comté",
+        "percentage": 25,
+        "evolution": 0
+      },
+      {
+        "nom": "Bretagne",
+        "percentage": 33,
+        "evolution": 0
+      },
+      {
+        "nom": "Centre-Val de Loire",
+        "percentage": 30,
+        "evolution": 0
+      },
+      {
+        "nom": "Corse",
+        "percentage": 0,
+        "evolution": 0
+      },
+      {
+        "nom": "Grand Est",
+        "percentage": 28,
+        "evolution": 0
+      },
+      {
+        "nom": "Hauts-de-France",
+        "percentage": 27,
+        "evolution": 0
+      },
+      {
+        "nom": "Île-de-France",
+        "percentage": 35,
+        "evolution": 0
+      },
+      {
+        "nom": "Normandie",
+        "percentage": 30,
+        "evolution": 0
+      },
+      {
+        "nom": "Nouvelle-Aquitaine",
+        "percentage": 31,
+        "evolution": 0
+      },
+      {
+        "nom": "Occitanie",
+        "percentage": 28,
+        "evolution": 0
+      },
+      {
+        "nom": "Pays de la Loire",
+        "percentage": 32,
+        "evolution": 0
+      },
+      {
+        "nom": "Provence-Alpes-Côte d'Azur",
+        "percentage": 29,
+        "evolution": 0
+      }
     ],
     "outre_mer": [
-      { "nom": "Guadeloupe", "percentage": 50, "evolution": 0 },
-      { "nom": "Martinique", "percentage": 100, "evolution": 0 },
-      { "nom": "Guyane", "percentage": 0, "evolution": 0 },
-      { "nom": "La Réunion", "percentage": 0, "evolution": 0 },
-      { "nom": "Mayotte", "percentage": 100, "evolution": 0 },
-      { "nom": "Saint-Pierre-et-Miquelon", "percentage": 0, "evolution": 0 },
-      { "nom": "Kanaky-Nouvelle-Calédonie", "percentage": 0, "evolution": 0 },
-      { "nom": "Polynésie Française", "percentage": 0, "evolution": 0 }
+      {
+        "nom": "Guadeloupe",
+        "percentage": 50,
+        "evolution": 0
+      },
+      {
+        "nom": "Martinique",
+        "percentage": 100,
+        "evolution": 0
+      },
+      {
+        "nom": "Guyane",
+        "percentage": 0,
+        "evolution": 0
+      },
+      {
+        "nom": "La Réunion",
+        "percentage": 0,
+        "evolution": 0
+      },
+      {
+        "nom": "Mayotte",
+        "percentage": 100,
+        "evolution": 0
+      },
+      {
+        "nom": "Saint-Pierre-et-Miquelon",
+        "percentage": 0,
+        "evolution": 0
+      },
+      {
+        "nom": "Kanaky-Nouvelle-Calédonie",
+        "percentage": 0,
+        "evolution": 0
+      },
+      {
+        "nom": "Polynésie Française",
+        "percentage": 0,
+        "evolution": 0
+      }
     ],
-    "departements_femmes_prefetes": [],
-    "outre_mer_femmes_prefetes": []
+    "departements_femmes_prefetes": ["31", "78", "976", "987"]
   },
   "ambassades": {
     "score": 34.9,
@@ -59,7 +142,7 @@
       "40\u00a0% de femmes aux postes d'encadrement supérieur d'ici 2027",
       "40\u00a0% de femmes lors des premières nominations d'ici 2026"
     ],
-    "pays_femmes_ambassadrices": ["AZ"]
+    "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
     "score": 34.3,
@@ -86,14 +169,31 @@
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
     "institutions": [
-      { "id": "cour-cassation", "label": "Cour de\ncassation" },
-      { "id": "conseil-etat", "label": "Conseil\nd'Etat" },
-      { "id": "conseil-constitutionnel", "label": "Conseil\nConstitutionnel" },
+      {
+        "id": "cour-cassation",
+        "label": "Cour de\ncassation",
+        "description": "L'autorité judiciaire avec à son sommet la Cour de cassation."
+      },
+      {
+        "id": "conseil-etat",
+        "label": "Conseil\nd'Etat",
+        "description": "La juridiction administrative avec à son sommet le Conseil d'État."
+      },
+      {
+        "id": "conseil-constitutionnel",
+        "label": "Conseil\nConstitutionnel",
+        "description": "Le Conseil constitutionnel en charge du contrôle de la constitutionnalité des lois et de la régularité des élections nationales."
+      },
       {
         "id": "cour-justice-republique",
-        "label": "Cour de Justice de la République"
+        "label": "Cour de Justice de la République",
+        "description": "La Cour de justice de la République (CJR) qui juge les membres du gouvernement pour les actes délictueux ou criminels commis dans l'exercice de leur fonction."
       },
-      { "id": "cour-comptes", "label": "Cour des\ncomptes" }
+      {
+        "id": "cour-comptes",
+        "label": "Cour des\ncomptes",
+        "description": "La Cour des comptes, juridiction indépendante, qui juge la régularité, la sincérité et la fidélité des comptes de l'État et de la sécurité sociale et assiste le Parlement et le Gouvernement dans l'évaluation des politiques publiques."
+      }
     ],
     "conseil_constitutionnel": {
       "membres_femmes": 3,
@@ -103,11 +203,26 @@
       "infobox": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14\u00a0% des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992."
     },
     "magistrature": {
-      "juges": { "score": 70, "evolution": 0 },
-      "presidents_tribunal": { "score": 54, "evolution": 0 },
-      "procureures_republique": { "score": 36, "evolution": 0 },
-      "presidents_cour_appel": { "score": 37.2, "evolution": 0 },
-      "procureures_generaux": { "score": 37, "evolution": 0 },
+      "juges": {
+        "score": 70,
+        "evolution": 0
+      },
+      "presidents_tribunal": {
+        "score": 54,
+        "evolution": 0
+      },
+      "procureures_republique": {
+        "score": 36,
+        "evolution": 0
+      },
+      "presidents_cour_appel": {
+        "score": 37.2,
+        "evolution": 0
+      },
+      "procureures_generaux": {
+        "score": 37,
+        "evolution": 0
+      },
       "dateMiseAJour": "2025-01-01",
       "infobox": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste."
     }

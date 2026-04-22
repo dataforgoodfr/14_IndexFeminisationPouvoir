@@ -1,12 +1,9 @@
-import Link from "next/link";
 import { FranceDepartementsOutremerSVG } from "@/components/FranceDepartementsOutremerSVG";
 import { InfoBox } from "@/components/InfoBox";
-import { DownloadIcon } from "@/components/icons/download";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
-import { Tooltip } from "@/components/Tooltip";
 import autresData from "@/data/pouvoir_autres.json";
 
 const { prefectures: pref } = autresData;
@@ -30,11 +27,10 @@ export default function PrefecturesPage() {
         <FranceDepartementsOutremerSVG
           className="w-full lg:w-1/2 shrink-0"
           departementsFemmesPrefetes={pref.departements_femmes_prefetes}
-          outreMerFemmesPrefetes={pref.outre_mer_femmes_prefetes}
         />
 
         <div className="flex flex-col gap-8 flex-1">
-          <div className="flex flex-row items-start gap-9">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-9">
             <PouvoirFigureL
               valeur={pref.score}
               intitule="femmes préfètes"
@@ -43,20 +39,7 @@ export default function PrefecturesPage() {
               withChart
               icon={PréfecturesIcon}
             />
-            <div className="flex flex-col gap-4 shrink-0">
-              <Link href="/methodologie">
-                <Tooltip
-                  text="Méthode de calcul"
-                  icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-              <Link href="/telecharger">
-                <Tooltip
-                  text="Télécharger les données"
-                  icon={<DownloadIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-            </div>
+            <LiensCTA />
           </div>
 
           <InfoBox>

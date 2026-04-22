@@ -1,9 +1,6 @@
-import Link from "next/link";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { Standings } from "@/components/Standings";
+import { LiensCTA } from "./LiensCTA";
 import { ShortDate } from "./ShortDate";
-import { Tooltip } from "./Tooltip";
 
 type BlockClassementProps = {
   data: { label: string; percentage: number; evolution?: number }[];
@@ -45,21 +42,7 @@ export const BlocClassement = ({
           }))}
         />
       </div>
-      <div className="flex flex-row lg:flex-col lg:justify-between gap-4">
-        <Link href="/methodologie">
-          <Tooltip
-            text="Méthode de calcul"
-            icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-          />
-        </Link>
-
-        <Link href="/telecharger">
-          <Tooltip
-            text="Télécharger les données"
-            icon={<DownloadIcon className="w-12.5 h-12.5" />}
-          />
-        </Link>
-      </div>
+      <LiensCTA />
     </div>
   );
 };
