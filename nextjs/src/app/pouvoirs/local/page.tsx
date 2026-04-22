@@ -34,7 +34,7 @@ export default function Page() {
       <PageTitle
         id="pouvoir-local"
         title="Pouvoir local"
-        subtitle="Texte à ajouter"
+        subtitle="Le pouvoir local correspond aux élu·e·s des collectivités territoriales."
       />
       <Hero>
         <PouvoirFigureXL

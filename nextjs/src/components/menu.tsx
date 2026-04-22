@@ -27,45 +27,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-22.5 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
-            {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white  focus:outline-2 focus:outline-offset-1 focus:outline-indigo-500">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                data-slot="icon"
-                aria-hidden="true"
-                className="block size-6 group-data-open:hidden"
-              >
-                <path
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </svg>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                data-slot="icon"
-                aria-hidden="true"
-                className="hidden size-6 group-data-open:block"
-              >
-                <path
-                  d="M6 18 18 6M6 6l12 12"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </svg>
-            </DisclosureButton>
-          </div>
-          <div className="flex flex-1 justify-center items-stretch md:justify-start">
+          <div className="flex flex-1  justify-start items-stretch">
             <Link href="/" className="flex shrink-0 items-center gap-3">
               <div className="w-15 h-15 p-1 rounded-sm bg-foundations-violet-clair flex items-center justify-center">
                 <svg
@@ -111,7 +73,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                       </Link>
                     ) : (
                       <>
-                        <div className="block rounded-md px-2 py-2 header-h4">
+                        <div className="block rounded-md px-4 py-2 header-h4">
                           {item.name}
                         </div>
                         <div className="flex flex-row absolute left-1/2 -translate-x-1/2 mt-6 opacity-0 pointer-events-none bg-foundations-violet-tres-clair group-hover/menu:opacity-100 group-hover/menu:pointer-events-auto z-10 w-screen justify-center">
@@ -127,6 +89,44 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                 <span>Lire le rapport</span>
               </Link>
             </div>
+          </div>
+          <div className="absolute inset-y-0 right-2 flex items-center md:hidden">
+            {/* Mobile menu button*/}
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white">
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">Open main menu</span>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                data-slot="icon"
+                aria-hidden="true"
+                className="block size-6 group-data-open:hidden"
+              >
+                <path
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                data-slot="icon"
+                aria-hidden="true"
+                className="hidden size-6 group-data-open:block"
+              >
+                <path
+                  d="M6 18 18 6M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+            </DisclosureButton>
           </div>
         </div>
       </div>

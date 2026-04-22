@@ -22,7 +22,7 @@ export default function HauteAutoritePage() {
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
-      <div className="w-full max-w-3xl flex flex-col lg-flex-row items-center lg:items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-col lg:flex-row items-center lg:items-start gap-9">
         <PouvoirFigureL
           valeur={ha.score}
           intitule="présidant les hautes autorités et agences de l'État"

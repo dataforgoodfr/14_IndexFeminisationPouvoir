@@ -4,12 +4,10 @@
     @apply font-lato font-black text-[50px];
     line-height: 1.25;
   }
-
   .header-h1 {
-    @apply font-headline text-[40px] lg:text-[50px];
+    @apply font-headline text-[45px] lg:text-[50px];
     line-height: 1.25;
   }
-
   .header-h2 {
     @apply font-lato font-black text-[44px];
     line-height: 1.25;
@@ -84,7 +82,7 @@
   }
 
   .text-chiffre-xl {
-    @apply font-tstar text-[71px] leading-none font-bold;
+    @apply font-tstar text-[71px] leading-none font-black;
   }
   .text-femmes-xl {
     @apply font-lato text-[21px] font-normal lowercase;

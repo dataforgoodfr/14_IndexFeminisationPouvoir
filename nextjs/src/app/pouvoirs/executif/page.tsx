@@ -12,15 +12,15 @@ export default function Page() {
     <>
       <PageTitle
         id="pouvoir-executif"
-        title="Pouvoir éxécutif"
-        subtitle="Texte à ajouter"
+        title="Pouvoir exécutif"
+        subtitle="Le pouvoir exécutif regroupe la présidence de la République, son cabinet, le cabinet du Premier ministre, les ministères régaliens et les cabinets ministériels."
       />
       <Hero>
         <PouvoirFigureXL
           valeur={score}
           icon={PouvoirExecutifIcon}
           annee={annee}
-          intitule="au sein du pouvoir éxécutif"
+          intitule="au sein du pouvoir exécutif"
           dateMiseAJour={new Date(dateMiseAJour)}
         />
       </Hero>
