@@ -63,7 +63,7 @@ function PortraitPlaceholder({ item }: { item: PionniereItem }) {
   if (item.imageSrc) {
     return (
       <Image
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/${item.imageSrc}`}
+        src={item.imageSrc}
         alt={item.imageAlt ?? item.name}
         fill
         className="object-cover"
