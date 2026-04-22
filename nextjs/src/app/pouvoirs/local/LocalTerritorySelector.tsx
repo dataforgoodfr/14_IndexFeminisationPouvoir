@@ -178,30 +178,54 @@ export function LocalTerritorySelector() {
         <p className="flex-1 body4-medium text-foundations-blanc">
           Chiffres en détails
         </p>
-        <div className="flex-1 flex flex-col md:flex-row gap-4">
-          <select
-            value={selectedRegion}
-            onChange={handleRegionChange}
-            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
-          >
-            {allRegions.map((region) => (
-              <option key={region.code || "all"} value={region.nom}>
-                {region.nom}
-              </option>
-            ))}
-          </select>
+        <div className="flex-1 flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative flex-1">
+            <select
+              value={selectedRegion}
+              onChange={(ev) => handleRegionChange(ev.target.value)}
+              className="body1-regular border border-transparent border-r-8 rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
+            >
+              {allRegions.map((region) => (
+                <option key={region.code || "all"} value={region.nom}>
+                  {region.nom}
+                </option>
+              ))}
+            </select>
+            {selectedRegion !== "Toutes les régions" && (
+              <button
+                onClick={() => handleRegionChange("Toutes les régions")}
+                className="absolute right-10 top-1/2 -translate-y-1/2 text-foundations-noir hover:text-foundations-violet-principal"
+                type="button"
+              >
+                ✕
+              </button>
+            )}
+          </div>
 
-          <select
-            value={selectedDepartement}
-            onChange={handleDepartementChange}
-            className="body1-regular border border-foundations-violet-tres-clair rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-[288px] pr-4 pl-4"
-          >
-            {filteredDepartements.map((dept) => (
-              <option key={dept.code || "all"} value={dept.nom}>
-                {dept.nom}
-              </option>
-            ))}
-          </select>
+          <div className="relative flex-1">
+            <select
+              value={selectedDepartement}
+              onChange={(ev) => handleDepartementChange(ev.target.value)}
+              className="body1-regular border border-transparent border-r-8 rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
+              aria-label="Retirer la selection de région"
+            >
+              {filteredDepartements.map((dept) => (
+                <option key={dept.code || "all"} value={dept.nom}>
+                  {dept.nom}
+                </option>
+              ))}
+            </select>
+            {selectedDepartement !== "Tous les départements" && (
+              <button
+                onClick={() => handleDepartementChange("Tous les départements")}
+                className="absolute right-10 top-1/2 -translate-y-1/2 text-foundations-noir hover:text-foundations-violet-principal"
+                type="button"
+                aria-label="Retirer la selection de département"
+              >
+                ✕
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -316,7 +340,7 @@ export function LocalTerritorySelector() {
                 >
               >
             }
-            dateMiseAJour={new Date()}
+            dateMiseAJour={new Date(dateMiseAJour)}
           />
         )}
 
@@ -338,7 +362,7 @@ export function LocalTerritorySelector() {
                 >
               >
             }
-            dateMiseAJour={new Date()}
+            dateMiseAJour={new Date(dateMiseAJour)}
           />
         )}
       </div>

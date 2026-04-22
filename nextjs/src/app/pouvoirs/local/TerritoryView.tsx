@@ -106,6 +106,7 @@ export function TerritoryView({
               groupKeys={sliderGroupKeys}
               territoryType={territoryType}
               dateMiseAJour={dateMiseAJour}
+              annee={annee}
             />
           )}
       </div>

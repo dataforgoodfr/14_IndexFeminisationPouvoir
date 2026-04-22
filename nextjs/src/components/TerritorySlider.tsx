@@ -28,6 +28,7 @@ export interface TerritorySliderProps {
   groupKeys: string[];
   territoryType: "region" | "departement";
   dateMiseAJour?: Date;
+  annee: number;
 }
 
 export function TerritorySlider({
@@ -36,6 +37,7 @@ export function TerritorySlider({
   groupKeys,
   territoryType,
   dateMiseAJour,
+  annee,
 }: TerritorySliderProps) {
   // Raw value titles (not percentages)
   const rawValueTitles = new Set([
@@ -67,7 +69,6 @@ export function TerritorySlider({
   };
 
   // Extract year from date in format jj/mm/aaaa
-  const annee = dateMiseAJour?.getFullYear() || new Date().getFullYear();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevious = () => {

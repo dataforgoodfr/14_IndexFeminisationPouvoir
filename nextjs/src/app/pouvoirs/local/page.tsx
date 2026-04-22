@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { LocalTerritorySelector } from "@/app/pouvoirs/local/LocalTerritorySelector";
 import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
 import { Hero } from "@/components/Hero";
@@ -55,7 +56,9 @@ export default function Page() {
           />
         ))}
       </div>
-      <LocalTerritorySelector />
+      <Suspense fallback={<div />}>
+        <LocalTerritorySelector />
+      </Suspense>
     </>
   );
 }
