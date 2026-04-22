@@ -73,7 +73,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                       </Link>
                     ) : (
                       <>
-                        <div className="block rounded-md px-2 py-2 header-h4">
+                        <div className="block rounded-md px-4 py-2 header-h4">
                           {item.name}
                         </div>
                         <div className="flex flex-row absolute left-1/2 -translate-x-1/2 mt-6 opacity-0 pointer-events-none bg-foundations-violet-tres-clair group-hover/menu:opacity-100 group-hover/menu:pointer-events-auto z-10 w-screen justify-center">
