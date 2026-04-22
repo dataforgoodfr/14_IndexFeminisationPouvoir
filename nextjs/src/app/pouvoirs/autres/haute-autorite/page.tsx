@@ -4,6 +4,7 @@ import { InfoBox } from "@/components/InfoBox";
 import { DownloadIcon } from "@/components/icons/download";
 import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
 import { Tooltip } from "@/components/Tooltip";
@@ -25,7 +26,7 @@ export default function HauteAutoritePage() {
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
-      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-col lg-flex-row items-center lg:items-start gap-9">
         <PouvoirFigureL
           valeur={ha.score}
           intitule="présidant les hautes autorités et agences de l'État"
@@ -34,20 +35,7 @@ export default function HauteAutoritePage() {
           withChart
           icon={HauteAutoritéIcon}
         />
-        <div className="flex flex-col gap-4 shrink-0">
-          <Link href="/methodologie">
-            <Tooltip
-              text="Méthode de calcul"
-              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-          <Link href="/telecharger">
-            <Tooltip
-              text="Télécharger les données"
-              icon={<DownloadIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-        </div>
+        <LiensCTA />
       </div>
 
       <Block

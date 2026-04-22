@@ -1,14 +1,11 @@
-import Link from "next/link";
 import { Block } from "@/components/Block";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
-import { Tooltip } from "@/components/Tooltip";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
 import autresData from "@/data/pouvoir_autres.json";
 
@@ -29,7 +26,7 @@ export default function AmbassadesPage() {
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
       </div>
 
-      <div className="w-full max-w-3xl flex flex-col gap-3">
+      <div className="w-full max-w-3xl flex flex-col gap-3 p-8">
         {amb.description.map((point, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: static list
           <p key={i} className="body2-regular text-black">
@@ -38,7 +35,7 @@ export default function AmbassadesPage() {
         ))}
       </div>
 
-      <div className="w-full max-w-3xl flex flex-row items-start gap-9">
+      <div className="w-full max-w-3xl flex flex-col lg:flex-row items-center lg:items-start gap-9">
         <PouvoirFigureL
           valeur={amb.score}
           intitule="ambassadrices de France"
@@ -47,20 +44,7 @@ export default function AmbassadesPage() {
           withChart
           icon={AmbassadesIcon}
         />
-        <div className="flex flex-col gap-4 shrink-0">
-          <Link href="/methodologie">
-            <Tooltip
-              text="Méthode de calcul"
-              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-          <Link href="/telecharger">
-            <Tooltip
-              text="Télécharger les données"
-              icon={<DownloadIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-        </div>
+        <LiensCTA />
       </div>
 
       <WorldMapSVG
@@ -134,7 +118,7 @@ export default function AmbassadesPage() {
         </Block>
       </div>
 
-      <div className="w-full max-w-3xl flex flex-col gap-4">
+      <div className="w-full max-w-3xl flex flex-col gap-4 p-8">
         <h3 className="header-h3 text-foundations-violet-principal uppercase">
           Mais aussi...
         </h3>

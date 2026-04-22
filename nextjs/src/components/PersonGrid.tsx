@@ -7,14 +7,23 @@ type PersonGridProps = {
 };
 
 export const PersonGrid = ({ femmes, hommes }: PersonGridProps) => (
-  <div className="flex gap-6 items-end" aria-hidden="true">
+  <div
+    className="flex flex-wrap lg:flex-nowrap gap-6 items-end justify-center lg:justify-start"
+    aria-hidden="true"
+  >
     {Array.from({ length: femmes }, (_, i) => (
-      // biome-ignore lint/suspicious/noArrayIndexKey: static list from count, never reordered
-      <FemmeIcon key={`f-${i}`} className="w-6 h-14" />
+      <FemmeIcon
+        // biome-ignore lint/suspicious/noArrayIndexKey: static list from count, never reordered
+        key={`f-${i}`}
+        className="w-6 h-14 fill-foundations-violet-clair"
+      />
     ))}
     {Array.from({ length: hommes }, (_, i) => (
-      // biome-ignore lint/suspicious/noArrayIndexKey: static list from count, never reordered
-      <HommeIcon key={`m-${i}`} className="w-6 h-14" />
+      <HommeIcon
+        // biome-ignore lint/suspicious/noArrayIndexKey: static list from count, never reordered
+        key={`m-${i}`}
+        className="w-6 h-14 fill-foundations-violet-tres-clair"
+      />
     ))}
   </div>
 );
