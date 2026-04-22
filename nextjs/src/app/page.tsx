@@ -78,12 +78,6 @@ export default function Home() {
         />
         <div className="flex gap-8 items-center flex-wrap justify-center">
           <Link
-            href="/pouvoirs"
-            className="button button-primary font-headline"
-          >
-            Les pouvoirs
-          </Link>
-          <Link
             href="/recommandations"
             className="button font-headline flex gap-3 items-center"
           >
