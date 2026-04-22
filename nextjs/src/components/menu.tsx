@@ -92,7 +92,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
           </div>
           <div className="absolute inset-y-0 right-2 flex items-center md:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white  focus:outline-2 focus:outline-offset-1 focus:outline-indigo-500">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
 
