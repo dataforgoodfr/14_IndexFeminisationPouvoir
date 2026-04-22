@@ -26,7 +26,7 @@ export default function PouvoirLayout({
       <PageTitle
         id="pouvoir-parlementaire"
         title="Pouvoir parlementaire"
-        subtitle="Texte à ajouter"
+        subtitle="La parité au sein du Parlement a progressé plus lentement que celle du gouvernement."
       />
       <Hero>
         <PouvoirFigureXL
