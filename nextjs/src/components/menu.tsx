@@ -86,7 +86,14 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
             <div className="hidden w-full md:ml-6 md:flex justify-between items-center">
               <div className="flex space-x-4 items-center justify-center">
                 {items.map((item) => (
-                  <div key={item.name} className="group/menu py-7">
+                  <div
+                    key={item.name}
+                    className={cn(
+                      "group/menu pb-6 mt-7",
+                      item.submenu &&
+                        "hover:bg-foundations-violet-tres-clair hover:text-foundations-noir",
+                    )}
+                  >
                     {item.href ? (
                       <Link
                         href={item.href}
@@ -103,15 +110,14 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                         {item.name}
                       </Link>
                     ) : (
-                      <span className="block rounded-md px-2 py-2 header-h4 hover:shadow-sm hover:bg-black/5 cursor-pointer">
-                        {item.name}
-                      </span>
-                    )}
-                    {/* Hover submenu */}
-                    {item.submenu && (
-                      <div className="flex flex-row absolute left-1/2 -translate-x-1/2 mt-6.5 invisible bg-foundations-violet-tres-clair group-hover/menu:visible z-10 w-screen justify-center">
-                        {item.submenu}
-                      </div>
+                      <>
+                        <span className="block rounded-md px-2 py-2 header-h4">
+                          {item.name}
+                        </span>
+                        <div className="flex flex-row absolute left-1/2 -translate-x-1/2 mt-6 invisible bg-foundations-violet-tres-clair group-hover/menu:visible z-10 w-screen justify-center">
+                          {item.submenu}
+                        </div>
+                      </>
                     )}
                   </div>
                 ))}

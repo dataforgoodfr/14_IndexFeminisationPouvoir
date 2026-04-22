@@ -42,7 +42,7 @@ export const PouvoirSelector = ({
 
       <div
         className={cn(
-          "text-center header-h4 group-hover/pouvoir:text-white text-foundations-violet-principal whitespace-break-spaces w-full",
+          "text-center header-h4 group-hover/pouvoir:text-white text-foundations-noir whitespace-break-spaces w-full",
           isActive && "text-white",
         )}
       >
