@@ -1,19 +1,24 @@
-import type { Metadata, Route } from "next";
+import type { Metadata } from "next";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { Footer } from "@/components/Footer";
-import { Menu } from "@/components/menu";
+import { Menu, type NavigationItem } from "@/components/menu";
+import { PouvoirsSubmenu } from "@/components/PouvoirsSubmenu";
 
 export const metadata: Metadata = {
   title: "Index de Féminisation du Pouvoir",
 };
 
-const navigation: { name: string; href: Route; current: boolean }[] = [
-  { name: "Chiffres clés", href: "/chiffres-cles", current: true },
-  { name: "Pouvoirs", href: "/pouvoirs", current: false },
-  { name: "Recommandations", href: "/recommandations", current: false },
-  { name: "Méthode de calcul", href: "/methodologie", current: false },
+const navigation: NavigationItem[] = [
+  {
+    name: "Pouvoirs",
+    submenu: <PouvoirsSubmenu />,
+  },
+  { name: "Pionnières", href: "/pionnieres" },
+
+  { name: "Recommandations", href: "/recommandations" },
+  { name: "Méthode de calcul", href: "/methodologie" },
 ];
 
 export default function RootLayout({
