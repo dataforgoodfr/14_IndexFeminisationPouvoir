@@ -117,12 +117,7 @@
         "evolution": 0
       }
     ],
-    "departements_femmes_prefetes": [
-      "31",
-      "78",
-      "976",
-      "987"
-    ]
+    "departements_femmes_prefetes": ["31", "78", "976", "987"]
   },
   "ambassades": {
     "score": 34.9,
@@ -147,11 +142,7 @@
       "40\u00a0% de femmes aux postes d'encadrement supérieur d'ici 2027",
       "40\u00a0% de femmes lors des premières nominations d'ici 2026"
     ],
-    "pays_femmes_ambassadrices": [
-      "AZ",
-      "AT",
-      "US"
-    ]
+    "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
     "score": 34.3,
