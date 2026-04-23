@@ -123,6 +123,6 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       </div>
 
       <div></div>
-    </div>
+    </GoodBadExample>
   );
 }
