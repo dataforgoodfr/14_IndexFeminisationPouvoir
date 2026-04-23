@@ -8,9 +8,9 @@ interface GoodBadExampleProps extends React.PropsWithChildren, React.HTMLAttribu
   className: string;
 }
 export const GoodBadExample = ({ variant, children, className, ...containerProps }: GoodBadExampleProps) =>{
-  let backgroundColor = "svg-tree-red";
+  let backgroundColor = "svg-bg svg-tree-red";
   if (variant === "good") {
-    backgroundColor = "svg-tree-green";
+    backgroundColor = "svg-bg svg-tree-green";
   }
 
   return (
