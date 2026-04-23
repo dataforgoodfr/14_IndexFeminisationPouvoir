@@ -94,7 +94,7 @@ export default function PouvoirLayout({
         navItems={[
           {
             label: "Assemblée Nationale",
-            href: "/pouvoirs/parlementaire/assemblee-nationale",
+            href: "/pouvoirs/parlementaire",
             icon: <AssembleeNationaleIcon />,
           },
           {
