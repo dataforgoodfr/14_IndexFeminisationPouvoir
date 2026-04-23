@@ -1,20 +1,20 @@
 import type { SVGProps } from "react";
 
 type WorldMapSVGProps = SVGProps<SVGSVGElement> & {
-  femmeAmbassadrices: string[];
+  highlightedCountries: string[];
   fillColorDefault?: string;
   fillColorFemme?: string;
 };
 
 export const WorldMapSVG = ({
-  femmeAmbassadrices,
+  highlightedCountries,
   fillColorDefault = "var(--color-purple-oxfam-200)",
   fillColorFemme = "var(--color-purple-oxfam-600)",
   ...props
 }: WorldMapSVGProps) => {
   const highlightRule =
-    femmeAmbassadrices.length > 0
-      ? `${femmeAmbassadrices.map((id) => `#world-map #${id}`).join(",")} { fill: ${fillColorFemme}; }`
+    highlightedCountries.length > 0
+      ? `${highlightedCountries.map((id) => `#world-map #${id}`).join(",")} { fill: ${fillColorFemme}; }`
       : "";
   const css = `#world-map path { fill: ${fillColorDefault}; stroke: white; stroke-width: 1.1; } ${highlightRule}`;
 

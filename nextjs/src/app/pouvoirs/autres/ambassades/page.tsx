@@ -48,7 +48,7 @@ export default function AmbassadesPage() {
       </div>
 
       <WorldMapSVG
-        femmeAmbassadrices={amb.pays_femmes_ambassadrices}
+        highlightedCountries={amb.pays_femmes_ambassadrices}
         className="w-full max-w-225"
       />
 
