@@ -22,24 +22,24 @@ export default function DansLeMondeLayout({
       <PageTitle
         id="monde"
         title="Dans le monde"
-        subtitle="Dans l'index de la féminisation du pouvoir, Oxfam a analysé d'autres niveaux décisionnaires et hauts corps de l'État représentant des sphères de pouvoir en France."
+        subtitle="Dans l’index de la féminisation du pouvoir, Oxfam a analysé les sphères de pouvoirs à l’échelle mondiale"
       />
 
       <SectionGroup
         navItems={[
           {
             href: "/pouvoirs/monde",
-            label: "Hautes juridictions",
+            label: "Pays avec une femme",
             icon: <HautesJuridictionsIcon className="w-20 h-20" />,
           },
           {
-            href: "/pouvoirs/autres/prefectures",
-            label: "Préfectures",
+            href: "/pouvoirs/monde/portefeuilles-ministeriels",
+            label: "Portefeuilles Ministeriels",
             icon: <PréfecturesIcon className="w-20 h-20" />,
           },
           {
-            href: "/pouvoirs/autres/ambassades",
-            label: "Ambassades",
+            href: "/pouvoirs/monde/union-europeenne",
+            label: "Union Européenne",
             icon: <AmbassadesIcon className="w-20 h-20" />,
           }
         ]}
@@ -50,8 +50,8 @@ export default function DansLeMondeLayout({
               icon={AutresPouvoirIcon}
               dateMiseAJour={new Date(dateMiseAJour)}
               annee={annee}
-              prelabel="au sein des"
-              intitule="autres pouvoirs"
+              prelabel=""
+              intitule="Ministres dans le monde"
             />
           </Hero>
         }
