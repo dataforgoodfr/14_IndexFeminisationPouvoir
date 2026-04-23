@@ -30,16 +30,19 @@ export default function DansLeMondeLayout({
           {
             href: "/pouvoirs/monde",
             label: "Pays avec une femme",
+            // TODO:
             icon: <HautesJuridictionsIcon className="w-20 h-20" />,
           },
           {
             href: "/pouvoirs/monde/portefeuilles-ministeriels",
             label: "Portefeuilles Ministeriels",
+            // TODO:
             icon: <PréfecturesIcon className="w-20 h-20" />,
           },
           {
             href: "/pouvoirs/monde/union-europeenne",
             label: "Union Européenne",
+            // TODO:
             icon: <AmbassadesIcon className="w-20 h-20" />,
           }
         ]}
