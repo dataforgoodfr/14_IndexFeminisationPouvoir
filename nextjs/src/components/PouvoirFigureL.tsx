@@ -2,6 +2,7 @@ import type { ComponentType, SVGProps } from "react";
 import { cn } from "@/lib/utils";
 import { DoughnutChart } from "./charts/DoughnutChart";
 import { EvolutionBadge } from "./EvolutionBadge";
+import { LiensCTA } from './LiensCTA';
 
 export type PouvoirFigureLProps = {
   valeur: number;
@@ -10,6 +11,7 @@ export type PouvoirFigureLProps = {
   annee: number;
   evolution?: number;
   withChart?: boolean;
+  withButtons?: boolean;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
   chartClassName?: string;
 };
@@ -20,6 +22,7 @@ export const PouvoirFigureL = ({
   annee,
   evolution,
   withChart,
+  withButtons,
   icon,
   chartClassName,
 }: PouvoirFigureLProps) => {
@@ -57,6 +60,7 @@ export const PouvoirFigureL = ({
           <span className="text-intitule-m">en {anneeAffichee}</span>
         </div>
       </div>
+      {withButtons && <LiensCTA />}
     </div>
   );
 };
