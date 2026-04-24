@@ -218,7 +218,7 @@ export default async function Home() {
       </section>
 
       {/* 3. Explorer les données */}
-      <section className="bg-foundations-violet-principal svg-bg svg-trees-clair flex flex-col items-center gap-11 px-8 py-15 relative overflow-hidden">
+      <section className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15">
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="header-h1 text-white">Explorer les données</h2>
           <p className="body1-regular text-white">
@@ -275,7 +275,7 @@ export default async function Home() {
       <EvolutionSection />
 
       {/* 5. Quote block */}
-      <section className="bg-foundations-violet-principal svg-bg svg-purple px-4  lg:px-13 py-15">
+      <section className="svg-bg svg-purple px-4  lg:px-13 py-15">
         <p className="header-h2 text-white text-center max-w-344 mx-auto">
           {t("quote")}
         </p>
@@ -312,8 +312,7 @@ export default async function Home() {
         </div>
         <Link
           href="/recommandations"
-          className="button button-primary font-headline"
-          style={{ width: "392px", justifyContent: "center" }}
+          className="button button-primary font-headline w-98 justify-center"
         >
           Lire les recommandations
         </Link>
