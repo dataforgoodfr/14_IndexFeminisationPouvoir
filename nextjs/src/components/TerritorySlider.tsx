@@ -70,6 +70,7 @@ export function TerritorySlider({
 
   // Extract year from date in format jj/mm/aaaa
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? groups.length - 1 : prev - 1));
@@ -77,6 +78,24 @@ export function TerritorySlider({
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === groups.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+
+    const distance = touchStart - e.changedTouches[0].clientX;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
   };
 
   if (groups.length === 0) return null;
@@ -101,10 +120,14 @@ export function TerritorySlider({
         <div className="border-l-24 border-r-24 border-t-24 border-l-transparent border-r-transparent border-t-foundations-blanc" />
       </div>
       {/* Main slider */}
-      <div className="flex flex-col items-center gap-y-[13px] py-[55px] w-full">
+      <div
+        className="flex flex-col items-center justify-center gap-y-[13px] py-[55px] w-full"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="flex flex-row justify-center items-center gap-x-[30px] px-[16px] w-full">
           {/* Previous button and label */}
-          <div className="flex-1 flex flex-col items-end justify-start text-right gap-[2px]">
+          <div className="hidden flex-1 lg:flex flex-col items-end justify-start text-right gap-[2px]">
             <button
               type="button"
               onClick={handlePrevious}
@@ -148,7 +171,7 @@ export function TerritorySlider({
                 />
               ) : (
                 // Multiple FigureL: main on left, remaining on right with DONT between
-                <div className="flex items-center justify-center w-full gap-8">
+                <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-8">
                   {/* Left: Main FigureL */}
                   <PouvoirFigureL
                     valeur={currentGroup.largeItems[0].valeur}
@@ -161,11 +184,11 @@ export function TerritorySlider({
                     withChart
                   />
                   {/* Center: DONT block */}
-                  <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
+                  <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
                     DONT :
                   </div>
                   {/* Right: Remaining FigureL */}
-                  <div className="flex flex-col items-start justify-start gap-6">
+                  <div className="flex flex-col justify-center items-center lg:items-start lg:justify-start gap-6">
                     {currentGroup.largeItems.slice(1).map((item, idx) => {
                       const largeItemIdx = idx + 1;
                       return (
@@ -189,11 +212,11 @@ export function TerritorySlider({
 
               {/* Separator */}
               {currentGroup.smallItems.length !== 0 && (
-                <div className="relative w-full flex items-center py-[26px] px-[127px]">
+                <div className="relative w-full flex items-center py-[26px] px-[0px] lg:px-[127px]">
                   <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
                   {currentGroup.largeItems.length === 1 && (
                     <div className="absolute left-1/2 -translate-x-1/2 px-4">
-                      <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
+                      <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
                         DONT :
                       </div>
                     </div>
@@ -203,7 +226,7 @@ export function TerritorySlider({
 
               {/* Small figures - adaptive grid columns based on count */}
               {currentGroup.smallItems.length > 0 && (
-                <div className="w-full">
+                <div className="flex flex-col w-full">
                   {(() => {
                     const colCount = Math.min(
                       currentGroup.smallItems.length,
@@ -216,7 +239,7 @@ export function TerritorySlider({
 
                     return rows.map((row, rowIdx) => (
                       <div key={`${groupKey}-row-${row.startIdx}`}>
-                        <div className="flex w-full">
+                        <div className="flex flex-col lg:flex-row w-full">
                           {row.items.map((item, colIdx) => {
                             const itemIdx = row.startIdx + colIdx;
                             const itemTitle =
@@ -226,7 +249,7 @@ export function TerritorySlider({
                             return (
                               <div
                                 key={`${groupKey}-small-${itemIdx}-${itemTitle}`}
-                                className="flex-1 flex justify-center items-start"
+                                className="flex-1 flex flex-col lg:flex-row justify-center items-start"
                               >
                                 <div className="flex-1 flex justify-center">
                                   <PouvoirFigureS
@@ -242,14 +265,16 @@ export function TerritorySlider({
                                   />
                                 </div>
                                 {colIdx < row.items.length - 1 && (
-                                  <div className="h-full border border-dashed border-foundations-violet-principal"></div>
+                                  <div className="flex w-full lg:w-0 lg:h-full px-5 lg:px-0">
+                                    <div className="flex w-full lg:w-0 lg:h-full my-[26px] lg:my-0 border border-dashed border-foundations-violet-principal"></div>
+                                  </div>
                                 )}
                               </div>
                             );
                           })}
                         </div>
                         {rowIdx < rows.length - 1 && (
-                          <div className="relative w-full flex items-center py-[26px] px-[127px]">
+                          <div className="relative w-full flex items-center py-[26px] px-[0px] lg:px-[127px]">
                             <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
                           </div>
                         )}
@@ -261,7 +286,7 @@ export function TerritorySlider({
             </div>
           </div>
           {/* Next button and label */}
-          <div className="flex-1 flex flex-col items-start justify-start text-left gap-[2px]">
+          <div className="hidden flex-1 lg:flex flex-col items-start justify-start text-left gap-[2px]">
             <button
               type="button"
               onClick={handleNext}
