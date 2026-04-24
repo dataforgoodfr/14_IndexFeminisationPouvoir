@@ -93,18 +93,9 @@ export default async function AmbassadesPage() {
           <h3 className="header-h3 text-foundations-violet-principal uppercase">
             Mais aussi...
           </h3>
-          <p className="body2-regular text-black">{amb.mais_aussi}</p>
-          <ul className="flex flex-col gap-2">
-            {amb.objectifs.map((obj, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: static list
-              <li key={i} className="body2-regular text-black flex gap-2">
-                <span className="text-foundations-violet-principal shrink-0">
-                  •
-                </span>
-                {obj}
-              </li>
-            ))}
-          </ul>
+          <p className="body2-regular text-black flex flex-col gap-4">
+            {t.rich("mais_aussi", richComponents)}
+          </p>
         </div>
       </div>
     </>
