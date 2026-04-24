@@ -6,13 +6,15 @@ import { Tooltip } from "./Tooltip";
 
 type LiensCTAProps = {
   variant?: "default" | "horizontal";
+  className?: string;
 };
 
-export const LiensCTA = ({ variant = "default" }: LiensCTAProps) => (
+export const LiensCTA = ({ variant = "default", className }: LiensCTAProps) => (
   <div
     className={cn(
       "flex flex-row gap-4 shrink-0",
       variant === "default" && "lg:flex-col",
+      className,
     )}
   >
     <Link href="/methodologie">

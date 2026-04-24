@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { FranceDepartementsOutremerSVG } from "@/components/FranceDepartementsOutremerSVG";
 import { InfoBox } from "@/components/InfoBox";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
@@ -5,11 +6,14 @@ import { LiensCTA } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
 import autresData from "@/data/pouvoir_autres.json";
+import { richComponents } from "@/lib/utils";
 
 const { prefectures: pref } = autresData;
 const ANNEE = new Date(pref.dateMiseAJour).getFullYear();
 
-export default function PrefecturesPage() {
+export default async function PrefecturesPage() {
+  const t = await getTranslations("pouvoirs.autres.prefectures");
+
   return (
     <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3">
@@ -30,28 +34,26 @@ export default function PrefecturesPage() {
         />
 
         <div className="flex flex-col gap-8 flex-1">
-          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-9">
-            <PouvoirFigureL
-              valeur={pref.score}
-              intitule="femmes préfètes"
-              annee={ANNEE}
-              evolution={pref.evolution}
-              withChart
-              icon={PréfecturesIcon}
+          <PouvoirFigureL
+            valeur={pref.score}
+            intitule="préfètes"
+            annee={ANNEE}
+            evolution={pref.evolution}
+            withChart
+            icon={PréfecturesIcon}
+            chartClassName="w-41 h-41"
+          />
+          <div className="flex flex-col lg:items-start gap-4">
+            <InfoBox>
+              <div className="flex flex-col gap-3">
+                {t.rich("infobox", richComponents)}
+              </div>
+            </InfoBox>
+            <LiensCTA
+              variant="horizontal"
+              className="justify-center lg:justify-normal lg:self-end"
             />
-            <LiensCTA />
           </div>
-
-          <InfoBox>
-            <div className="flex flex-col gap-3">
-              {pref.description.map((point, i) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: static list
-                <p key={i} className="body2-regular">
-                  {point}
-                </p>
-              ))}
-            </div>
-          </InfoBox>
         </div>
       </div>
     </div>

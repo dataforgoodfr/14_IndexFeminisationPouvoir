@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { Block } from "@/components/Block";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
@@ -8,11 +9,14 @@ import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
 import autresData from "@/data/pouvoir_autres.json";
+import { richComponents } from "@/lib/utils";
 
 const { ambassades: amb } = autresData;
 const ANNEE = new Date(amb.dateMiseAJour).getFullYear();
 
-export default function AmbassadesPage() {
+export default async function AmbassadesPage() {
+  const t = await getTranslations("pouvoirs.autres.ambassades");
+
   return (
     <>
       <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
@@ -42,22 +46,13 @@ export default function AmbassadesPage() {
                 evolution={amb.evolution}
                 withChart
                 icon={AmbassadesIcon}
+                chartClassName="w-41 h-41"
               />
               <LiensCTA />
             </div>
             <InfoBox>
               <div className="flex flex-col gap-2">
-                <p>
-                  <span className="font-semibold">
-                    Représente l'État dans un autre pays
-                  </span>{" "}
-                  ou auprès d'organisations internationales pour protéger les
-                  intérêts français et gérer les relations diplomatiques.
-                </p>
-                <p>
-                  Nommé·e par le Président de la République en Conseil des
-                  ministres sur proposition du ministre des Affaires étrangères.
-                </p>
+                {t.rich("infobox", richComponents)}
               </div>
             </InfoBox>
           </div>
