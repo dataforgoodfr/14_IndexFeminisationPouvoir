@@ -161,7 +161,7 @@ export function TerritorySlider({
                     withChart
                   />
                   {/* Center: DONT block */}
-                  <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
+                  <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
                     DONT :
                   </div>
                   {/* Right: Remaining FigureL */}
@@ -193,7 +193,7 @@ export function TerritorySlider({
                   <div className="w-full h-0 border border-dashed border-foundations-violet-principal"></div>
                   {currentGroup.largeItems.length === 1 && (
                     <div className="absolute left-1/2 -translate-x-1/2 px-4">
-                      <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] rounded-[6px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
+                      <div className="flex justify-center items-center body3-medium w-[74px] h-[30px] py-[12px] bg-foundations-violet-principal text-foundations-blanc">
                         DONT :
                       </div>
                     </div>
