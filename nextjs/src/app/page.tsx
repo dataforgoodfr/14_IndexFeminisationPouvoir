@@ -1,26 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
+import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
 import { BookIcon } from "@/components/icons/book";
+import { DownloadIcon } from "@/components/icons/download";
+import { FemmeMondeIcon } from "@/components/icons/femme-monde";
+import { InequalIcon } from "@/components/icons/inequal";
+import { LogoDataForGood } from "@/components/icons/logo-d4g";
+import { LogoOxfamHorizontal } from "@/components/icons/logo-oxfam-horizontal";
 import { MondeIcon } from "@/components/icons/monde";
 import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
+import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
-import pouvoirData from "@/data/pouvoir.json";
-import { LogoOxfamHorizontal } from "@/components/icons/logo-oxfam-horizontal";
-import { LogoDataForGood } from "@/components/icons/logo-d4g";
-import { InequalIcon } from "@/components/icons/inequal";
-import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { Tooltip } from "@/components/Tooltip";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
-import { DownloadIcon } from "@/components/icons/download";
-import { getTranslations } from "next-intl/server";
-import { FemmeMondeIcon } from "@/components/icons/femme-monde";
+import pouvoirData from "@/data/pouvoir.json";
 
 const RECOMMENDATIONS = [
   {
@@ -55,7 +55,7 @@ const RECOMMENDATIONS = [
   },
 ];
 
-const { annee, dateMiseAJour, score, evolution } = pouvoirData;
+const { dateMiseAJour, score, evolution } = pouvoirData;
 
 export default async function Home() {
   const t = await getTranslations("HomePage");

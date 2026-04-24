@@ -4,7 +4,7 @@ type Props = {
   value: number;
   className?: string;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
-  iconProps?: SVGProps<SVGSVGElement>;
+  iconProps?: SVGProps<SVGSVGElement> & { width: number; height: number };
   /**
    * "dark" (défaut) : conçu pour les fonds sombres/violets — la piste est violet-clair,
    * l'arc non-femmes est effacé en blanc pour révéler la couleur de piste pour les femmes.
@@ -79,8 +79,8 @@ export const DoughnutChart = ({
             preserveAspectRatio="xMidYMid meet"
             className="fill-white"
             {...iconProps}
-            x={-iconProps.width! / 2}
-            y={-iconProps.height! / 2}
+            x={-iconProps.width / 2}
+            y={-iconProps.height / 2}
           />
         </g>
       )}

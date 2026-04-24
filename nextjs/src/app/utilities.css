@@ -22,7 +22,7 @@
     background-size: cover;
   }
 
-   .svg-trees-clair {
+  .svg-trees-clair {
     @apply relative fill-foundations-violet-clair z-1;
   }
   .svg-trees-clair::after {
@@ -81,11 +81,11 @@
 
   /* Button */
   .button {
-    @apply h-10 px-3 flex flex-row gap-3 items-center justify-center  bg-white font-headline  border-white text-foundations-violet-principal hover:bg-foundations-violet-tres-clair focus:border-foundations-violet-clair ;
+    @apply h-10 px-3 flex flex-row gap-3 items-center justify-center bg-white font-headline border-white text-foundations-violet-principal hover:bg-foundations-violet-tres-clair focus:border-foundations-violet-clair;
   }
 
   .button-primary {
-    @apply bg-foundations-violet-principal border-2 border-foundations-violet-principal text-white  hover:text-foundations-violet-principal hover:bg-transparent hover:border-2 focus:bg-foundations-violet-clair focus:border-foundations-violet-clair  focus:text-white;
+    @apply bg-foundations-violet-principal border-2 border-foundations-violet-principal text-white hover:text-foundations-violet-principal hover:bg-transparent hover:border-2 focus:bg-foundations-violet-clair focus:border-foundations-violet-clair focus:text-white;
     & svg {
       @apply fill-white;
     }

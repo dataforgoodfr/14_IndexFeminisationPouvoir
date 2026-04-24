@@ -6,7 +6,7 @@ export const FemmeMondeIcon = (props: React.SVGProps<SVGSVGElement>) => (
     height="19"
     viewBox="0 0 19 19"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden
+    aria-hidden="true"
     {...props}
     className={cn("fill-foundations-violet-principal", props.className)}
   >
