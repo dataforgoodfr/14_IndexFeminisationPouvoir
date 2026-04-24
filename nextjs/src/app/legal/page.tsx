@@ -1,13 +1,13 @@
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col items-center gap-[65.5px] pt-[50px] pb-[90px]">
-      <div className="flex flex-col items-center gap-[10px]">
+    <div className="flex flex-1 flex-col items-center gap-16 pt-12.5 pb-22.5">
+      <div className="flex flex-col items-center gap-2.5">
         <h1 className="header-h1 text-center text-foundations-violet-principal uppercase">
           mentions légales <br /> & politique de confidentialité
         </h1>
         <div className="divider"> </div>
       </div>
-      <div className="flex flex-col items-start bg-foundations-violet-tres-clair px-[31px] py-[29px] max-w-[804px] w-full">
+      <div className="flex flex-col items-start bg-foundations-violet-tres-clair p-7 max-w-200 w-full">
         <div>
           <p className="body1-regular">
             <b>Ce site est la propriété de :</b>
