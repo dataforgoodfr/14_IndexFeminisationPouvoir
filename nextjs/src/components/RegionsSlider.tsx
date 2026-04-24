@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
 import { ThumbUpIcon } from "./icons/thumbup";
 export interface RegionDescription {
@@ -64,15 +65,18 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
     <div
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={`grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full svg-bg ${backgroundColor}`}
+      className={cn(
+        `grid grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-6 gap-y-2.5 h-full svg-bg`,
+        backgroundColor,
+      )}
     >
       {/* Top Row */}
       <div></div>
 
       {/* Top Middle: Title */}
-      <div className="flex flex-row gap-[12px]">
+      <div className="flex flex-row gap-3">
         <div
-          className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-[75px] min-w-[85px]`}
+          className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-18.75 min-w-21.25`}
         >
           {variant === "top" ? (
             <ThumbUpIcon
@@ -108,7 +112,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
       {/* Middle Center: Description */}
       <div className="flex ">
-        <p className="body2-regular bg-foundations-blanc text-center rounded-[6px] p-[30px] w-full ">
+        <p className="body2-regular bg-foundations-blanc text-center rounded-md p-7.5 w-full ">
           {currentRegion.description}
         </p>
       </div>
@@ -129,15 +133,15 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       <div></div>
 
       {/* Bottom Middle: Indicator Dots */}
-      <div className="flex flex-row gap-x-[15px] items-center justify-center">
+      <div className="flex flex-row gap-x-3.75 items-center justify-center">
         {regions.map((element, index) => (
           <button
             key={element.region}
             onClick={() => setCurrentIndex(index)}
             type="button"
-            className={`w-[15px] h-[15px] rounded-full transition-colors ${
+            className={`w-3.75 h-3.75 rounded-full transition-colors ${
               index === currentIndex
-                ? "bg-purple-oxfam-600"
+                ? "bg-foundations-violet-principal"
                 : "bg-foundations-violet-tres-clair hover:bg-purple-oxfam-300"
             }`}
             aria-label={`Aller à la région ${index + 1}`}

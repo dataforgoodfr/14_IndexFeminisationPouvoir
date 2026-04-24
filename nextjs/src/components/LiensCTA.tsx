@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { DownloadIcon } from "./icons/download";
 import { QuestionMarkIcon } from "./icons/question-mark";
 import { Tooltip } from "./Tooltip";
-import { cn } from "@/lib/utils";
 
 type LiensCTAProps = {
   variant?: "default" | "horizontal";

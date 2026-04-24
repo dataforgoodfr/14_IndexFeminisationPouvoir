@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { EvolutionLineChart } from "@/components/charts/EvolutionLineChart";
 import evolutionData from "@/data/evolution.json";
