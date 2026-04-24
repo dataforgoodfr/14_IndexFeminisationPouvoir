@@ -7,29 +7,29 @@
     "dateMiseAJour": "2025-01-01",
     "composantes": {
       "gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 50
+        "annee": 2026,
+        "evolution": -5.6,
+        "score": 44.4
       },
       "ministeres_regaliens": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 0
+        "annee": 2026,
+        "evolution": 16.7,
+        "score": 16.7
       },
       "cabinet_presidence": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 35.2
+        "annee": 2026,
+        "evolution": -9.3,
+        "score": 25.9
       },
       "cabiner_premier_ministre": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 42.9
+        "annee": 2026,
+        "evolution": -10.6,
+        "score": 32.3
       },
       "directrices_cabinet_gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 20
+        "annee": 2026,
+        "evolution": 15.5,
+        "score": 35.5
       }
     }
   },
@@ -46,24 +46,24 @@
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "deputees": {
-            "score": 36,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 36.2,
+            "annee": 2026,
+            "evolution": 0.2
           },
           "bureau": {
-            "score": 59,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 54.5,
+            "annee": 2026,
+            "evolution": -4.5
           },
           "presidente_commission": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 12.5,
+            "annee": 2026,
+            "evolution": -25.0
           },
           "presidente_groupe": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 27.3,
+            "annee": 2026,
+            "evolution": 0.0
           }
         },
         "parite_groupes": {
@@ -95,24 +95,24 @@
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "senatrices": {
-            "score": 25,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 38.2,
+            "annee": 2026,
+            "evolution": 0.8
           },
           "bureau": {
-            "score": 50,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 46.2,
+            "annee": 2026,
+            "evolution": 0.2
           },
           "presidente_commission": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 28.6,
+            "annee": 2026,
+            "evolution": 0.0
           },
           "presidente_groupe": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 22.2,
+            "annee": 2026,
+            "evolution": 0.0
           }
         },
         "parite_groupes": {
@@ -138,9 +138,9 @@
         }
       },
       "europeen": {
-        "annee": 2025,
-        "score": 31.2,
-        "evolution": 2.5
+        "annee": 2026,
+        "score": 49.4,
+        "evolution": -3.8
       }
     }
   },
@@ -151,34 +151,34 @@
     "dateMiseAJour": "2025-01-01",
     "composantes": {
       "presidentesRegion": {
-        "score": 29.4,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 30.8,
+        "annee": 2026,
+        "evolution": 1.4
       },
       "directricesCabinetRegion": {
-        "score": 25.0,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 28.6,
+        "annee": 2026,
+        "evolution": 3.6
       },
       "presidentsDepartement": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 21.1,
+        "annee": 2026,
+        "evolution": -0.7
       },
       "directricesCabinetDepartement": {
-        "score": 34.3,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 49.3,
+        "annee": 2026,
+        "evolution": 26.7
       },
       "maires": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 21.1,
+        "annee": 2026,
+        "evolution": 0.3
       },
       "mairesPrefecture": {
-        "score": 16.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 21.2,
+        "annee": 2026,
+        "evolution": 2.4
       },
       "directricesCabinetMairiesPrefecture": {
         "score": 34.3,
@@ -193,11 +193,11 @@
         "dateMiseAJour": "2025-01-01",
         "stats": [
           {
-            "valeur": 29.4,
+            "valeur": 30.8,
             "role": "présidant une région"
           },
           {
-            "valeur": 25.0,
+            "valeur": 28.6,
             "role": "directrices de cabinet d'un.e président.e de région"
           }
         ]
@@ -208,11 +208,11 @@
         "dateMiseAJour": "2025-01-01",
         "stats": [
           {
-            "valeur": 20.8,
+            "valeur": 21.1,
             "role": "présidant un département"
           },
           {
-            "valeur": 34.3,
+            "valeur": 49.3,
             "role": "directrices de cabinet d'un.e président.e de département"
           }
         ]
@@ -223,11 +223,11 @@
         "dateMiseAJour": "2025-01-01",
         "stats": [
           {
-            "valeur": 20.8,
+            "valeur": 21.1,
             "role": "maires"
           },
           {
-            "valeur": 16.8,
+            "valeur": 21.2,
             "role": "maires de préfecture"
           },
           {
@@ -245,8 +245,8 @@
     "evolution": -1.2,
     "composantes": {
       "prefectures": {
-        "score": 29.4,
-        "evolution": 0,
+        "score": 18.6,
+        "evolution": -1.0,
         "dateMiseAJour": "2025-01-01",
         "description": [
           "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
@@ -367,11 +367,12 @@
           "78",
           "976",
           "987"
-        ]
+        ],
+        "annee": 2026
       },
       "ambassades": {
-        "score": 34.9,
-        "evolution": 0,
+        "score": 33.7,
+        "evolution": -1.2,
         "dateMiseAJour": "2025-01-01",
         "description": [
           "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
@@ -389,25 +390,27 @@
         },
         "mais_aussi": "Les représentants de la France auprès des grandes organisations internationales (UE, OTAN, ONU à New York et Genève, UNESCO, Conseil de l'Europe) sont majoritairement des hommes.",
         "objectifs": [
-          "40\u00a0% de femmes aux postes d'encadrement supérieur d'ici 2027",
-          "40\u00a0% de femmes lors des premières nominations d'ici 2026"
+          "40 % de femmes aux postes d'encadrement supérieur d'ici 2027",
+          "40 % de femmes lors des premières nominations d'ici 2026"
         ],
         "pays_femmes_ambassadrices": [
           "AZ",
           "AT",
           "US"
-        ]
+        ],
+        "annee": 2026
       },
       "haute_autorite": {
-        "score": 34.3,
-        "evolution": 0,
+        "score": 36.7,
+        "evolution": 2.4,
         "dateMiseAJour": "2025-01-01",
         "description": [
           "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
-          "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
+          "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés : recommandation, nomination, régulation, sanction.",
           "Pour l'indice d'Oxfam, environ un tiers de ces organismes sont présidés par des femmes."
         ],
-        "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française."
+        "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française.",
+        "annee": 2026
       },
       "partis_politiques": {
         "score": 10,
@@ -416,11 +419,11 @@
         "femmes": 1,
         "total": 10,
         "context": "Les partis politiques continuent de structurer la vie politique française. Oxfam a analysé les principaux partis en France représentés à l'Assemblée nationale.",
-        "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme\u00a0: Les Écologistes, dirigé par Marine Tondelier."
+        "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme : Les Écologistes, dirigé par Marine Tondelier."
       },
       "hautes_juridictions": {
-        "score": 0,
-        "evolution": 0,
+        "score": 20.0,
+        "evolution": 20.0,
         "dateMiseAJour": "2025-01-01",
         "institutions": [
           {
@@ -454,7 +457,7 @@
           "membres_total": 9,
           "evolution": 0,
           "dateMiseAJour": "2025-01-01",
-          "infobox": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14\u00a0% des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992."
+          "infobox": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14 % des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992."
         },
         "magistrature": {
           "juges": {
@@ -479,7 +482,8 @@
           },
           "dateMiseAJour": "2025-01-01",
           "infobox": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste."
-        }
+        },
+        "annee": 2026
       }
     }
   },

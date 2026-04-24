@@ -92,8 +92,21 @@ def fetch_baselines(cur) -> dict[str, float]:
 def fetch_figure_counts(cur, table: str) -> tuple[int, int]:
     known_tables = {t for t, _, _ in FIGURE_MAPPING}
     assert table in known_tables, f"Unknown table: {table}"
+    # Some tables use 'personne_genre', others (from data.gouv.fr RNE) use 'Code sexe'.
     cur.execute(
-        f"SELECT COUNT(*), COUNT(*) FILTER (WHERE personne_genre = 'F') FROM sources.{table}"
+        "SELECT column_name FROM information_schema.columns "
+        "WHERE table_schema = 'sources' AND table_name = %s",
+        (table,),
+    )
+    columns = {row[0] for row in cur.fetchall()}
+    if "personne_genre" in columns:
+        genre_col = "personne_genre"
+    elif "Code sexe" in columns:
+        genre_col = "Code sexe"
+    else:
+        raise ValueError(f"Cannot find a gender column in sources.{table}. Columns: {sorted(columns)}")
+    cur.execute(
+        f'SELECT COUNT(*), COUNT(*) FILTER (WHERE "{genre_col}" = \'F\') FROM sources.{table}'
     )
     total, femmes = cur.fetchone()
     return int(total), int(femmes)
