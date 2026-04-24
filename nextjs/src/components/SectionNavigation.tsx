@@ -2,21 +2,20 @@
 
 import type { Route } from "next";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 type SectionNavigationProps = {
   label: string;
   href: Route;
   icon: React.ReactNode;
+  isActive: boolean;
 };
 export const SectionNavigation = ({
   label,
   href,
   icon,
+  isActive,
 }: SectionNavigationProps) => {
-  const pathname = usePathname().replace(/\/$/, "");
-  const isActive = pathname === href;
   return (
     <Link href={href}>
       <div
