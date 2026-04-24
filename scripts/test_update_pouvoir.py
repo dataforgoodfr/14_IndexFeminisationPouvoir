@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent))
 
 from update_pouvoir import (
@@ -9,6 +11,11 @@ from update_pouvoir import (
     patch_composante,
     sync_collectivites,
 )
+
+
+def test_compute_score_raises_on_zero_total():
+    with pytest.raises(ValueError, match="0 rows"):
+        compute_score(0, 0)
 
 
 def test_compute_score_rounds_to_one_decimal():

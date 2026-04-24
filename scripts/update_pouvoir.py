@@ -33,7 +33,11 @@ FIGURE_MAPPING = [
     ("figure9_2026",   "Figure 9",   ["autre", "composantes", "prefectures"]),
     ("figure10_2026",  "Figure 10",  ["autre", "composantes", "ambassades"]),
     ("figure11_2026",  "Figure 11",  ["autre", "composantes", "haute_autorite"]),
+    # figure5c (directricesCabinetMairiesPrefecture) and figure12 (partis_politiques)
+    # are excluded — no 2026 tables exist for them yet.
 ]
+
+# The 'monde' section is excluded — its data comes from external sources, not the DB.
 
 # Maps local composante key → (collectivites titre, stats list index)
 COLLECTIVITES_SYNC = {
@@ -47,6 +51,8 @@ COLLECTIVITES_SYNC = {
 
 
 def compute_score(femmes: int, total: int) -> float:
+    if total == 0:
+        raise ValueError("Cannot compute score: table has 0 rows")
     return round(100 * femmes / total, 1)
 
 
@@ -84,6 +90,8 @@ def fetch_baselines(cur) -> dict[str, float]:
 
 
 def fetch_figure_counts(cur, table: str) -> tuple[int, int]:
+    known_tables = {t for t, _, _ in FIGURE_MAPPING}
+    assert table in known_tables, f"Unknown table: {table}"
     cur.execute(
         f"SELECT COUNT(*), COUNT(*) FILTER (WHERE personne_genre = 'F') FROM sources.{table}"
     )
@@ -92,6 +100,8 @@ def fetch_figure_counts(cur, table: str) -> tuple[int, int]:
 
 
 def main() -> None:
+    # Top-level scores (executif.score, parlementaire.score, etc.) are not updated here —
+    # they are weighted aggregates computed manually.
     load_dotenv()
     conn = psycopg2.connect(
         host=os.environ["POSTGRES_HOST"],
@@ -112,7 +122,10 @@ def main() -> None:
             for table, nom_figure, path in FIGURE_MAPPING:
                 total, femmes = fetch_figure_counts(cur, table)
                 score = compute_score(femmes, total)
-                evolution = compute_evolution(score, baselines[nom_figure])
+                baseline = baselines.get(nom_figure)
+                if baseline is None:
+                    raise KeyError(f"No baseline found for '{nom_figure}' in sources.figures_2025")
+                evolution = compute_evolution(score, baseline)
 
                 old_score = get_nested(data, path).get("score")
                 patch_composante(data, path, score, evolution)
@@ -124,6 +137,7 @@ def main() -> None:
                 )
 
     conn.close()
+    # psycopg2's context manager only manages transactions (commit/rollback), not connection lifetime.
 
     for line in changes:
         print(line)
