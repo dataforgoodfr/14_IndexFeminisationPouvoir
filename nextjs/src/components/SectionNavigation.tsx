@@ -9,14 +9,14 @@ type SectionNavigationProps = {
   label: string;
   href: Route;
   icon: React.ReactNode;
+  isActive: boolean;
 };
 export const SectionNavigation = ({
   label,
   href,
   icon,
+  isActive,
 }: SectionNavigationProps) => {
-  const pathname = usePathname().replace(/\/$/, "");
-  const isActive = pathname === href;
   return (
     <Link href={href}>
       <div

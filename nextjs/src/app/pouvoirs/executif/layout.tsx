@@ -21,7 +21,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         navItems={[
           {
             label: "Dirigeantes de cabinets au gouvernement",
-            href: "/pouvoirs/executif/cabinet-gouvernement#cabinet-gouvernement",
+            href: "/pouvoirs/executif#cabinet-gouvernement",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
           {

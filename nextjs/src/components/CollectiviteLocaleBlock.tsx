@@ -21,7 +21,7 @@ export const CollectiviteLocaleBlock = ({
   dateMiseAJour,
 }: CollectiviteLocaleBlockProps) => {
   return (
-    <Block titre={titre} dateMiseAJour={dateMiseAJour}>
+    <Block titre={titre} dateMiseAJour={dateMiseAJour} className="max-w-2xl">
       {stats.map((stat) => (
         <div
           key={stat.role}

@@ -186,57 +186,54 @@
         "evolution": 2.5
       }
     },
-    "collectivites": [
-      {
-        "titre": "Régions",
+    "collectivites": {
+      "régions": {
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
+        "composantes": {
+          "présidentes": {
             "valeur": 29.4,
-            "role": "présidant une région"
+            "evolution": 1
           },
-          {
+          "directrices_cabinet": {
             "valeur": 25.0,
-            "role": "directrices de cabinet d'un.e président.e de région"
+            "evolution": 1
           }
-        ]
+        }
       },
-      {
-        "titre": "Départements",
+      "départements": {
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
+        "composantes": {
+          "présidentes": {
             "valeur": 20.8,
-            "role": "présidant un département"
+            "evolution": 1
           },
-          {
+          "directrices_cabinet": {
             "valeur": 34.3,
-            "role": "directrices de cabinet d'un.e président.e de département"
+            "evolution": 1
           }
-        ]
+        }
       },
-      {
-        "titre": "Communes",
+      "communes": {
         "annee": 2025,
         "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
+        "composantes": {
+          "maires": {
             "valeur": 20.8,
-            "role": "maires"
+            "evolution": 1
           },
-          {
+          "maires_prefecture": {
             "valeur": 16.8,
-            "role": "maires de préfecture"
+            "evolution": 1
           },
-          {
+          "directrices_cabinet_prefecture": {
             "valeur": 34.3,
-            "role": "directrices de cabinet des mairies de préfecture"
+            "evolution": 1
           }
-        ]
+        }
       }
-    ]
+    }
   },
   "autre": {
     "score": 19.8,
