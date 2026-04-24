@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 type EvolutionBadgeProps = { value: number; className?: string };
 export const EvolutionBadge = ({ value, className }: EvolutionBadgeProps) => (
   <div
+    title="Taux d'évolution depuis l'année précédente"
     className={cn(
       "svg-bg",
       value > 0 ? "svg-evolution-green" : "svg-evolution-red",

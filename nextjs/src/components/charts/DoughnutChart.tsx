@@ -4,6 +4,7 @@ type Props = {
   value: number;
   className?: string;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  iconProps?: SVGProps<SVGSVGElement>;
   /**
    * "dark" (défaut) : conçu pour les fonds sombres/violets — la piste est violet-clair,
    * l'arc non-femmes est effacé en blanc pour révéler la couleur de piste pour les femmes.
@@ -17,6 +18,10 @@ export const DoughnutChart = ({
   className,
   icon: Icon,
   variant = "dark",
+  iconProps = {
+    width: 69,
+    height: 69,
+  },
 }: Props) => {
   const clampedValue = Math.max(0, Math.min(100, value));
   const center = 136;
@@ -71,12 +76,11 @@ export const DoughnutChart = ({
       {Icon && (
         <g transform="translate(136 136)">
           <Icon
-            x={-34.5}
-            y={-34.5}
-            width={69}
-            height={69}
             preserveAspectRatio="xMidYMid meet"
             className="fill-white"
+            {...iconProps}
+            x={-iconProps.width! / 2}
+            y={-iconProps.height! / 2}
           />
         </g>
       )}
