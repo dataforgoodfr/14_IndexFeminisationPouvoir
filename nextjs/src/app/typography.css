@@ -1,11 +1,11 @@
 /* ===== Typography Utilities ===== */
 @layer utilities {
   .header-h {
-    @apply font-lato font-black text-[50px];
+    @apply font-lato font-black text-[35px] lg:text-[50px];
     line-height: 1.25;
   }
   .header-h1 {
-    @apply font-headline text-[45px] lg:text-[50px];
+    @apply font-headline text-[35px] lg:text-[50px];
     line-height: 1.25;
   }
   .header-h2 {

@@ -215,7 +215,7 @@ export default function Home() {
           <h2 className="header-h1 text-foundations-violet-principal">
             Recommandations
           </h2>
-          <p className="body2-regular text-foundations-violet-tres-clair">
+          <p className="body2-regular text-foundations-gris-fonce">
             Principales pistes d'action pour promouvoir la féminisation du
             pouvoir
           </p>
