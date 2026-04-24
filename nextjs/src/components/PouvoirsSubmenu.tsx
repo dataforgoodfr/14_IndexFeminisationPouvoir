@@ -12,31 +12,31 @@ export const PouvoirsSubmenu = () => {
     <div>
       <div className="lg:hidden flex flex-col gap-2">
         <Link
-          href="/pouvoirs/executif"
+          href="/pouvoirs/executif#pouvoir-executif"
           className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
         >
           Pouvoir exécutif
         </Link>
         <Link
-          href="/pouvoirs/parlementaire"
+          href="/pouvoirs/parlementaire#pouvoir-parlementaire"
           className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
         >
           Pouvoir parlementaire
         </Link>
         <Link
-          href="/pouvoirs/local"
+          href="/pouvoirs/local#pouvoir-local"
           className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
         >
           Pouvoir local
         </Link>
         <Link
-          href="/pouvoirs/autres"
+          href="/pouvoirs/autres#autres-pouvoirs"
           className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
         >
           Autres pouvoirs
         </Link>
         <Link
-          href="/pouvoirs/monde"
+          href="/pouvoirs/monde#dans-le-monde"
           className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
         >
           Dans le monde

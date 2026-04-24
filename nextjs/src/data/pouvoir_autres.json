@@ -123,19 +123,15 @@
     "score": 34.9,
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
-    "description": [
-      "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
-      "Nommé·e par le Président de la République en Conseil des ministres sur proposition du ministre des Affaires étrangères."
-    ],
     "g7": {
       "femmes": 1,
       "total": 7,
-      "infobox": "La France ne compte qu'une seule ambassadrice dans les pays du G7 en 2025."
+      "evolution": 0
     },
     "g20": {
       "femmes": 3,
       "total": 10,
-      "infobox": "Sur les 10 pays analysés du G20 hors G7, la France compte 3 ambassadrices en 2025."
+      "evolution": 0
     },
     "mais_aussi": "Les représentants de la France auprès des grandes organisations internationales (UE, OTAN, ONU à New York et Genève, UNESCO, Conseil de l'Europe) sont majoritairement des hommes.",
     "objectifs": [
@@ -149,8 +145,8 @@
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
     "description": [
-      "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
-      "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
+      "La France dispose d'un certain nombre d'autorités publiques et/ou administratives indépendantes, d'agences publiques et d'institutions financières.",
+      "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés : recommandation, nomination, régulation, sanction.",
       "Pour l'indice d'Oxfam, environ un tiers de ces organismes sont présidés par des femmes."
     ],
     "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française."

@@ -89,7 +89,7 @@ export default function HautesJuridictionsPage() {
     <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-4 py-12 sm:px-6 lg:px-12">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
-        <h2 className="header-h1 text-foundations-violet-principal text-center">
+        <h2 className="header-h2 text-foundations-violet-principal text-center">
           Hautes juridictions
         </h2>
         <p className="body2-regular text-black">
