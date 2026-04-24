@@ -22,6 +22,14 @@
     background-size: cover;
   }
 
+   .svg-trees-clair {
+    @apply relative fill-foundations-violet-clair z-1;
+  }
+  .svg-trees-clair::after {
+    @apply bg-cover bg-repeat -z-1 opacity-10;
+    background-image: var(--bg-trees-clair-svg-url);
+  }
+
   .svg-tree-red {
     @apply relative bg-foundations-rouge-principal z-1;
   }

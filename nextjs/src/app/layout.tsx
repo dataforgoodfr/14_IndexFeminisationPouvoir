@@ -36,6 +36,7 @@ export default function RootLayout({
     "--evolution-red-svg-url": `url(${svgRoot}bg-evolution-red.svg)`,
     "--evolution-green-svg-url": `url(${svgRoot}bg-evolution-green.svg)`,
     "--bg-trees-svg-url": `url(${svgRoot}bg-trees.svg)`,
+    "--bg-trees-clair-svg-url": `url(${svgRoot}bg-trees-clair.svg)`,
     "--bg-chiffres-svg-url": `url(${svgRoot}bg-chiffres.svg)`,
     "--inequal-white-svg-url": `url(${svgRoot}inequal-white.svg)`,
     "--equal-white-svg-url": `url(${svgRoot}equal-white.svg)`,
