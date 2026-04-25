@@ -183,7 +183,7 @@ export function LocalTerritorySelector() {
             <select
               value={selectedRegion}
               onChange={(ev) => handleRegionChange(ev.target.value)}
-              className="body1-regular border border-transparent border-r-8 rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
+              className="body1-regular border border-transparent border-r-8 bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
             >
               {allRegions.map((region) => (
                 <option key={region.code || "all"} value={region.nom}>
@@ -206,7 +206,7 @@ export function LocalTerritorySelector() {
             <select
               value={selectedDepartement}
               onChange={(ev) => handleDepartementChange(ev.target.value)}
-              className="body1-regular border border-transparent border-r-8 rounded-lg bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
+              className="body1-regular border border-transparent border-r-8 bg-foundations-blanc text-foundations-noir h-12 w-2xs pr-4 pl-4"
               aria-label="Retirer la selection de région"
             >
               {filteredDepartements.map((dept) => (

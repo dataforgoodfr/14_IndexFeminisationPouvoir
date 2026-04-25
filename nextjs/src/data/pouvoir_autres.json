@@ -3,11 +3,6 @@
     "score": 29.4,
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
-    "description": [
-      "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
-      "Représente le Premier ministre et chaque ministre dans les départements pour la mise en œuvre de la politique nationale et communautaire.",
-      "Est chargée de l'ordre public, de la sécurité et de la protection de la population."
-    ],
     "regions": [
       {
         "nom": "Auvergne-Rhône-Alpes",
@@ -123,36 +118,22 @@
     "score": 34.9,
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
-    "description": [
-      "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
-      "Nommé·e par le Président de la République en Conseil des ministres sur proposition du ministre des Affaires étrangères."
-    ],
     "g7": {
       "femmes": 1,
       "total": 7,
-      "infobox": "La France ne compte qu'une seule ambassadrice dans les pays du G7 en 2025."
+      "evolution": 0
     },
     "g20": {
       "femmes": 3,
       "total": 10,
-      "infobox": "Sur les 10 pays analysés du G20 hors G7, la France compte 3 ambassadrices en 2025."
+      "evolution": 0
     },
-    "mais_aussi": "Les représentants de la France auprès des grandes organisations internationales (UE, OTAN, ONU à New York et Genève, UNESCO, Conseil de l'Europe) sont majoritairement des hommes.",
-    "objectifs": [
-      "40\u00a0% de femmes aux postes d'encadrement supérieur d'ici 2027",
-      "40\u00a0% de femmes lors des premières nominations d'ici 2026"
-    ],
     "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
     "score": 34.3,
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
-    "description": [
-      "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
-      "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
-      "Pour l'indice d'Oxfam, environ un tiers de ces organismes sont présidés par des femmes."
-    ],
     "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française."
   },
   "partis_politiques": {
@@ -161,46 +142,17 @@
     "dateMiseAJour": "2025-01-01",
     "femmes": 1,
     "total": 10,
-    "context": "Les partis politiques continuent de structurer la vie politique française. Oxfam a analysé les principaux partis en France représentés à l'Assemblée nationale.",
     "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme\u00a0: Les Écologistes, dirigé par Marine Tondelier."
   },
   "hautes_juridictions": {
     "score": 0,
     "evolution": 0,
     "dateMiseAJour": "2025-01-01",
-    "institutions": [
-      {
-        "id": "cour-cassation",
-        "label": "Cour de\ncassation",
-        "description": "L'autorité judiciaire avec à son sommet la Cour de cassation."
-      },
-      {
-        "id": "conseil-etat",
-        "label": "Conseil\nd'Etat",
-        "description": "La juridiction administrative avec à son sommet le Conseil d'État."
-      },
-      {
-        "id": "conseil-constitutionnel",
-        "label": "Conseil\nConstitutionnel",
-        "description": "Le Conseil constitutionnel en charge du contrôle de la constitutionnalité des lois et de la régularité des élections nationales."
-      },
-      {
-        "id": "cour-justice-republique",
-        "label": "Cour de Justice de la République",
-        "description": "La Cour de justice de la République (CJR) qui juge les membres du gouvernement pour les actes délictueux ou criminels commis dans l'exercice de leur fonction."
-      },
-      {
-        "id": "cour-comptes",
-        "label": "Cour des\ncomptes",
-        "description": "La Cour des comptes, juridiction indépendante, qui juge la régularité, la sincérité et la fidélité des comptes de l'État et de la sécurité sociale et assiste le Parlement et le Gouvernement dans l'évaluation des politiques publiques."
-      }
-    ],
     "conseil_constitutionnel": {
       "membres_femmes": 3,
       "membres_total": 9,
       "evolution": 0,
-      "dateMiseAJour": "2025-01-01",
-      "infobox": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14\u00a0% des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992."
+      "dateMiseAJour": "2025-01-01"
     },
     "magistrature": {
       "juges": {
@@ -223,8 +175,7 @@
         "score": 37,
         "evolution": 0
       },
-      "dateMiseAJour": "2025-01-01",
-      "infobox": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste."
+      "dateMiseAJour": "2025-01-01"
     }
   }
 }

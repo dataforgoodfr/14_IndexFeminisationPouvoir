@@ -1,3 +1,5 @@
+import { EvolutionBadge } from "./EvolutionBadge";
+
 type StatsCardProps = {
   label: string;
   score: number;
@@ -5,10 +7,9 @@ type StatsCardProps = {
 };
 
 export function StatsCard({ label, score, evolution }: StatsCardProps) {
-  const isPositive = evolution >= 0;
   return (
-    <div className="bg-white border border-[#dde1e6] rounded-md p-4 flex flex-col gap-1 shrink-0">
-      <p className="body1-medium text-foundations-violet-principal whitespace-nowrap">
+    <div className="bg-white border border-[#dde1e6] w-40 lg:w-50 p-4 flex flex-col gap-1 shrink-0">
+      <p className="body1-medium text-foundations-violet-principal max-w-16 lg:max-w-full">
         {label}
       </p>
       <div className="flex items-center gap-2">
@@ -22,12 +23,7 @@ export function StatsCard({ label, score, evolution }: StatsCardProps) {
         >
           {score.toFixed(1)}%
         </p>
-        <span
-          className={`label-medium px-2 py-0.5 rounded-sm text-white ${isPositive ? "bg-foundations-vert-principal" : "bg-foundations-rouge-principal"}`}
-        >
-          {isPositive ? "+" : ""}
-          {evolution}%
-        </span>
+        <EvolutionBadge value={evolution} />
       </div>
     </div>
   );

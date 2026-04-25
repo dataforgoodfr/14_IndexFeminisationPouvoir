@@ -7,7 +7,7 @@ import { LiensCTA } from './LiensCTA';
 export type PouvoirFigureLProps = {
   valeur: number;
   /** Affiché en majuscules, e.g. "présidant une région" */
-  intitule: string;
+  intitule: React.ReactNode;
   annee: number;
   evolution?: number;
   withChart?: boolean;
@@ -33,7 +33,7 @@ export const PouvoirFigureL = ({
   });
 
   return (
-    <div className="flex flex-col lg:flex-row gap-9 items-center lg:items-start">
+    <div className="flex flex-col lg:flex-row gap-9 items-center">
       {withChart && (
         <DoughnutChart
           value={valeur}
@@ -45,10 +45,10 @@ export const PouvoirFigureL = ({
       <div
         className={cn(
           "flex justify-center",
-          withChart ? "flex-col" : "flex-row items-center gap-4",
+          withChart ? "flex-col" : "flex-col lg:flex-row items-center gap-4",
         )}
       >
-        <div className="flex flex-row items-start gap-2">
+        <div className="flex flex-row  items-start gap-2">
           <span className="text-chiffre-l text-foundations-violet-principal leading-none">
             {pourcentageFormate}%
           </span>

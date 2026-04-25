@@ -1,10 +1,22 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { DownloadIcon } from "./icons/download";
 import { QuestionMarkIcon } from "./icons/question-mark";
 import { Tooltip } from "./Tooltip";
 
-export const LiensCTA = () => (
-  <div className="flex flex-row lg:flex-col gap-4 shrink-0">
+type LiensCTAProps = {
+  variant?: "default" | "horizontal";
+  className?: string;
+};
+
+export const LiensCTA = ({ variant = "default", className }: LiensCTAProps) => (
+  <div
+    className={cn(
+      "flex flex-row gap-4 shrink-0",
+      variant === "default" && "lg:flex-col",
+      className,
+    )}
+  >
     <Link href="/methodologie">
       <Tooltip
         text="Méthode de calcul"

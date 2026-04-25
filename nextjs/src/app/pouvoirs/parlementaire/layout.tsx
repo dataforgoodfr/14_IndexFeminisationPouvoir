@@ -39,13 +39,13 @@ export default function PouvoirLayout({
         />
       </Hero>
       <h2
-        className="header-h2 text-foundations-violet-principal"
+        className="header-h2 text-foundations-violet-principal text-center"
         id="cabinet-premier-ministre"
       >
         Taux de parité parlementaire
       </h2>
 
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-4 mb-16">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-4 mb-16 px-16">
         <div className="flex-1 flex flex-col items-center gap-12">
           <TitreBadge
             titre="Assemblée Nationale"
@@ -63,7 +63,7 @@ export default function PouvoirLayout({
         <div className="flex-1 flex flex-col items-center gap-12">
           <TitreBadge titre="Sénat" className="shrink-0 w-fit px-10" />
 
-          <div className="divider-dashed h-full pl-6">
+          <div className="divider-dashed h-full lg:pl-6">
             <PouvoirFigureL
               intitule="sénatrices"
               valeur={senat.score}
@@ -78,7 +78,7 @@ export default function PouvoirLayout({
             titre="Parlement Européen"
             className="shrink-0 w-fit px-10"
           />
-          <div className="divider-dashed h-full pl-6">
+          <div className="divider-dashed h-full lg:pl-6">
             <PouvoirFigureL
               intitule="députées européennes"
               valeur={europeen.score}
@@ -94,7 +94,7 @@ export default function PouvoirLayout({
         navItems={[
           {
             label: "Assemblée Nationale",
-            href: "/pouvoirs/parlementaire/assemblee-nationale",
+            href: "/pouvoirs/parlementaire",
             icon: <AssembleeNationaleIcon />,
           },
           {

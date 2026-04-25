@@ -17,9 +17,18 @@ type Props = {
 };
 
 export const SectionGroup = ({ navItems, children, banner }: Props) => {
-  const pathname = usePathname().replace(/\/$/, "");
-  const activeItem = navItems.find((item) => item.href === pathname);
-  const inactiveItems = navItems.filter((item) => item.href !== pathname);
+  const pathname = usePathname()
+    .replace(/\/$/, "")
+    .replace(/\/#.*$/, "");
+  const activeItem = navItems.find((item) =>
+    item.href
+      .replace(/\/$/, "")
+      .replace(/\/#.*$/, "")
+      .startsWith(pathname),
+  );
+  const inactiveItems = navItems.filter(
+    (item) => item.href !== activeItem?.href,
+  );
 
   return (
     <>
@@ -33,6 +42,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
               label={item.label}
               href={item.href}
               icon={item.icon}
+              isActive={item.href === activeItem?.href}
             />
           ))}
         </div>
@@ -45,6 +55,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
             label={activeItem.label}
             href={activeItem.href}
             icon={activeItem.icon}
+            isActive
           />
         </div>
       )}
@@ -60,6 +71,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
               label={item.label}
               href={item.href}
               icon={item.icon}
+              isActive={false}
             />
           ))}
         </div>

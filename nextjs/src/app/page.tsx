@@ -1,16 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
+import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
 import { BookIcon } from "@/components/icons/book";
+import { DownloadIcon } from "@/components/icons/download";
+import { FemmeMondeIcon } from "@/components/icons/femme-monde";
+import { InequalIcon } from "@/components/icons/inequal";
+import { LogoDataForGood } from "@/components/icons/logo-d4g";
+import { LogoOxfamHorizontal } from "@/components/icons/logo-oxfam-horizontal";
 import { MondeIcon } from "@/components/icons/monde";
 import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
+import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
+import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
 
 const RECOMMENDATIONS = [
@@ -46,39 +55,49 @@ const RECOMMENDATIONS = [
   },
 ];
 
-export default function Home() {
-  const scores = [
-    pouvoirData.executif.score,
-    pouvoirData.parlementaire.score,
-    pouvoirData.local.score,
-    pouvoirData.autre.score,
-  ];
-  const overallTaux = Math.round(
-    scores.reduce((a, b) => a + b, 0) / scores.length,
-  );
+const { dateMiseAJour, score, evolution } = pouvoirData;
 
+export default async function Home() {
+  const t = await getTranslations("HomePage");
   return (
     <>
       {/* 1. Hero */}
-      <section className="bg-foundations-violet-clair flex flex-col items-center gap-8 px-0 lg:px-[229px] pb-[139px] pt-9">
-        <h1 className="header-h1 text-foundations-violet-principal text-center max-w-[964px]">
-          Le pouvoir, nom masculin&nbsp;: l'index de féminisation du pouvoir
-        </h1>
-        <p className="header-h4 text-foundations-gris-fonce text-center max-w-[558px]">
-          Une analyse complète de la représentation des femmes dans les
-          instances de pouvoir en France, en Europe et dans le monde
-        </p>
-        <Image
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/homepage-hero-image.png`}
-          alt="Collage de photos illustrant la féminisation du pouvoir"
-          width={1023}
-          height={1116}
-          className="w-full max-w-[1023px]"
-          priority
-        />
-        <div className="flex gap-8 items-center flex-wrap justify-center">
+      <section className="flex-1 bg-foundations-violet-clair flex flex-col items-center justify-between gap-8 px-4 pt-9">
+        <div className="flex-1 flex flex-col lg:flex-row gap-8 items-center lg:items-start  ">
+          <div className="flex-1  flex flex-col items-center gap-4 max-w-140">
+            <h1 className="header-h1 text-foundations-violet-principal text-center lg:text-left ">
+              Le pouvoir, nom masculin.
+              <br />
+              l'index de féminisation du pouvoir
+            </h1>
+            <p className="header-h4 text-foundations-violet-principal text-center lg:text-left  ">
+              Une analyse complète de la représentation des femmes dans les
+              instances de pouvoir en France, en Europe et dans le monde
+            </p>
+
+            <div className="w-full flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4">
+              <LogoOxfamHorizontal className="fill-foundations-vert-site w-47" />
+              <LogoDataForGood className="w-70" />
+            </div>
+
+            <p className="w-full header-h3 text-center lg:text-left text-foundations-violet-tres-clair">
+              Un Index réalisé par Oxfam France et Data for good.
+            </p>
+          </div>
+          <div className="flex-1 ">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/oxfam-homepage.webp`}
+              alt="Collage de photos illustrant la féminisation du pouvoir"
+              width={696}
+              height={636}
+              className="w-full max-w-174"
+              priority
+            />
+          </div>
+        </div>
+        <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
           <Link
-            href="/recommandations"
+            href="/rapport"
             className="button font-headline flex gap-3 items-center"
           >
             <BookIcon />
@@ -88,22 +107,27 @@ export default function Home() {
       </section>
 
       {/* 2. Présentation de l'Index */}
-      <section className="bg-white flex gap-[114px] items-center justify-center px-[150px] py-[120px]">
+      <section className="bg-white flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center lg:justify-start px-4 py-16 lg:px-32">
         {/* Left column */}
-        <div className="flex flex-col gap-[60px] flex-1 min-w-0">
-          <div className="flex flex-col gap-[34px]">
+        <div className="flex flex-col gap-4 lg:gap-15 flex-1 min-w-0">
+          <div className="flex flex-col items-center lg:items-start">
             <h2 className="header-h1 text-foundations-violet-principal">
               Présentation de l'Index
             </h2>
-            <p className="header-h4 text-foundations-violet-principal max-w-[605px]">
-              L'Index de Féminisation au Pouvoir mesure la représentation des
-              femmes dans les différentes instances décisionnelles depuis 2010.
-              Cet indicateur composite analyse la présence féminine dans les
-              organes exécutifs, législatifs et locaux pour évaluer l'évolution
-              de la parité dans les sphères de pouvoir.
-            </p>
+            <div className="header-h4 text-foundations-violet-principal max-w-150 my-4 flex flex-col gap-4">
+              <p>
+                L'Index de Féminisation au Pouvoir mesure la représentation des
+                femmes dans les différentes instances décisionnelles depuis
+                2010.
+              </p>
+              <p>
+                Cet indicateur composite analyse la présence féminine dans les
+                organes exécutifs, législatifs et locaux pour évaluer
+                l'évolution de la parité dans les sphères de pouvoir.
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-x-[40px] gap-y-4">
+          <div className="hidden lg:flex flex-row flex-wrap justify-between gap-4 px-8 lg:px-16">
             <StatsCard
               label="Pouvoir exécutif"
               score={pouvoirData.executif.score}
@@ -127,38 +151,81 @@ export default function Home() {
           </div>
         </div>
         {/* Right column */}
-        <div className="flex flex-col items-center gap-[13px] w-[443px] shrink-0">
+        <div className="flex flex-col items-center gap-3.25 w-110 shrink-0">
           <DoughnutChart
-            value={overallTaux}
+            value={score}
             variant="light"
-            className="size-[272px]"
+            className="size-68 w-68"
+            icon={InequalIcon}
+            iconProps={{
+              width: 75,
+              height: 120,
+            }}
           />
-          <div className="border border-foundations-violet-tres-clair flex flex-col gap-[10px] p-4 w-[344px]">
-            <div className="flex items-center gap-2">
-              <span className="header-h1 text-foundations-violet-principal leading-none">
-                {overallTaux}%
-              </span>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="border border-foundations-violet-tres-clair flex flex-col gap-2.5 p-4 w-86">
+              <div className="flex items-center gap-2">
+                <span className="header-h1 text-[50px]! text-foundations-violet-principal leading-none">
+                  {score}%
+                </span>
+                <EvolutionBadge value={evolution} />
+              </div>
+              <p className="header-h2 text-foundations-violet-principal">
+                Taux de féminisation du pouvoir en France
+              </p>
+              <p className="label-medium text-foundations-violet-principal">
+                Dernière mise à jour : {dateMiseAJour}
+              </p>
             </div>
-            <p className="header-h2 text-foundations-violet-principal">
-              Taux de féminisation du pouvoir en France
-            </p>
-            <p className="label-medium text-foundations-violet-principal">
-              Dernière mise à jour : {pouvoirData.dateMiseAJour}
-            </p>
+            <div className="flex self-center lg:self-end mb-12 flex-row lg:flex-col gap-4 shrink-0">
+              <Link href="/methodologie">
+                <Tooltip
+                  text="Méthode de calcul"
+                  icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+                />
+              </Link>
+              <Link href="/telecharger">
+                <Tooltip
+                  text="Télécharger les données"
+                  icon={<DownloadIcon className="w-12.5 h-12.5" />}
+                />
+              </Link>
+            </div>
+          </div>
+          <div className="flex lg:hidden flex-row flex-wrap justify-center lg:justify-between gap-6 px-4 lg:px-8">
+            <StatsCard
+              label="Pouvoir exécutif"
+              score={pouvoirData.executif.score}
+              evolution={pouvoirData.executif.evolution}
+            />
+            <StatsCard
+              label="Pouvoir parlementaire"
+              score={pouvoirData.parlementaire.score}
+              evolution={pouvoirData.parlementaire.evolution}
+            />
+            <StatsCard
+              label="Pouvoir local"
+              score={pouvoirData.local.score}
+              evolution={pouvoirData.local.evolution}
+            />
+            <StatsCard
+              label="Autres pouvoirs"
+              score={pouvoirData.autre.score}
+              evolution={pouvoirData.autre.evolution}
+            />
           </div>
         </div>
       </section>
 
       {/* 3. Explorer les données */}
-      <section className="bg-foundations-violet-principal flex flex-col items-center gap-[44px] px-[170px] py-[60px] relative overflow-hidden">
-        <div className="flex flex-col items-center gap-4 text-center max-w-[748px]">
+      <section className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15">
+        <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="header-h1 text-white">Explorer les données</h2>
-          <p className="header-h2 text-white">
+          <p className="body1-regular text-white">
             Sélectionnez une catégorie pour visualiser les données détaillées
           </p>
         </div>
-        {/* Row 1: 3 cards */}
-        <div className="flex gap-[65px] flex-wrap justify-center">
+        <div className="flex flex-row justify-center flex-wrap gap-16 h-full">
           <CategoryCard
             icon={PouvoirParlementaireIcon}
             title="Pouvoir parlementaire"
@@ -173,13 +240,16 @@ export default function Home() {
           />
           <CategoryCard
             icon={PouvoirLocalIcon}
-            title="Pouvoir local"
+            title={
+              <>
+                Pouvoir
+                <br />
+                local
+              </>
+            }
             description="La parité dans les collectivités territoriales et les instances locales"
             href="/pouvoirs/local"
           />
-        </div>
-        {/* Row 2: 2 cards */}
-        <div className="flex gap-[65px] flex-wrap justify-center">
           <CategoryCard
             icon={AutresPouvoirsIcon}
             title="Autres pouvoirs"
@@ -188,7 +258,13 @@ export default function Home() {
           />
           <CategoryCard
             icon={MondeIcon}
-            title="Dans le monde"
+            title={
+              <>
+                Dans le
+                <br />
+                monde
+              </>
+            }
             description="La féminisation du pouvoir à l'échelle européenne et mondiale"
             href="/pouvoirs/monde"
           />
@@ -199,23 +275,26 @@ export default function Home() {
       <EvolutionSection />
 
       {/* 5. Quote block */}
-      <section className="bg-foundations-violet-principal px-13 py-15">
-        <p className="body4-medium text-white text-center max-w-344 mx-auto">
-          En 80 ans, le pouvoir s'est lentement féminisé, néanmoins le compte
-          n'y est pas, les plus hautes sphères du pouvoir français restent
-          encore très (trop) masculines. La parité et la participation égale des
-          femmes à la vie publique restent un combat essentiel pour faire
-          avancer les droits des femmes.
+      <section className="svg-bg svg-purple px-4  lg:px-13 py-15">
+        <p className="header-h2 text-white text-center max-w-344 mx-auto">
+          {t("quote")}
         </p>
+        <div className="flex justify-center mt-8">
+          <Link href="/pionnieres" className="button">
+            <FemmeMondeIcon />
+            <span>Les pionnières</span>
+          </Link>
+        </div>
       </section>
 
       {/* 6. Recommandations */}
-      <section className="bg-white flex flex-col items-center gap-9.5 px-13 py-15">
+      <section className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15">
         <div className="flex flex-col items-center gap-2.5 text-center">
-          <h2 className="header-h1 text-foundations-violet-principal">
-            Recommandations
+          <h2 className="header-h1 text-foundations-violet-principal break-inside-auto hyphens-auto">
+            Recomman&shy;dations
           </h2>
-          <p className="body2-regular text-foundations-violet-tres-clair">
+
+          <p className="body2-regular text-foundations-gris-fonce">
             Principales pistes d'action pour promouvoir la féminisation du
             pouvoir
           </p>
@@ -234,8 +313,7 @@ export default function Home() {
         </div>
         <Link
           href="/recommandations"
-          className="button button-primary font-headline"
-          style={{ width: "392px", justifyContent: "center" }}
+          className="button button-primary text-center font-headline w-full lg:w-98 justify-center"
         >
           Lire les recommandations
         </Link>

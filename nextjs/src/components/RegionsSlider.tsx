@@ -85,7 +85,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
       {/* Middle Center: Description */}
       <div className="flex ">
-        <p className="body2-regular bg-foundations-blanc text-center rounded-[6px] p-[30px] w-full ">
+        <p className="body2-regular bg-foundations-blanc text-center rounded-md p-7.5 w-full ">
           {currentRegion.description}
         </p>
       </div>
@@ -106,15 +106,15 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       <div></div>
 
       {/* Bottom Middle: Indicator Dots */}
-      <div className="flex flex-row gap-x-[15px] items-center justify-center">
+      <div className="flex flex-row gap-x-3.75 items-center justify-center">
         {regions.map((element, index) => (
           <button
             key={element.region}
             onClick={() => setCurrentIndex(index)}
             type="button"
-            className={`w-[15px] h-[15px] rounded-full transition-colors ${
+            className={`w-3.75 h-3.75 rounded-full transition-colors ${
               index === currentIndex
-                ? "bg-purple-oxfam-600"
+                ? "bg-foundations-violet-principal"
                 : "bg-foundations-violet-tres-clair hover:bg-purple-oxfam-300"
             }`}
             aria-label={`Aller à la région ${index + 1}`}
