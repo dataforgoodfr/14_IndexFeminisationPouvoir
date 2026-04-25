@@ -1,8 +1,8 @@
 import { Hero } from "@/components/Hero";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
-import { AutresPouvoirIcon } from "@/components/icons/autres-pouvoirs";
-import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
-import { PréfecturesIcon } from "@/components/icons/prefectures";
+import { GlobeIcon } from "@/components/icons/globe";
+import { PaysAvecFemmeIcon } from "@/components/icons/pays-avec-femme";
+import { PortefeuillesMinisterielsIcon } from "@/components/icons/portefeuilles-ministeriels";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
@@ -28,14 +28,12 @@ export default function DansLeMondeLayout({
           {
             href: "/pouvoirs/monde",
             label: "Pays avec une femme",
-            // TODO:
-            icon: <HautesJuridictionsIcon className="w-20 h-20" />,
+            icon: <PaysAvecFemmeIcon className="w-20 h-20" />,
           },
           {
             href: "/pouvoirs/monde/portefeuilles-ministeriels",
             label: "Portefeuilles Ministeriels",
-            // TODO:
-            icon: <PréfecturesIcon className="w-20 h-20" />,
+            icon: <PortefeuillesMinisterielsIcon className="w-20 h-20" />,
           },
           {
             href: "/pouvoirs/monde/union-europeenne",
@@ -48,10 +46,9 @@ export default function DansLeMondeLayout({
           <Hero>
             <PouvoirFigureXL
               valeur={score}
-              icon={AutresPouvoirIcon}
+              icon={GlobeIcon}
               dateMiseAJour={new Date(dateMiseAJour)}
               annee={annee}
-              prelabel=""
               intitule="Ministres dans le monde"
             />
           </Hero>
