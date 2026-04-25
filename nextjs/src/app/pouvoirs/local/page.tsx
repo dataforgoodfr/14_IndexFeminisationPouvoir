@@ -46,7 +46,7 @@ export default function Page() {
           intitule="pouvoir local"
         />
       </Hero>
-      <div className="p-8 flex flex-row flex-wrap gap-8 w-full justify-center">
+      <div className="p-4 flex flex-row flex-wrap gap-8 w-full justify-center">
         <CollectiviteLocaleBlock
           titre="Régions"
           dateMiseAJour={new Date(collectivites.régions.dateMiseAJour)}
