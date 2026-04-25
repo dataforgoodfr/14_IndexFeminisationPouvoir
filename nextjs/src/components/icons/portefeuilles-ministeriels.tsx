@@ -34,7 +34,12 @@ export const PortefeuillesMinisterielsIcon = (
     />
     <defs>
       <clipPath id="clip0_8130_12456">
-        <rect width="37" height="34" fill="white" transform="translate(0 19.084)" />
+        <rect
+          width="37"
+          height="34"
+          fill="white"
+          transform="translate(0 19.084)"
+        />
       </clipPath>
     </defs>
   </svg>

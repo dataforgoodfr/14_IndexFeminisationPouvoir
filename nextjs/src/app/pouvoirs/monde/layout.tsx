@@ -1,8 +1,8 @@
 import { Hero } from "@/components/Hero";
-import { AmbassadesIcon } from "@/components/icons/ambassades";
 import { GlobeIcon } from "@/components/icons/globe";
 import { PaysAvecFemmeIcon } from "@/components/icons/pays-avec-femme";
 import { PortefeuillesMinisterielsIcon } from "@/components/icons/portefeuilles-ministeriels";
+import { UnionEuropeenneIcon } from "@/components/icons/union-europeenne";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
@@ -38,8 +38,7 @@ export default function DansLeMondeLayout({
           {
             href: "/pouvoirs/monde/union-europeenne",
             label: "Union Européenne",
-            // TODO:
-            icon: <AmbassadesIcon className="w-20 h-20" />,
+            icon: <UnionEuropeenneIcon className="w-20 h-20" />,
           },
         ]}
         banner={
