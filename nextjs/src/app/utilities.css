@@ -99,10 +99,10 @@
   }
 
   .divider-dashed {
-    @apply hidden lg:block border-l-2 border-dashed border-foundations-violet-principal;
+    @apply border-l-0 lg:border-l-2 border-dashed border-foundations-violet-principal;
   }
   .divider-dashed-horizontal {
-    @apply hidden lg:block border-t-2 border-dashed border-foundations-violet-principal;
+    @apply border-t-0 lg:border-t-2 border-dashed border-foundations-violet-principal;
   }
 
   /* Carousel */

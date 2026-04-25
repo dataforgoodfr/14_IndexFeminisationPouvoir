@@ -27,11 +27,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
       .startsWith(pathname),
   );
   const inactiveItems = navItems.filter(
-    (item) =>
-      !item.href
-        .replace(/\/$/, "")
-        .replace(/\/#.*$/, "")
-        .startsWith(pathname),
+    (item) => item.href !== activeItem?.href,
   );
 
   return (

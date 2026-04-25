@@ -97,7 +97,7 @@ export default async function Home() {
         </div>
         <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
           <Link
-            href="/recommandations"
+            href="/rapport"
             className="button font-headline flex gap-3 items-center"
           >
             <BookIcon />
@@ -288,11 +288,12 @@ export default async function Home() {
       </section>
 
       {/* 6. Recommandations */}
-      <section className="bg-white flex flex-col items-center gap-9.5 px-13 py-15">
+      <section className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15">
         <div className="flex flex-col items-center gap-2.5 text-center">
-          <h2 className="header-h1 text-foundations-violet-principal">
-            Recommandations
+          <h2 className="header-h1 text-foundations-violet-principal break-inside-auto hyphens-auto">
+            Recomman&shy;dations
           </h2>
+
           <p className="body2-regular text-foundations-gris-fonce">
             Principales pistes d'action pour promouvoir la féminisation du
             pouvoir
@@ -312,7 +313,7 @@ export default async function Home() {
         </div>
         <Link
           href="/recommandations"
-          className="button button-primary font-headline w-98 justify-center"
+          className="button button-primary text-center font-headline w-full lg:w-98 justify-center"
         >
           Lire les recommandations
         </Link>
