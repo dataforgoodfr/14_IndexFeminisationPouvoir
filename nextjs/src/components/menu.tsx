@@ -1,14 +1,8 @@
 "use client";
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  useClose,
-} from "@headlessui/react";
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type FC, useEffect } from "react";
+import { type FC, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { BookIcon } from "./icons/book";
 
@@ -19,25 +13,19 @@ export type NavigationItem = {
   | { submenu: React.ReactNode; href?: never }
 );
 
-const CloseMenuOnPathChange = () => {
-  const close = useClose();
-  const pathname = usePathname();
-  useEffect(() => {
-    if (!pathname) return;
-    close();
-  }, [pathname, close]);
-
-  return null;
-};
-
 export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openSubmenus, setOpenSubmenus] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    if (!pathname) return;
+    setIsMobileMenuOpen(false);
+    setOpenSubmenus({});
+  }, [pathname]);
+
   return (
-    <Disclosure
-      as="nav"
-      className="relative bg-foundations-violet-principal text-foundations-blanc"
-    >
-      <CloseMenuOnPathChange />
+    <nav className="relative bg-foundations-violet-principal text-foundations-blanc">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-22.5 items-center justify-between">
           <div className="flex flex-1  justify-start items-stretch">
@@ -105,7 +93,13 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
           </div>
           <div className="absolute inset-y-0 right-2 flex items-center md:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white">
+            <button
+              type="button"
+              className="group relative inline-flex items-center justify-center rounded-md p-2 text-white"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="main-mobile-menu"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            >
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
 
@@ -116,7 +110,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                 strokeWidth="1.5"
                 data-slot="icon"
                 aria-hidden="true"
-                className="block size-6 group-data-open:hidden"
+                className={cn("size-6", isMobileMenuOpen ? "hidden" : "block")}
               >
                 <path
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
@@ -131,7 +125,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                 strokeWidth="1.5"
                 data-slot="icon"
                 aria-hidden="true"
-                className="hidden size-6 group-data-open:block"
+                className={cn("size-6", isMobileMenuOpen ? "block" : "hidden")}
               >
                 <path
                   d="M6 18 18 6M6 6l12 12"
@@ -139,50 +133,66 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                   strokeLinejoin="round"
                 ></path>
               </svg>
-            </DisclosureButton>
+            </button>
           </div>
         </div>
       </div>
 
-      <DisclosurePanel className="lg:hidden">
-        <div className="space-y-1 pl-2 pr-4 pt-2 pb-3">
-          {items.map((item) =>
-            item.submenu ? (
-              <Disclosure key={item.name}>
-                <DisclosureButton
+      {isMobileMenuOpen ? (
+        <div id="main-mobile-menu" className="lg:hidden">
+          <div className="space-y-1 pl-2 pr-4 pt-2 pb-3">
+            {items.map((item) =>
+              item.submenu ? (
+                <div key={item.name}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpenSubmenus((previous) => ({
+                        ...previous,
+                        [item.name]: !previous[item.name],
+                      }));
+                    }}
+                    className={cn(
+                      "w-full text-left rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out flex items-center justify-between",
+                      "text-foundations-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
+                    )}
+                  >
+                    <span>{item.name}</span>
+                    <span
+                      className={cn(
+                        "border-l-6 border-l-transparent border-r-6 border-r-transparent transition-transform duration-150 ease-in-out",
+                        openSubmenus[item.name]
+                          ? "border-b-8 border-b-white"
+                          : "border-t-8 border-t-white",
+                      )}
+                    ></span>
+                  </button>
+                  {openSubmenus[item.name] ? (
+                    <div className="pl-4 space-y-1 bg-black/5 rounded mt-1">
+                      {item.submenu}
+                    </div>
+                  ) : null}
+                </div>
+              ) : item.href ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
-                    "w-full text-left rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out flex items-center justify-between",
                     pathname === item.href
                       ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
                       : "text-foundations-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
+                    "block rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out",
                   )}
                 >
-                  <span>{item.name}</span>
-                  <span className="border-t-8 border-t-white border-l-6 border-l-transparent border-r-6 border-r-transparent"></span>
-                </DisclosureButton>
-                <DisclosurePanel className="pl-4 space-y-1 bg-black/5 rounded mt-1">
-                  {item.submenu}
-                </DisclosurePanel>
-              </Disclosure>
-            ) : item.href ? (
-              <DisclosureButton
-                key={item.name}
-                as={Link}
-                href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className={cn(
-                  pathname === item.href
-                    ? "bg-black/10 shadow-inner font-semibold transform translate-x-1"
-                    : "text-foundations-blanc hover:bg-black/5 hover:shadow-sm hover:translate-x-0.5",
-                  "block rounded-md px-3 py-2 header-h4 transition-all duration-150 ease-in-out",
-                )}
-              >
-                {item.name}
-              </DisclosureButton>
-            ) : null,
-          )}
+                  {item.name}
+                </Link>
+              ) : null,
+            )}
+          </div>
         </div>
-      </DisclosurePanel>
-    </Disclosure>
+      ) : null}
+    </nav>
   );
 };
