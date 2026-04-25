@@ -24,7 +24,7 @@ export const PouvoirFigureXL = ({
       <span className="text-femmes-xl">de femmes</span>
       <span className="text-intitule-l">{prelabel}</span>
       <span className="text-intitule-xl">{intitule}</span>
-      <span className="header-h3 uppercase">en {annee}</span>
+      <span className="text-intitule-l">en {annee}</span>
       <span className="label-medium">
         Dernière mise à jour : <ShortDate date={dateMiseAJour} />
       </span>
