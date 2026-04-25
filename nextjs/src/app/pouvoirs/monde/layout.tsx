@@ -39,7 +39,7 @@ export default function DansLeMondeLayout({
             href: "/pouvoirs/monde/union-europeenne",
             label: "Union Européenne",
             // TODO:
-            icon: <PaysAvecFemmeIcon className="w-20 h-20" />,
+            icon: <AmbassadesIcon className="w-20 h-20" />,
           },
         ]}
         banner={
