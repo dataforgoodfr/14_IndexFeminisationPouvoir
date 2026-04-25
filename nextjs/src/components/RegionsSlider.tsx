@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { GoodBadExample, GoodBadTitle } from "./GoodBadExample";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
-import { GoodBadExample, GoodBadTitle } from './GoodBadExample';
 
 export interface RegionDescription {
   rank: number;
@@ -53,7 +53,6 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
   };
 
   const currentRegion = regions[currentIndex];
-
 
   return (
     <GoodBadExample

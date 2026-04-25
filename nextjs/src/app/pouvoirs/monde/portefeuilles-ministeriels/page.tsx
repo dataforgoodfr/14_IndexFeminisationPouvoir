@@ -8,8 +8,7 @@ export default function PortefeuillesMinisterielsPage() {
           Portefeuilles ministériels
         </h2>
         <p className="body2-regular text-black">
-          Dernière mise à jour :{" "}
-          {/* TODO: */}
+          Dernière mise à jour : {/* TODO: */}
           <ShortDate date={new Date()} />
         </p>
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />

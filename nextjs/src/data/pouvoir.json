@@ -251,14 +251,7 @@
     "dateMiseAJour": "2025-01-01",
     "evolution": -1.2,
     "composantes": {
-      "cheffes_detat": [
-        "FR",
-        "US",
-        "MX",
-        "AU",
-        "JP",
-        "NZ"
-      ],
+      "cheffes_detat": ["FR", "US", "MX", "AU", "JP", "NZ"],
       "parite_gouvernement": [
         {
           "pays": "Nicaragua",

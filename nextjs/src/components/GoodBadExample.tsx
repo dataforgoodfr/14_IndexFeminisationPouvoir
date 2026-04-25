@@ -1,27 +1,39 @@
-import { cn } from '@/lib/utils';
-import { ThumbUpIcon } from './icons/thumbup';
+import { cn } from "@/lib/utils";
+import { ThumbUpIcon } from "./icons/thumbup";
 
 type Variant = "good" | "bad";
 
-interface GoodBadExampleProps extends React.PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+interface GoodBadExampleProps
+  extends React.PropsWithChildren,
+    React.HTMLAttributes<HTMLDivElement> {
   variant: Variant;
   className: string;
 }
-export const GoodBadExample = ({ variant, children, className, ...containerProps }: GoodBadExampleProps) =>{
+export const GoodBadExample = ({
+  variant,
+  children,
+  className,
+  ...containerProps
+}: GoodBadExampleProps) => {
   let backgroundColor = "svg-bg svg-tree-red";
   if (variant === "good") {
     backgroundColor = "svg-bg svg-tree-green";
   }
 
   return (
-    <div className={cn(backgroundColor, className)} {...containerProps }>
+    <div className={cn(backgroundColor, className)} {...containerProps}>
       {children}
     </div>
-  )
-}
+  );
+};
 
-
-export const GoodBadTitle = ({ variant, title }: { variant: Variant, title: string; }) => {
+export const GoodBadTitle = ({
+  variant,
+  title,
+}: {
+  variant: Variant;
+  title: string;
+}) => {
   let backgroundEqual = "svg-inequal-white";
   if (variant === "good") {
     backgroundEqual = "svg-equal-white";
@@ -41,5 +53,5 @@ export const GoodBadTitle = ({ variant, title }: { variant: Variant, title: stri
         {title}
       </h3>
     </div>
-  )
-}
+  );
+};

@@ -1,28 +1,19 @@
-import { GoodBadExample, GoodBadTitle } from '@/components/GoodBadExample';
-import { AmbassadesIcon } from '@/components/icons/ambassades';
-import { DownloadIcon } from '@/components/icons/download';
-import { QuestionMarkIcon } from '@/components/icons/question-mark';
-import { PouvoirFigureL } from '@/components/PouvoirFigureL';
-import { PouvoirFigureXL } from '@/components/PouvoirFigureXL';
-import { Standings } from '@/components/Standings';
-import { Tooltip } from '@/components/Tooltip';
-import { WorldMapSVG } from '@/components/WorldMapSVG';
+import { GoodBadExample, GoodBadTitle } from "@/components/GoodBadExample";
+import { AmbassadesIcon } from "@/components/icons/ambassades";
+import { PouvoirFigureL } from "@/components/PouvoirFigureL";
+import { Standings } from "@/components/Standings";
+import { WorldMapSVG } from "@/components/WorldMapSVG";
 import { monde } from "@/data/pouvoir.json";
-import Link from 'next/link';
 
 export default function DansLeMondePage() {
   const pays = monde.composantes.parite_gouvernement;
-  const pires = pays.toReversed().slice(0,8);
+  const pires = pays.toReversed().slice(0, 8);
   const meilleurs = pays.slice(0, 5);
   return (
     <div className="max-w-6xl pt-10">
-      
       <div className="md:flex md:flex-row md:items-center">
         <div className="flex-1 px-10 md:px-5 md:flex-3">
-          <WorldMapSVG 
-          
-            highlightedCountries={monde.composantes.cheffes_detat}
-          />
+          <WorldMapSVG highlightedCountries={monde.composantes.cheffes_detat} />
         </div>
         <div className="flex-1 md:flex-2">
           <PouvoirFigureL
@@ -34,7 +25,6 @@ export default function DansLeMondePage() {
             withChart
             withButtons
           />
-
         </div>
       </div>
       <div className="h-40 w-full" />
@@ -44,11 +34,11 @@ export default function DansLeMondePage() {
         </h2>
       </div>
       <div className="flex flex-col md:flex-row gap-x-8 gap-y-8 px-5 md:px-5 py-11">
-        <GoodBadExample
-          variant="bad"
-          className="flex-1 px-5 py-5"
-        >
-          <GoodBadTitle variant="bad" title="Les mauvais élèves avec aucune femme au gouvernement" />
+        <GoodBadExample variant="bad" className="flex-1 px-5 py-5">
+          <GoodBadTitle
+            variant="bad"
+            title="Les mauvais élèves avec aucune femme au gouvernement"
+          />
           <Standings
             thumbsDownBottom={10}
             data={pires.map(({ pays, pourcentage, evolution }) => ({
@@ -59,11 +49,11 @@ export default function DansLeMondePage() {
             order="ascending"
           />
         </GoodBadExample>
-        <GoodBadExample
-          variant="good"
-          className="flex-1 px-5 py-5"
-        >
-          <GoodBadTitle variant="good" title="Les pays les plus exemplaires en matière de parité au gouvernement" />
+        <GoodBadExample variant="good" className="flex-1 px-5 py-5">
+          <GoodBadTitle
+            variant="good"
+            title="Les pays les plus exemplaires en matière de parité au gouvernement"
+          />
           <Standings
             thumbsUpTop={10}
             data={meilleurs.map(({ pays, pourcentage, evolution }) => ({

@@ -2,7 +2,7 @@ import type { ComponentType, SVGProps } from "react";
 import { cn } from "@/lib/utils";
 import { DoughnutChart } from "./charts/DoughnutChart";
 import { EvolutionBadge } from "./EvolutionBadge";
-import { LiensCTA } from './LiensCTA';
+import { LiensCTA } from "./LiensCTA";
 
 export type PouvoirFigureLProps = {
   valeur: number;

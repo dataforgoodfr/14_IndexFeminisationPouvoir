@@ -1,9 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
 import { AutresPouvoirIcon } from "@/components/icons/autres-pouvoirs";
-import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
-import { PartisPolitiquesIcon } from "@/components/icons/partis-politiques";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
 import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { SectionGroup } from "@/components/SectionGroup";
@@ -44,7 +42,7 @@ export default function DansLeMondeLayout({
             label: "Union Européenne",
             // TODO:
             icon: <AmbassadesIcon className="w-20 h-20" />,
-          }
+          },
         ]}
         banner={
           <Hero>

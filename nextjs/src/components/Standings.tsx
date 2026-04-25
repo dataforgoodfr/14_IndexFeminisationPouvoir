@@ -13,10 +13,15 @@ interface StandingsProps {
   thumbsDownBottom?: number;
 }
 
-export const Standings: React.FC<StandingsProps> = ({ data, order = "descending", thumbsDownBottom = 0, thumbsUpTop = 0 }) => {
+export const Standings: React.FC<StandingsProps> = ({
+  data,
+  order = "descending",
+  thumbsDownBottom = 0,
+  thumbsUpTop = 0,
+}) => {
   // Sort data by percentage
   const sortedData = data.toSorted((a, b) => b.percentage - a.percentage);
-  
+
   if (order === "ascending") {
     sortedData.reverse();
   }

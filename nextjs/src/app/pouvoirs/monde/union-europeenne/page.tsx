@@ -1,6 +1,5 @@
 import { ShortDate } from "@/components/ShortDate";
 
-
 export default function UnionEuropeennePage() {
   return (
     <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
