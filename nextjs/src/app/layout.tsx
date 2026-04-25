@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const navigation: NavigationItem[] = [
   {
-    name: "Pouvoirs",
+    name: "En chiffres",
     submenu: <PouvoirsSubmenu />,
   },
   { name: "Pionnières", href: "/pionnieres" },
