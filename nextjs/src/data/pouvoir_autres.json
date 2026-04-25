@@ -112,12 +112,7 @@
         "evolution": 0
       }
     ],
-    "departements_femmes_prefetes": [
-      "31",
-      "78",
-      "976",
-      "987"
-    ]
+    "departements_femmes_prefetes": ["31", "78", "976", "987"]
   },
   "ambassades": {
     "score": 34.9,
@@ -133,11 +128,7 @@
       "total": 10,
       "evolution": 0
     },
-    "pays_femmes_ambassadrices": [
-      "AZ",
-      "AT",
-      "US"
-    ]
+    "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
     "score": 34.3,

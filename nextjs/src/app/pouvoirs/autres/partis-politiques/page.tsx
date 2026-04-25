@@ -3,7 +3,6 @@ import { InfoBox } from "@/components/InfoBox";
 import { LiensCTA } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
-import { PouvoirFigureRelative } from "@/components/PouvoirFigureRelative";
 import { ShortDate } from "@/components/ShortDate";
 import autresData from "@/data/pouvoir_autres.json";
 import { richComponents } from "@/lib/utils";
