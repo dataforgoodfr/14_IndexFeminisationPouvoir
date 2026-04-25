@@ -108,9 +108,12 @@ export default function Page() {
         invisibilisant le rôle des femmes dans notre Histoire collective.
         L'Histoire des femmes et des grandes avancées pour leurs droits est elle
         aussi méconnue."
+        classes={{
+          subtitle: "body1-regular",
+        }}
       />
-      <Hero>
-        <p className="text-foundations-blanc max-w-sm lg:max-w-2xl text-center body1-medium">
+      <Hero className="h-80 p-2">
+        <p className="text-foundations-blanc max-w-sm lg:max-w-2xl text-center body1-medium p-4 lg:mb-32">
           Rendons-leur ce qui leur appartient, et faisons connaitre l'histoire
           de ces femmes pionnières qui se sont battues pour que le pouvoir ne
           soit pas qu'un nom masculin.
