@@ -32,10 +32,10 @@ const GenderDistributionChart: React.FC<GenderDistributionChartProps> = ({
         titre="% sur 50 personnes"
         className="lg:absolute lg:-top-8 lg:-left-8 lg:z-10 lg:px-10"
       />
-      <div className="bg-white rounded-2xl border border-gray-200 mt-4 py-4 lg:py-8 lg:px-12">
+      <div className="bg-white border border-gray-200 mt-4 py-4 lg:py-8 lg:px-12">
         {/* Chart */}
         <div
-          className={`grid grid-cols-10 lg:grid-cols-10 gap-4 px-4 lg:gap-12 place-items-center`}
+          className={`grid grid-cols-10 lg:grid-cols-10 gap-x-4 gap-y-4 px-4 lg:gap-y-4 lg:gap-x-12 place-items-center`}
         >
           {icons.map((gender, idx) =>
             gender === "femme" ? (
