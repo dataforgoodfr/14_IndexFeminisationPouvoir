@@ -2,7 +2,7 @@
   "dateMiseAJour": "2026",
   "executif": {
     "score": 32.6,
-    "evolution": -6,
+    "evolution": 10,
     "annee": 2026,
     "dateMiseAJour": "2026-04-01",
     "composantes": {
@@ -34,36 +34,36 @@
     }
   },
   "parlementaire": {
-    "score": 28.6,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
-    "evolution": 2.5,
+    "score": 34.78,
+    "annee": 2026,
+    "dateMiseAJour": "2026-04-01",
+    "evolution": -10,
     "composantes": {
       "assemblee_nationale": {
-        "annee": 2025,
-        "score": 28.6,
-        "evolution": 2.5,
+        "annee": 2026,
+        "score": 33.5,
+        "evolution": -16,
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "deputees": {
-            "score": 36,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 39,
+            "annee": 2026,
+            "evolution": 8.33
           },
           "bureau": {
-            "score": 59,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 55,
+            "annee": 2026,
+            "evolution": -6.78
           },
           "presidente_commission": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 13,
+            "annee": 2026,
+            "evolution": -65.33
           },
           "presidente_groupe": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 27,
+            "annee": 2026,
+            "evolution": -1.1
           }
         },
         "parite_groupes": {
@@ -89,30 +89,30 @@
         }
       },
       "senat": {
-        "annee": 2025,
-        "score": 24.7,
-        "evolution": 2.5,
+        "annee": 2026,
+        "score": 32.75,
+        "evolution": -2,
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "senatrices": {
-            "score": 25,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 38,
+            "annee": 2026,
+            "evolution": 1.6
           },
           "bureau": {
-            "score": 50,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 46,
+            "annee": 2026,
+            "evolution": 0
           },
           "presidente_commission": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 25,
+            "annee": 2026,
+            "evolution": -12.59
           },
           "presidente_groupe": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 22,
+            "annee": 2026,
+            "evolution": 0.9
           }
         },
         "parite_groupes": {
@@ -138,9 +138,9 @@
         }
       },
       "europeen": {
-        "annee": 2025,
-        "score": 31.2,
-        "evolution": 2.5
+        "annee": 2026,
+        "score": 48,
+        "evolution": -9.77
       }
     }
   },
