@@ -2,34 +2,34 @@
   "dateMiseAJour": "2026",
   "executif": {
     "score": 32.6,
-    "evolution": 2.5,
+    "evolution": -6,
     "annee": 2026,
-    "dateMiseAJour": "2025-01-01",
+    "dateMiseAJour": "2026-04-01",
     "composantes": {
       "gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 50
+        "annee": 2026,
+        "evolution": -6,
+        "score": 47
       },
       "ministeres_regaliens": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 0
+        "annee": 2026,
+        "evolution": 17,
+        "score": 17
       },
       "cabinet_presidence": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 35.2
+        "annee": 2026,
+        "evolution": -12,
+        "score": 31
       },
       "cabiner_premier_ministre": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 42.9
+        "annee": 2026,
+        "evolution": -25.4,
+        "score": 32
       },
       "directrices_cabinet_gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 20
+        "annee": 2026,
+        "evolution": 80,
+        "score": 36
       }
     }
   },
