@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import type { ComponentType, SVGProps } from "react";
 import { Block } from "@/components/Block";
 import { InfoBox } from "@/components/InfoBox";
@@ -15,6 +16,7 @@ import { PouvoirFigureRelative } from "@/components/PouvoirFigureRelative";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { ShortDate } from "@/components/ShortDate";
 import autresData from "@/data/pouvoir_autres.json";
+import { richComponents } from "@/lib/utils";
 
 const { hautes_juridictions: hj } = autresData;
 const cc = hj.conseil_constitutionnel;
@@ -84,12 +86,41 @@ function MagistratureGridCell({
   );
 }
 
-export default function HautesJuridictionsPage() {
+export default async function HautesJuridictionsPage() {
+  const t = await getTranslations("pouvoirs.autres.hautes-juridictions");
+
+  const institutions = [
+    {
+      id: "cour-cassation",
+      label: "Cour de\ncassation",
+      description: t("institutions.cour-cassation"),
+    },
+    {
+      id: "conseil-etat",
+      label: "Conseil\nd'Etat",
+      description: t("institutions.conseil-etat"),
+    },
+    {
+      id: "conseil-constitutionnel",
+      label: "Conseil\nConstitutionnel",
+      description: t("institutions.conseil-constitutionnel"),
+    },
+    {
+      id: "cour-justice-republique",
+      label: "Cour de Justice de la République",
+      description: t("institutions.cour-justice-republique"),
+    },
+    {
+      id: "cour-comptes",
+      label: "Cour des\ncomptes",
+      description: t("institutions.cour-comptes"),
+    },
+  ];
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-4 py-12 sm:px-6 lg:px-12">
       {/* Section header */}
       <div className="flex flex-col items-center gap-3">
-        <h2 className="header-h1 text-foundations-violet-principal text-center">
+        <h2 className="header-h2 text-foundations-violet-principal text-center">
           Hautes juridictions
         </h2>
         <p className="body2-regular text-black">
@@ -107,14 +138,14 @@ export default function HautesJuridictionsPage() {
           evolution={hj.evolution}
           withChart
           icon={HautesJuridictionsIcon}
-          chartClassName="w-[164px] h-[164px]"
+          chartClassName="w-41 h-41"
         />
         <LiensCTA />
       </div>
 
       {/* Institution cards */}
       <div className="flex flex-col lg:flex-row gap-4 w-full max-w-252">
-        {hj.institutions.map((institution) => {
+        {institutions.map((institution) => {
           const Icon = INSTITUTION_ICONS[institution.id];
           if (!Icon) return null;
           return (
@@ -150,7 +181,9 @@ export default function HautesJuridictionsPage() {
               evolution={cc.evolution}
             />
             <InfoBox>
-              <p className="body2-regular">{cc.infobox}</p>
+              <p className="body2-regular">
+                {t.rich("conseil-constitutionnel", richComponents)}
+              </p>
             </InfoBox>
           </div>
         </Block>
@@ -184,7 +217,9 @@ export default function HautesJuridictionsPage() {
             })}
             <MagistratureGridCell>
               <InfoBox>
-                <p className="body2-regular">{mag.infobox}</p>
+                <p className="body2-regular">
+                  {t.rich("magistrature", richComponents)}
+                </p>
               </InfoBox>
             </MagistratureGridCell>
           </div>

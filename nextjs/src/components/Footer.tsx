@@ -27,7 +27,7 @@ export function Footer() {
           Contact
         </Link>{" "}
         <span className="hidden lg:block">|</span>
-        <Link href="/legal" className="link1-medium">
+        <Link href="/legal" className="link1-medium text-center lg:text-left">
           Mentions légales & Politique de Confidentialité
         </Link>
       </div>

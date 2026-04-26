@@ -21,27 +21,27 @@ export default function Page({ children }: { children: React.ReactNode }) {
         navItems={[
           {
             label: "Dirigeantes de cabinets au gouvernement",
-            href: "/pouvoirs/executif#cabinet-gouvernement",
+            href: "/pouvoirs/executif",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
           {
             label: "Cabinet du premier ministre",
-            href: "/pouvoirs/executif/cabinet-premier-ministre#cabinet-premier-ministre",
+            href: "/pouvoirs/executif/cabinet-premier-ministre",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
           {
             label: "Cabinet du président de la république",
-            href: "/pouvoirs/executif/cabinet-president#cabinet-president",
+            href: "/pouvoirs/executif/cabinet-president",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
           {
             label: "Postes régaliens",
-            href: "/pouvoirs/executif/postes-regaliens#postes-regaliens",
+            href: "/pouvoirs/executif/postes-regaliens",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
           {
             label: "Femmes au gouvernement",
-            href: "/pouvoirs/executif/gouvernement#femmes-au-gouvernement",
+            href: "/pouvoirs/executif/gouvernement",
             icon: <DirectriceCabinetIcon className="w-20.25 h-18.75" />,
           },
         ]}

@@ -22,6 +22,7 @@ export const PouvoirSelector = ({
 
   return (
     <Link
+      scroll={false}
       className={cn(
         "flex-1 flex flex-col justify-center items-center p-2 gap-2 w-44 h-44 text-center",
         "border border-purple-oxfam-100 flex-none self-stretch",

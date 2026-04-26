@@ -66,7 +66,7 @@ export default function AutresLayout({
           </Hero>
         }
       >
-        <div className="mb-32">{children}</div>
+        {children}
       </SectionGroup>
     </>
   );

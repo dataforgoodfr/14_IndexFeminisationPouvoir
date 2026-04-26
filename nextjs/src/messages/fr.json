@@ -68,5 +68,33 @@
       "subtitle": "Principales pistes d'action pour promouvoir la féminisation du pouvoir",
       "cta": "Lire les recommandations"
     }
+  },
+  "pouvoirs": {
+    "autres": {
+      "hautes-juridictions": {
+        "conseil-constitutionnel": "Le Conseil Constitutionnel n'a jamais été présidé par une femme. Depuis sa création en 1959, les femmes représentent seulement 14\u00a0% des sages. La première femme à faire son entrée au Conseil Constitutionnel était Noëlle Lenoir en 1992.",
+        "magistrature": "Dans le monde de la justice, la magistrature s'est fortement féminisée. Néanmoins le plafond de verre persiste.",
+        "institutions": {
+          "cour-cassation": "L'autorité judiciaire avec à son sommet la Cour de cassation.",
+          "conseil-etat": "La juridiction administrative avec à son sommet le Conseil d'État.",
+          "conseil-constitutionnel": "Le Conseil constitutionnel en charge du contrôle de la constitutionnalité des lois et de la régularité des élections nationales.",
+          "cour-justice-republique": "La Cour de justice de la République (CJR) qui juge les membres du gouvernement pour les actes délictueux ou criminels commis dans l'exercice de leur fonction.",
+          "cour-comptes": "La Cour des comptes, juridiction indépendante, qui juge la régularité, la sincérité et la fidélité des comptes de l'État et de la sécurité sociale et assiste le Parlement et le Gouvernement dans l'évaluation des politiques publiques."
+        }
+      },
+      "hautes-autorites": {
+        "infobox": "<p>La France dispose d'un certain nombre d''<b>autorités publiques et/ou administratives indépendantes, d'agences publiques et d'institutions financières</b>.</p><p>Les autorités indépendantes sont des institutions <b>chargées de réguler un secteur d'activité, avec des rôles variés, tels que la recommandation, la nomination, la réglementation et la sanction.</b></p>"
+      },
+      "partis": {
+        "infobox": "<p><b>Les partis politiques continuent de structurer la vie politique française.</b> Pour l'index, Oxfam a analysé les principaux partis en France, à savoir les partis représentés à l'Assemblée Nationale. Sur les 10 principaux partis français, un seul est dirigé par une femme, le parti “Les écologistes” de Marine Tondelier.</p>"
+      },
+      "ambassades": {
+        "infobox": "<p><b>Représente l'État dans un autre pays</b> ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.</p><p><b>Nommé·e par le Président de la République</b> en Conseil des ministres sur proposition du ministre des Affaires étrangères.</p>",
+        "mais_aussi": "<p>Les représentant·e·s de la France dans les plus grandes organisations internationales sont majoritairement des hommes, notamment pour l'UE, l'OTAN, l'ONU à New York et Genève, l'UNESCO et le Conseil de l'Europe.</p><p>Dans le cadre de sa diplomatie féministe, la France s'est engagée à féminiser les postes d'encadrement de son corps diplomatiquex. Dans le plan du ministère de l'Europe et des Affaires étrangères sur l'égalité professionnelle, la France se fixe l'objectif de « tendre vers une proportion de 40 % de femmes occupant des emplois supérieurs en 2027 » et « d'atteindre une proportion de 40 % de femmes primo-nominées en 2026 ».</p>"
+      },
+      "prefectures": {
+        "infobox": "<p><b>Veille à l'exécution des règlements et des décisions</b> gouvernementales et dirige les services déconcentrés des administrations civiles de l'État.</p><p><b>Représente le/la Premier·e ministre et chacun des ministres</b> dans les départements pour mettre en œuvre les politiques nationales et communautaires.</p><p>Est également en charge de l''<b>ordre public</b>, de la <b>sécurité</b> et de la <b>protection des populations</b>.</p>"
+      }
+    }
   }
 }
