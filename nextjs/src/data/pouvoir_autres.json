@@ -1,8 +1,13 @@
 {
   "prefectures": {
-    "score": 29.4,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 17.0,
+    "evolution": -13.27,
+    "dateMiseAJour": "2026-01-01",
+    "description": [
+      "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
+      "Représente le Premier ministre et chaque ministre dans les départements pour la mise en œuvre de la politique nationale et communautaire.",
+      "Est chargée de l'ordre public, de la sécurité et de la protection de la population."
+    ],
     "regions": [
       {
         "nom": "Auvergne-Rhône-Alpes",
@@ -115,9 +120,13 @@
     "departements_femmes_prefetes": ["31", "78", "976", "987"]
   },
   "ambassades": {
-    "score": 34.9,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 34.0,
+    "evolution": -2.58,
+    "dateMiseAJour": "2026-01-01",
+    "description": [
+      "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
+      "Nommé·e par le Président de la République en Conseil des ministres sur proposition du ministre des Affaires étrangères."
+    ],
     "g7": {
       "femmes": 1,
       "total": 7,
@@ -131,23 +140,55 @@
     "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
-    "score": 34.3,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 36.0,
+    "evolution": 4.96,
+    "dateMiseAJour": "2026-01-01",
+    "description": [
+      "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
+      "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
+      "Pour l'indice d'Oxfam, environ un tiers de ces organismes sont présidés par des femmes."
+    ],
     "infobox": "Les autorités administratives indépendantes jouent un rôle central dans la régulation de secteurs stratégiques de la vie publique française."
   },
   "partis_politiques": {
     "score": 10,
     "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "dateMiseAJour": "2026-01-01",
     "femmes": 1,
     "total": 10,
     "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme\u00a0: Les Écologistes, dirigé par Marine Tondelier."
   },
   "hautes_juridictions": {
-    "score": 0,
+    "score": 20.0,
     "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "dateMiseAJour": "2026-01-01",
+    "institutions": [
+      {
+        "id": "cour-cassation",
+        "label": "Cour de\ncassation",
+        "description": "L'autorité judiciaire avec à son sommet la Cour de cassation."
+      },
+      {
+        "id": "conseil-etat",
+        "label": "Conseil\nd'Etat",
+        "description": "La juridiction administrative avec à son sommet le Conseil d'État."
+      },
+      {
+        "id": "conseil-constitutionnel",
+        "label": "Conseil\nConstitutionnel",
+        "description": "Le Conseil constitutionnel en charge du contrôle de la constitutionnalité des lois et de la régularité des élections nationales."
+      },
+      {
+        "id": "cour-justice-republique",
+        "label": "Cour de Justice de la République",
+        "description": "La Cour de justice de la République (CJR) qui juge les membres du gouvernement pour les actes délictueux ou criminels commis dans l'exercice de leur fonction."
+      },
+      {
+        "id": "cour-comptes",
+        "label": "Cour des\ncomptes",
+        "description": "La Cour des comptes, juridiction indépendante, qui juge la régularité, la sincérité et la fidélité des comptes de l'État et de la sécurité sociale et assiste le Parlement et le Gouvernement dans l'évaluation des politiques publiques."
+      }
+    ],
     "conseil_constitutionnel": {
       "membres_femmes": 3,
       "membres_total": 9,
