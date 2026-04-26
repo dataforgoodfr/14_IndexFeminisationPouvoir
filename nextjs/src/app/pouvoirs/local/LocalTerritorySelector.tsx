@@ -308,14 +308,14 @@ export function LocalTerritorySelector() {
                 <RegionsSlider
                   regions={regionsDescriptions.top5}
                   title="Une progressive féminisation du pouvoir local"
-                  variant="top"
+                  variant="good"
                 />
               </div>
               <div className="flex-1 min-w-0">
                 <RegionsSlider
                   regions={regionsDescriptions.bottom5}
                   title="Le Boys Club des territoires"
-                  variant="bottom"
+                  variant="bad"
                 />
               </div>
             </div>

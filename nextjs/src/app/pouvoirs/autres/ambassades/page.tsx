@@ -33,7 +33,7 @@ export default async function AmbassadesPage() {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <WorldMapSVG
-            femmeAmbassadrices={amb.pays_femmes_ambassadrices}
+            highlightedCountries={amb.pays_femmes_ambassadrices}
             className="w-full max-w-225"
           />
 

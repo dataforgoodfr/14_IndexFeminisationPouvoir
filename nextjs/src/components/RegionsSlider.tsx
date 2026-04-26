@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { GoodBadExample, GoodBadTitle } from "./GoodBadExample";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
-import { ThumbUpIcon } from "./icons/thumbup";
+
 export interface RegionDescription {
   rank: number;
   region: string;
@@ -19,7 +19,7 @@ export interface RegionsDescriptions {
 interface RegionsSliderProps {
   regions: RegionDescription[];
   title: string;
-  variant: "top" | "bottom";
+  variant: "good" | "bad";
 }
 
 export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
@@ -54,46 +54,18 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
   const currentRegion = regions[currentIndex];
 
-  let backgroundColor = "svg-tree-red";
-  let backgroundEqual = "svg-inequal-white";
-  if (variant === "top") {
-    backgroundColor = "svg-tree-green";
-    backgroundEqual = "svg-equal-white";
-  }
-
   return (
-    <div
+    <GoodBadExample
+      variant={variant}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={cn(
-        `grid grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-6 gap-y-2.5 h-full svg-bg`,
-        backgroundColor,
-      )}
+      className="grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full"
     >
       {/* Top Row */}
       <div></div>
 
       {/* Top Middle: Title */}
-      <div className="flex flex-row gap-3">
-        <div
-          className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-18.75 min-w-21.25`}
-        >
-          {variant === "top" ? (
-            <ThumbUpIcon
-              fill="var(--color-foundations-violet-principal)"
-              className="size-12"
-            />
-          ) : (
-            <ThumbUpIcon
-              fill="var(--color-foundations-violet-principal)"
-              className="size-12 rotate-180"
-            />
-          )}
-        </div>
-        <h3 className="flex-5 flex items-center header-h4 text-foundations-blanc">
-          {title}
-        </h3>
-      </div>
+      <GoodBadTitle title={title} variant={variant} />
 
       <div></div>
 
@@ -150,6 +122,6 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       </div>
 
       <div></div>
-    </div>
+    </GoodBadExample>
   );
 }

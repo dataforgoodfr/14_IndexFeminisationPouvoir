@@ -8,11 +8,23 @@ interface StandingData {
 
 interface StandingsProps {
   data: StandingData[];
+  order?: "ascending" | "descending";
+  thumbsUpTop?: number;
+  thumbsDownBottom?: number;
 }
 
-export const Standings: React.FC<StandingsProps> = ({ data }) => {
-  // Sort data by percentage in descending order
-  const sortedData = [...data].sort((a, b) => b.percentage - a.percentage);
+export const Standings: React.FC<StandingsProps> = ({
+  data,
+  order = "descending",
+  thumbsDownBottom = 0,
+  thumbsUpTop = 0,
+}) => {
+  // Sort data by percentage
+  const sortedData = data.toSorted((a, b) => b.percentage - a.percentage);
+
+  if (order === "ascending") {
+    sortedData.reverse();
+  }
 
   return (
     <div className="flex flex-col overflow-hidden">
@@ -25,9 +37,9 @@ export const Standings: React.FC<StandingsProps> = ({ data }) => {
             percentage={item.percentage}
             evolution={item.evolution}
             iconType={
-              index + 1 <= 5
+              index < thumbsUpTop
                 ? "up"
-                : index + 1 >= sortedData.length - 4
+                : index >= sortedData.length - thumbsDownBottom
                   ? "down"
                   : "none"
             }
