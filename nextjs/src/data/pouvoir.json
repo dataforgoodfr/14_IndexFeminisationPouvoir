@@ -68,7 +68,7 @@
         },
         "parite_groupes": {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
-          "dateMiseAJour": "2025-01-01",
+          "dateMiseAJour": "2026-01-01",
           "data": [
             {
               "nom": "Écologistes",
@@ -117,7 +117,7 @@
         },
         "parite_groupes": {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
-          "dateMiseAJour": "2025-01-01",
+          "dateMiseAJour": "2026-01-01",
           "data": [
             {
               "nom": "Écologistes",
@@ -145,90 +145,90 @@
     }
   },
   "local": {
-    "evolution": 2.5,
-    "score": 24.7,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
+    "evolution": -9.0,
+    "score": 22.43,
+    "annee": 2026,
+    "dateMiseAJour": "2026-01-01",
     "composantes": {
       "presidentesRegion": {
-        "score": 29.4,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 24.0,
+        "annee": 2026,
+        "evolution": -18.0
       },
       "directricesCabinetRegion": {
-        "score": 25.0,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 19.0,
+        "annee": 2026,
+        "evolution": -24.0
       },
       "presidentsDepartement": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 21.0,
+        "annee": 2026,
+        "evolution": -4.0
       },
       "directricesCabinetDepartement": {
-        "score": 34.3,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 27.0,
+        "annee": 2026,
+        "evolution": 19.47
       },
       "maires": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 23.0,
+        "annee": 2026,
+        "evolution": 10.58
       },
       "mairesPrefecture": {
-        "score": 16.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 13.0,
+        "annee": 2026,
+        "evolution": -30.85
       },
       "directricesCabinetMairiesPrefecture": {
-        "score": 34.3,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 30.0,
+        "annee": 2026,
+        "evolution": -12.54
       }
     },
     "collectivites": {
       "régions": {
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
         "composantes": {
           "présidentes": {
-            "valeur": 29.4,
+            "valeur": 24.0,
             "evolution": 1
           },
           "directrices_cabinet": {
-            "valeur": 25.0,
+            "valeur": 19.0,
             "evolution": 1
           }
         }
       },
       "départements": {
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
         "composantes": {
           "présidentes": {
-            "valeur": 20.8,
+            "valeur": 21.0,
             "evolution": 1
           },
           "directrices_cabinet": {
-            "valeur": 34.3,
+            "valeur": 27.0,
             "evolution": 1
           }
         }
       },
       "communes": {
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
         "composantes": {
           "maires": {
-            "valeur": 20.8,
+            "valeur": 23.0,
             "evolution": 1
           },
           "maires_prefecture": {
-            "valeur": 16.8,
+            "valeur": 13.0,
             "evolution": 1
           },
           "directrices_cabinet_prefecture": {
-            "valeur": 34.3,
+            "valeur": 30.0,
             "evolution": 1
           }
         }
@@ -236,10 +236,10 @@
     }
   },
   "autre": {
-    "score": 19.8,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
-    "evolution": -1.2,
+    "score": 23.40,
+    "annee": 2026,
+    "dateMiseAJour": "2026-01-01",
+    "evolution": 18.0,
     "composantes": {}
   }
 }

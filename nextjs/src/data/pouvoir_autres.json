@@ -1,8 +1,8 @@
 {
   "prefectures": {
-    "score": 29.4,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 17.0,
+    "evolution": -13.27,
+    "dateMiseAJour": "2026-01-01",
     "description": [
       "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
       "Représente le Premier ministre et chaque ministre dans les départements pour la mise en œuvre de la politique nationale et communautaire.",
@@ -120,9 +120,9 @@
     "departements_femmes_prefetes": ["31", "78", "976", "987"]
   },
   "ambassades": {
-    "score": 34.9,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 34.0,
+    "evolution": -2.58,
+    "dateMiseAJour": "2026-01-01",
     "description": [
       "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
       "Nommé·e par le Président de la République en Conseil des ministres sur proposition du ministre des Affaires étrangères."
@@ -145,9 +145,9 @@
     "pays_femmes_ambassadrices": ["AZ", "AT", "US"]
   },
   "haute_autorite": {
-    "score": 34.3,
-    "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "score": 36.0,
+    "evolution": 4.96,
+    "dateMiseAJour": "2026-01-01",
     "description": [
       "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
       "Les autorités indépendantes régulent des secteurs spécifiques avec des rôles variés\u00a0: recommandation, nomination, régulation, sanction.",
@@ -158,16 +158,16 @@
   "partis_politiques": {
     "score": 10,
     "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "dateMiseAJour": "2026-01-01",
     "femmes": 1,
     "total": 10,
     "context": "Les partis politiques continuent de structurer la vie politique française. Oxfam a analysé les principaux partis en France représentés à l'Assemblée nationale.",
     "infobox": "Sur 10 principaux partis français, 1 seul est dirigé par une femme\u00a0: Les Écologistes, dirigé par Marine Tondelier."
   },
   "hautes_juridictions": {
-    "score": 0,
+    "score": 20.0,
     "evolution": 0,
-    "dateMiseAJour": "2025-01-01",
+    "dateMiseAJour": "2026-01-01",
     "institutions": [
       {
         "id": "cour-cassation",
