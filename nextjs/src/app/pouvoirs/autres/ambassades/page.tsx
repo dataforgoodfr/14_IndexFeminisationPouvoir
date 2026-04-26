@@ -93,9 +93,9 @@ export default async function AmbassadesPage() {
           <h3 className="header-h3 text-foundations-violet-principal uppercase">
             Mais aussi...
           </h3>
-          <p className="body2-regular text-black flex flex-col gap-4">
+          <div className="body2-regular text-black flex flex-col gap-4">
             {t.rich("mais_aussi", richComponents)}
-          </p>
+          </div>
         </div>
       </div>
     </>
