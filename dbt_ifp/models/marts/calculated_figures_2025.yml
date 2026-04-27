@@ -34,5 +34,5 @@ models:
           - dbt_utils.expression_is_true:
               expression: ">= 0"
 
-      - name: nb_personnes_attendues
+      - name: nb_personnes_attendu
         description: "Effectif attendu."
