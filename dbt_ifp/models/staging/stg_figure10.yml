@@ -5,12 +5,24 @@ models:
     description: >
         Liste des ambassadrices, ambassadeurs et représentant·es permanent·es dans les organisations internationales
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         description: année de la récupération des données
         data_type: INTEGER
         data_tests:
           - not_null
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
         data_type: TEXT
         data_tests:
@@ -30,7 +42,7 @@ models:
       - name: personne_nom
         description: Nom de la personne 
         data_type: TEXT
-      - name: genre 
+      - name: personne_genre 
         description: Genre de la personne (F or M)
         data_type: TEXT
         data_tests:
@@ -41,16 +53,12 @@ models:
       - name: poste_libelle
         description: Intitulé du poste de la personne      
         data_type: TEXT
-      - name: zone_geographique_libelle
-        description: Lieu d'exercice de la personne - Pays
+      - name: pays_libelle
+        description: Pays d'exercice de la personne - Pays
         data_type: TEXT 
         data_tests:
           - not_null
-      - name: zone_geographique_type
-        description: Lieu d'exercice de la personne - Institution ("pays" ou "organisation internationale")
-        data_type: TEXT  
-        data_tests:
-          - not_null
+
       - name: source_url
         description: URL de provenance de la donnée
         data_type: TEXT

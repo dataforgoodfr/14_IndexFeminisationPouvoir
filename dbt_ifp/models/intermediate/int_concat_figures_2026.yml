@@ -9,7 +9,7 @@ models:
         tests:
           - not_null
 
-      - name: id
+      - name: personne_id
         description: "Identifiant unique provenant de la source."
         tests:
           - not_null
@@ -19,7 +19,7 @@ models:
         tests:
           - not_null
 
-      - name: genre
+      - name: personne_genre
         description: "Genre de la personne (H/F)."
         tests:
           - not_null

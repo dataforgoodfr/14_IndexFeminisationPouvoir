@@ -2,32 +2,44 @@ models:
   - name: stg_figure2c
     description: "La liste des membres du bureau de l’Assemblée Nationale, récupérée par scraping"
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         data_type: integer
         description: année de la récupération des données
         data_tests:
           - not_null
 
-      - name: id
+      - name: personne_id
         data_type: text
         description: "L’id de la ligne, généré par hachage du nom et prénom de l’élu·e"
         data_tests:
           - unique
           - not_null
 
-      - name: prenom_elu
+      - name: personne_prenom
         data_type: text
         description: "Le prénom de la personne"
         data_tests:
           - not_null
 
-      - name: nom_elu
+      - name: personne_nom
         data_type: text
         description: "Le nom de la personne"
         data_tests:
           - not_null
 
-      - name: genre
+      - name: personne_genre
         data_type: text
         description: "Le genre de la personne : 'M' ou 'F'"
         data_tests:
@@ -44,14 +56,9 @@ models:
         data_type: text
         description: "Le libellé du poste au bureau de l’Assemblée Nationale occupé par la personne"
 
-      - name: zone_geographique_libelle
+      - name: departement_libelle
         data_type: text
-        description: "Le libellé de la zone géographique dans laquelle la personne a été élue"
-
-      - name: zone_geographique_type
-        data_type: text
-        description: "Le type de zone géographique dans lequel la personne a été élue (à priori toujours 
-        'circonscription')"
+        description: "Le libellé du département dans lequel la personne a été élue"
 
       - name: source_url
         data_type: text

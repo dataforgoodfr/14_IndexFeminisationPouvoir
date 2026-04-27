@@ -4,15 +4,18 @@
 {% for year in range(start_year, current_year + 1) %}
 
 select
+    'figure2c' as figure,
+	'parlement' as institution_type,
+	'Pouvoir parlementaire' as pouvoir_type,
     {{ year }} as annee_partition,
-    md5(personne_prenom || personne_nom || zone_geographique_libelle || {{ year }}::text) as id,
-    personne_prenom as prenom_elu,
-    personne_nom as nom_elu,
-    personne_genre as genre,
+    {{ dbt_utils.generate_surrogate_key(['personne_nom', 'personne_prenom']) }} AS personne_id,
+    -- md5(personne_prenom || personne_nom || zone_geographique_libelle || {{ year }}::text) as personne_id,
+    personne_prenom,
+    personne_nom,
+    personne_genre,
     groupe_politique_libelle,
     poste_libelle,
-    zone_geographique_libelle,
-    zone_geographique_type,
+    SPLIT_PART(zone_geographique_libelle, ' (', 1) as departement_libelle,
     source_url
 
 from {{ ref('figure2c_' ~ year) }}

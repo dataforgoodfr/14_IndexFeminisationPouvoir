@@ -4,14 +4,18 @@
 
 {% for year in range(start_year, current_year + 1) %}
 select
+    'figure4' as figure,
+	'parlement_europeen' as institution_type,
+	'Pouvoir local' as pouvoir_type,
     {{ year }} as annee_partition,
-    __id as id,
-    "Nom de l'élu" as nom_elu,
-    "Prénom de l'élu" as prenom_elu,
-    "Code sexe" as genre,
+    -- {{ dbt_utils.generate_surrogate_key(["Nom de l'élu", "Prénom de l'élu"]) }} AS personne_id,
+    __id as personne_id,
+    "Nom de l'élu" as personne_nom,
+    "Prénom de l'élu" as personne_prenom,
+    "Code sexe" as personne_genre,
     "Date de naissance" as date_naissance,
-    "Code de la catégorie socio-professionnelle" as code_csp,
-    "Libellé de la catégorie socio-professionnelle" as libelle_csp,
+    Cast("Code de la catégorie socio-professionnelle" as TEXT) as csp_code,
+    "Libellé de la catégorie socio-professionnelle" as csp_libelle,
     "Date de début du mandat" as date_debut_mandat,
     source_url
 from

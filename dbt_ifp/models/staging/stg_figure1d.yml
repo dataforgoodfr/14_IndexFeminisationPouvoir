@@ -5,12 +5,24 @@ models:
     description: >
       Liste des membres du cabinet du Premier Ministre
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text et poste_libelle
         type: TEXT
         data_tests:
@@ -30,7 +42,7 @@ models:
       - name: personne_nom
         description: Nom de la ou du membre du cabinet
         type: TEXT
-      - name: genre
+      - name: personne_genre
         description: F or M
         type: TEXT
         data_tests:
@@ -43,12 +55,11 @@ models:
         tests:
           - not_null
         type: TEXT
-      - name: zone_geographique_libelle
+      - name: entite_libelle,
         description: Nom du cabinet ou du pôle
         type: TEXT
-        data_tests:
-          - not_null 
-      - name: zone_geographique_type
+
+      - name: institution_type
         description: toujours "gouvernement"
         type: TEXT
         data_tests:

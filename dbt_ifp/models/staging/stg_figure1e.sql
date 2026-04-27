@@ -4,15 +4,18 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
+    'figure1e' as figure,
+	'gouvernement' as institution_type,
+	'Pouvoir exécutif' as pouvoir_type,
     {{ year }} AS annee_partition,
-    md5(personne_raw_text || zone_geographique_libelle) AS id,
+    {{ dbt_utils.generate_surrogate_key(['personne_nom', 'personne_prenom']) }} AS personne_id,
+    -- md5(personne_raw_text || zone_geographique_libelle) AS personne_id,
     personne_civilite,
     personne_prenom,
     personne_nom,
-    personne_genre AS genre,
+    personne_genre,
     poste_libelle,
-    zone_geographique_libelle,
-    'gouvernement' as zone_geographique_type,
+    zone_geographique_libelle as entite_libelle,
     source_url
 FROM
     {{ ref('figure1e_' ~ year) }}
