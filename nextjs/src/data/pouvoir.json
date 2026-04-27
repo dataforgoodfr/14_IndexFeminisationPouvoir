@@ -1,74 +1,74 @@
 {
-  "dateMiseAJour": "2025",
+  "dateMiseAJour": "2026",
   "executif": {
-    "score": 29.61,
-    "evolution": 2.5,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
+    "score": 32.6,
+    "evolution": 10,
+    "annee": 2026,
+    "dateMiseAJour": "2026-04-01",
     "composantes": {
       "gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 50
+        "annee": 2026,
+        "evolution": -6,
+        "score": 47
       },
       "ministeres_regaliens": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 0
+        "annee": 2026,
+        "evolution": 17,
+        "score": 17
       },
       "cabinet_presidence": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 35.2
+        "annee": 2026,
+        "evolution": -12,
+        "score": 31
       },
       "cabiner_premier_ministre": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 42.9
+        "annee": 2026,
+        "evolution": -25.4,
+        "score": 32
       },
       "directrices_cabinet_gouvernement": {
-        "annee": 2025,
-        "evolution": 2.5,
-        "score": 20
+        "annee": 2026,
+        "evolution": 80,
+        "score": 36
       }
     }
   },
   "parlementaire": {
-    "score": 28.6,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
-    "evolution": 2.5,
+    "score": 34.78,
+    "annee": 2026,
+    "dateMiseAJour": "2026-04-01",
+    "evolution": -10,
     "composantes": {
       "assemblee_nationale": {
-        "annee": 2025,
-        "score": 28.6,
-        "evolution": 2.5,
+        "annee": 2026,
+        "score": 33.5,
+        "evolution": -16,
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "deputees": {
-            "score": 36,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 39,
+            "annee": 2026,
+            "evolution": 8.33
           },
           "bureau": {
-            "score": 59,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 55,
+            "annee": 2026,
+            "evolution": -6.78
           },
           "presidente_commission": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 13,
+            "annee": 2026,
+            "evolution": -65.33
           },
           "presidente_groupe": {
-            "score": 37.5,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 27,
+            "annee": 2026,
+            "evolution": -1.1
           }
         },
         "parite_groupes": {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
-          "dateMiseAJour": "2025-01-01",
+          "dateMiseAJour": "2026-01-01",
           "data": [
             {
               "nom": "Écologistes",
@@ -89,35 +89,35 @@
         }
       },
       "senat": {
-        "annee": 2025,
-        "score": 24.7,
-        "evolution": 2.5,
+        "annee": 2026,
+        "score": 32.75,
+        "evolution": -2,
         "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
         "composantes": {
           "senatrices": {
-            "score": 25,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 38,
+            "annee": 2026,
+            "evolution": 1.6
           },
           "bureau": {
-            "score": 50,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 46,
+            "annee": 2026,
+            "evolution": 0
           },
           "presidente_commission": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 25,
+            "annee": 2026,
+            "evolution": -12.59
           },
           "presidente_groupe": {
-            "score": 33.3,
-            "annee": 2025,
-            "evolution": 2.5
+            "score": 22,
+            "annee": 2026,
+            "evolution": 0.9
           }
         },
         "parite_groupes": {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
-          "dateMiseAJour": "2025-01-01",
+          "dateMiseAJour": "2026-01-01",
           "data": [
             {
               "nom": "Écologistes",
@@ -138,111 +138,108 @@
         }
       },
       "europeen": {
-        "annee": 2025,
-        "score": 31.2,
-        "evolution": 2.5
+        "annee": 2026,
+        "score": 48,
+        "evolution": -9.77
       }
     }
   },
   "local": {
-    "evolution": 2.5,
-    "score": 24.7,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
+    "evolution": -9.0,
+    "score": 22.43,
+    "annee": 2026,
+    "dateMiseAJour": "2026-01-01",
     "composantes": {
       "presidentesRegion": {
-        "score": 29.4,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 24.0,
+        "annee": 2026,
+        "evolution": -18.0
       },
       "directricesCabinetRegion": {
-        "score": 25.0,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 19.0,
+        "annee": 2026,
+        "evolution": -24.0
       },
       "presidentsDepartement": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 21.0,
+        "annee": 2026,
+        "evolution": -4.0
       },
       "directricesCabinetDepartement": {
-        "score": 34.3,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 27.0,
+        "annee": 2026,
+        "evolution": 19.47
       },
       "maires": {
-        "score": 20.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 23.0,
+        "annee": 2026,
+        "evolution": 10.58
       },
       "mairesPrefecture": {
-        "score": 16.8,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 13.0,
+        "annee": 2026,
+        "evolution": -30.85
       },
       "directricesCabinetMairiesPrefecture": {
-        "score": 34.3,
-        "annee": 2025,
-        "evolution": 2.5
+        "score": 30.0,
+        "annee": 2026,
+        "evolution": -12.54
       }
     },
-    "collectivites": [
-      {
-        "titre": "Régions",
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
-            "valeur": 29.4,
-            "role": "présidant une région"
+    "collectivites": {
+      "régions": {
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
+        "composantes": {
+          "présidentes": {
+            "valeur": 24.0,
+            "evolution": 1
           },
-          {
-            "valeur": 25.0,
-            "role": "directrices de cabinet d'un.e président.e de région"
+          "directrices_cabinet": {
+            "valeur": 19.0,
+            "evolution": 1
           }
-        ]
+        }
       },
-      {
-        "titre": "Départements",
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
-            "valeur": 20.8,
-            "role": "présidant un département"
+      "départements": {
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
+        "composantes": {
+          "présidentes": {
+            "valeur": 21.0,
+            "evolution": 1
           },
-          {
-            "valeur": 34.3,
-            "role": "directrices de cabinet d'un.e président.e de département"
+          "directrices_cabinet": {
+            "valeur": 27.0,
+            "evolution": 1
           }
-        ]
+        }
       },
-      {
-        "titre": "Communes",
-        "annee": 2025,
-        "dateMiseAJour": "2025-01-01",
-        "stats": [
-          {
-            "valeur": 20.8,
-            "role": "maires"
+      "communes": {
+        "annee": 2026,
+        "dateMiseAJour": "2026-01-01",
+        "composantes": {
+          "maires": {
+            "valeur": 23.0,
+            "evolution": 1
           },
-          {
-            "valeur": 16.8,
-            "role": "maires de préfecture"
+          "maires_prefecture": {
+            "valeur": 13.0,
+            "evolution": 1
           },
-          {
-            "valeur": 34.3,
-            "role": "directrices de cabinet des mairies de préfecture"
+          "directrices_cabinet_prefecture": {
+            "valeur": 30.0,
+            "evolution": 1
           }
-        ]
+        }
       }
-    ]
+    }
   },
   "autre": {
-    "score": 19.8,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
-    "evolution": -1.2,
+    "score": 23.40,
+    "annee": 2026,
+    "dateMiseAJour": "2026-01-01",
+    "evolution": 18.0,
     "composantes": {}
   }
 }

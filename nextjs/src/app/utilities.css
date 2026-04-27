@@ -5,7 +5,7 @@
     @apply relative z-1;
   }
   .svg-bg {
-    @apply relative -z-1;
+    @apply relative;
   }
   .svg::after,
   .svg-bg::after {
@@ -20,22 +20,32 @@
     @apply bg-top bg-auto;
     background-image: var(--hero-svg-url);
     background-size: cover;
+    background-color: var(--color-foundations-violet-principal);
+  }
+
+  .svg-trees-violet {
+    @apply relative fill-foundations-violet-clair z-1;
+    background-color: var(--color-foundations-violet-principal);
+    background-image: var(--bg-trees-violet-svg-url);
+  }
+  .svg-trees-violet::after {
+    @apply bg-cover bg-repeat;
   }
 
   .svg-tree-red {
     @apply relative bg-foundations-rouge-principal z-1;
+    background-image: var(--bg-trees-svg-url);
   }
   .svg-tree-red::after {
     @apply bg-cover -z-1 opacity-10;
-    background-image: var(--bg-trees-svg-url);
   }
 
   .svg-tree-green {
     @apply relative bg-green-oxfam-600 z-1;
+    background-image: var(--bg-trees-svg-url);
   }
   .svg-tree-green::after {
     @apply bg-cover -z-1 opacity-15;
-    background-image: var(--bg-trees-svg-url);
   }
 
   .svg-chiffres-outremers::after {
@@ -73,10 +83,11 @@
 
   /* Button */
   .button {
-    @apply h-10 px-3 flex flex-row gap-3 items-center justify-center text-foundations-violet-principal bg-white font-headline;
+    @apply h-10 px-3 flex flex-row gap-3 items-center justify-center bg-white font-headline border-white text-foundations-violet-principal hover:bg-foundations-violet-tres-clair focus:border-foundations-violet-clair;
   }
+
   .button-primary {
-    @apply bg-foundations-violet-principal text-white;
+    @apply bg-foundations-violet-principal border-2 border-foundations-violet-principal text-white hover:text-foundations-violet-principal hover:bg-transparent hover:border-2 focus:bg-foundations-violet-clair focus:border-foundations-violet-clair focus:text-white;
     & svg {
       @apply fill-white;
     }
@@ -88,10 +99,10 @@
   }
 
   .divider-dashed {
-    @apply hidden lg:block border-l-2 border-dashed border-foundations-violet-principal;
+    @apply border-l-0 lg:border-l-2 border-dashed border-foundations-violet-principal;
   }
   .divider-dashed-horizontal {
-    @apply hidden lg:block border-t-2 border-dashed border-foundations-violet-principal;
+    @apply border-t-0 lg:border-t-2 border-dashed border-foundations-violet-principal;
   }
 
   /* Carousel */

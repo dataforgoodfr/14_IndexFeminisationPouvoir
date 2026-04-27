@@ -20,7 +20,7 @@ export const Block = ({
 }: BlockProps) => (
   <div className={cn("relative pt-5 pb-2", className)}>
     {/* Badge titre centré sur la bordure supérieure de la carte */}
-    <div className="absolute min-w-40 text-center top-8 -left-4 z-10 bg-foundations-violet-principal rounded-md px-6 py-2">
+    <div className="absolute min-w-40 text-center top-8 -left-4 z-10 bg-foundations-violet-principal px-6 py-2">
       <span className="header-h3 text-white">{titre}</span>
     </div>
 

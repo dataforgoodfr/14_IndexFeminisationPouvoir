@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
 import { SectionTitle } from "./titles";
@@ -82,6 +82,7 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
   const [direction, setDirection] = useState<"left" | "right">("right");
   const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   useEffect(() => {
     return () => {
@@ -91,35 +92,80 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
     };
   }, []);
 
+  const moveTo = useCallback(
+    (nextIndex: number, nextDirection: "left" | "right") => {
+      if (isAnimating || nextIndex === activeIndex) {
+        return;
+      }
+
+      setDirection(nextDirection);
+      setIsAnimating(true);
+      setActiveIndex(nextIndex);
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
+        setIsAnimating(false);
+      }, 520);
+    },
+    [activeIndex, isAnimating],
+  );
+
+  const handlePrevious = useCallback(() => {
+    moveTo((activeIndex - 1 + items.length) % items.length, "left");
+  }, [activeIndex, items.length, moveTo]);
+
+  const handleNext = useCallback(() => {
+    moveTo((activeIndex + 1) % items.length, "right");
+  }, [activeIndex, items.length, moveTo]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const distance = touchStart - e.changedTouches[0].clientX;
+    if (distance > 50) handleNext();
+    else if (distance < -50) handlePrevious();
+    setTouchStart(null);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const isTypingField =
+        target?.isContentEditable ||
+        target?.tagName === "INPUT" ||
+        target?.tagName === "TEXTAREA" ||
+        target?.tagName === "SELECT";
+
+      if (isTypingField) {
+        return;
+      }
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        handlePrevious();
+      }
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        handleNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleNext, handlePrevious]);
+
   if (items.length === 0) {
     return null;
   }
-
-  const moveTo = (nextIndex: number, nextDirection: "left" | "right") => {
-    if (isAnimating || nextIndex === activeIndex) {
-      return;
-    }
-
-    setDirection(nextDirection);
-    setIsAnimating(true);
-    setActiveIndex(nextIndex);
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setIsAnimating(false);
-    }, 520);
-  };
-
-  const handlePrevious = () => {
-    moveTo((activeIndex - 1 + items.length) % items.length, "left");
-  };
-
-  const handleNext = () => {
-    moveTo((activeIndex + 1) % items.length, "right");
-  };
 
   const activeItem = items[activeIndex];
   const visibleItems = items
@@ -132,7 +178,12 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
     .sort((a, b) => a.relativeOffset - b.relativeOffset);
 
   return (
-    <section className="relative overflow-x-clip px-4 py-12 md:px-8 lg:px-12">
+    <section
+      className="relative overflow-x-clip px-4 py-12 md:px-8 lg:px-12"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      aria-label="Carrousel des pionnières"
+    >
       <div className="relative mx-auto flex max-w-6xl flex-col items-center">
         <div className="flex h-84 w-full items-center justify-center md:h-100 lg:h-112">
           {visibleItems.map(({ item, index, relativeOffset }) => {
@@ -153,7 +204,7 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
                   "relative shrink-0 overflow-hidden rounded-full border-[6px] border-foundations-violet-clair bg-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                   getItemClasses(relativeOffset),
                   isActive
-                    ? "cursor-default border-foundations-bleu-site"
+                    ? "cursor-default border-foundations-violet-clair"
                     : "cursor-pointer hover:border-foundations-violet-principal",
                 )}
                 aria-label={
@@ -171,11 +222,11 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
         </div>
 
         <div className="relative z-40 -mt-2 flex w-full max-w-4xl flex-col items-center gap-6 md:-mt-8">
-          <div className="flex w-full items-start justify-between gap-4 md:items-center">
+          <div className="relative flex w-full items-start justify-center md:items-center md:justify-between">
             <button
               type="button"
               onClick={handlePrevious}
-              className="mt-5 flex size-12 shrink-0 items-center justify-center rounded-full  bg-white text-foundations-violet-principal transition-colors hover:border-foundations-violet-principal hover:bg-foundations-violet-tres-clair cursor-pointer disabled:opacity-50 md:mt-0"
+              className="absolute left-0 top-2 z-10 flex size-12 shrink-0 items-center justify-center rounded-full border border-transparent bg-white text-foundations-violet-principal transition-colors hover:border-foundations-violet-principal hover:bg-foundations-violet-tres-clair cursor-pointer disabled:opacity-50 md:static md:top-auto"
               aria-label="Pionniere precedente"
               disabled={isAnimating}
             >
@@ -185,7 +236,7 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
             <div
               key={`${activeItem.id}-${direction}`}
               className={cn(
-                "flex-1 text-center",
+                "min-w-0 flex-1 px-14 text-center md:px-0",
                 direction === "right"
                   ? "carousel-copy-enter-right"
                   : "carousel-copy-enter-left",
@@ -196,6 +247,8 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
                 title={activeItem.name}
                 subtitle={activeItem.role}
                 classes={{
+                  root: "w-full",
+                  title: "text-[34px] leading-tight sm:text-[44px]",
                   subtitle: "header-h3",
                 }}
               />
@@ -204,7 +257,7 @@ export function PionnieresCarousel({ items }: PionnieresCarouselProps) {
             <button
               type="button"
               onClick={handleNext}
-              className="mt-5 flex size-12 shrink-0 items-center justify-center rounded-full  bg-white text-foundations-violet-principal transition-colors hover:border-foundations-violet-principal hover:bg-foundations-violet-tres-clair cursor-pointer disabled:opacity-50 md:mt-0"
+              className="absolute right-0 top-2 z-10 flex size-12 shrink-0 items-center justify-center rounded-full border border-transparent bg-white text-foundations-violet-principal transition-colors hover:border-foundations-violet-principal hover:bg-foundations-violet-tres-clair cursor-pointer disabled:opacity-50 md:static md:top-auto"
               aria-label="Pionniere suivante"
               disabled={isAnimating}
             >
