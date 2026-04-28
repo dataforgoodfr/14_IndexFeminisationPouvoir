@@ -553,8 +553,8 @@ export const WorldMapSVG = ({
         <g id="Group">
           {Object.entries(COUNTRY_PATHS).map(([countryCode, pathData]) => (
             <path key={countryCode} id={countryCode} d={pathData}>
-              {/* Set Title only if the country is in the list of femme ambassadrices */}
-              {femmeAmbassadrices.includes(countryCode) && (
+              {/* Set Title only if the country is in the list of highlighted countries */}
+              {highlightedCountries.includes(countryCode) && (
                 <title>{getCountryName(countryCode)}</title>
               )}
             </path>
