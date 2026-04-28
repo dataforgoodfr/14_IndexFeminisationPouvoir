@@ -405,7 +405,8 @@ export function LocalTerritorySelector() {
     [selectedRegion],
   );
   const regionSliderDatas = useMemo(
-    () => (selectedRegionObj ? buildSliderDatas(selectedRegionObj, "region") : []),
+    () =>
+      selectedRegionObj ? buildSliderDatas(selectedRegionObj, "region") : [],
     [selectedRegionObj],
   );
 
