@@ -31,7 +31,6 @@ export const OutreMerMapSVG = ({
   const outreMerList = data_maps_svg["outre-mer"].map((item) => item.nom);
 
   if (!outreMerList.includes(regionName as string)) {
-    console.log(regionName);
     return <div>Carte non trouvée</div>;
   }
 
