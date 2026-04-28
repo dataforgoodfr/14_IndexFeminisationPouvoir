@@ -1,5 +1,5 @@
 "use client";
-
+// import type {}
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
@@ -10,14 +10,60 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
-import type { SliderGroup, SliderItem } from "@/components/TerritorySlider";
+import type { SliderData, SliderItem } from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
-import sliderTextData from "@/data/territory-sliders-text.json";
-import sliderValuesData from "@/data/territory-sliders-values.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
+
+// Score and evolution metrics
+export type ScoreEvolution = {
+  score: number;
+  evolution: number;
+};
+
+export type DataPouvoir = {
+  score: number;
+  evolution: number;
+  composantes?: Record<string, ScoreEvolution>;
+};
+
+// RegionJson/territory with all local governance sections
+export type RegionJsonData = {
+  code: string;
+  nom: string;
+  score: number;
+  evolution: number;
+  conseilRegional: DataPouvoir;
+  conseilDepartemental: DataPouvoir;
+  conseilCommunautaires: DataPouvoir;
+  mairesConseilMunicipaux: DataPouvoir;
+  communesPlus1000: ScoreEvolution;
+  [key: string]: string | number | DataPouvoir | ScoreEvolution;
+};
+
+// RegionJson/territory with all local governance sections
+export type DepartementJsonData = {
+  code: string;
+  nom: string;
+  code_region: string;
+  score: number;
+  evolution: number;
+  conseilDepartemental: DataPouvoir;
+  conseilCommunautaires: DataPouvoir;
+  mairesConseilMunicipaux: DataPouvoir;
+  [key: string]: string | number | DataPouvoir | ScoreEvolution;
+};
+
+// Top-level pouvoir_local.json structure
+export type PouvoirLocalJsonData = {
+  regions: RegionJsonData[];
+  departements: DepartementJsonData[];
+  "outre-mer": RegionJsonData[];
+  annee: number;
+  dateMiseAJour: string;
+};
 
 const {
   dateMiseAJour,
@@ -25,7 +71,299 @@ const {
   departements,
   regions,
   annee,
-} = dataPouvoirLocal;
+} = dataPouvoirLocal as PouvoirLocalJsonData;
+
+// Configuration mapping for slider item paths
+const departementItemsKeys: Record<
+  string,
+  {
+    title: string;
+    large: Array<{ keys: string[]; label: string }>;
+    small: Array<{ keys: string[]; label: string }>;
+  }
+> = {
+  conseilDepartemental: {
+    title: "Conseil départemental",
+    large: [{ keys: ["conseilDepartemental"], label: " " }],
+    small: [
+      {
+        keys: ["conseilDepartemental", "composantes", "presidente_departement"],
+        label: "Présidente de département",
+      },
+      {
+        keys: [
+          "conseilDepartemental",
+          "composantes",
+          "directrices_cabinet_pres_departement",
+        ],
+        label: "Directrice de cabinet d'un.e président.e de département",
+      },
+    ],
+  },
+  conseilCommunautaires: {
+    title: "Conseil communautaire",
+    large: [{ keys: ["conseilCommunautaires"], label: " " }],
+    small: [
+      {
+        keys: [
+          "conseilCommunautaires",
+          "composantes",
+          "presidente_conseils_communautaires",
+        ],
+        label: "Présidentes des conseils communautaires",
+      },
+    ],
+  },
+  mairesConseilMunicipaux: {
+    title: "Mairies et conseillers municipaux",
+    large: [
+      { keys: ["mairesConseilMunicipaux"], label: " " },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "maires"],
+        label: "Maires",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "maires_prefectures"],
+        label: "Maires des préfectures",
+      },
+    ],
+    small: [
+      {
+        keys: [
+          "mairesConseilMunicipaux",
+          "composantes",
+          "directrices_cabinet_maires",
+        ],
+        label: "Directrices du cabinet des maires",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "1ere_adjointe"],
+        label: "1ère adjointe",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "2e_adjointe"],
+        label: "2ème adjointe",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "autres_adjointes"],
+        label: "Autres adjointes",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "autres_conseilleres"],
+        label: "Autres conseillères",
+      },
+      {
+        keys: [
+          "mairesConseilMunicipaux",
+          "composantes",
+          "maires_communes_moins_1000",
+        ],
+        label: "communes < 1000 hab.",
+      },
+    ],
+  },
+};
+
+const regionItemsKeys: Record<
+  string,
+  {
+    title: string;
+    large: Array<{ keys: string[]; label: string }>;
+    small: Array<{ keys: string[]; label: string }>;
+  }
+> = {
+  conseilRegional: {
+    title: "Conseil régional",
+    large: [{ keys: ["conseilRegional"], label: " " }],
+    small: [
+      {
+        keys: ["conseilRegional", "composantes", "presidente_region"],
+        label: "Présidente de région",
+      },
+      {
+        keys: [
+          "conseilRegional",
+          "composantes",
+          "directrices_cabinet_pres_region",
+        ],
+        label: "Directrice de cabinet d'un.e président.e de région",
+      },
+    ],
+  },
+  conseilDepartemental: {
+    title: "Conseil départemental",
+    large: [{ keys: ["conseilDepartemental"], label: " " }],
+    small: [
+      {
+        keys: ["conseilDepartemental", "composantes", "presidente_departement"],
+        label: "Présidentes de département",
+      },
+      {
+        keys: [
+          "conseilDepartemental",
+          "composantes",
+          "directrices_cabinet_pres_departement",
+        ],
+        label: "Directrices de cabinet d'un.e président de département",
+      },
+    ],
+  },
+  conseilCommunautaires: {
+    title: "Conseil communautaires",
+    large: [{ keys: ["conseilCommunautaires"], label: " " }],
+    small: [
+      {
+        keys: [
+          "conseilCommunautaires",
+          "composantes",
+          "presidente_conseils_communautaires",
+        ],
+        label: "Présidentes de conseils communautaires",
+      },
+    ],
+  },
+  mairesConseilMunicipaux: {
+    title: "Mairies et conseil municipaux",
+    large: [
+      { keys: ["mairesConseilMunicipaux"], label: " " },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "maires"],
+        label: "Maires",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "maires_prefectures"],
+        label: "Maires des préfectures",
+      },
+    ],
+    small: [
+      {
+        keys: [
+          "mairesConseilMunicipaux",
+          "composantes",
+          "directrices_cabinet_maires",
+        ],
+        label: "Directrices du cabinet",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "1ere_adjointe"],
+        label: "1ère adjointe",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "2e_adjointe"],
+        label: "2ème adjointe",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "autres_adjointes"],
+        label: "Autres adjointes",
+      },
+      {
+        keys: ["mairesConseilMunicipaux", "composantes", "autres_conseilleres"],
+        label: "Autres conseillères",
+      },
+      {
+        keys: [
+          "mairesConseilMunicipaux",
+          "composantes",
+          "maires_communes_moins_1000",
+        ],
+        label: "communes < 1000 hab.",
+      },
+    ],
+  },
+  communesPlus1000: {
+    title: "Communes de plus de 1000 habitants",
+    large: [{ keys: ["communesPlus1000"], label: " " }],
+    small: [],
+  },
+};
+
+// Function to get access
+function getScoreEvolutionValueFromKeys(
+  obj: RegionJsonData | DepartementJsonData,
+  keys: string[],
+): ScoreEvolution | undefined {
+  const current = keys.reduce<ScoreEvolution | undefined>((acc, key) => {
+    if (
+      acc !== null &&
+      key in (acc as DataPouvoir | RegionJsonData | DepartementJsonData)
+    ) {
+      return (
+        acc as Record<string, number | RegionJsonData | DepartementJsonData>
+      )[key] as ScoreEvolution;
+    }
+    return undefined;
+  }, obj);
+
+  return current as ScoreEvolution;
+}
+
+function buildSliderDatas(
+  territoryJsonData: RegionJsonData | DepartementJsonData,
+  territoryType: "region" | "departement",
+): {
+  sliderDatas: SliderData[];
+} {
+  const itemsKeysConfig =
+    territoryType === "region" ? regionItemsKeys : departementItemsKeys;
+
+  const sliderDatas: SliderData[] = [];
+
+  for (const [
+    sectionKey,
+    { title: titleKey, large: largeKeys, small: smallKeys },
+  ] of Object.entries(itemsKeysConfig)) {
+    // Check if section exists in the data
+    if (!(sectionKey in territoryJsonData)) continue;
+
+    // Init slider_data for this section
+    const sliderData: SliderData = {
+      title: titleKey,
+      largeItems: [],
+      smallItems: [],
+    };
+
+    // Process large items
+    for (const { keys, label: itemTitle } of largeKeys) {
+      const scoreEvolutionData = getScoreEvolutionValueFromKeys(
+        territoryJsonData,
+        keys,
+      );
+
+      if (scoreEvolutionData) {
+        const slider_item: SliderItem = {
+          valeur: scoreEvolutionData.score,
+          evolution: scoreEvolutionData.evolution,
+          title: itemTitle,
+        };
+        sliderData.largeItems.push(slider_item);
+      }
+    }
+
+    // Process small items
+    for (const { keys, label: itemTitle } of smallKeys) {
+      const scoreEvolutionData = getScoreEvolutionValueFromKeys(
+        territoryJsonData,
+        keys,
+      );
+
+      if (scoreEvolutionData) {
+        const slider_item: SliderItem = {
+          valeur: scoreEvolutionData.score,
+          evolution: scoreEvolutionData.evolution,
+          title: itemTitle,
+        };
+        sliderData.smallItems.push(slider_item);
+      }
+    }
+
+    // Only add slider if it has at least one item
+    if (sliderData.largeItems.length > 0 || sliderData.smallItems.length > 0) {
+      sliderDatas.push(sliderData);
+    }
+  }
+
+  return { sliderDatas };
+}
 
 export function LocalTerritorySelector() {
   const searchParams = useSearchParams();
@@ -41,62 +379,6 @@ export function LocalTerritorySelector() {
     ...dataPerOutreMer,
     ...dataPerDepartement,
   };
-
-  // Memoize slider data for region
-  const regionSliderData = useMemo(() => {
-    const typeData = sliderValuesData[
-      "region" as keyof typeof sliderValuesData
-    ] as Record<string, Record<string, unknown>>;
-    const groupKeys = Object.keys(typeData);
-
-    const groups: SliderGroup[] = groupKeys.map((key) => {
-      const textRaw = (
-        sliderTextData["region" as keyof typeof sliderTextData] as Record<
-          string,
-          Record<string, unknown>
-        >
-      )?.[key];
-      const textSection = textRaw as Record<string, unknown>;
-      const title = (textSection?.title as string | undefined) || key;
-      return {
-        title,
-        largeItems:
-          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
-        smallItems:
-          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
-      };
-    });
-
-    return { groups, keys: groupKeys };
-  }, []);
-
-  // Memoize slider data for departement
-  const departementSliderData = useMemo(() => {
-    const typeData = sliderValuesData[
-      "departement" as keyof typeof sliderValuesData
-    ] as Record<string, Record<string, unknown>>;
-    const groupKeys = Object.keys(typeData);
-
-    const groups: SliderGroup[] = groupKeys.map((key) => {
-      const textRaw = (
-        sliderTextData["departement" as keyof typeof sliderTextData] as Record<
-          string,
-          Record<string, unknown>
-        >
-      )?.[key];
-      const textSection = textRaw as Record<string, unknown>;
-      const title = (textSection?.title as string | undefined) || key;
-      return {
-        title,
-        largeItems:
-          (typeData[key] as { largeItems?: SliderItem[] }).largeItems || [],
-        smallItems:
-          (typeData[key] as { smallItems?: SliderItem[] }).smallItems || [],
-      };
-    });
-
-    return { groups, keys: groupKeys };
-  }, []);
 
   // All regions combined
   const allRegions = [
@@ -322,49 +604,54 @@ export function LocalTerritorySelector() {
           </>
         )}
 
-        {isRegionSelected && (
-          <TerritoryView
-            annee={annee}
-            territoryName={selectedRegion}
-            territoryType="region"
-            dataPerZone={allDataPerZone}
-            onDepartementChange={handleDepartementChange}
-            sliderGroups={regionSliderData.groups}
-            sliderGroupKeys={regionSliderData.keys}
-            sliderTextLabels={
-              sliderTextData as unknown as Record<
-                string,
-                Record<
-                  string,
-                  { title: string; largeItems: string[]; smallItems: string[] }
-                >
-              >
-            }
-            dateMiseAJour={new Date(dateMiseAJour)}
-          />
-        )}
+        {isRegionSelected &&
+          (() => {
+            const selectedRegionObj = [...regions, ...outreMer].find(
+              (r) => r.nom === selectedRegion,
+            );
+            if (!selectedRegionObj) return null;
+            const { sliderDatas } = buildSliderDatas(
+              selectedRegionObj,
+              "region",
+            );
 
-        {isDepartementSelected && (
-          <TerritoryView
-            annee={annee}
-            territoryName={selectedDepartement}
-            territoryType="departement"
-            dataPerZone={allDataPerZone}
-            onDepartementChange={handleDepartementChange}
-            sliderGroups={departementSliderData.groups}
-            sliderGroupKeys={departementSliderData.keys}
-            sliderTextLabels={
-              sliderTextData as unknown as Record<
-                string,
-                Record<
-                  string,
-                  { title: string; largeItems: string[]; smallItems: string[] }
-                >
-              >
-            }
-            dateMiseAJour={new Date(dateMiseAJour)}
-          />
-        )}
+            return (
+              <TerritoryView
+                annee={annee}
+                territoryName={selectedRegion}
+                territoryType="region"
+                dataPerZone={allDataPerZone}
+                onDepartementChange={handleDepartementChange}
+                sliderDatas={sliderDatas}
+                dateMiseAJour={new Date(dateMiseAJour)}
+              />
+            );
+          })()}
+
+        {isDepartementSelected &&
+          (() => {
+            const selectedDepartementObj = departements.find(
+              (d) => d.nom === selectedDepartement,
+            );
+            if (!selectedDepartementObj) return null;
+
+            const { sliderDatas } = buildSliderDatas(
+              selectedDepartementObj,
+              "departement",
+            );
+
+            return (
+              <TerritoryView
+                annee={annee}
+                territoryName={selectedDepartement}
+                territoryType="departement"
+                dataPerZone={allDataPerZone}
+                onDepartementChange={handleDepartementChange}
+                sliderDatas={sliderDatas}
+                dateMiseAJour={new Date(dateMiseAJour)}
+              />
+            );
+          })()}
       </div>
     </div>
   );
