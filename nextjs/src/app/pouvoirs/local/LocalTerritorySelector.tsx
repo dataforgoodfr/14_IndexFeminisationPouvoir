@@ -72,15 +72,14 @@ const {
   annee,
 } = dataPouvoirLocal as PouvoirLocalJsonData;
 
+type SectionConfig = {
+  title: string;
+  large: Array<{ keys: string[]; label: string }>;
+  small: Array<{ keys: string[]; label: string }>;
+};
+
 // Configuration mapping for slider item paths
-const departementItemsKeys: Record<
-  string,
-  {
-    title: string;
-    large: Array<{ keys: string[]; label: string }>;
-    small: Array<{ keys: string[]; label: string }>;
-  }
-> = {
+const departementItemsKeys: Record<string, SectionConfig> = {
   conseilDepartemental: {
     title: "Conseil départemental",
     large: [{ keys: ["conseilDepartemental"], label: " " }],
@@ -163,14 +162,7 @@ const departementItemsKeys: Record<
   },
 };
 
-const regionItemsKeys: Record<
-  string,
-  {
-    title: string;
-    large: Array<{ keys: string[]; label: string }>;
-    small: Array<{ keys: string[]; label: string }>;
-  }
-> = {
+const regionItemsKeys: Record<string, SectionConfig> = {
   conseilRegional: {
     title: "Conseil régional",
     large: [{ keys: ["conseilRegional"], label: " " }],
@@ -280,19 +272,20 @@ function getScoreEvolutionValueFromKeys(
   obj: RegionJsonData | DepartementJsonData,
   keys: string[],
 ): ScoreEvolution | undefined {
-  const current = keys.reduce<ScoreEvolution | undefined>((acc, key) => {
-    if (
-      acc !== null &&
-      key in (acc as DataPouvoir | RegionJsonData | DepartementJsonData)
-    ) {
-      return (
-        acc as Record<string, number | RegionJsonData | DepartementJsonData>
-      )[key] as ScoreEvolution;
-    }
+  let current: unknown = obj;
+  for (const key of keys) {
+    if (current === null || typeof current !== "object") return undefined;
+    current = (current as Record<string, unknown>)[key];
+  }
+  const result = current as Record<string, unknown> | undefined;
+  if (
+    !result ||
+    typeof result.score !== "number" ||
+    typeof result.evolution !== "number"
+  ) {
     return undefined;
-  }, obj);
-
-  return current as ScoreEvolution;
+  }
+  return { score: result.score, evolution: result.evolution };
 }
 
 function buildSliderDatas(
