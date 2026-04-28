@@ -36,10 +36,9 @@ export type RegionJsonData = {
   evolution: number;
   conseilRegional: DataPouvoir;
   conseilDepartemental: DataPouvoir;
-  conseilCommunautaires: DataPouvoir;
-  mairesConseilMunicipaux: DataPouvoir;
+  conseilsCommunautaires: DataPouvoir;
+  mairesEtConseilsMunicipaux: DataPouvoir;
   communesPlus1000: ScoreEvolution;
-  [key: string]: string | number | DataPouvoir | ScoreEvolution;
 };
 
 // Structure JSON d'un département avec ses sections de gouvernance locale
@@ -50,9 +49,8 @@ export type DepartementJsonData = {
   score: number;
   evolution: number;
   conseilDepartemental: DataPouvoir;
-  conseilCommunautaires: DataPouvoir;
-  mairesConseilMunicipaux: DataPouvoir;
-  [key: string]: string | number | DataPouvoir | ScoreEvolution;
+  conseilsCommunautaires: DataPouvoir;
+  mairesEtConseilsMunicipaux: DataPouvoir;
 };
 
 // Top-level pouvoir_local.json structure
@@ -98,13 +96,13 @@ const departementItemsKeys: Record<string, SectionConfig> = {
       },
     ],
   },
-  conseilCommunautaires: {
-    title: "Conseil communautaire",
-    large: [{ keys: ["conseilCommunautaires"], label: " " }],
+  conseilsCommunautaires: {
+    title: "Conseils communautaires",
+    large: [{ keys: ["conseilsCommunautaires"], label: " " }],
     small: [
       {
         keys: [
-          "conseilCommunautaires",
+          "conseilsCommunautaires",
           "composantes",
           "presidente_conseils_communautaires",
         ],
@@ -112,47 +110,55 @@ const departementItemsKeys: Record<string, SectionConfig> = {
       },
     ],
   },
-  mairesConseilMunicipaux: {
-    title: "Mairies et conseillers municipaux",
+  mairesEtConseilsMunicipaux: {
+    title: "Mairies et conseils municipaux",
     large: [
-      { keys: ["mairesConseilMunicipaux"], label: " " },
+      { keys: ["mairesEtConseilsMunicipaux"], label: " " },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "maires"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "maires"],
         label: "Maires",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "maires_prefectures"],
+        keys: [
+          "mairesEtConseilsMunicipaux",
+          "composantes",
+          "maires_prefectures",
+        ],
         label: "Maires des préfectures",
       },
     ],
     small: [
       {
         keys: [
-          "mairesConseilMunicipaux",
+          "mairesEtConseilsMunicipaux",
           "composantes",
           "directrices_cabinet_maires",
         ],
         label: "Directrices du cabinet des maires",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "1ere_adjointe"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "1ere_adjointe"],
         label: "1ère adjointe",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "2e_adjointe"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "2e_adjointe"],
         label: "2ème adjointe",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "autres_adjointes"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "autres_adjointes"],
         label: "Autres adjointes",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "autres_conseilleres"],
+        keys: [
+          "mairesEtConseilsMunicipaux",
+          "composantes",
+          "autres_conseilleres",
+        ],
         label: "Autres conseillères",
       },
       {
         keys: [
-          "mairesConseilMunicipaux",
+          "mairesEtConseilsMunicipaux",
           "composantes",
           "maires_communes_moins_1000",
         ],
@@ -195,17 +201,17 @@ const regionItemsKeys: Record<string, SectionConfig> = {
           "composantes",
           "directrices_cabinet_pres_departement",
         ],
-        label: "Directrices de cabinet d'un.e président de département",
+        label: "Directrices de cabinet d'un.e président.e de département",
       },
     ],
   },
-  conseilCommunautaires: {
-    title: "Conseil communautaires",
-    large: [{ keys: ["conseilCommunautaires"], label: " " }],
+  conseilsCommunautaires: {
+    title: "Conseils communautaires",
+    large: [{ keys: ["conseilsCommunautaires"], label: " " }],
     small: [
       {
         keys: [
-          "conseilCommunautaires",
+          "conseilsCommunautaires",
           "composantes",
           "presidente_conseils_communautaires",
         ],
@@ -213,47 +219,55 @@ const regionItemsKeys: Record<string, SectionConfig> = {
       },
     ],
   },
-  mairesConseilMunicipaux: {
-    title: "Mairies et conseil municipaux",
+  mairesEtConseilsMunicipaux: {
+    title: "Mairies et conseils municipaux",
     large: [
-      { keys: ["mairesConseilMunicipaux"], label: " " },
+      { keys: ["mairesEtConseilsMunicipaux"], label: " " },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "maires"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "maires"],
         label: "Maires",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "maires_prefectures"],
+        keys: [
+          "mairesEtConseilsMunicipaux",
+          "composantes",
+          "maires_prefectures",
+        ],
         label: "Maires des préfectures",
       },
     ],
     small: [
       {
         keys: [
-          "mairesConseilMunicipaux",
+          "mairesEtConseilsMunicipaux",
           "composantes",
           "directrices_cabinet_maires",
         ],
-        label: "Directrices du cabinet",
+        label: "Directrices du cabinet des maires",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "1ere_adjointe"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "1ere_adjointe"],
         label: "1ère adjointe",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "2e_adjointe"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "2e_adjointe"],
         label: "2ème adjointe",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "autres_adjointes"],
+        keys: ["mairesEtConseilsMunicipaux", "composantes", "autres_adjointes"],
         label: "Autres adjointes",
       },
       {
-        keys: ["mairesConseilMunicipaux", "composantes", "autres_conseilleres"],
+        keys: [
+          "mairesEtConseilsMunicipaux",
+          "composantes",
+          "autres_conseilleres",
+        ],
         label: "Autres conseillères",
       },
       {
         keys: [
-          "mairesConseilMunicipaux",
+          "mairesEtConseilsMunicipaux",
           "composantes",
           "maires_communes_moins_1000",
         ],
@@ -269,7 +283,7 @@ const regionItemsKeys: Record<string, SectionConfig> = {
 };
 
 function getScoreEvolutionValueFromKeys(
-  obj: RegionJsonData | DepartementJsonData,
+  obj: unknown,
   keys: string[],
 ): ScoreEvolution | undefined {
   let current: unknown = obj;
@@ -283,6 +297,11 @@ function getScoreEvolutionValueFromKeys(
     typeof result.score !== "number" ||
     typeof result.evolution !== "number"
   ) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(
+        `[LocalTerritorySelector] Missing or invalid data at path: ${keys.join(".")}`,
+      );
+    }
     return undefined;
   }
   return { score: result.score, evolution: result.evolution };
@@ -319,12 +338,12 @@ function buildSliderDatas(
       );
 
       if (scoreEvolutionData) {
-        const slider_item: SliderItem = {
+        const sliderItem: SliderItem = {
           valeur: scoreEvolutionData.score,
           evolution: scoreEvolutionData.evolution,
           title: itemTitle,
         };
-        sliderData.largeItems.push(slider_item);
+        sliderData.largeItems.push(sliderItem);
       }
     }
 
@@ -336,12 +355,12 @@ function buildSliderDatas(
       );
 
       if (scoreEvolutionData) {
-        const slider_item: SliderItem = {
+        const sliderItem: SliderItem = {
           valeur: scoreEvolutionData.score,
           evolution: scoreEvolutionData.evolution,
           title: itemTitle,
         };
-        sliderData.smallItems.push(slider_item);
+        sliderData.smallItems.push(sliderItem);
       }
     }
 
