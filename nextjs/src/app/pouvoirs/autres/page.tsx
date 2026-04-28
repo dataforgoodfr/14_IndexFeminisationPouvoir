@@ -73,7 +73,7 @@ function MagistratureGridCell({
   withBottomBorder?: boolean;
 }) {
   return (
-    <div className="relative min-w-0 p-6 flex flex-col items-center lg:items-start justify-center">
+    <div className="relative min-w-0 p-6 flex flex-col items-start justify-center">
       {children}
 
       {withRightBorder && (
@@ -195,7 +195,7 @@ export default async function HautesJuridictionsPage() {
           className="flex-1 min-w-0"
           cardClassName="px-0"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 border">
             {MAGISTRATURE_FIGURES.map((figure, index) => {
               const isLastItem = index === MAGISTRATURE_FIGURES.length - 1;
               const isLeftColumn = index % 2 === 0 && !isLastItem;
