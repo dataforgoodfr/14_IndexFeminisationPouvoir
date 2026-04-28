@@ -7,7 +7,7 @@ import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score, composantes, analyse, parite_groupes } =
+const { annee, score, evolution, composantes, analyse, parite_groupes } =
   parlementaire.composantes.senat;
 
 export default function Page() {
@@ -22,7 +22,7 @@ export default function Page() {
           valeur={score}
           intitule="sénatrices"
           annee={annee}
-          evolution={100}
+          evolution={evolution}
         />
         <InfoBox>
           <p>Les sénateur.rices :</p>
