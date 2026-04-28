@@ -8,7 +8,7 @@ export type HeroProps = {
 export const Hero = ({ children, className }: HeroProps) => (
   <div
     className={cn(
-      "w-full h-180 lg:h-120 flex items-center justify-center relative svg-bg svg-purple",
+      "w-full h-180 lg:h-120 px-4 flex items-center justify-center relative svg-bg svg-purple",
       className,
     )}
   >

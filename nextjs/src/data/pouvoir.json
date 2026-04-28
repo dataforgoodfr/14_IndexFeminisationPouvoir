@@ -243,5 +243,94 @@
     "dateMiseAJour": "2026-01-01",
     "evolution": 18.0,
     "composantes": {}
+  },
+  "monde": {
+    "score": 19.8,
+    "annee": 2025,
+    "dateMiseAJour": "2025-01-01",
+    "evolution": -1.2,
+    "composantes": {
+      "cheffes_detat": ["FR", "US", "MX", "AU", "JP", "NZ"],
+      "parite_gouvernement": [
+        {
+          "pays": "Nicaragua",
+          "pourcentage": 55,
+          "evolution": -100,
+          "rank": 1
+        },
+        {
+          "pays": "Finlande",
+          "pourcentage": 53,
+          "evolution": 100,
+          "rank": 2
+        },
+        {
+          "pays": "Islande, Liechtenstein",
+          "pourcentage": 47,
+          "evolution": -100,
+          "rank": 3
+        },
+        {
+          "pays": "Estonie",
+          "pourcentage": 45,
+          "evolution": -100,
+          "rank": 4
+        },
+        {
+          "pays": "Andorre, Chili, Espagne, France, Royaume-Uni",
+          "pourcentage": 44,
+          "evolution": 100,
+          "rank": 5
+        },
+        {
+          "pays": "Vanuatu",
+          "pourcentage": 16,
+          "evolution": -100,
+          "rank": 140
+        },
+        {
+          "pays": "Tuvalu",
+          "pourcentage": 12,
+          "evolution": -100,
+          "rank": 141
+        },
+        {
+          "pays": "Turkménistan",
+          "pourcentage": 11,
+          "evolution": -100,
+          "rank": 142
+        },
+        {
+          "pays": "Iles Marshall",
+          "pourcentage": 10,
+          "evolution": -100,
+          "rank": 143
+        },
+        {
+          "pays": "Pakistan",
+          "pourcentage": 7,
+          "evolution": 100,
+          "rank": 144
+        },
+        {
+          "pays": "Hongrie",
+          "pourcentage": 6,
+          "evolution": -100,
+          "rank": 145
+        },
+        {
+          "pays": "Arabie Saoudite",
+          "pourcentage": 5,
+          "evolution": -100,
+          "rank": 146
+        },
+        {
+          "pays": "Azerbaïdjan",
+          "pourcentage": 5,
+          "evolution": 100,
+          "rank": 147
+        }
+      ]
+    }
   }
 }

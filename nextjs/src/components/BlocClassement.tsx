@@ -35,6 +35,8 @@ export const BlocClassement = ({
       </div>
       <div className="flex-2 w-full">
         <Standings
+          thumbsUpTop={5}
+          thumbsDownBottom={5}
           data={data.map(({ label, percentage, evolution }) => ({
             label,
             percentage,
