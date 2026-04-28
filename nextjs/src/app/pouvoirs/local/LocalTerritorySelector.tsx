@@ -441,9 +441,22 @@ export function LocalTerritorySelector() {
     [selectedDepartementObj],
   );
 
+  // Get position of Bandeau de Recherche for scrolling
+  const getAutoScrollPosition = () => {
+    const bandeau = document.getElementById("research-bandeau-local");
+    const contentDisplay = document.getElementById("content-display-local");
+    if (!bandeau || !contentDisplay) return 150; // default fallback
+    // Calculate the position to scroll to: top of content display minus the height of the bandeau
+    const bandeauHeight = bandeau.offsetHeight;
+    const contentTop = contentDisplay.getBoundingClientRect().top + window.scrollY;
+    return contentTop - bandeauHeight;
+  };
+
   // Handle region click from map
   const handleRegionChange = (regionName: string) => {
     updateSearchParams({ region: regionName, departement: null });
+    // get position of Bandeau de Recherche to scroll to have it at the top of the page
+    window.scrollTo({ top: getAutoScrollPosition(), behavior: "smooth" });
   };
 
   // Handle departement click from map
@@ -457,6 +470,7 @@ export function LocalTerritorySelector() {
       departement:
         newDepartement === "Tous les départements" ? null : newDepartement,
     });
+    window.scrollTo({ top: getAutoScrollPosition(), behavior: "smooth" });
   };
 
   // Update URL search params
@@ -486,7 +500,7 @@ export function LocalTerritorySelector() {
   return (
     <div className="flex flex-col w-full">
       {/* Bandeau de Recherche */}
-      <div className="sticky top-0 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4">
+      <div id="research-bandeau-local" className="sticky top-0 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4">
         <p className="flex-1 body4-medium text-foundations-blanc">
           Chiffres en détails
         </p>
@@ -542,7 +556,7 @@ export function LocalTerritorySelector() {
       </div>
 
       {/* Content Display */}
-      <div className="flex flex-col">
+      <div id="content-display-local" className="flex flex-col">
         {isAllSelected && (
           <>
             {/* Default content for "all regions" and "all departements" */}
