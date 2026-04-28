@@ -1,5 +1,4 @@
 "use client";
-// import type {}
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
@@ -43,7 +42,7 @@ export type RegionJsonData = {
   [key: string]: string | number | DataPouvoir | ScoreEvolution;
 };
 
-// RegionJson/territory with all local governance sections
+// Structure JSON d'un département avec ses sections de gouvernance locale
 export type DepartementJsonData = {
   code: string;
   nom: string;
@@ -277,7 +276,6 @@ const regionItemsKeys: Record<
   },
 };
 
-// Function to get access
 function getScoreEvolutionValueFromKeys(
   obj: RegionJsonData | DepartementJsonData,
   keys: string[],
@@ -300,9 +298,7 @@ function getScoreEvolutionValueFromKeys(
 function buildSliderDatas(
   territoryJsonData: RegionJsonData | DepartementJsonData,
   territoryType: "region" | "departement",
-): {
-  sliderDatas: SliderData[];
-} {
+): SliderData[] {
   const itemsKeysConfig =
     territoryType === "region" ? regionItemsKeys : departementItemsKeys;
 
@@ -362,7 +358,7 @@ function buildSliderDatas(
     }
   }
 
-  return { sliderDatas };
+  return sliderDatas;
 }
 
 export function LocalTerritorySelector() {
@@ -410,6 +406,27 @@ export function LocalTerritorySelector() {
     );
     return [{ nom: "Tous les départements", code: "" }, ...filtered];
   }, [selectedRegion]);
+
+  const selectedRegionObj = useMemo(
+    () => [...regions, ...outreMer].find((r) => r.nom === selectedRegion),
+    [selectedRegion],
+  );
+  const regionSliderDatas = useMemo(
+    () => (selectedRegionObj ? buildSliderDatas(selectedRegionObj, "region") : []),
+    [selectedRegionObj],
+  );
+
+  const selectedDepartementObj = useMemo(
+    () => departements.find((d) => d.nom === selectedDepartement),
+    [selectedDepartement],
+  );
+  const departementSliderDatas = useMemo(
+    () =>
+      selectedDepartementObj
+        ? buildSliderDatas(selectedDepartementObj, "departement")
+        : [],
+    [selectedDepartementObj],
+  );
 
   // Handle region click from map
   const handleRegionChange = (regionName: string) => {
@@ -604,54 +621,29 @@ export function LocalTerritorySelector() {
           </>
         )}
 
-        {isRegionSelected &&
-          (() => {
-            const selectedRegionObj = [...regions, ...outreMer].find(
-              (r) => r.nom === selectedRegion,
-            );
-            if (!selectedRegionObj) return null;
-            const { sliderDatas } = buildSliderDatas(
-              selectedRegionObj,
-              "region",
-            );
+        {isRegionSelected && selectedRegionObj && (
+          <TerritoryView
+            annee={annee}
+            territoryName={selectedRegion}
+            territoryType="region"
+            dataPerZone={allDataPerZone}
+            onDepartementChange={handleDepartementChange}
+            sliderDatas={regionSliderDatas}
+            dateMiseAJour={new Date(dateMiseAJour)}
+          />
+        )}
 
-            return (
-              <TerritoryView
-                annee={annee}
-                territoryName={selectedRegion}
-                territoryType="region"
-                dataPerZone={allDataPerZone}
-                onDepartementChange={handleDepartementChange}
-                sliderDatas={sliderDatas}
-                dateMiseAJour={new Date(dateMiseAJour)}
-              />
-            );
-          })()}
-
-        {isDepartementSelected &&
-          (() => {
-            const selectedDepartementObj = departements.find(
-              (d) => d.nom === selectedDepartement,
-            );
-            if (!selectedDepartementObj) return null;
-
-            const { sliderDatas } = buildSliderDatas(
-              selectedDepartementObj,
-              "departement",
-            );
-
-            return (
-              <TerritoryView
-                annee={annee}
-                territoryName={selectedDepartement}
-                territoryType="departement"
-                dataPerZone={allDataPerZone}
-                onDepartementChange={handleDepartementChange}
-                sliderDatas={sliderDatas}
-                dateMiseAJour={new Date(dateMiseAJour)}
-              />
-            );
-          })()}
+        {isDepartementSelected && selectedDepartementObj && (
+          <TerritoryView
+            annee={annee}
+            territoryName={selectedDepartement}
+            territoryType="departement"
+            dataPerZone={allDataPerZone}
+            onDepartementChange={handleDepartementChange}
+            sliderDatas={departementSliderDatas}
+            dateMiseAJour={new Date(dateMiseAJour)}
+          />
+        )}
       </div>
     </div>
   );

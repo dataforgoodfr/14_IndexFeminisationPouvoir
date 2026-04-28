@@ -285,13 +285,13 @@ export function TerritorySlider({
         </div>
         {/* Indicator dots */}
         <div className="flex gap-x-[15px] justify-center">
-          {sliderDatas.map((item) => (
+          {sliderDatas.map((item, idx) => (
             <button
               key={`indicator-${item.title}`}
               type="button"
-              onClick={() => setCurrentIndex(sliderDatas.indexOf(item))}
+              onClick={() => setCurrentIndex(idx)}
               className={`w-[15px] h-[15px] rounded-full transition-colors ${
-                sliderDatas.indexOf(item) === currentIndex
+                idx === currentIndex
                   ? "bg-foundations-violet-principal"
                   : "bg-foundations-violet-clair"
               }`}
