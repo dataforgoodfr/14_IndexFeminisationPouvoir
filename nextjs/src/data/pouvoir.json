@@ -1,5 +1,7 @@
 {
-  "dateMiseAJour": "2026",
+  "score": 28,
+  "evolution": 0,
+  "dateMiseAJour": "2026-04-01",
   "executif": {
     "score": 32.6,
     "evolution": 10,
@@ -236,7 +238,7 @@
     }
   },
   "autre": {
-    "score": 23.40,
+    "score": 23.4,
     "annee": 2026,
     "dateMiseAJour": "2026-01-01",
     "evolution": 18.0,
