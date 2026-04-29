@@ -6,10 +6,7 @@ import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { PouvoirLocalFigure } from "@/components/PouvoirLocalFigure";
 import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
-import {
-  type SliderGroup,
-  TerritorySlider,
-} from "@/components/TerritorySlider";
+import { type SliderData, TerritorySlider } from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
 
 interface TerritoryViewProps {
@@ -19,15 +16,7 @@ interface TerritoryViewProps {
   onDepartementChange: (departementName: string) => void;
   dateMiseAJour: Date;
   annee: number;
-  sliderGroups?: SliderGroup[];
-  sliderTextLabels?: Record<
-    string,
-    Record<
-      string,
-      { title: string; largeItems: string[]; smallItems: string[] }
-    >
-  >;
-  sliderGroupKeys?: string[];
+  sliderDatas?: SliderData[];
 }
 
 export function TerritoryView({
@@ -36,9 +25,7 @@ export function TerritoryView({
   dataPerZone,
   onDepartementChange,
   annee,
-  sliderGroups,
-  sliderTextLabels,
-  sliderGroupKeys,
+  sliderDatas,
   dateMiseAJour,
 }: TerritoryViewProps) {
   const MapComponent =
@@ -96,19 +83,13 @@ export function TerritoryView({
       </div>
       {/* Bloc Slider */}
       <div className="w-full bg-purple-oxfam-50">
-        {sliderGroups &&
-          sliderTextLabels &&
-          sliderGroupKeys &&
-          sliderGroups.length > 0 && (
-            <TerritorySlider
-              groups={sliderGroups}
-              textLabels={sliderTextLabels}
-              groupKeys={sliderGroupKeys}
-              territoryType={territoryType}
-              dateMiseAJour={dateMiseAJour}
-              annee={annee}
-            />
-          )}
+        {sliderDatas && sliderDatas.length > 0 && (
+          <TerritorySlider
+            sliderDatas={sliderDatas}
+            dateMiseAJour={dateMiseAJour}
+            annee={annee}
+          />
+        )}
       </div>
     </div>
   );
