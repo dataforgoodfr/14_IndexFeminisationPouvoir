@@ -1,5 +1,5 @@
 import { GoodBadExample, GoodBadTitle } from "@/components/GoodBadExample";
-import { AmbassadesIcon } from "@/components/icons/ambassades";
+import { GlobeIcon } from "@/components/icons/globe";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { Standings } from "@/components/Standings";
 import { WorldMapSVG } from "@/components/WorldMapSVG";
@@ -18,7 +18,7 @@ export default function DansLeMondePage() {
         <div className="flex-1 md:flex-2">
           <PouvoirFigureL
             annee={monde.annee}
-            icon={AmbassadesIcon} // TODO
+            icon={GlobeIcon} // TODO
             intitule="Cheffes d'état"
             valeur={monde.score}
             evolution={monde.evolution}
