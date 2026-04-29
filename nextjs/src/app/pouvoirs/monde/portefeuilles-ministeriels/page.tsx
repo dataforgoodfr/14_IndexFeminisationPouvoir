@@ -15,29 +15,29 @@ export default function PortefeuillesMinisterielsPage() {
           <Standings
             data={[
               {
-                label: "Femmes et égalité des sexes ",
-                percentage: 14,
-                evolution: -100,
+                label: "Femmes et égalité des sexes",
+                percentage: 89.7,
+                evolution: 3.0,
               },
               {
-                label: "Affaires familiales et enfance",
-                percentage: 14,
-                evolution: 100,
+                label: "Affaires familiales et de l'enfance",
+                percentage: 73.5,
+                evolution: 2.1,
+              },
+              {
+                label: "Affaires sociales (général)",
+                percentage: 56.3,
+                evolution: 12.9,
               },
               {
                 label: "Inclusion sociale et développement",
-                percentage: 14,
-                evolution: -100,
-              },
-              {
-                label: "Affaire sociale",
-                percentage: 14,
-                evolution: -100,
+                percentage: 55.4,
+                evolution: -0.2,
               },
               {
                 label: "Protection sociale et sécurité sociale",
-                percentage: 14,
-                evolution: 100,
+                percentage: 39.9,
+                evolution: -2.2,
               },
             ]}
           />
@@ -50,30 +50,22 @@ export default function PortefeuillesMinisterielsPage() {
           <Standings
             data={[
               {
-                label: "Les affaires religieuses",
-                percentage: 14,
-                evolution: -100,
+                label: "Affaires religieuses",
+                percentage: 6.4,
+                evolution: 4.1,
               },
-              {
-                label: "Energie, combustibles naturels et mines",
-                percentage: 14,
-                evolution: 100,
-              },
-              {
-                label: "Transport",
-                percentage: 14,
-                evolution: -100,
-              },
-              {
-                label: "Défense",
-                percentage: 14,
-                evolution: -100,
-              },
+              { label: "Transport", percentage: 9.7, evolution: -3.1 },
               {
                 label: "Affaires intérieures",
-                percentage: 14,
-                evolution: 100,
+                percentage: 11.1,
+                evolution: -2.1,
               },
+              {
+                label: "Énergie, combustibles naturels et mines",
+                percentage: 11.8,
+                evolution: -0.6,
+              },
+              { label: "Défense", percentage: 12.2, evolution: -0.8 },
             ]}
           />
         </div>
