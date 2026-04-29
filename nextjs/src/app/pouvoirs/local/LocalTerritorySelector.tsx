@@ -419,28 +419,6 @@ export function LocalTerritorySelector() {
     return [{ nom: "Tous les départements", code: "" }, ...filtered];
   }, [selectedRegion]);
 
-  const selectedRegionObj = useMemo(
-    () => [...regions, ...outreMer].find((r) => r.nom === selectedRegion),
-    [selectedRegion],
-  );
-  const regionSliderDatas = useMemo(
-    () =>
-      selectedRegionObj ? buildSliderDatas(selectedRegionObj, "region") : [],
-    [selectedRegionObj],
-  );
-
-  const selectedDepartementObj = useMemo(
-    () => departements.find((d) => d.nom === selectedDepartement),
-    [selectedDepartement],
-  );
-  const departementSliderDatas = useMemo(
-    () =>
-      selectedDepartementObj
-        ? buildSliderDatas(selectedDepartementObj, "departement")
-        : [],
-    [selectedDepartementObj],
-  );
-
   // Get position of Bandeau de Recherche for scrolling
   const getAutoScrollPosition = () => {
     const bandeau = document.getElementById("research-bandeau-local");
