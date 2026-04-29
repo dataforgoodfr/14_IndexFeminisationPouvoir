@@ -430,7 +430,7 @@ export function LocalTerritorySelector() {
       contentDisplay.getBoundingClientRect().top + window.scrollY;
     return contentTop - bandeauHeight;
   };
-  
+
   const selectedRegionObj = useMemo(
     () => [...regions, ...outreMer].find((r) => r.nom === selectedRegion),
     [selectedRegion],

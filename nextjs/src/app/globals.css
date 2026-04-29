@@ -134,6 +134,7 @@ html {
    than the page from adding a white background
    on the right of the screen on mobile, but masks
    the real issue which is that an element is too big */
-body, html {
+body,
+html {
   overflow-x: clip;
 }
