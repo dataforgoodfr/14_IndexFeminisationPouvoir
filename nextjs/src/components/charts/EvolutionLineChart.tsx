@@ -231,7 +231,14 @@ export function EvolutionLineChart({
           cx: number;
           cy: number;
           y_text: number;
-          textBox: { left: number; right: number; top: number; bottom: number; width: number; height: number };
+          textBox: {
+            left: number;
+            right: number;
+            top: number;
+            bottom: number;
+            width: number;
+            height: number;
+          };
         };
 
         const positions: Position[] = [];
@@ -253,14 +260,14 @@ export function EvolutionLineChart({
           };
 
           // Check overlap with previous textBox and shift up by 4px till no overlap
-          if (idx>0) {
+          if (idx > 0) {
             while (
               textBox.bottom > prevTextBox.top &&
               textBox.top < prevTextBox.bottom &&
               textBox.right > prevTextBox.left &&
               textBox.left < prevTextBox.right
             ) {
-              y_text -= 4; 
+              y_text -= 4;
               textBox = {
                 left: cx - TEXT_WIDTH / 2,
                 right: cx + TEXT_WIDTH / 2,
@@ -271,14 +278,14 @@ export function EvolutionLineChart({
               };
             }
           }
-          
+
           // Save this position and textBox for next iteration
-          positions.push({ cx, cy, y_text, textBox});
+          positions.push({ cx, cy, y_text, textBox });
           prevTextBox = textBox;
         });
 
         // Render all positions
-        return positions.map((pos,idx) => (
+        return positions.map((pos, idx) => (
           <g key={`pt-${data[idx].annee}`}>
             {/* Square marker */}
             <rect

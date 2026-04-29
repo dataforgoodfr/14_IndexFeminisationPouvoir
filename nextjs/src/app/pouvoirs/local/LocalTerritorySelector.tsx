@@ -448,7 +448,8 @@ export function LocalTerritorySelector() {
     if (!bandeau || !contentDisplay) return 150; // default fallback
     // Calculate the position to scroll to: top of content display minus the height of the bandeau
     const bandeauHeight = bandeau.offsetHeight;
-    const contentTop = contentDisplay.getBoundingClientRect().top + window.scrollY;
+    const contentTop =
+      contentDisplay.getBoundingClientRect().top + window.scrollY;
     return contentTop - bandeauHeight;
   };
 
@@ -500,7 +501,10 @@ export function LocalTerritorySelector() {
   return (
     <div className="flex flex-col w-full">
       {/* Bandeau de Recherche */}
-      <div id="research-bandeau-local" className="sticky top-0 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4">
+      <div
+        id="research-bandeau-local"
+        className="sticky top-0 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4"
+      >
         <p className="flex-1 body4-medium text-foundations-blanc">
           Chiffres en détails
         </p>
