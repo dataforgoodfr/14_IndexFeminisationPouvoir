@@ -60,7 +60,7 @@ export function TerritoryView({
           <MapComponent
             dataPerZone={dataPerZone}
             zoneName={territoryName}
-            className="md:w-126 md:h-69 w-110 h-55"
+            className="md:w-126 md:h-69 w-110 h-55 max-w-full"
             onDepartementClick={onDepartementChange}
           />
         </div>
