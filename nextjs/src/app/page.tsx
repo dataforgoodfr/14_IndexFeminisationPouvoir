@@ -151,7 +151,7 @@ export default async function Home() {
           </div>
         </div>
         {/* Right column */}
-        <div className="flex flex-col items-center gap-3.25 shrink-0">
+        <div className="flex flex-col items-center gap-3.25 md:w-110 shrink-0">
           <DoughnutChart
             value={score}
             variant="light"
