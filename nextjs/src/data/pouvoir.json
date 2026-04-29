@@ -245,12 +245,12 @@
     "composantes": {}
   },
   "monde": {
-    "score": 19.8,
-    "annee": 2025,
-    "dateMiseAJour": "2025-01-01",
-    "evolution": -1.2,
+    "score": 14.5,
+    "annee": 2026,
+    "dateMiseAJour": "2026-01-01",
+    "evolution": 1.6,
     "composantes": {
-      "cheffes_detat": ["FR", "US", "MX", "AU", "JP", "NZ"],
+      "cheffes_detat": ["DM", "IS", "IN", "IE", "MT", "MK", "MD", "SI", "TT", "HN", "MH", "MX", "NA", "NI", "SR", "TZ", "BB", "BA", "CD", "DK", "IT", "JP", "LV", "LI", "LT", "NP", "TN", "UA"],
       "parite_gouvernement": [
         {
           "pays": "Nicaragua",
