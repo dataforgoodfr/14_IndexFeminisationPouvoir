@@ -195,7 +195,7 @@ export default async function HautesJuridictionsPage() {
           className="flex-1 min-w-0"
           cardClassName="px-0"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 border">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             {MAGISTRATURE_FIGURES.map((figure, index) => {
               const isLastItem = index === MAGISTRATURE_FIGURES.length - 1;
               const isLeftColumn = index % 2 === 0 && !isLastItem;
