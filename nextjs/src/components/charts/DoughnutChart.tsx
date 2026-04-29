@@ -35,6 +35,11 @@ export const DoughnutChart = ({
       ? "var(--color-foundations-violet-tres-clair)"
       : "var(--color-foundations-violet-clair)";
 
+  const iconColor =
+    variant === "light"
+    ? "fill-foundations-violet-principal"
+    : "fill-white";
+
   const arcColor =
     variant === "light" ? "var(--color-foundations-violet-principal)" : "white";
 
@@ -77,7 +82,7 @@ export const DoughnutChart = ({
         <g transform="translate(136 136)">
           <Icon
             preserveAspectRatio="xMidYMid meet"
-            className="fill-white"
+            className={iconColor}
             {...iconProps}
             x={-iconProps.width / 2}
             y={-iconProps.height / 2}
