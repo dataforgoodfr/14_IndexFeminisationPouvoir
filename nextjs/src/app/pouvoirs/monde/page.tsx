@@ -17,11 +17,11 @@ export default function DansLeMondePage() {
         </div>
         <div className="flex-1 md:flex-2">
           <PouvoirFigureL
-            annee={2025}
+            annee={monde.annee}
             icon={AmbassadesIcon} // TODO
             intitule="Cheffes d'état"
-            valeur={14}
-            evolution={13}
+            valeur={monde.score}
+            evolution={monde.evolution}
             withChart
             withButtons
           />
