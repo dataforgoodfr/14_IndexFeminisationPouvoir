@@ -73,7 +73,7 @@ function MagistratureGridCell({
   withBottomBorder?: boolean;
 }) {
   return (
-    <div className="relative min-w-0 p-6 flex flex-col items-center lg:items-start justify-center">
+    <div className="relative min-w-0 p-6 flex flex-col items-start justify-center">
       {children}
 
       {withRightBorder && (

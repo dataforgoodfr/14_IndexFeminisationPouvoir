@@ -30,7 +30,7 @@ export const PouvoirFigureS = ({
       <div className="w-6 shrink-0">
         <FemmeIcon />
       </div>
-      <div className="flex-auto flex justify-center flex-col max-w-45">
+      <div className="flex-auto flex justify-center flex-col max-w-60 lg:max-w-45">
         <div className="flex flex-row items-start gap-2">
           <span className="text-chiffre-s text-foundations-violet-principal leading-none">
             {pourcentageFormate}

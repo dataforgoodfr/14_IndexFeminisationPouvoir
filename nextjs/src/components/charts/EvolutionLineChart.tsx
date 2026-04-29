@@ -31,6 +31,64 @@ const CHART_HEIGHT = SVG_HEIGHT - MARGIN.top - MARGIN.bottom;
 
 const Y_TICKS = [0, 20, 40, 60, 80, 100];
 
+const LABEL_TEXT_HEIGHT = 12;
+const LABEL_TEXT_WIDTH = 25;
+const LABEL_SHIFT_STEP = 4;
+const LABEL_MAX_ITERATIONS = 50;
+
+type LabelPosition = {
+  cx: number;
+  cy: number;
+  y_text: number;
+};
+
+type TextBox = { left: number; right: number; top: number; bottom: number };
+
+function textBoxAt(cx: number, y_text: number): TextBox {
+  return {
+    left: cx - LABEL_TEXT_WIDTH / 2,
+    right: cx + LABEL_TEXT_WIDTH / 2,
+    top: y_text - LABEL_TEXT_HEIGHT,
+    bottom: y_text,
+  };
+}
+
+function overlaps(a: TextBox, b: TextBox): boolean {
+  return (
+    a.bottom > b.top && a.top < b.bottom && a.right > b.left && a.left < b.right
+  );
+}
+
+function computeLabelPositions(
+  data: DataPoint[],
+  x: (year: number) => number,
+): LabelPosition[] {
+  const positions: LabelPosition[] = [];
+  let prevBox: TextBox = { left: 0, right: 0, top: 0, bottom: 0 };
+
+  for (const [idx, d] of data.entries()) {
+    const cx = x(d.annee);
+    const cy = yPos(d.valeur);
+    let y_text = cy - 8;
+
+    if (idx > 0) {
+      let iterations = 0;
+      while (
+        overlaps(textBoxAt(cx, y_text), prevBox) &&
+        iterations < LABEL_MAX_ITERATIONS
+      ) {
+        y_text -= LABEL_SHIFT_STEP;
+        iterations++;
+      }
+    }
+
+    prevBox = textBoxAt(cx, y_text);
+    positions.push({ cx, cy, y_text });
+  }
+
+  return positions;
+}
+
 function xPos(year: number, minYear: number, maxYear: number): number {
   return MARGIN.left + ((year - minYear) / (maxYear - minYear)) * CHART_WIDTH;
 }
@@ -223,34 +281,28 @@ export function EvolutionLineChart({
       ))}
 
       {/* Data point squares + percentage labels */}
-      {data.map((d) => {
-        const cx = x(d.annee);
-        const cy = yPos(d.valeur);
-        return (
-          <g key={`pt-${d.annee}`}>
-            {/* Square marker */}
-            <rect
-              x={cx - 3}
-              y={cy - 3}
-              width={6}
-              height={6}
-              className="fill-foundations-violet-principal"
-            />
-            {/* Percentage label above */}
-            <text
-              x={cx}
-              y={cy - 8}
-              textAnchor="middle"
-              fontSize={12}
-              fontFamily="Lato, sans-serif"
-              fontWeight={700}
-              className="fill-foundations-violet-principal"
-            >
-              {d.valeur}%
-            </text>
-          </g>
-        );
-      })}
+      {computeLabelPositions(data, x).map((pos, idx) => (
+        <g key={`pt-${data[idx].annee}`}>
+          <rect
+            x={pos.cx - 3}
+            y={pos.cy - 3}
+            width={6}
+            height={6}
+            className="fill-foundations-violet-principal"
+          />
+          <text
+            x={pos.cx}
+            y={pos.y_text}
+            textAnchor="middle"
+            fontSize={12}
+            fontFamily="Lato, sans-serif"
+            fontWeight={700}
+            className="fill-foundations-violet-principal"
+          >
+            {data[idx].valeur}%
+          </text>
+        </g>
+      ))}
     </svg>
   );
 }

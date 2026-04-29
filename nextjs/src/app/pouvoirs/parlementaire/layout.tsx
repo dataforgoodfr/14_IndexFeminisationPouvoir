@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { AssembleeNationaleIcon } from "@/components/icons/assemblee-nationale";
 import { ParlementEuropéenIcon } from "@/components/icons/parlement-euro";
@@ -47,10 +48,12 @@ export default function PouvoirLayout({
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-4 mb-16 px-16">
         <div className="flex-1 flex flex-col items-center gap-12">
-          <TitreBadge
-            titre="Assemblée Nationale"
-            className="shrink-0 w-fit px-10"
-          />
+          <Link href={"/pouvoirs/parlementaire"}>
+            <TitreBadge
+              titre="Assemblée Nationale"
+              className="shrink-0 w-fit px-10"
+            />
+          </Link>
 
           <PouvoirFigureL
             intitule="députées"
@@ -61,7 +64,9 @@ export default function PouvoirLayout({
           />
         </div>
         <div className="flex-1 flex flex-col items-center gap-12">
-          <TitreBadge titre="Sénat" className="shrink-0 w-fit px-10" />
+          <Link href={"/pouvoirs/parlementaire/senat"}>
+            <TitreBadge titre="Sénat" className="shrink-0 w-fit px-10" />
+          </Link>
 
           <div className="divider-dashed h-full lg:pl-6">
             <PouvoirFigureL
@@ -74,10 +79,12 @@ export default function PouvoirLayout({
           </div>
         </div>
         <div className="flex-1 flex flex-col items-center gap-12">
-          <TitreBadge
-            titre="Parlement Européen"
-            className="shrink-0 w-fit px-10"
-          />
+          <Link href={"/pouvoirs/parlementaire/parlement-europeen"}>
+            <TitreBadge
+              titre="Parlement Européen"
+              className="shrink-0 w-fit px-10"
+            />
+          </Link>
           <div className="divider-dashed h-full lg:pl-6">
             <PouvoirFigureL
               intitule="députées européennes"
