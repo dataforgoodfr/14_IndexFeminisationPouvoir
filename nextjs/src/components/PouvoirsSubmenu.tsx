@@ -78,6 +78,7 @@ export const PouvoirsSubmenu = () => {
       <div className="lg:hidden flex flex-col gap-2">
         {menuItems.map((item) => (
           <Link
+            scroll={false}
             key={item.href}
             href={item.href}
             className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
