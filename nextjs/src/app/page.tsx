@@ -86,7 +86,7 @@ export default async function Home() {
           </div>
           <div className="flex-1 ">
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/oxfam-homepage.webp`}
+              src={`/images/oxfam-homepage.webp`}
               alt="Collage de photos illustrant la féminisation du pouvoir"
               width={696}
               height={636}
