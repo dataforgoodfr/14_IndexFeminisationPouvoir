@@ -223,34 +223,86 @@ export function EvolutionLineChart({
       ))}
 
       {/* Data point squares + percentage labels */}
-      {data.map((d) => {
-        const cx = x(d.annee);
-        const cy = yPos(d.valeur);
-        return (
-          <g key={`pt-${d.annee}`}>
+      {(() => {
+        const TEXT_HEIGHT = 12;
+        const TEXT_WIDTH = 25;
+
+        type Position = {
+          cx: number;
+          cy: number;
+          y_text: number;
+          textBox: { left: number; right: number; top: number; bottom: number; width: number; height: number };
+        };
+
+        const positions: Position[] = [];
+        let prevTextBox = { left: 0, right: 0, top: 0, bottom: 0 };
+
+        data.forEach((d, idx) => {
+          const cx = x(d.annee);
+          const cy = yPos(d.valeur);
+          let y_text = cy - 8; // Default position above
+
+          // Calculate textBox
+          let textBox = {
+            left: cx - TEXT_WIDTH / 2,
+            right: cx + TEXT_WIDTH / 2,
+            top: y_text - TEXT_HEIGHT,
+            bottom: y_text,
+            width: TEXT_WIDTH,
+            height: TEXT_HEIGHT,
+          };
+
+          // Check overlap with previous textBox and shift up by 4px till no overlap
+          if (idx>0) {
+            while (
+              textBox.bottom > prevTextBox.top &&
+              textBox.top < prevTextBox.bottom &&
+              textBox.right > prevTextBox.left &&
+              textBox.left < prevTextBox.right
+            ) {
+              y_text -= 4; 
+              textBox = {
+                left: cx - TEXT_WIDTH / 2,
+                right: cx + TEXT_WIDTH / 2,
+                top: y_text - TEXT_HEIGHT,
+                bottom: y_text,
+                width: TEXT_WIDTH,
+                height: TEXT_HEIGHT,
+              };
+            }
+          }
+          
+          // Save this position and textBox for next iteration
+          positions.push({ cx, cy, y_text, textBox});
+          prevTextBox = textBox;
+        });
+
+        // Render all positions
+        return positions.map((pos,idx) => (
+          <g key={`pt-${data[idx].annee}`}>
             {/* Square marker */}
             <rect
-              x={cx - 3}
-              y={cy - 3}
+              x={pos.cx - 3}
+              y={pos.cy - 3}
               width={6}
               height={6}
               className="fill-foundations-violet-principal"
             />
-            {/* Percentage label above */}
+            {/* Percentage label */}
             <text
-              x={cx}
-              y={cy - 8}
+              x={pos.cx}
+              y={pos.y_text}
               textAnchor="middle"
               fontSize={12}
               fontFamily="Lato, sans-serif"
               fontWeight={700}
               className="fill-foundations-violet-principal"
             >
-              {d.valeur}%
+              {data[idx].valeur}%
             </text>
           </g>
-        );
-      })}
+        ));
+      })()}
     </svg>
   );
 }
