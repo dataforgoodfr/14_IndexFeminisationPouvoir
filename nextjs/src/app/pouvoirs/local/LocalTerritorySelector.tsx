@@ -452,6 +452,28 @@ export function LocalTerritorySelector() {
       contentDisplay.getBoundingClientRect().top + window.scrollY;
     return contentTop - bandeauHeight;
   };
+  
+  const selectedRegionObj = useMemo(
+    () => [...regions, ...outreMer].find((r) => r.nom === selectedRegion),
+    [selectedRegion],
+  );
+  const regionSliderDatas = useMemo(
+    () =>
+      selectedRegionObj ? buildSliderDatas(selectedRegionObj, "region") : [],
+    [selectedRegionObj],
+  );
+
+  const selectedDepartementObj = useMemo(
+    () => departements.find((d) => d.nom === selectedDepartement),
+    [selectedDepartement],
+  );
+  const departementSliderDatas = useMemo(
+    () =>
+      selectedDepartementObj
+        ? buildSliderDatas(selectedDepartementObj, "departement")
+        : [],
+    [selectedDepartementObj],
+  );
 
   // Handle region click from map
   const handleRegionChange = (regionName: string) => {
