@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const basePath = "";
   const svgRoot = `${basePath}/images/`;
   // On injecte des variables CSS pour les SVG utilisés dans des utilitaires Tailwind
   // afin de régler le problème de base path sur github pages.
