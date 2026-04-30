@@ -1,16 +1,16 @@
 {
   "score": 28,
   "evolution": 0,
-  "dateMiseAJour": "2026-04-01",
+  "dateMiseAJour": "2026-04-30",
   "executif": {
     "score": 32.6,
-    "evolution": 10,
+    "evolution": 3.4,
     "annee": 2026,
-    "dateMiseAJour": "2026-04-01",
+    "dateMiseAJour": "2026-04-30",
     "composantes": {
       "gouvernement": {
         "annee": 2026,
-        "evolution": -6,
+        "evolution": -3,
         "score": 47
       },
       "ministeres_regaliens": {
@@ -20,17 +20,17 @@
       },
       "cabinet_presidence": {
         "annee": 2026,
-        "evolution": -12,
+        "evolution": -4.2,
         "score": 31
       },
       "cabiner_premier_ministre": {
         "annee": 2026,
-        "evolution": -25.4,
+        "evolution": -10.9,
         "score": 32
       },
       "directrices_cabinet_gouvernement": {
         "annee": 2026,
-        "evolution": 80,
+        "evolution": 16,
         "score": 36
       }
     }
@@ -38,8 +38,8 @@
   "parlementaire": {
     "score": 34.78,
     "annee": 2026,
-    "dateMiseAJour": "2026-04-01",
-    "evolution": -10,
+    "dateMiseAJour": "2026-04-30",
+    "evolution": -3.6,
     "composantes": {
       "assemblee_nationale": {
         "annee": 2026,
@@ -50,22 +50,22 @@
           "deputees": {
             "score": 39,
             "annee": 2026,
-            "evolution": 8.33
+            "evolution": 3
           },
           "bureau": {
             "score": 55,
             "annee": 2026,
-            "evolution": -6.78
+            "evolution": -4
           },
           "presidente_commission": {
             "score": 13,
             "annee": 2026,
-            "evolution": -65.33
+            "evolution": -24.5
           },
           "presidente_groupe": {
             "score": 27,
             "annee": 2026,
-            "evolution": -1.1
+            "evolution": -0.3
           }
         },
         "parite_groupes": {
@@ -99,7 +99,7 @@
           "senatrices": {
             "score": 38,
             "annee": 2026,
-            "evolution": 1.6
+            "evolution": 0.6
           },
           "bureau": {
             "score": 46,
@@ -109,12 +109,12 @@
           "presidente_commission": {
             "score": 25,
             "annee": 2026,
-            "evolution": -12.59
+            "evolution": -3.6
           },
           "presidente_groupe": {
             "score": 22,
             "annee": 2026,
-            "evolution": 0.9
+            "evolution": -0.2
           }
         },
         "parite_groupes": {
@@ -142,12 +142,12 @@
       "europeen": {
         "annee": 2026,
         "score": 48,
-        "evolution": -9.77
+        "evolution": -5.2
       }
     }
   },
   "local": {
-    "evolution": -9.0,
+    "evolution": -2.6,
     "score": 22.43,
     "annee": 2026,
     "dateMiseAJour": "2026-01-01",
@@ -155,37 +155,37 @@
       "presidentesRegion": {
         "score": 24.0,
         "annee": 2026,
-        "evolution": -18.0
+        "evolution": -5.4
       },
       "directricesCabinetRegion": {
         "score": 19.0,
         "annee": 2026,
-        "evolution": -24.0
+        "evolution": -6
       },
       "presidentsDepartement": {
         "score": 21.0,
         "annee": 2026,
-        "evolution": -4.0
+        "evolution": -0.8
       },
       "directricesCabinetDepartement": {
         "score": 27.0,
         "annee": 2026,
-        "evolution": 19.47
+        "evolution": 4.4
       },
       "maires": {
         "score": 23.0,
         "annee": 2026,
-        "evolution": 10.58
+        "evolution": 2.2
       },
       "mairesPrefecture": {
         "score": 13.0,
         "annee": 2026,
-        "evolution": -30.85
+        "evolution": -8
       },
       "directricesCabinetMairiesPrefecture": {
         "score": 30.0,
         "annee": 2026,
-        "evolution": -12.54
+        "evolution": -4
       }
     },
     "collectivites": {
@@ -241,7 +241,7 @@
     "score": 23.4,
     "annee": 2026,
     "dateMiseAJour": "2026-01-01",
-    "evolution": 18.0,
+    "evolution": 3.3,
     "composantes": {}
   },
   "monde": {
