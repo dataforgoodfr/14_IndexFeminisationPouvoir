@@ -295,9 +295,13 @@ export default async function Home() {
             Recomman&shy;dations
           </h2>
 
-          <p className="body2-regular text-foundations-gris-fonce">
-            Principales pistes d'action pour promouvoir la féminisation du
-            pouvoir
+          <p className="body1-medium text-center text-foundations-violet-principal">
+            Le bilan des élections municipales de mars 2026 démontrent que la féminisation du pouvoir n’est pas un acquis.<br />
+            En France la parité stagne, voire régresse sous certains aspects. Or, les progrès en matière de parité ne sont jamais arrivés par miracle.<br />
+            En 2025 Oxfam avait repris la recommandation forte du Haut Conseil à l’Egalité (HCE) de faire un acte II de la parité politique.<br />
+            En 2026, force est de constater que cette demande reste tristement d’actualité.<br />
+            À un an d’une élection majeure en France, les responsables politiques
+            doivent s’engager à faire mieux en matière de féminisation du pouvoir, à la fois en reprenant les travaux du HCE et en s’engageant à nommer plus de femmes aux postes de pouvoir.
           </p>
         </div>
         {/* Row 1: 3 cards */}
