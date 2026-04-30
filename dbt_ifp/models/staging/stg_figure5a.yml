@@ -4,6 +4,17 @@ models:
   - name: stg_figure5a
     description: Liste des hommmes et femmes élu.es maires
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
     
       - name: annee_partition
         description: année de la récupération des données
@@ -11,46 +22,38 @@ models:
         data_tests:
           - not_null
       
-      - name: id
+      - name: personne_id
         description: ID de la ligne
         type: INTEGER
         data_tests:
           - not_null
           - unique
 
-      - name: code_departement
+      - name: departement_code
         description: Code du département de l'élu.e maire
         type: TEXT
 
-      - name: libelle_departement
+      - name: departement_libelle
         description: Département de l'élu.e maire
         type: TEXT
 
-      - name: code_collectivite_statut_part
-        description: Code pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)
-        type: TEXT
-
-      - name: nom_collectivite_statut_part
-        description: Libellé pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)
-        type: TEXT
-
-      - name: code_commune
+      - name: commune_code
         description: Code INSEE de la commune de l'élu.e maire
         type: TEXT
 
-      - name: libelle_commune
+      - name: commune_libelle
         description: Commune de l'élu.e maire
         type: TEXT
 
-      - name: nom_elu
+      - name: personne_nom
         description: Nom de famille de l'élu.e maire
         type: TEXT
 
-      - name: prenom_elu
+      - name: personne_prenom
         description: Prénom de l'élu.e maire
         type: TEXT
 
-      - name: genre
+      - name: personne_genre
         description: Genre de l'élu.e maire 
         type: TEXT
         data_tests:
@@ -63,11 +66,11 @@ models:
         description: Date de naissance de l'élu.e maire
         type: DATE   
 
-      - name: code_csp
+      - name: csp_code
         description: Code de la catégorie socio-professionnelle de l'élu.e maire
         type: TEXT
 
-      - name: libelle_csp
+      - name: csp_libelle
         description: Nom de la catégorie socio-professionnelle de l'élu.e maire
         type: TEXT
 

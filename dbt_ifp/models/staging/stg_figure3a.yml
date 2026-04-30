@@ -2,47 +2,55 @@ models:
   - name: stg_figure3a
     description: "Liste des sénatrices et sénateurs récupérées via l'API du RNE (Répertoire national des élus)"
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
 
-      - name: id
+      - name: personne_id
         data_type: integer
         description: "L’id de la ligne"
         data_tests:
           - unique
           - not_null
       
-      - name: code_departement
+      - name: departement_code
         data_type: text
         description: "Le code du département: 
         - numéro de département
-        - 'ZZ' pour les circonscriptions des Français·es de l’étranger
-        - null pour les circonscriptions pour les collectivités à statut particulier"
-
-      - name: code_collectivite_statut_part
+        - 'ZZ' pour les circonscriptions des Français·es de l’étranger"
+      
+      - name: departement_libelle
         data_type: text
-        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
+        description: "Le libelle du département: 
+        - libellé de département"
 
-      - name: nom_collectivite_statut_part
-        data_type: text
-        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou circonscriptions de l’étranger)"
-
-      - name: nom_elu
+      - name: personne_nom
         data_type: text
         description: "Le nom de l’élu·e dans la circonscription"
         data_tests:
           - not_null
 
-      - name: prenom_elu
+      - name: personne_prenom
         data_type: text
         description: "Le prénom de l’élu·e dans la circonscription"
         data_tests:
           - not_null
 
-      - name: genre
+      - name: personne_genre
         data_type: text
         description: "Le genre de l’élu·e: 'M' ou 'F'"
         data_tests:
@@ -57,13 +65,13 @@ models:
         data_tests:
           - not_null
 
-      - name: code_csp
-        data_type: integer
+      - name: csp_code
+        data_type: text
         description: "Le code de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
           - not_null
 
-      - name: libelle_csp
+      - name: csp_libelle
         data_type: text
         description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
         data_tests:

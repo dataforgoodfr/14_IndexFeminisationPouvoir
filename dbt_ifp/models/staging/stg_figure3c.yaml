@@ -5,13 +5,25 @@ models:
     description: >
       Pourcentage de femmes au sein du bureau du Sénat
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
 
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text, personne_genre et poste_libelle
         type: TEXT
         data_tests:
@@ -35,7 +47,7 @@ models:
         description: Nom de la personne
         type: TEXT
 
-      - name: genre
+      - name: personne_genre
         description: F or M
         type: TEXT
         data_tests:

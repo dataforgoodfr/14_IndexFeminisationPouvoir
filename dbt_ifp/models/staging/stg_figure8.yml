@@ -5,12 +5,24 @@ models:
     description: >
       Liste des hommes et des femmes présidant une haute juridiction
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         description: année de la récupération des données
         data_type: INTEGER
         data_tests:
           - not_null
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
         data_type: TEXT
         data_tests:
@@ -27,10 +39,12 @@ models:
       - name: personne_prenom
         description: Prénom de la personne qui préside la haute juridiction
         data_type: TEXT
+
       - name: personne_nom
         description: Nom de la personne qui préside la haute juridiction
         data_type: TEXT
-      - name: genre 
+        
+      - name: personne_genre 
         description: F or M
         data_type: TEXT
         data_tests:
@@ -41,16 +55,13 @@ models:
       - name: poste_libelle
         description: Intitulé du poste de la personne qui préside la haute juridiction     
         data_type: TEXT
-      - name: zone_geographique_libelle
-        description: Lieu d'exercice de la personne qui préside la haute juridiction
+
+      - name: entite_libelle
+        description: Service d'exercice de la personne qui préside la haute juridiction
         data_type: TEXT 
         data_tests:
           - not_null
-      - name: zone_geographique_type
-        description: Type de pouvoir - Toujours "haute juridiction"
-        data_type: TEXT  
-        data_tests:
-          - not_null
+
       - name: source_url
         description: URL de provenance de la donnée
         data_type: TEXT
