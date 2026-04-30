@@ -5,7 +5,6 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
-import { BookIcon } from "@/components/icons/book";
 import { DownloadIcon } from "@/components/icons/download";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
@@ -96,13 +95,12 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
-          <Link
-            href="/rapport"
-            className="button font-headline flex gap-3 items-center"
+          <a
+            href="#explorer-les-donnees"
+            className="button button-primary font-headline"
           >
-            <BookIcon />
-            Lire le rapport
-          </Link>
+            Les pouvoirs
+          </a>
         </div>
       </section>
 
@@ -218,7 +216,10 @@ export default async function Home() {
       </section>
 
       {/* 3. Explorer les données */}
-      <section className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15">
+      <section
+        id="explorer-les-donnees"
+        className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15"
+      >
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="header-h1 text-white">Explorer les données</h2>
           <p className="body1-regular text-white">
