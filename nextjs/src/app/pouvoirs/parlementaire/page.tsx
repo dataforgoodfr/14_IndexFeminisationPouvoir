@@ -34,7 +34,7 @@ export default function Page() {
             Ils sont élus par les Français.es.
           </p>
         </InfoBox>
-        <div className="divider-dashed-horizontal w-full my-8" />
+        <div className="hidden lg:flex divider-dashed-horizontal w-full my-8" />
         <div className="flex flex-col lg:flex-row my-4 lg:my-0 gap-12 lg:gap-6">
           <PouvoirFigureS
             valeur={composantes.presidente_commission.score}
@@ -42,14 +42,16 @@ export default function Page() {
             evolution={composantes.presidente_commission.evolution}
             annee={composantes.presidente_commission.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             valeur={composantes.bureau.score}
             intitule="au bureau de l'assemblée nationale"
             annee={composantes.bureau.annee}
             evolution={composantes.bureau.evolution}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             valeur={composantes.presidente_groupe.score}
             intitule="présidant un groupe parlementaire"

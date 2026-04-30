@@ -43,14 +43,16 @@ export default function Page() {
             evolution={composantes.presidente_commission.evolution}
             annee={composantes.presidente_commission.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             intitule="au bureau du Sénat"
             valeur={composantes.bureau.score}
             evolution={composantes.bureau.evolution}
             annee={composantes.bureau.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             intitule="présidant un groupe au Sénat"
             valeur={composantes.presidente_groupe.score}
