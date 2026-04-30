@@ -67,7 +67,7 @@ export default function Page() {
           description={parite_groupes.description}
           data={parite_groupes.data.map(({ nom, score }) => ({
             label: nom,
-            percentage: score
+            percentage: score,
           }))}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
           thumbsUpTopValue={0}
