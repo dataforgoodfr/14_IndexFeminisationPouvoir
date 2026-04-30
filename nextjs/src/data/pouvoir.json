@@ -74,53 +74,43 @@
           "data": [
             {
               "nom": "Renaissance",
-              "score": 48,
-              "evolution": ""
+              "score": 48
             },
             {
               "nom": "Les Écologistes",
-              "score": 47,
-              "evolution": ""
+              "score": 47
             },
             {
               "nom": "La France Insoumise",
-              "score": 45,
-              "evolution": ""
+              "score": 45
             },
             {
               "nom": "Modem",
-              "score": 41,
-              "evolution": ""
+              "score": 41
             },
             {
               "nom": "Parti Socialiste",
-              "score": 38,
-              "evolution": ""
+              "score": 38
             },
             {
               "nom": "Rassemblement National",
-              "score": 34,
-              "evolution": ""
+              "score": 34
             },
             {
               "nom": "Horizon",
-              "score": 34,
-              "evolution": ""
+              "score": 34
             },
             {
               "nom": "Les Républicains",
-              "score": 33,
-              "evolution": ""
+              "score": 33
             },
             {
               "nom": "Parti Communiste Français",
-              "score": 29,
-              "evolution": ""
+              "score": 29
             },
             {
               "nom": "Union des Droites pour la République",
-              "score": 18,
-              "evolution": ""
+              "score": 18
             }
           ]
         }
