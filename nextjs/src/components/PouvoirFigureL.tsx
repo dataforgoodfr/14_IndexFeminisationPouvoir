@@ -14,6 +14,11 @@ export type PouvoirFigureLProps = {
   withButtons?: boolean;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
   chartClassName?: string;
+
+  // TODO: fix all icons to take in different fill colors.
+  // Currently this only works for certain icons, like the globe
+  // This means this variant might not work for most icons.
+  variant?: "dark" | "light";
 };
 
 export const PouvoirFigureL = ({
@@ -25,6 +30,7 @@ export const PouvoirFigureL = ({
   withButtons,
   icon,
   chartClassName,
+  variant = "light",
 }: PouvoirFigureLProps) => {
   const anneeAffichee = annee;
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
@@ -38,7 +44,7 @@ export const PouvoirFigureL = ({
         <DoughnutChart
           value={valeur}
           className={cn("w-28 h-28 shrink-0", chartClassName)}
-          variant="light"
+          variant={variant}
           icon={icon}
         />
       )}

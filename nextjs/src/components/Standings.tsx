@@ -11,6 +11,7 @@ interface StandingsProps {
   order?: "ascending" | "descending";
   thumbsUpTop?: number;
   thumbsDownBottom?: number;
+  showSearch?: boolean;
 }
 
 export const Standings: React.FC<StandingsProps> = ({
@@ -18,6 +19,7 @@ export const Standings: React.FC<StandingsProps> = ({
   order = "descending",
   thumbsDownBottom = 0,
   thumbsUpTop = 0,
+  showSearch = false,
 }) => {
   // Sort data by percentage
   const sortedData = data.toSorted((a, b) => b.percentage - a.percentage);
@@ -43,6 +45,7 @@ export const Standings: React.FC<StandingsProps> = ({
                   ? "down"
                   : "none"
             }
+            showSearch={showSearch}
           />
         ))}
       </div>

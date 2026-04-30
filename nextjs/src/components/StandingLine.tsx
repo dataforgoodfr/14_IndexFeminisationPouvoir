@@ -1,5 +1,6 @@
 import { SearchIcon } from "@/components/icons/search";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
+import { cn } from "@/lib/utils";
 import { EvolutionBadge } from "./EvolutionBadge";
 
 interface StandingLineProps {
@@ -8,6 +9,7 @@ interface StandingLineProps {
   percentage: number;
   evolution?: number;
   iconType?: "up" | "down" | "none";
+  showSearch?: boolean;
 }
 
 export const StandingLine: React.FC<StandingLineProps> = ({
@@ -16,6 +18,7 @@ export const StandingLine: React.FC<StandingLineProps> = ({
   percentage,
   evolution,
   iconType = "none",
+  showSearch = false,
 }) => {
   let backgroundColor = "bg-foundations-violet-tres-clair";
   if (rank % 2 === 1) {
@@ -60,7 +63,9 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       {evolution !== undefined && (
         <EvolutionBadge value={evolution} className="flex-3" />
       )}
-      <div className="flex-1 flex justify-end">
+      <div
+        className={cn("flex-1 flex justify-end", showSearch ? "" : "hidden")}
+      >
         <button type="button" className="cursor-pointer">
           <SearchIcon
             className="w-5 h-5"
