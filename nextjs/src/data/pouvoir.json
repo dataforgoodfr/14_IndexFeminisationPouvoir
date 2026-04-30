@@ -73,19 +73,54 @@
           "dateMiseAJour": "2026-01-01",
           "data": [
             {
-              "nom": "Écologistes",
-              "score": 40,
-              "evolution": 2.5
+              "nom": "Renaissance",
+              "score": 48,
+              "evolution": ""
             },
             {
-              "nom": "EPR",
-              "score": 25,
-              "evolution": 2.5
+              "nom": "Ecolos",
+              "score": 47,
+              "evolution": ""
             },
             {
               "nom": "LFI",
-              "score": 30,
-              "evolution": 2.5
+              "score": 45,
+              "evolution": ""
+            },
+            {
+              "nom": "Modem",
+              "score": 41,
+              "evolution": ""
+            },
+            {
+              "nom": "PS",
+              "score": 38,
+              "evolution": ""
+            },
+            {
+              "nom": "RN",
+              "score": 34,
+              "evolution": ""
+            },
+            {
+              "nom": "Horizon",
+              "score": 34,
+              "evolution": ""
+            },
+            {
+              "nom": "Les Républicains",
+              "score": 33,
+              "evolution": ""
+            },
+            {
+              "nom": "PCF",
+              "score": 29,
+              "evolution": ""
+            },
+            {
+              "nom": "Union des droites pour la République",
+              "score": 18,
+              "evolution": ""
             }
           ]
         }

@@ -60,7 +60,7 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       </div>
 
       {/* Evolution */}
-      {evolution !== undefined && (
+      {evolution && (
         <EvolutionBadge value={evolution} className="flex-3" />
       )}
       <div
