@@ -1,7 +1,7 @@
 import { SearchIcon } from "@/components/icons/search";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
-import { EvolutionBadge } from "./EvolutionBadge";
 import { cn } from "@/lib/utils";
+import { EvolutionBadge } from "./EvolutionBadge";
 
 interface StandingLineProps {
   rank: number;
