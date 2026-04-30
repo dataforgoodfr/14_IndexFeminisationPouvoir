@@ -67,7 +67,7 @@ export default function Page() {
           data={parite_groupes.data.map(({ nom, score }) => ({
             label: nom,
             percentage: score,
-            evolution: undefined // TODO: add evolution partis politiques au sénat
+            evolution: undefined, // TODO: add evolution partis politiques au sénat
           }))}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
         />
