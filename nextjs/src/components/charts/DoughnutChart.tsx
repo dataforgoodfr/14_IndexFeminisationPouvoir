@@ -36,9 +36,7 @@ export const DoughnutChart = ({
       : "var(--color-foundations-violet-clair)";
 
   const iconColor =
-    variant === "light"
-    ? "fill-foundations-violet-principal"
-    : "fill-white";
+    variant === "light" ? "fill-foundations-violet-principal" : "fill-white";
 
   const arcColor =
     variant === "light" ? "var(--color-foundations-violet-principal)" : "white";

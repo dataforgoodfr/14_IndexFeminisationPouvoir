@@ -24,7 +24,7 @@ export default function DansLeMondePage() {
             evolution={monde.evolution}
             withChart
             withButtons
-            variant="light" 
+            variant="light"
           />
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 
-export const FemmeAuGouvernementIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const FemmeAuGouvernementIcon = (
+  props: React.SVGProps<SVGSVGElement>,
+) => (
   <svg
     width="43"
     height="77"

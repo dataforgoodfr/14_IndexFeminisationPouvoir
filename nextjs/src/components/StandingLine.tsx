@@ -1,7 +1,7 @@
 import { SearchIcon } from "@/components/icons/search";
 import { ThumbUpIcon } from "@/components/icons/thumbup";
 import { EvolutionBadge } from "./EvolutionBadge";
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface StandingLineProps {
   rank: number;
@@ -63,7 +63,9 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       {evolution !== undefined && (
         <EvolutionBadge value={evolution} className="flex-3" />
       )}
-      <div className={cn("flex-1 flex justify-end", showSearch ? "" : "hidden")}>
+      <div
+        className={cn("flex-1 flex justify-end", showSearch ? "" : "hidden")}
+      >
         <button type="button" className="cursor-pointer">
           <SearchIcon
             className="w-5 h-5"

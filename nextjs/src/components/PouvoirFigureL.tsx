@@ -30,7 +30,7 @@ export const PouvoirFigureL = ({
   withButtons,
   icon,
   chartClassName,
-  variant = 'light',
+  variant = "light",
 }: PouvoirFigureLProps) => {
   const anneeAffichee = annee;
   const pourcentageFormate = valeur.toLocaleString("fr-FR", {
