@@ -146,21 +146,13 @@
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
           "dateMiseAJour": "2026-01-01",
           "data": [
-            {
-              "nom": "Écologistes",
-              "score": 40,
-              "evolution": 2.5
-            },
-            {
-              "nom": "EPR",
-              "score": 25,
-              "evolution": 2.5
-            },
-            {
-              "nom": "LFI",
-              "score": 30,
-              "evolution": 2.5
-            }
+            { "nom": "Parti Communiste Français", "score": 44 },
+            { "nom": "Les Écologistes", "score": 44 },
+            { "nom": "Modem", "score": 39 },
+            { "nom": "Les Républicains", "score": 39 },
+            { "nom": "Parti Socialiste", "score": 37 },
+            { "nom": "Renaissance", "score": 37 },
+            { "nom": "Horizon", "score": 21 }
           ]
         }
       },
