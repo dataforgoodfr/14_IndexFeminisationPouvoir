@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { InfoBox } from "@/components/InfoBox";
 import { HauteAutoritéIcon } from "@/components/icons/haute-autorite";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
 import autresData from "@/data/pouvoir_autres.json";
@@ -39,7 +39,7 @@ export default async function HauteAutoritePage() {
           icon={HauteAutoritéIcon}
           chartClassName="h-41 w-41"
         />
-        <LiensCTA />
+        <LiensCTA downloadURL={sourceURLs.autres.hautes_autorites} />
       </div>
 
       <InfoBox>
