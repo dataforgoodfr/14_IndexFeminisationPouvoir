@@ -1,7 +1,7 @@
 {
   "prefectures": {
     "score": 17.0,
-    "evolution": -13.27,
+    "evolution": -2.6,
     "dateMiseAJour": "2026-01-01",
     "description": [
       "Assure l'exécution des règlements et des décisions du gouvernement, dirige les services déconcentrés de l'État.",
@@ -121,7 +121,7 @@
   },
   "ambassades": {
     "score": 34.0,
-    "evolution": -2.58,
+    "evolution": -0.7,
     "dateMiseAJour": "2026-01-01",
     "description": [
       "Représente l'État dans un autre pays ou auprès d'organisations internationales pour protéger les intérêts français et gérer les relations diplomatiques.",
@@ -141,7 +141,7 @@
   },
   "haute_autorite": {
     "score": 36.0,
-    "evolution": 4.96,
+    "evolution": 1.7,
     "dateMiseAJour": "2026-01-01",
     "description": [
       "La France dispose d'autorités publiques indépendantes, d'organismes administratifs indépendants, d'agences publiques et d'institutions financières.",
@@ -160,7 +160,7 @@
   },
   "hautes_juridictions": {
     "score": 20.0,
-    "evolution": 0,
+    "evolution": 20,
     "dateMiseAJour": "2026-01-01",
     "institutions": [
       {

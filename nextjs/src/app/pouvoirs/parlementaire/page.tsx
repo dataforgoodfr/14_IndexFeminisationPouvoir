@@ -68,6 +68,7 @@ export default function Page() {
           data={parite_groupes.data.map(({ nom, score }) => ({
             label: nom,
             percentage: score,
+            evolution: undefined, // TODO: add evolution partis politiques à l'AN
           }))}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
           thumbsUpTopValue={0}
