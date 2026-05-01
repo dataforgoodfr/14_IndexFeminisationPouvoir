@@ -3,7 +3,7 @@ import { Block } from "@/components/Block";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { InfoBox } from "@/components/InfoBox";
 import { AmbassadesIcon } from "@/components/icons/ambassades";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
@@ -48,7 +48,7 @@ export default async function AmbassadesPage() {
                 icon={AmbassadesIcon}
                 chartClassName="w-41 h-41"
               />
-              <LiensCTA />
+              <LiensCTA downloadURL={sourceURLs.autres.ambassadrices} />
             </div>
             <InfoBox>
               <div className="flex flex-col gap-2">

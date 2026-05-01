@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { FranceDepartementsOutremerSVG } from "@/components/FranceDepartementsOutremerSVG";
 import { InfoBox } from "@/components/InfoBox";
 import { PréfecturesIcon } from "@/components/icons/prefectures";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { ShortDate } from "@/components/ShortDate";
 import autresData from "@/data/pouvoir_autres.json";
@@ -50,6 +50,7 @@ export default async function PrefecturesPage() {
               </div>
             </InfoBox>
             <LiensCTA
+              downloadURL={sourceURLs.autres.prefetes}
               variant="horizontal"
               className="justify-center lg:justify-normal lg:self-end"
             />
