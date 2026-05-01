@@ -63,10 +63,10 @@ export default function Page() {
         <BlocClassement
           title="Taux de parité des groupes politiques"
           description={parite_groupes.description}
-          data={parite_groupes.data.map(({ nom, score, evolution }) => ({
+          data={parite_groupes.data.map(({ nom, score }) => ({
             label: nom,
             percentage: score,
-            evolution,
+            evolution: undefined, // TODO: add evolution partis politiques à l'AN
           }))}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
         />
