@@ -46,7 +46,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                 Féminisation
               </h4>
             </Link>
-            <div className="hidden w-full md:ml-6 md:flex justify-between items-center">
+            <div className="hidden w-full md:ml-6 md:flex justify-center items-center">
               <div className="flex space-x-4 items-center justify-center">
                 {items.map((item) => (
                   <div
@@ -85,6 +85,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="hidden lg:flex items-center min-w-max">
               <Link href="/rapport" className="hidden lg:block button">
                 <BookIcon />
                 <span>Lire le rapport</span>
