@@ -25,7 +25,7 @@ export const LiensCTA = ({ variant = "default", className }: LiensCTAProps) => (
     </Link>
     <Link href="/telecharger">
       <Tooltip
-        text="Exporter"
+        text="Télécharger les données"
         icon={<DownloadIcon className="w-12.5 h-12.5" />}
       />
     </Link>
