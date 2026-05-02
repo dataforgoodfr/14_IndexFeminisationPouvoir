@@ -27,7 +27,7 @@ export const Block = ({
     {/* Carte bordée */}
     <div
       className={cn(
-        "bg-white border-2 border-purple-oxfam-100 px-16 py-4 pt-12",
+        "bg-white border-2 border-purple-oxfam-100 px-6 lg:px-16 py-4 pt-12",
         cardClassName,
       )}
     >
