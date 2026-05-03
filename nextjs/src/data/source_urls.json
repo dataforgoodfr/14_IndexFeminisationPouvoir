@@ -3,11 +3,11 @@
     "default_source_url": "https://www.data.gouv.fr/datasets/index-sur-la-feminisation-du-pouvoir-doxfam-france"
   },
   "executif": {
-    "gouvernement": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
-    "regalien": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
+    "gouvernement": "https://www.info.gouv.fr/composition-du-gouvernement",
+    "regalien": "https://www.info.gouv.fr/composition-du-gouvernement",
     "cabinet_president": "https://www.elysee.fr/la-presidence/cabinet-du-president-de-la-republique-et-services-de-l-elysee",
-    "cabinet_premier_ministre": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
-    "cabinets_gouvernement": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/"
+    "cabinet_premier_ministre": "https://lannuaire.service-public.gouv.fr/gouvernement/cf3640b4-a97d-46e5-a28f-b30047729e23",
+    "cabinets_gouvernement": "https://lannuaire.service-public.gouv.fr/gouvernement"
   },
   "parlementaire": {
     "deputes": "https://www2.assemblee-nationale.fr/deputes/liste/alphabetique",
