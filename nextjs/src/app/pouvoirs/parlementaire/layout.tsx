@@ -27,7 +27,7 @@ export default function PouvoirLayout({
       <PageTitle
         id="pouvoir-parlementaire"
         title="Pouvoir parlementaire"
-        subtitle="La parité au sein du Parlement a progressé plus lentement que celle du gouvernement."
+        subtitle="Dans l'index de la féminisation du pouvoir, Oxfam a analysé 3 niveaux de pouvoirs parlementaires : l'Assemblée Nationale, le Sénat et le Parlement Européen"
       />
       <Hero>
         <PouvoirFigureXL
