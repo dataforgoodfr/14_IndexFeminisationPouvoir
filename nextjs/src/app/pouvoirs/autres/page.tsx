@@ -9,7 +9,7 @@ import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
 import { JuridictionCard } from "@/components/JuridictionCard";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureRelative } from "@/components/PouvoirFigureRelative";
@@ -140,7 +140,7 @@ export default async function HautesJuridictionsPage() {
           icon={HautesJuridictionsIcon}
           chartClassName="w-41 h-41"
         />
-        <LiensCTA />
+        <LiensCTA downloadURL={sourceURLs.autres.hautes_juridictions} />
       </div>
 
       {/* Institution cards */}

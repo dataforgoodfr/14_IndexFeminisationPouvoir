@@ -7,6 +7,7 @@ type BlockClassementProps = {
   title: string;
   description: string;
   derniereMiseAJour?: Date;
+  downloadURL?: string;
   thumbsUpTopValue?: number;
   thumbsDownBottomValue?: number;
 };
@@ -16,6 +17,7 @@ export const BlocClassement = ({
   title,
   description,
   derniereMiseAJour,
+  downloadURL,
   thumbsUpTopValue = 5,
   thumbsDownBottomValue = 5,
 }: BlockClassementProps) => {
@@ -48,7 +50,7 @@ export const BlocClassement = ({
           }))}
         />
       </div>
-      <LiensCTA />
+      <LiensCTA downloadURL={downloadURL} />
     </div>
   );
 };

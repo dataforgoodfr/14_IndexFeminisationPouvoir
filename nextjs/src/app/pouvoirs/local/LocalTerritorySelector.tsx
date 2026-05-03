@@ -1,16 +1,13 @@
 "use client";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BlocClassement } from "@/components/BlocClassement";
 import { FranceMapSVG } from "@/components/FranceMapSVG";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
 import type { SliderData, SliderItem } from "@/components/TerritorySlider";
-import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
@@ -593,21 +590,10 @@ export function LocalTerritorySelector() {
                 </div>
 
                 {/* Column 3, Rows 2-3: Buttons */}
-                <div className="md:row-span-1 flex flex-row gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start">
-                  <Link href="/methodologie">
-                    <Tooltip
-                      text="Méthode de calcul"
-                      icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-                    />
-                  </Link>
-
-                  <Link href="/telecharger">
-                    <Tooltip
-                      text="Télécharger les données"
-                      icon={<DownloadIcon className="w-12.5 h-12.5" />}
-                    />
-                  </Link>
-                </div>
+                <LiensCTA
+                  downloadURL={sourceURLs.local.maires}
+                  className="md:row-span-1 gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start"
+                />
               </div>
             </div>
 

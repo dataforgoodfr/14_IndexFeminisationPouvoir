@@ -1,13 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PouvoirLocalFigure } from "@/components/PouvoirLocalFigure";
 import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
 import { type SliderData, TerritorySlider } from "@/components/TerritorySlider";
-import { Tooltip } from "@/components/Tooltip";
 
 interface TerritoryViewProps {
   territoryName: string;
@@ -64,22 +61,11 @@ export function TerritoryView({
             onDepartementClick={onDepartementChange}
           />
         </div>
-        <div className="flex-1 flex md:flex-col flex-row items-center justify-center gap-4">
-          {/* Buttons */}
-          <Link href="/methodologie">
-            <Tooltip
-              text="Méthode de calcul"
-              icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-
-          <Link href="/telecharger">
-            <Tooltip
-              text="Télécharger les données"
-              icon={<DownloadIcon className="w-12.5 h-12.5" />}
-            />
-          </Link>
-        </div>
+        {/* TODO: should be link to data about {territoryName} */}
+        <LiensCTA
+          downloadURL={sourceURLs.local.presidents_regions}
+          className="flex-1 md:flex-col items-center justify-center"
+        />
       </div>
       {/* Bloc Slider */}
       <div className="w-full bg-purple-oxfam-50">
