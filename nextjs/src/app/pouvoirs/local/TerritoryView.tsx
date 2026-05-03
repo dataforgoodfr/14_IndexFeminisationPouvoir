@@ -8,7 +8,7 @@ import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
 import { type SliderData, TerritorySlider } from "@/components/TerritorySlider";
 import { Tooltip } from "@/components/Tooltip";
-import { LiensCTA, sourceURLs } from '@/components/LiensCTA';
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 
 interface TerritoryViewProps {
   territoryName: string;
@@ -66,7 +66,10 @@ export function TerritoryView({
           />
         </div>
         {/* TODO: should be link to data about {territoryName} */}
-        <LiensCTA downloadURL={sourceURLs.local.presidents_regions} className="flex-1 md:flex-col items-center justify-center"/>
+        <LiensCTA
+          downloadURL={sourceURLs.local.presidents_regions}
+          className="flex-1 md:flex-col items-center justify-center"
+        />
       </div>
       {/* Bloc Slider */}
       <div className="w-full bg-purple-oxfam-50">

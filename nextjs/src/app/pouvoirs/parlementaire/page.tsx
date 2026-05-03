@@ -2,7 +2,7 @@ import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { BlocClassement } from "@/components/BlocClassement";
 import ParlementChart from "@/components/charts/ParlementChart";
 import { InfoBox } from "@/components/InfoBox";
-import { sourceURLs } from '@/components/LiensCTA';
+import { sourceURLs } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";

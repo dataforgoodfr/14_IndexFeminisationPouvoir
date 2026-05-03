@@ -15,7 +15,7 @@ import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
-import { LiensCTA, sourceURLs } from '@/components/LiensCTA';
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 
 // Score and evolution metrics
 export type ScoreEvolution = {
@@ -594,7 +594,10 @@ export function LocalTerritorySelector() {
                 </div>
 
                 {/* Column 3, Rows 2-3: Buttons */}
-                <LiensCTA downloadURL={sourceURLs.local.maires} className="md:row-span-1 gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start" />
+                <LiensCTA
+                  downloadURL={sourceURLs.local.maires}
+                  className="md:row-span-1 gap-x-4 md:flex-col md:gap-y-4 items-center justify-center md:justify-start"
+                />
               </div>
             </div>
 
