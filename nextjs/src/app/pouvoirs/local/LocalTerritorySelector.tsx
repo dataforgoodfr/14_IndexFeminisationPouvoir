@@ -53,22 +53,13 @@ export type DepartementJsonData = {
   mairesEtConseilsMunicipaux: DataPouvoir;
 };
 
-// Top-level pouvoir_local.json structure
-export type PouvoirLocalJsonData = {
-  regions: RegionJsonData[];
-  departements: DepartementJsonData[];
-  "outre-mer": RegionJsonData[];
-  annee: number;
-  dateMiseAJour: string;
-};
-
 const {
   dateMiseAJour,
   "outre-mer": outreMer,
   departements,
   regions,
   annee,
-} = dataPouvoirLocal as PouvoirLocalJsonData;
+} = dataPouvoirLocal;
 
 type SectionConfig = {
   title: string;
