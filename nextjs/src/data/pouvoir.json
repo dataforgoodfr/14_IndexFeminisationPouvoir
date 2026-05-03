@@ -146,13 +146,34 @@
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
           "dateMiseAJour": "2026-01-01",
           "data": [
-            { "nom": "Parti Communiste Français", "score": 44 },
-            { "nom": "Les Écologistes", "score": 44 },
-            { "nom": "Modem", "score": 39 },
-            { "nom": "Les Républicains", "score": 39 },
-            { "nom": "Parti Socialiste", "score": 37 },
-            { "nom": "Renaissance", "score": 37 },
-            { "nom": "Horizon", "score": 21 }
+            {
+              "nom": "Parti Communiste Français",
+              "score": 44
+            },
+            {
+              "nom": "Les Écologistes",
+              "score": 44
+            },
+            {
+              "nom": "Modem",
+              "score": 39
+            },
+            {
+              "nom": "Les Républicains",
+              "score": 39
+            },
+            {
+              "nom": "Parti Socialiste",
+              "score": 37
+            },
+            {
+              "nom": "Renaissance",
+              "score": 37
+            },
+            {
+              "nom": "Horizon",
+              "score": 21
+            }
           ]
         }
       },
@@ -267,962 +288,1388 @@
     "dateMiseAJour": "2026-01-01",
     "evolution": 1.6,
     "composantes": {
-      "cheffes_detat": [
-        "DM",
-        "IS",
-        "IN",
-        "IE",
-        "MT",
-        "MK",
-        "MD",
-        "SI",
-        "TT",
-        "HN",
-        "MH",
-        "MX",
-        "NA",
-        "NI",
-        "SR",
-        "TZ",
-        "BB",
-        "BA",
-        "CD",
-        "DK",
-        "IT",
-        "JP",
-        "LV",
-        "LI",
-        "LT",
-        "NP",
-        "TN",
-        "UA"
-      ],
+      "cheffes_detat": {
+        "score": -42,
+        "evolution": 0,
+        "pays": [
+          "DM",
+          "IN",
+          "IE",
+          "IS",
+          "MK",
+          "MT",
+          "MD",
+          "SI",
+          "TT",
+          "MH",
+          "MX",
+          "NA",
+          "NI",
+          "TZ",
+          "SR"
+        ]
+      },
+      "cheffes_gouvernement": {
+        "score": -42,
+        "evolution": 0,
+        "pays": [
+          "BB",
+          "BA",
+          "DK",
+          "IS",
+          "IT",
+          "JP",
+          "LV",
+          "LI",
+          "LT",
+          "NP",
+          "CD",
+          "TT",
+          "TN",
+          "UA",
+          "HN",
+          "MH",
+          "MX",
+          "NA",
+          "NI",
+          "TZ",
+          "SR"
+        ]
+      },
+      "cheffes_detat_et_gouvernement": {
+        "pays": ["MH", "MX", "NA", "NI", "TZ", "SR"]
+      },
       "parite_gouvernement": [
         {
           "pays": "Namibie",
           "pourcentage": 64.3,
           "evolution": 27.5,
-          "rank": 1
+          "rank": 1,
+          "id": "NA"
         },
         {
           "pays": "Finlande",
           "pourcentage": 61.1,
-          "evolution": 0.0,
-          "rank": 2
+          "evolution": 0,
+          "rank": 2,
+          "id": "FI"
         },
         {
           "pays": "Nicaragua",
-          "pourcentage": 60.0,
+          "pourcentage": 60,
           "evolution": -4.3,
-          "rank": 3
+          "rank": 3,
+          "id": "NI"
         },
         {
           "pays": "Colombie",
           "pourcentage": 55.6,
           "evolution": 8.2,
-          "rank": 4
+          "rank": 4,
+          "id": "CO"
         },
         {
           "pays": "Australie",
           "pourcentage": 54.5,
           "evolution": 6.2,
-          "rank": 5
+          "rank": 5,
+          "id": "AU"
         },
-        { "pays": "Suède", "pourcentage": 52.2, "evolution": 4.4, "rank": 6 },
-        { "pays": "Canada", "pourcentage": 50.0, "evolution": 4.3, "rank": 7 },
+        {
+          "pays": "Suède",
+          "pourcentage": 52.2,
+          "evolution": 4.4,
+          "rank": 6,
+          "id": "SE"
+        },
+        {
+          "pays": "Canada",
+          "pourcentage": 50,
+          "evolution": 4.3,
+          "rank": 7,
+          "id": "CA"
+        },
         {
           "pays": "Équateur",
-          "pourcentage": 50.0,
+          "pourcentage": 50,
           "evolution": 7.9,
-          "rank": 7
+          "rank": 7,
+          "id": "EC"
         },
         {
           "pays": "Allemagne",
-          "pourcentage": 50.0,
+          "pourcentage": 50,
           "evolution": 3.8,
-          "rank": 7
+          "rank": 7,
+          "id": "DE"
         },
         {
           "pays": "Guatemala",
-          "pourcentage": 50.0,
+          "pourcentage": 50,
           "evolution": 11.5,
-          "rank": 7
+          "rank": 7,
+          "id": "GT"
         },
         {
           "pays": "Islande",
-          "pourcentage": 50.0,
-          "evolution": -10.0,
-          "rank": 7
+          "pourcentage": 50,
+          "evolution": -10,
+          "rank": 7,
+          "id": "IS"
         },
         {
           "pays": "Seychelles",
-          "pourcentage": 50.0,
+          "pourcentage": 50,
           "evolution": 14.3,
-          "rank": 7
+          "rank": 7,
+          "id": "SC"
         },
-        { "pays": "Espagne", "pourcentage": 50.0, "evolution": 0.0, "rank": 7 },
+        {
+          "pays": "Espagne",
+          "pourcentage": 50,
+          "evolution": 0,
+          "rank": 7,
+          "id": "ES"
+        },
         {
           "pays": "Royaume-Uni",
-          "pourcentage": 50.0,
-          "evolution": 0.0,
-          "rank": 7
+          "pourcentage": 50,
+          "evolution": 0,
+          "rank": 7,
+          "id": "GB"
         },
         {
           "pays": "Mexique",
           "pourcentage": 47.6,
           "evolution": 2.6,
-          "rank": 15
+          "rank": 15,
+          "id": "MX"
         },
         {
           "pays": "Norvège",
           "pourcentage": 47.4,
-          "evolution": 0.0,
-          "rank": 16
+          "evolution": 0,
+          "rank": 16,
+          "id": "NO"
         },
         {
           "pays": "Albanie",
           "pourcentage": 46.2,
           "evolution": 4.5,
-          "rank": 17
+          "rank": 17,
+          "id": "AL"
         },
         {
           "pays": "Andorre",
           "pourcentage": 46.2,
           "evolution": -3.8,
-          "rank": 17
+          "rank": 17,
+          "id": "AD"
         },
-        { "pays": "Chili", "pourcentage": 45.8, "evolution": -4.2, "rank": 19 },
+        {
+          "pays": "Chili",
+          "pourcentage": 45.8,
+          "evolution": -4.2,
+          "rank": 19,
+          "id": "CL"
+        },
         {
           "pays": "Éthiopie",
           "pourcentage": 45.5,
-          "evolution": 0.0,
-          "rank": 20
+          "evolution": 0,
+          "rank": 20,
+          "id": "ET"
         },
-        { "pays": "France", "pourcentage": 45.0, "evolution": 5.0, "rank": 21 },
+        {
+          "pays": "France",
+          "pourcentage": 45,
+          "evolution": 5,
+          "rank": 21,
+          "id": "FR"
+        },
         {
           "pays": "Afrique du Sud",
           "pourcentage": 40.6,
           "evolution": -3.2,
-          "rank": 22
+          "rank": 22,
+          "id": "ZA"
         },
         {
           "pays": "Liechtenstein",
-          "pourcentage": 40.0,
-          "evolution": -20.0,
-          "rank": 23
+          "pourcentage": 40,
+          "evolution": -20,
+          "rank": 23,
+          "id": "LI"
         },
-        { "pays": "Monaco", "pourcentage": 40.0, "evolution": 0.0, "rank": 23 },
+        {
+          "pays": "Monaco",
+          "pourcentage": 40,
+          "evolution": 0,
+          "rank": 23,
+          "id": "MC"
+        },
         {
           "pays": "Sao Tomé-et-Principe",
-          "pourcentage": 40.0,
+          "pourcentage": 40,
           "evolution": -1.7,
-          "rank": 23
+          "rank": 23,
+          "id": "ST"
         },
         {
           "pays": "Autriche",
           "pourcentage": 38.5,
           "evolution": 13.5,
-          "rank": 26
+          "rank": 26,
+          "id": "AT"
         },
         {
           "pays": "Dominique",
           "pourcentage": 38.5,
-          "evolution": 0.0,
-          "rank": 26
+          "evolution": 0,
+          "rank": 26,
+          "id": "DM"
         },
         {
           "pays": "El Salvador",
           "pourcentage": 37.5,
           "evolution": 6.2,
-          "rank": 28
+          "rank": 28,
+          "id": "SV"
         },
         {
           "pays": "Micronésie",
           "pourcentage": 37.5,
-          "evolution": 0.0,
-          "rank": 28
+          "evolution": 0,
+          "rank": 28,
+          "id": "FM"
         },
         {
           "pays": "Portugal",
           "pourcentage": 37.5,
           "evolution": -3.7,
-          "rank": 28
+          "rank": 28,
+          "id": "PT"
         },
-        { "pays": "Guyana", "pourcentage": 36.8, "evolution": 1.5, "rank": 31 },
+        {
+          "pays": "Guyana",
+          "pourcentage": 36.8,
+          "evolution": 1.5,
+          "rank": 31,
+          "id": "GY"
+        },
         {
           "pays": "Slovénie",
           "pourcentage": 36.8,
-          "evolution": 0.0,
-          "rank": 31
+          "evolution": 0,
+          "rank": 31,
+          "id": "SI"
         },
         {
           "pays": "Estonie",
           "pourcentage": 36.4,
           "evolution": -21.9,
-          "rank": 33
+          "rank": 33,
+          "id": "EE"
         },
-        { "pays": "Gabon", "pourcentage": 35.7, "evolution": 8.1, "rank": 34 },
+        {
+          "pays": "Gabon",
+          "pourcentage": 35.7,
+          "evolution": 8.1,
+          "rank": 34,
+          "id": "GA"
+        },
         {
           "pays": "Lituanie",
           "pourcentage": 35.7,
           "evolution": 7.1,
-          "rank": 34
+          "rank": 34,
+          "id": "LT"
         },
         {
           "pays": "Uruguay",
           "pourcentage": 35.7,
           "evolution": 14.3,
-          "rank": 34
+          "rank": 34,
+          "id": "UY"
         },
         {
           "pays": "Libéria",
           "pourcentage": 35.3,
-          "evolution": 0.0,
-          "rank": 37
+          "evolution": 0,
+          "rank": 37,
+          "id": "LR"
         },
-        { "pays": "Panama", "pourcentage": 35.3, "evolution": 0.0, "rank": 37 },
+        {
+          "pays": "Panama",
+          "pourcentage": 35.3,
+          "evolution": 0,
+          "rank": 37,
+          "id": "PA"
+        },
         {
           "pays": "Nouvelle-Zélande",
-          "pourcentage": 35.0,
-          "evolution": 0.0,
-          "rank": 39
+          "pourcentage": 35,
+          "evolution": 0,
+          "rank": 39,
+          "id": "NZ"
         },
         {
           "pays": "Arménie",
           "pourcentage": 33.3,
-          "evolution": 0.0,
-          "rank": 40
+          "evolution": 0,
+          "rank": 40,
+          "id": "AM"
         },
-        { "pays": "Chypre", "pourcentage": 33.3, "evolution": 0.0, "rank": 40 },
+        {
+          "pays": "Chypre",
+          "pourcentage": 33.3,
+          "evolution": 0,
+          "rank": 40,
+          "id": "CY"
+        },
         {
           "pays": "Danemark",
           "pourcentage": 33.3,
           "evolution": 2.9,
-          "rank": 40
+          "rank": 40,
+          "id": "DK"
         },
         {
           "pays": "Honduras",
           "pourcentage": 33.3,
           "evolution": -4.2,
-          "rank": 40
+          "rank": 40,
+          "id": "HN"
         },
         {
           "pays": "Luxembourg",
           "pourcentage": 33.3,
-          "evolution": 0.0,
-          "rank": 40
+          "evolution": 0,
+          "rank": 40,
+          "id": "LU"
         },
         {
           "pays": "Madagascar",
           "pourcentage": 33.3,
-          "evolution": -9.0,
-          "rank": 40
+          "evolution": -9,
+          "rank": 40,
+          "id": "MG"
         },
         {
           "pays": "Sierra Leone",
           "pourcentage": 33.3,
-          "evolution": 0.0,
-          "rank": 40
+          "evolution": 0,
+          "rank": 40,
+          "id": "SL"
         },
         {
           "pays": "Ouganda",
           "pourcentage": 33.3,
           "evolution": 3.3,
-          "rank": 40
+          "rank": 40,
+          "id": "UG"
         },
         {
           "pays": "États-Unis",
           "pourcentage": 33.3,
           "evolution": -6.7,
-          "rank": 40
+          "rank": 40,
+          "id": "US"
         },
         {
           "pays": "Serbie",
-          "pourcentage": 32.0,
+          "pourcentage": 32,
           "evolution": -5.5,
-          "rank": 49
+          "rank": 49,
+          "id": "RS"
         },
         {
           "pays": "Pologne",
           "pourcentage": 31.6,
           "evolution": -3.4,
-          "rank": 50
+          "rank": 50,
+          "id": "PL"
         },
         {
           "pays": "Burundi",
           "pourcentage": 30.8,
           "evolution": -2.5,
-          "rank": 51
+          "rank": 51,
+          "id": "BI"
         },
         {
           "pays": "Grenade",
           "pourcentage": 30.8,
-          "evolution": 0.0,
-          "rank": 51
+          "evolution": 0,
+          "rank": 51,
+          "id": "GD"
         },
-        { "pays": "Kenya", "pourcentage": 30.4, "evolution": 0.4, "rank": 53 },
-        { "pays": "Angola", "pourcentage": 29.2, "evolution": 0.0, "rank": 54 },
+        {
+          "pays": "Kenya",
+          "pourcentage": 30.4,
+          "evolution": 0.4,
+          "rank": 53,
+          "id": "KE"
+        },
+        {
+          "pays": "Angola",
+          "pourcentage": 29.2,
+          "evolution": 0,
+          "rank": 54,
+          "id": "AO"
+        },
         {
           "pays": "Brésil",
-          "pourcentage": 29.0,
+          "pourcentage": 29,
           "evolution": -3.3,
-          "rank": 55
+          "rank": 55,
+          "id": "BR"
         },
         {
           "pays": "Belgique",
           "pourcentage": 28.6,
           "evolution": -14.3,
-          "rank": 56
+          "rank": 56,
+          "id": "BE"
         },
         {
           "pays": "Costa Rica",
           "pourcentage": 28.6,
           "evolution": -4.7,
-          "rank": 56
+          "rank": 56,
+          "id": "CR"
         },
         {
           "pays": "Géorgie",
           "pourcentage": 28.6,
           "evolution": 3.6,
-          "rank": 56
+          "rank": 56,
+          "id": "GE"
         },
         {
           "pays": "Irlande",
           "pourcentage": 28.6,
           "evolution": 7.2,
-          "rank": 56
+          "rank": 56,
+          "id": "IE"
         },
         {
           "pays": "Lettonie",
           "pourcentage": 28.6,
           "evolution": -7.1,
-          "rank": 56
+          "rank": 56,
+          "id": "LV"
         },
         {
           "pays": "Pays-Bas",
           "pourcentage": 28.6,
           "evolution": -11.4,
-          "rank": 56
+          "rank": 56,
+          "id": "NL"
         },
         {
           "pays": "Suisse",
           "pourcentage": 28.6,
           "evolution": -14.3,
-          "rank": 56
+          "rank": 56,
+          "id": "CH"
         },
         {
           "pays": "Monténégro",
-          "pourcentage": 28.0,
-          "evolution": 4.0,
-          "rank": 63
+          "pourcentage": 28,
+          "evolution": 4,
+          "rank": 63,
+          "id": "ME"
         },
         {
           "pays": "Barbade",
           "pourcentage": 27.8,
           "evolution": -3.5,
-          "rank": 64
+          "rank": 64,
+          "id": "BB"
         },
         {
           "pays": "Malawi",
           "pourcentage": 27.8,
           "evolution": -5.5,
-          "rank": 64
+          "rank": 64,
+          "id": "MW"
         },
         {
           "pays": "Mozambique",
           "pourcentage": 27.8,
-          "evolution": 0.0,
-          "rank": 64
+          "evolution": 0,
+          "rank": 64,
+          "id": "MZ"
         },
         {
           "pays": "Érythrée",
           "pourcentage": 26.7,
           "evolution": 1.7,
-          "rank": 67
+          "rank": 67,
+          "id": "ER"
         },
         {
           "pays": "Jamaïque",
           "pourcentage": 26.7,
           "evolution": -6.6,
-          "rank": 67
+          "rank": 67,
+          "id": "JM"
         },
-        { "pays": "Bénin", "pourcentage": 26.3, "evolution": 2.5, "rank": 69 },
-        { "pays": "Maroc", "pourcentage": 26.3, "evolution": 0.0, "rank": 69 },
-        { "pays": "Rwanda", "pourcentage": 26.3, "evolution": 0.0, "rank": 69 },
+        {
+          "pays": "Bénin",
+          "pourcentage": 26.3,
+          "evolution": 2.5,
+          "rank": 69,
+          "id": "BJ"
+        },
+        {
+          "pays": "Maroc",
+          "pourcentage": 26.3,
+          "evolution": 0,
+          "rank": 69,
+          "id": "MA"
+        },
+        {
+          "pays": "Rwanda",
+          "pourcentage": 26.3,
+          "evolution": 0,
+          "rank": 69,
+          "id": "RW"
+        },
         {
           "pays": "Mauritanie",
           "pourcentage": 25.9,
           "evolution": 6.7,
-          "rank": 72
+          "rank": 72,
+          "id": "MR"
         },
         {
           "pays": "Venezuela",
           "pourcentage": 25.7,
           "evolution": -0.8,
-          "rank": 73
+          "rank": 73,
+          "id": "VE"
         },
         {
           "pays": "Rép. dém. du Congo",
-          "pourcentage": 25.0,
-          "evolution": 0.0,
-          "rank": 74
+          "pourcentage": 25,
+          "evolution": 0,
+          "rank": 74,
+          "id": "CD"
         },
         {
           "pays": "Eswatini",
-          "pourcentage": 25.0,
+          "pourcentage": 25,
           "evolution": -1.3,
-          "rank": 74
+          "rank": 74,
+          "id": "SZ"
         },
-        { "pays": "Grèce", "pourcentage": 25.0, "evolution": 5.0, "rank": 74 },
-        { "pays": "Italie", "pourcentage": 25.0, "evolution": 0.0, "rank": 74 },
+        {
+          "pays": "Grèce",
+          "pourcentage": 25,
+          "evolution": 5,
+          "rank": 74,
+          "id": "GR"
+        },
+        {
+          "pays": "Italie",
+          "pourcentage": 25,
+          "evolution": 0,
+          "rank": 74,
+          "id": "IT"
+        },
         {
           "pays": "Saint-Kitts-et-Nevis",
-          "pourcentage": 25.0,
-          "evolution": 0.0,
-          "rank": 74
+          "pourcentage": 25,
+          "evolution": 0,
+          "rank": 74,
+          "id": "KN"
         },
         {
           "pays": "Zimbabwe",
-          "pourcentage": 24.0,
-          "evolution": -4.0,
-          "rank": 79
+          "pourcentage": 24,
+          "evolution": -4,
+          "rank": 79,
+          "id": "ZW"
         },
         {
           "pays": "Paraguay",
           "pourcentage": 23.5,
-          "evolution": 0.0,
-          "rank": 80
+          "evolution": 0,
+          "rank": 80,
+          "id": "PY"
         },
         {
           "pays": "Suriname",
           "pourcentage": 23.5,
           "evolution": -5.9,
-          "rank": 80
+          "rank": 80,
+          "id": "SR"
         },
         {
           "pays": "Bahreïn",
           "pourcentage": 22.7,
-          "evolution": 1.0,
-          "rank": 82
+          "evolution": 1,
+          "rank": 82,
+          "id": "BH"
         },
-        { "pays": "Liban", "pourcentage": 22.7, "evolution": 18.2, "rank": 82 },
+        {
+          "pays": "Liban",
+          "pourcentage": 22.7,
+          "evolution": 18.2,
+          "rank": 82,
+          "id": "LB"
+        },
         {
           "pays": "Argentine",
           "pourcentage": 22.2,
           "evolution": -2.8,
-          "rank": 84
+          "rank": 84,
+          "id": "AR"
         },
         {
           "pays": "Bahamas",
           "pourcentage": 22.2,
-          "evolution": 0.0,
-          "rank": 84
+          "evolution": 0,
+          "rank": 84,
+          "id": "BS"
         },
         {
           "pays": "Croatie",
           "pourcentage": 22.2,
           "evolution": 5.5,
-          "rank": 84
+          "rank": 84,
+          "id": "HR"
         },
-        { "pays": "Haïti", "pourcentage": 22.2, "evolution": 0.0, "rank": 84 },
+        {
+          "pays": "Haïti",
+          "pourcentage": 22.2,
+          "evolution": 0,
+          "rank": 84,
+          "id": "HT"
+        },
         {
           "pays": "Corée du Sud",
           "pourcentage": 22.2,
           "evolution": 3.4,
-          "rank": 84
+          "rank": 84,
+          "id": "KR"
         },
-        { "pays": "Togo", "pourcentage": 22.2, "evolution": -10.1, "rank": 84 },
+        {
+          "pays": "Togo",
+          "pourcentage": 22.2,
+          "evolution": -10.1,
+          "rank": 84,
+          "id": "TG"
+        },
         {
           "pays": "Algérie",
           "pourcentage": 21.9,
           "evolution": 8.6,
-          "rank": 90
+          "rank": 90,
+          "id": "DZ"
         },
         {
           "pays": "Guinée",
           "pourcentage": 21.9,
           "evolution": -0.3,
-          "rank": 90
+          "rank": 90,
+          "id": "GN"
         },
         {
           "pays": "Djibouti",
           "pourcentage": 21.7,
-          "evolution": 0.0,
-          "rank": 92
+          "evolution": 0,
+          "rank": 92,
+          "id": "DJ"
         },
         {
           "pays": "Guinée-Bissau",
           "pourcentage": 21.7,
           "evolution": 0.9,
-          "rank": 92
+          "rank": 92,
+          "id": "GW"
         },
-        { "pays": "Israël", "pourcentage": 21.7, "evolution": 5.0, "rank": 92 },
+        {
+          "pays": "Israël",
+          "pourcentage": 21.7,
+          "evolution": 5,
+          "rank": 92,
+          "id": "IL"
+        },
         {
           "pays": "Tanzanie",
           "pourcentage": 21.7,
           "evolution": -6.9,
-          "rank": 92
+          "rank": 92,
+          "id": "TZ"
         },
-        { "pays": "Congo", "pourcentage": 21.6, "evolution": -0.6, "rank": 96 },
+        {
+          "pays": "Congo",
+          "pourcentage": 21.6,
+          "evolution": -0.6,
+          "rank": 96,
+          "id": "CG"
+        },
         {
           "pays": "Bolivie",
           "pourcentage": 21.4,
           "evolution": -2.1,
-          "rank": 97
+          "rank": 97,
+          "id": "BO"
         },
-        { "pays": "Népal", "pourcentage": 21.4, "evolution": 11.9, "rank": 97 },
+        {
+          "pays": "Népal",
+          "pourcentage": 21.4,
+          "evolution": 11.9,
+          "rank": 97,
+          "id": "NP"
+        },
         {
           "pays": "Moldavie",
           "pourcentage": 21.4,
           "evolution": -14.3,
-          "rank": 97
+          "rank": 97,
+          "id": "MD"
         },
-        { "pays": "Ghana", "pourcentage": 21.1, "evolution": 3.7, "rank": 100 },
+        {
+          "pays": "Ghana",
+          "pourcentage": 21.1,
+          "evolution": 3.7,
+          "rank": 100,
+          "id": "GH"
+        },
         {
           "pays": "Pérou",
           "pourcentage": 21.1,
           "evolution": 10.6,
-          "rank": 100
+          "rank": 100,
+          "id": "PE"
         },
         {
           "pays": "Thaïlande",
           "pourcentage": 21.1,
           "evolution": 5.3,
-          "rank": 100
+          "rank": 100,
+          "id": "TH"
         },
         {
           "pays": "Niger",
           "pourcentage": 20.8,
-          "evolution": -3.0,
-          "rank": 103
+          "evolution": -3,
+          "rank": 103,
+          "id": "NE"
         },
         {
           "pays": "Tunisie",
           "pourcentage": 20.8,
           "evolution": -4.2,
-          "rank": 103
+          "rank": 103,
+          "id": "TN"
         },
         {
           "pays": "Côte d'Ivoire",
-          "pourcentage": 20.0,
+          "pourcentage": 20,
           "evolution": 0.6,
-          "rank": 105
+          "rank": 105,
+          "id": "CI"
         },
         {
           "pays": "Timor-Leste",
-          "pourcentage": 20.0,
-          "evolution": 0.0,
-          "rank": 105
+          "pourcentage": 20,
+          "evolution": 0,
+          "rank": 105,
+          "id": "TL"
         },
         {
           "pays": "Ukraine",
-          "pourcentage": 20.0,
+          "pourcentage": 20,
           "evolution": -6.3,
-          "rank": 105
+          "rank": 105,
+          "id": "UA"
         },
         {
           "pays": "Rép. centrafricaine",
           "pourcentage": 19.4,
-          "evolution": 0.0,
-          "rank": 108
+          "evolution": 0,
+          "rank": 108,
+          "id": "CF"
         },
         {
           "pays": "Bangladesh",
-          "pourcentage": 19.0,
+          "pourcentage": 19,
           "evolution": 0.8,
-          "rank": 109
+          "rank": 109,
+          "id": "BD"
         },
         {
           "pays": "Kazakhstan",
-          "pourcentage": 19.0,
+          "pourcentage": 19,
           "evolution": 4.7,
-          "rank": 109
+          "rank": 109,
+          "id": "KZ"
         },
         {
           "pays": "Émirats arabes unis",
-          "pourcentage": 19.0,
-          "evolution": -1.0,
-          "rank": 109
+          "pourcentage": 19,
+          "evolution": -1,
+          "rank": 109,
+          "id": "AE"
         },
         {
           "pays": "Cameroun",
           "pourcentage": 18.8,
           "evolution": -1.8,
-          "rank": 112
+          "rank": 112,
+          "id": "CM"
         },
-        { "pays": "Mali", "pourcentage": 18.5, "evolution": 0.0, "rank": 113 },
-        { "pays": "Cuba", "pourcentage": 18.2, "evolution": 0.0, "rank": 114 },
+        {
+          "pays": "Mali",
+          "pourcentage": 18.5,
+          "evolution": 0,
+          "rank": 113,
+          "id": "ML"
+        },
+        {
+          "pays": "Cuba",
+          "pourcentage": 18.2,
+          "evolution": 0,
+          "rank": 114,
+          "id": "CU"
+        },
         {
           "pays": "Soudan du Sud",
           "pourcentage": 17.6,
           "evolution": -5.9,
-          "rank": 115
+          "rank": 115,
+          "id": "SS"
         },
         {
           "pays": "Philippines",
           "pourcentage": 17.4,
-          "evolution": 0.0,
-          "rank": 116
+          "evolution": 0,
+          "rank": 116,
+          "id": "PH"
         },
         {
           "pays": "Trinité-et-Tobago",
           "pourcentage": 17.4,
           "evolution": -14.4,
-          "rank": 116
+          "rank": 116,
+          "id": "TT"
         },
         {
           "pays": "Botswana",
           "pourcentage": 16.7,
-          "evolution": 0.0,
-          "rank": 118
+          "evolution": 0,
+          "rank": 118,
+          "id": "BW"
         },
         {
           "pays": "Tchad",
-          "pourcentage": 16.0,
+          "pourcentage": 16,
           "evolution": -0.7,
-          "rank": 119
+          "rank": 119,
+          "id": "TD"
         },
         {
           "pays": "Sénégal",
-          "pourcentage": 16.0,
-          "evolution": 0.0,
-          "rank": 119
+          "pourcentage": 16,
+          "evolution": 0,
+          "rank": 119,
+          "id": "SN"
         },
-        { "pays": "Japon", "pourcentage": 15.8, "evolution": 5.8, "rank": 121 },
+        {
+          "pays": "Japon",
+          "pourcentage": 15.8,
+          "evolution": 5.8,
+          "rank": 121,
+          "id": "JP"
+        },
         {
           "pays": "Macédoine du Nord",
           "pourcentage": 15.8,
           "evolution": 0.8,
-          "rank": 121
+          "rank": 121,
+          "id": "MK"
         },
-        { "pays": "Laos", "pourcentage": 15.4, "evolution": -2.2, "rank": 123 },
+        {
+          "pays": "Laos",
+          "pourcentage": 15.4,
+          "evolution": -2.2,
+          "rank": 123,
+          "id": "LA"
+        },
         {
           "pays": "Sainte-Lucie",
           "pourcentage": 15.4,
           "evolution": -2.8,
-          "rank": 123
+          "rank": 123,
+          "id": "LC"
         },
         {
           "pays": "Zambie",
           "pourcentage": 15.4,
           "evolution": -0.6,
-          "rank": 123
+          "rank": 123,
+          "id": "ZM"
         },
         {
           "pays": "Tchéquie",
           "pourcentage": 14.3,
           "evolution": 7.6,
-          "rank": 126
+          "rank": 126,
+          "id": "CZ"
         },
         {
           "pays": "Gambie",
           "pourcentage": 14.3,
-          "evolution": 0.0,
-          "rank": 126
+          "evolution": 0,
+          "rank": 126,
+          "id": "GM"
         },
         {
           "pays": "Kiribati",
           "pourcentage": 14.3,
-          "evolution": 0.0,
-          "rank": 126
+          "evolution": 0,
+          "rank": 126,
+          "id": "KI"
         },
         {
           "pays": "Palaos",
           "pourcentage": 14.3,
           "evolution": 1.8,
-          "rank": 126
+          "rank": 126,
+          "id": "PW"
         },
         {
           "pays": "Saint-Vincent-et-les-Grenadines",
           "pourcentage": 14.3,
           "evolution": -3.9,
-          "rank": 126
+          "rank": 126,
+          "id": "VC"
         },
         {
           "pays": "Tadjikistan",
           "pourcentage": 14.3,
-          "evolution": 0.0,
-          "rank": 126
+          "evolution": 0,
+          "rank": 126,
+          "id": "TJ"
         },
-        { "pays": "Fidji", "pourcentage": 13.6, "evolution": 3.1, "rank": 132 },
+        {
+          "pays": "Fidji",
+          "pourcentage": 13.6,
+          "evolution": 3.1,
+          "rank": 132,
+          "id": "FJ"
+        },
         {
           "pays": "Comores",
           "pourcentage": 13.3,
-          "evolution": 0.0,
-          "rank": 133
+          "evolution": 0,
+          "rank": 133,
+          "id": "KM"
         },
         {
           "pays": "Roumanie",
           "pourcentage": 13.3,
           "evolution": 0.8,
-          "rank": 133
+          "rank": 133,
+          "id": "RO"
         },
         {
           "pays": "Singapour",
           "pourcentage": 13.3,
-          "evolution": -1.0,
-          "rank": 133
+          "evolution": -1,
+          "rank": 133,
+          "id": "SG"
         },
         {
           "pays": "Slovaquie",
           "pourcentage": 13.3,
-          "evolution": 0.0,
-          "rank": 133
+          "evolution": 0,
+          "rank": 133,
+          "id": "SK"
         },
-        { "pays": "Irak", "pourcentage": 13.0, "evolution": 0.0, "rank": 137 },
-        { "pays": "Libye", "pourcentage": 13.0, "evolution": 1.5, "rank": 137 },
-        { "pays": "Oman", "pourcentage": 13.0, "evolution": -2.0, "rank": 137 },
+        {
+          "pays": "Irak",
+          "pourcentage": 13,
+          "evolution": 0,
+          "rank": 137,
+          "id": "IQ"
+        },
+        {
+          "pays": "Libye",
+          "pourcentage": 13,
+          "evolution": 1.5,
+          "rank": 137,
+          "id": "LY"
+        },
+        {
+          "pays": "Oman",
+          "pourcentage": 13,
+          "evolution": -2,
+          "rank": 137,
+          "id": "OM"
+        },
         {
           "pays": "Antigua-et-Barbuda",
           "pourcentage": 12.5,
-          "evolution": 0.0,
-          "rank": 140
+          "evolution": 0,
+          "rank": 140,
+          "id": "AG"
         },
         {
           "pays": "Bosnie-Herzégovine",
           "pourcentage": 12.5,
           "evolution": 1.4,
-          "rank": 140
+          "rank": 140,
+          "id": "BA"
         },
         {
           "pays": "Cap-Vert",
           "pourcentage": 12.5,
           "evolution": -18.8,
-          "rank": 140
+          "rank": 140,
+          "id": "CV"
         },
-        { "pays": "Malte", "pourcentage": 12.5, "evolution": 0.0, "rank": 140 },
+        {
+          "pays": "Malte",
+          "pourcentage": 12.5,
+          "evolution": 0,
+          "rank": 140,
+          "id": "MT"
+        },
         {
           "pays": "Mongolie",
           "pourcentage": 12.5,
           "evolution": -6.3,
-          "rank": 140
+          "rank": 140,
+          "id": "MN"
         },
         {
           "pays": "Nauru",
           "pourcentage": 12.5,
           "evolution": -1.8,
-          "rank": 140
+          "rank": 140,
+          "id": "NR"
         },
         {
           "pays": "Koweït",
           "pourcentage": 11.8,
           "evolution": -5.8,
-          "rank": 146
+          "rank": 146,
+          "id": "KW"
         },
         {
           "pays": "Lesotho",
           "pourcentage": 11.8,
-          "evolution": 0.0,
-          "rank": 146
+          "evolution": 0,
+          "rank": 146,
+          "id": "LS"
         },
         {
           "pays": "Bhoutan",
           "pourcentage": 11.1,
-          "evolution": 0.0,
-          "rank": 148
+          "evolution": 0,
+          "rank": 148,
+          "id": "BT"
         },
         {
           "pays": "Cambodge",
           "pourcentage": 11.1,
-          "evolution": 0.0,
-          "rank": 148
+          "evolution": 0,
+          "rank": 148,
+          "id": "KH"
         },
         {
           "pays": "Kirghizistan",
           "pourcentage": 11.1,
           "evolution": -1.4,
-          "rank": 148
+          "rank": 148,
+          "id": "KG"
         },
         {
           "pays": "Malaisie",
           "pourcentage": 11.1,
-          "evolution": 0.0,
-          "rank": 148
+          "evolution": 0,
+          "rank": 148,
+          "id": "MY"
         },
-        { "pays": "Qatar", "pourcentage": 11.1, "evolution": 0.0, "rank": 148 },
-        { "pays": "Iran", "pourcentage": 10.7, "evolution": 0.7, "rank": 153 },
+        {
+          "pays": "Qatar",
+          "pourcentage": 11.1,
+          "evolution": 0,
+          "rank": 148,
+          "id": "QA"
+        },
+        {
+          "pays": "Iran",
+          "pourcentage": 10.7,
+          "evolution": 0.7,
+          "rank": 153,
+          "id": "IR"
+        },
         {
           "pays": "Égypte",
           "pourcentage": 10.3,
-          "evolution": -3.0,
-          "rank": 154
+          "evolution": -3,
+          "rank": 154,
+          "id": "EG"
         },
         {
           "pays": "Brunéi",
-          "pourcentage": 10.0,
-          "evolution": 0.0,
-          "rank": 155
+          "pourcentage": 10,
+          "evolution": 0,
+          "rank": 155,
+          "id": "BN"
         },
         {
           "pays": "Maldives",
-          "pourcentage": 10.0,
+          "pourcentage": 10,
           "evolution": 0.5,
-          "rank": 155
+          "rank": 155,
+          "id": "MV"
         },
         {
           "pays": "Saint-Marin",
-          "pourcentage": 10.0,
-          "evolution": 0.0,
-          "rank": 155
+          "pourcentage": 10,
+          "evolution": 0,
+          "rank": 155,
+          "id": "SM"
         },
         {
           "pays": "Indonésie",
           "pourcentage": 9.8,
           "evolution": -2.7,
-          "rank": 158
+          "rank": 158,
+          "id": "ID"
         },
         {
           "pays": "Burkina Faso",
           "pourcentage": 9.5,
-          "evolution": 0.0,
-          "rank": 159
+          "evolution": 0,
+          "rank": 159,
+          "id": "BF"
         },
         {
           "pays": "Rép. dominicaine",
           "pourcentage": 9.5,
           "evolution": -8.1,
-          "rank": 159
+          "rank": 159,
+          "id": "DO"
         },
-        { "pays": "Russie", "pourcentage": 9.5, "evolution": 0.0, "rank": 159 },
+        {
+          "pays": "Russie",
+          "pourcentage": 9.5,
+          "evolution": 0,
+          "rank": 159,
+          "id": "RU"
+        },
         {
           "pays": "Îles Salomon",
           "pourcentage": 9.5,
-          "evolution": 0.0,
-          "rank": 159
+          "evolution": 0,
+          "rank": 159,
+          "id": "SB"
         },
-        { "pays": "Soudan", "pourcentage": 9.5, "evolution": 1.8, "rank": 159 },
-        { "pays": "Tonga", "pourcentage": 9.1, "evolution": -9.1, "rank": 164 },
+        {
+          "pays": "Soudan",
+          "pourcentage": 9.5,
+          "evolution": 1.8,
+          "rank": 159,
+          "id": "SD"
+        },
+        {
+          "pays": "Tonga",
+          "pourcentage": 9.1,
+          "evolution": -9.1,
+          "rank": 164,
+          "id": "TO"
+        },
         {
           "pays": "Sri Lanka",
           "pourcentage": 8.7,
           "evolution": -0.4,
-          "rank": 165
+          "rank": 165,
+          "id": "LK"
         },
         {
           "pays": "Nigéria",
           "pourcentage": 8.6,
           "evolution": -0.2,
-          "rank": 166
+          "rank": 166,
+          "id": "NG"
         },
-        { "pays": "Chine", "pourcentage": 8.3, "evolution": 0.0, "rank": 167 },
+        {
+          "pays": "Chine",
+          "pourcentage": 8.3,
+          "evolution": 0,
+          "rank": 167,
+          "id": "CN"
+        },
         {
           "pays": "Maurice",
           "pourcentage": 8.3,
-          "evolution": 0.0,
-          "rank": 167
+          "evolution": 0,
+          "rank": 167,
+          "id": "MU"
         },
         {
           "pays": "Jordanie",
           "pourcentage": 7.7,
           "evolution": -7.7,
-          "rank": 169
+          "rank": 169,
+          "id": "JO"
         },
         {
           "pays": "Viêt Nam",
           "pourcentage": 7.1,
-          "evolution": -4.0,
-          "rank": 170
+          "evolution": -4,
+          "rank": 170,
+          "id": "VN"
         },
         {
           "pays": "Samoa",
           "pourcentage": 6.7,
           "evolution": -16.4,
-          "rank": 171
+          "rank": 171,
+          "id": "WS"
         },
         {
           "pays": "Turquie",
           "pourcentage": 5.9,
-          "evolution": 0.0,
-          "rank": 172
+          "evolution": 0,
+          "rank": 172,
+          "id": "TR"
         },
         {
           "pays": "Belize",
           "pourcentage": 5.6,
           "evolution": -0.3,
-          "rank": 173
+          "rank": 173,
+          "id": "BZ"
         },
-        { "pays": "Inde", "pourcentage": 5.6, "evolution": 0.0, "rank": 173 },
+        {
+          "pays": "Inde",
+          "pourcentage": 5.6,
+          "evolution": 0,
+          "rank": 173,
+          "id": "IN"
+        },
         {
           "pays": "Bulgarie",
           "pourcentage": 5.3,
-          "evolution": 0.0,
-          "rank": 175
+          "evolution": 0,
+          "rank": 175,
+          "id": "BG"
         },
         {
           "pays": "Guinée équatoriale",
-          "pourcentage": 5.0,
+          "pourcentage": 5,
           "evolution": -0.3,
-          "rank": 176
+          "rank": 176,
+          "id": "GQ"
         },
         {
           "pays": "Ouzbékistan",
-          "pourcentage": 5.0,
+          "pourcentage": 5,
           "evolution": 0.2,
-          "rank": 176
+          "rank": 176,
+          "id": "UZ"
         },
-        { "pays": "Syrie", "pourcentage": 4.3, "evolution": 0.0, "rank": 178 },
+        {
+          "pays": "Syrie",
+          "pourcentage": 4.3,
+          "evolution": 0,
+          "rank": 178,
+          "id": "SY"
+        },
         {
           "pays": "Biélorussie",
           "pourcentage": 4.2,
           "evolution": -0.1,
-          "rank": 179
+          "rank": 179,
+          "id": "BY"
         },
         {
           "pays": "Somalie",
-          "pourcentage": 4.0,
-          "evolution": -4.0,
-          "rank": 180
+          "pourcentage": 4,
+          "evolution": -4,
+          "rank": 180,
+          "id": "SO"
         },
         {
           "pays": "Pakistan",
           "pourcentage": 3.4,
           "evolution": 3.4,
-          "rank": 181
+          "rank": 181,
+          "id": "PK"
         },
         {
           "pays": "Papouasie-Nouvelle-Guinée",
           "pourcentage": 2.7,
-          "evolution": 0.0,
-          "rank": 182
+          "evolution": 0,
+          "rank": 182,
+          "id": "PG"
         },
         {
           "pays": "Azerbaïdjan",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "AZ"
         },
         {
           "pays": "Hongrie",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "HU"
         },
         {
           "pays": "Îles Marshall",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "MH"
         },
         {
           "pays": "Arabie saoudite",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "SA"
         },
         {
           "pays": "Turkménistan",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "TM"
         },
-        { "pays": "Tuvalu", "pourcentage": 0.0, "evolution": 0.0, "rank": 183 },
+        {
+          "pays": "Tuvalu",
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "TV"
+        },
         {
           "pays": "Vanuatu",
-          "pourcentage": 0.0,
-          "evolution": 0.0,
-          "rank": 183
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "VU"
         },
-        { "pays": "Yémen", "pourcentage": 0.0, "evolution": 0.0, "rank": 183 }
+        {
+          "pays": "Yémen",
+          "pourcentage": 0,
+          "evolution": 0,
+          "rank": 183,
+          "id": "YE"
+        }
       ]
     }
   }
