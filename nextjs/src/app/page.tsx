@@ -17,11 +17,11 @@ import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
-import { LiensCTA } from "@/components/LiensCTA";
 
 const RECOMMENDATIONS = [
   {

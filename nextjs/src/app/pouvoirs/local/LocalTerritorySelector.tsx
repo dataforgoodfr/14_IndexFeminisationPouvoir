@@ -6,6 +6,7 @@ import { BlocClassement } from "@/components/BlocClassement";
 import { FranceMapSVG } from "@/components/FranceMapSVG";
 import { DownloadIcon } from "@/components/icons/download";
 import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
@@ -15,7 +16,6 @@ import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";
 import { TerritoryView } from "./TerritoryView";
-import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 
 // Score and evolution metrics
 export type ScoreEvolution = {
