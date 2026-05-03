@@ -1,5 +1,5 @@
 import { InfoBox } from "@/components/InfoBox";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { Standings } from "@/components/Standings";
 
 import { portefeuilles_ministeriels } from "@/data/monde.json";
@@ -27,7 +27,7 @@ export default function PortefeuillesMinisterielsPage() {
           />
         </div>
         <div className="flex-1 mt-10 lg:mt-0 lg:flex-1 flex flex-col items-center lg:flex-row gap-10 md:gap-15">
-          <LiensCTA />
+          <LiensCTA downloadURL={sourceURLs.monde.portefeuilles_ministeriels} />
           <InfoBox>
             L’attribution des portefeuilles ministériels reste genrée. En effet,
             les femmes ont particulièrement la charge de thématiques liées aux
