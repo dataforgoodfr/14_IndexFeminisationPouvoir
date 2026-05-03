@@ -1,17 +1,13 @@
 "use client";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BlocClassement } from "@/components/BlocClassement";
 import { FranceMapSVG } from "@/components/FranceMapSVG";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { OutreMerGrid } from "@/components/OutreMerMap";
 import { RegionsSlider } from "@/components/RegionsSlider";
 import { ShortDate } from "@/components/ShortDate";
 import type { SliderData, SliderItem } from "@/components/TerritorySlider";
-import { Tooltip } from "@/components/Tooltip";
 import dataPouvoirLocal from "@/data/pouvoir_local.json";
 import regionsDescriptions from "@/data/regions-descriptions.json";
 import { createZoneDataMap } from "./page";

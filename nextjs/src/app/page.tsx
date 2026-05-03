@@ -6,6 +6,7 @@ import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
 import { DownloadIcon } from "@/components/icons/download";
+import { BookIcon } from "@/components/icons/book";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
 import { LogoDataForGood } from "@/components/icons/logo-d4g";
@@ -15,11 +16,9 @@ import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { LiensCTA } from "@/components/LiensCTA";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
-import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
 
 const RECOMMENDATIONS = [

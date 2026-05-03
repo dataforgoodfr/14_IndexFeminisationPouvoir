@@ -1,14 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { DownloadIcon } from "@/components/icons/download";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
 import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PouvoirLocalFigure } from "@/components/PouvoirLocalFigure";
 import { DeptMapSVG, RegionWithDeptMapSVG } from "@/components/RegionMapSVG";
 import { ShortDate } from "@/components/ShortDate";
 import { type SliderData, TerritorySlider } from "@/components/TerritorySlider";
-import { Tooltip } from "@/components/Tooltip";
 
 interface TerritoryViewProps {
   territoryName: string;
