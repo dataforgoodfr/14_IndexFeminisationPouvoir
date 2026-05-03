@@ -17,7 +17,7 @@ const navigation: NavigationItem[] = [
   },
   { name: "Pionnières", href: "/pionnieres" },
 
-  { name: "Recommandations", href: "/recommandations" },
+  { name: "Recommandations", href: "/#recommandations" },
   { name: "Méthode de calcul", href: "/methodologie" },
 ];
 
