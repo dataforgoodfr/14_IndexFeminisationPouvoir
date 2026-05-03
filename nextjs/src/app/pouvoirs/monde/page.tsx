@@ -19,7 +19,7 @@ const items = [
     ...monde.composantes.cheffes_gouvernement,
   },
   {
-    label: "Cheffes d'état et de  gouvernement",
+    label: "Cheffes d'état et de gouvernement",
     ...monde.composantes.cheffes_detat_et_gouvernement,
   },
   {
