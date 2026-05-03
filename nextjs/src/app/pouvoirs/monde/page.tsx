@@ -1,6 +1,6 @@
 import { GoodBadExample, GoodBadTitle } from "@/components/GoodBadExample";
 import { FemmeAuGouvernementIcon } from "@/components/icons/femme-gouvernement";
-import { sourceURLs } from '@/components/LiensCTA';
+import { sourceURLs } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { Standings } from "@/components/Standings";
 import { WorldMapSVG } from "@/components/WorldMapSVG";

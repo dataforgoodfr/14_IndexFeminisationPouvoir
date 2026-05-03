@@ -21,7 +21,7 @@ import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
-import { LiensCTA } from '@/components/LiensCTA';
+import { LiensCTA } from "@/components/LiensCTA";
 
 const RECOMMENDATIONS = [
   {
