@@ -337,14 +337,7 @@
         ]
       },
       "cheffes_detat_et_gouvernement": {
-        "pays": [
-          "MH",
-          "MX",
-          "NA",
-          "NI",
-          "TZ",
-          "SR"
-        ]
+        "pays": ["MH", "MX", "NA", "NI", "TZ", "SR"]
       },
       "parite_gouvernement": [
         {
