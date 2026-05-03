@@ -27,7 +27,7 @@ export default function DansLeMondeLayout({
         navItems={[
           {
             href: "/pouvoirs/monde",
-            label: "Pays avec une femme au pouvoir",
+            label: "Pays avec une femme",
             icon: <PaysAvecFemmeIcon className="w-20 h-20" />,
           },
           {

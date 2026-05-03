@@ -20,39 +20,7 @@ import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
-
-const RECOMMENDATIONS = [
-  {
-    color: "var(--color-foundations-jaune-oxfam)",
-    title: "Cadre législatif",
-    description:
-      "Renforcer les quotas de parité dans les instances décisionnelles et sanctionner le non-respect des obligations légales.",
-  },
-  {
-    color: "var(--color-foundations-violet-principal)",
-    title: "Formation & mentorat",
-    description:
-      "Développer des programmes de formation et de mentorat pour préparer les femmes à accéder aux postes de décision.",
-  },
-  {
-    color: "var(--color-foundations-vert-principal)",
-    title: "Culture organisationnelle",
-    description:
-      "Transformer les cultures organisationnelles pour éliminer les biais de genre et favoriser un environnement inclusif.",
-  },
-  {
-    color: "var(--color-foundations-orange-site)",
-    title: "Transparence & données",
-    description:
-      "Améliorer la collecte et la publication de données sexuées pour mesurer les progrès et identifier les obstacles.",
-  },
-  {
-    color: "var(--color-foundations-bleu-site)",
-    title: "Engagements volontaires",
-    description:
-      "Encourager les organisations à prendre des engagements volontaires en faveur de la parité et à en rendre compte.",
-  },
-];
+import { richComponents } from "@/lib/utils";
 
 const { dateMiseAJour, score, evolution } = pouvoirData;
 
@@ -295,36 +263,41 @@ export default async function Home() {
             Recomman&shy;dations
           </h2>
 
-          <p className="body1-medium text-center text-foundations-violet-principal">
-            Le bilan des élections municipales de mars 2026 démontrent que la
-            féminisation du pouvoir n’est pas un acquis.
-            <br />
-            En France la parité stagne, voire régresse sous certains aspects.
-            Or, les progrès en matière de parité ne sont jamais arrivés par
-            miracle.
-            <br />
-            En 2025 Oxfam avait repris la recommandation forte du Haut Conseil à
-            l’Egalité (HCE) de faire un acte II de la parité politique.
-            <br />
-            En 2026, force est de constater que cette demande reste tristement
-            d’actualité.
-            <br />À un an d’une élection majeure en France, les responsables
-            politiques doivent s’engager à faire mieux en matière de
-            féminisation du pouvoir, à la fois en reprenant les travaux du HCE
-            et en s’engageant à nommer plus de femmes aux postes de pouvoir.
-          </p>
+          <div className="body1-medium text-center text-foundations-violet-principal">
+            {t.rich("recommandations.summary", richComponents)}
+          </div>
         </div>
         {/* Row 1: 3 cards */}
         <div className="flex gap-6.5 flex-wrap justify-center">
-          {RECOMMENDATIONS.slice(0, 3).map((reco) => (
-            <RecommendationCard key={reco.title} {...reco} />
-          ))}
-        </div>
-        {/* Row 2: 2 cards */}
-        <div className="flex gap-6.5 flex-wrap justify-center">
-          {RECOMMENDATIONS.slice(3).map((reco) => (
-            <RecommendationCard key={reco.title} {...reco} />
-          ))}
+          <RecommendationCard
+            title="Cadre législatif"
+            color="var(--color-foundations-jaune-oxfam)"
+            description={t("recommandations.composantes.cadre_législatif")}
+          />
+          <RecommendationCard
+            title="Formation & mentorat"
+            color="var(--color-foundations-violet-principal)"
+            description={t("recommandations.composantes.formation_mentorat")}
+          />
+          <RecommendationCard
+            title="Culture organisationnelle"
+            color="var(--color-foundations-vert-principal)"
+            description={t(
+              "recommandations.composantes.culture_organisationnelle",
+            )}
+          />
+          <RecommendationCard
+            title="Transparence & données"
+            color="var(--color-foundations-orange-site)"
+            description={t("recommandations.composantes.transparence_données")}
+          />
+          <RecommendationCard
+            title="Engagements volontaires"
+            color="var(--color-foundations-bleu-site)"
+            description={t(
+              "recommandations.composantes.engagements_volontaires",
+            )}
+          />
         </div>
         <Link
           href="/recommandations"
