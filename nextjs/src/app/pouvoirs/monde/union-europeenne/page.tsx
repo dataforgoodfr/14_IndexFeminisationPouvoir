@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function UnionEuropeennePage() {
   return (
-    <div className="flex flex-col items-center gap-12 py-12 px-12 max-w-7xl mx-auto w-full">
+    <div className="flex flex-col items-center gap-12 py-12 px-4 lg:px-12 max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center gap-3">
         <h2 className="header-h2 text-foundations-violet-principal text-center">
           L'union européenne

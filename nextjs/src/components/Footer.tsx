@@ -71,6 +71,8 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.instagram.com/dataforgoodfr/"
+          title="Instagram"
+          aria-label="Compte Instagram de Data for Good"
         >
           <InstagramIcon />
         </Link>
@@ -78,6 +80,8 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/company/dataforgood/"
+          title="LinkedIn"
+          aria-label="Compte LinkedIn de Data for Good"
         >
           <LinkedinIcon />
         </Link>
@@ -85,6 +89,8 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://bsky.app/profile/dataforgood.fr"
+          title="Bluesky"
+          aria-label="Compte Bluesky de Data for Good"
         >
           <BlueskyIcon />
         </Link>
@@ -92,6 +98,8 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://piaille.fr/@dataforgood"
+          title="Mastodon"
+          aria-label="Compte Mastodon de Data for Good"
         >
           <MastodonIcon />
         </Link>

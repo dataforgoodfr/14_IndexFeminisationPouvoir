@@ -50,7 +50,7 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <NextIntlClientProvider>
             <Menu items={navigation} />
-            <main className="flex-1 flex flex-col">{children}</main>
+            <main className="flex-1 flex flex-col mt-22.5">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </div>
