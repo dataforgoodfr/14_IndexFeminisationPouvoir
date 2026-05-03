@@ -17,7 +17,7 @@ export const JuridictionCard = ({
   >
     <Icon className="w-18.75 h-18.75" />
     <p className="header-h4 text-center whitespace-pre-line">{label}</p>
-    <span className="invisible group-hover:visible z-50 shadow-lg px-3 py-2 absolute top-full mt-1 bg-foundations-violet-clair w-[calc(100%+20px)] body2-regular text-center">
+    <span className="invisible group-hover:visible flex z-50 px-5 py-5 absolute top-0 bg-foundations-violet-principal w-full h-full body3-medium text-center justify-center items-center text-foundations-blanc">
       <p className="">{description}</p>
     </span>
   </div>
