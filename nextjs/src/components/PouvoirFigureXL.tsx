@@ -17,7 +17,7 @@ export const PouvoirFigureXL = ({
   intitule,
   annee,
 }: PouvoirFigureXLProps) => (
-  <div className="flex flex-col lg:flex-row gap-9 items-center lg:items-start">
+  <div className="flex flex-col lg:flex-row gap-9 items-center">
     <DoughnutChart value={valeur} className="w-68 h-68" icon={Icon} />
     <div className="flex flex-col justify-center text-foundations-blanc">
       <span className="text-chiffre-xl">{valeur.toFixed(2)} %</span>

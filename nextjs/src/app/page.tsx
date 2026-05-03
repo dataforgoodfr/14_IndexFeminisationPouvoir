@@ -5,7 +5,6 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
-import { BookIcon } from "@/components/icons/book";
 import { DownloadIcon } from "@/components/icons/download";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
@@ -97,13 +96,12 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
-          <Link
-            href="/rapport"
-            className="button font-headline flex gap-3 items-center"
+          <a
+            href="#explorer-les-donnees"
+            className="button button-primary font-headline"
           >
-            <BookIcon />
-            Lire le rapport
-          </Link>
+            Les pouvoirs
+          </a>
         </div>
       </section>
 
@@ -180,7 +178,7 @@ export default async function Home() {
             </div>
             <LiensCTA className="self-center lg:self-end mb-12 shrink-0" />
           </div>
-          <div className="flex lg:hidden flex-row flex-wrap justify-center lg:justify-between gap-6 px-4 lg:px-8">
+          <div className="grid grid-cols-2 lg:hidden gap-y-14 gap-x-1.25">
             <StatsCard
               label="Pouvoir exécutif"
               score={pouvoirData.executif.score}
@@ -206,7 +204,10 @@ export default async function Home() {
       </section>
 
       {/* 3. Explorer les données */}
-      <section className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15">
+      <section
+        id="explorer-les-donnees"
+        className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15"
+      >
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="header-h1 text-white">Explorer les données</h2>
           <p className="body1-regular text-white">
@@ -282,9 +283,23 @@ export default async function Home() {
             Recomman&shy;dations
           </h2>
 
-          <p className="body2-regular text-foundations-gris-fonce">
-            Principales pistes d'action pour promouvoir la féminisation du
-            pouvoir
+          <p className="body1-medium text-center text-foundations-violet-principal">
+            Le bilan des élections municipales de mars 2026 démontrent que la
+            féminisation du pouvoir n’est pas un acquis.
+            <br />
+            En France la parité stagne, voire régresse sous certains aspects.
+            Or, les progrès en matière de parité ne sont jamais arrivés par
+            miracle.
+            <br />
+            En 2025 Oxfam avait repris la recommandation forte du Haut Conseil à
+            l’Egalité (HCE) de faire un acte II de la parité politique.
+            <br />
+            En 2026, force est de constater que cette demande reste tristement
+            d’actualité.
+            <br />À un an d’une élection majeure en France, les responsables
+            politiques doivent s’engager à faire mieux en matière de
+            féminisation du pouvoir, à la fois en reprenant les travaux du HCE
+            et en s’engageant à nommer plus de femmes aux postes de pouvoir.
           </p>
         </div>
         {/* Row 1: 3 cards */}

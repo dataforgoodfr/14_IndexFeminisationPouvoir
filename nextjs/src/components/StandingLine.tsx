@@ -32,16 +32,10 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       {/* Icon */}
       <div className="flex-1">
         {iconType === "up" && (
-          <ThumbUpIcon
-            className="w-5 h-5"
-            fill="var(--color-foundations-vert-principal)"
-          />
+          <ThumbUpIcon className="w-5 h-5 fill-foundations-vert-principal" />
         )}
         {iconType === "down" && (
-          <ThumbUpIcon
-            className="w-5 h-5 rotate-180"
-            fill="var(--color-foundations-rouge-principal)"
-          />
+          <ThumbUpIcon className="w-5 h-5 rotate-180 fill-foundations-rouge-principal" />
         )}
       </div>
 
@@ -67,10 +61,7 @@ export const StandingLine: React.FC<StandingLineProps> = ({
         className={cn("flex-1 flex justify-end", showSearch ? "" : "hidden")}
       >
         <button type="button" className="cursor-pointer">
-          <SearchIcon
-            className="w-5 h-5"
-            fill="var(--color-foundations-violet-principal)"
-          />
+          <SearchIcon className="w-5 h-5 fill-foundations-violet-principal" />
         </button>
       </div>
     </div>

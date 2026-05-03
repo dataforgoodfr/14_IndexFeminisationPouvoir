@@ -27,7 +27,7 @@ export const LiensCTA = ({
   >
     <Link href="/methodologie">
       <Tooltip
-        text="Méthode de calcul"
+        text="Méthodologie de calcul"
         icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
       />
     </Link>

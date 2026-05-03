@@ -34,19 +34,20 @@ export const GoodBadTitle = ({
   variant: Variant;
   title: string;
 }) => {
-  let backgroundEqual = "svg-inequal-white";
-  if (variant === "good") {
-    backgroundEqual = "svg-equal-white";
-  }
-
   return (
-    <div className="flex flex-row gap-[12px]">
+    <div className="flex flex-row gap-3">
       <div
-        className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-[75px] min-w-[85px]`}
+        className={cn(
+          `flex-2 flex items-center justify-center svg-bg min-h-18.75 min-w-21.25`,
+          variant === "good" ? "svg-equal-white" : "svg-inequal-white",
+        )}
       >
         <ThumbUpIcon
-          fill="var(--color-foundations-violet-principal)"
-          className={`size-12 ${variant === "good" ? "" : "rotate-180"}`}
+          className={cn(
+            `size-12`,
+            "fill-foundations-violet-principal",
+            variant === "good" ? "rotate-0" : "rotate-180",
+          )}
         />
       </div>
       <h3 className="flex-5 flex items-center header-h4 text-foundations-blanc">

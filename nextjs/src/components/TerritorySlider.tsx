@@ -134,7 +134,7 @@ export function TerritorySlider({
           <div className="flex-7 flex flex-col items-center justify-start w-full px-[25px] py-[30px] gap-[28px] bg-foundations-blanc">
             {/* Title*/}
             <div className="flex flex-col items-center justify-center gap-y-[10px] w-full">
-              <h3 className="header-h3 text-foundations-violet-principal">
+              <h3 className="header-h3 text-foundations-violet-principal text-center">
                 {currentSliderData.title}
               </h3>
               <p className="label-medium text-foundations-noir">

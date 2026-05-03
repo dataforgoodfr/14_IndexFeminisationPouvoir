@@ -105,6 +105,13 @@
     @apply border-t-0 lg:border-t-2 border-dashed border-foundations-violet-principal;
   }
 
+  .divider-dashed-mobile {
+    @apply border-l-2 lg:border-l-0 border-dashed border-foundations-violet-principal;
+  }
+  .divider-dashed-horizontal-mobile {
+    @apply border-t-2 lg:border-t-2 border-dashed border-foundations-violet-principal;
+  }
+
   /* Carousel */
   .carousel-copy-enter-right {
     animation: carousel-copy-enter-right 520ms cubic-bezier(0.22, 1, 0.36, 1);

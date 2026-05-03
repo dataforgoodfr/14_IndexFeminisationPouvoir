@@ -8,6 +8,8 @@ type BlockClassementProps = {
   description: string;
   derniereMiseAJour?: Date;
   downloadURL?: string;
+  thumbsUpTopValue?: number;
+  thumbsDownBottomValue?: number;
 };
 
 export const BlocClassement = ({
@@ -16,6 +18,8 @@ export const BlocClassement = ({
   description,
   derniereMiseAJour,
   downloadURL,
+  thumbsUpTopValue = 5,
+  thumbsDownBottomValue = 5,
 }: BlockClassementProps) => {
   return (
     <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-center lg:items-start justify-center bg-foundations-violet-tres-clair">
@@ -37,8 +41,8 @@ export const BlocClassement = ({
       </div>
       <div className="flex-2 w-full">
         <Standings
-          thumbsUpTop={5}
-          thumbsDownBottom={5}
+          thumbsUpTop={thumbsUpTopValue}
+          thumbsDownBottom={thumbsDownBottomValue}
           data={data.map(({ label, percentage, evolution }) => ({
             label,
             percentage,
