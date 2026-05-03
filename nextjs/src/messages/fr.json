@@ -1,33 +1,4 @@
 {
-  "Dashboard": {
-    "pouvoir": {
-      "executif": {
-        "title": "Pouvoir exécutif",
-        "composantes": {
-          "gouvernement": "de femmes au Gouvernement",
-          "ministeres_regaliens": "de femmes aux postes régaliens",
-          "cabinet_presidence": "de femmes au Cabinet de la Présidence",
-          "cabiner_premier_ministre": "de femmes au Cabinet du Premier Ministre",
-          "directrices_cabinet_gouvernement": "de femmes directrices de cabinet au Gouvernement"
-        }
-      },
-      "parlementaire": {
-        "title": "Pouvoir parlementaire",
-        "composantes": {
-          "deputees": "de femmes députées",
-          "presidente_commission_an": "de femmes présidente de commission à l'Assemblée Nationale"
-        }
-      },
-      "local": {
-        "title": "Pouvoir local",
-        "composantes": {}
-      },
-      "autre": {
-        "title": "Autres pouvoirs",
-        "composantes": {}
-      }
-    }
-  },
   "HomePage": {
     "hero": {
       "title": "Le pouvoir, nom masculin : l'index de féminisation du pouvoir",
@@ -65,8 +36,14 @@
     "quote": "En 80 ans, le pouvoir s'est lentement féminisé, néanmoins le compte n'y est pas, les plus hautes sphères du pouvoir français restent encore très (trop) masculines. La parité et la participation égale des femmes à la vie publique restent un combat essentiel pour faire avancer les droits des femmes.",
     "recommandations": {
       "title": "Recommandations",
-      "subtitle": "Principales pistes d'action pour promouvoir la féminisation du pouvoir",
-      "cta": "Lire les recommandations"
+      "summary": "<p>Le bilan des élections municipales de mars 2026 démontrent que la féminisation du pouvoir n'est pas un acquis.</p><p>En France la parité stagne, voire régresse sous certains aspects. Or, les progrès en matière de parité ne sont jamais arrivés par miracle.</p><p>En 2025 Oxfam avait repris la recommandation forte du Haut Conseil à l'Egalité (HCE) de faire un acte II de la parité politique.</p><p>En 2026, force est de constater que cette demande reste tristement d'actualité.</p><p>À un an d'une élection majeure en France, les responsables politiques doivent s'engager à faire mieux en matière de féminisation du pouvoir, à la fois en reprenant les travaux du HCE et en s'engageant à nommer plus de femmes aux postes de pouvoir.</p>",
+      "composantes": {
+        "cadre_législatif": "Renforcer les quotas de parité dans les instances décisionnelles et sanctionner le non-respect des obligations légales.",
+        "formation_mentorat": "Développer des programmes de formation et de mentorat pour préparer les femmes à accéder aux postes de décision.",
+        "culture_organisationnelle": "Transformer les cultures organisationnelles pour éliminer les biais de genre et favoriser un environnement inclusif.",
+        "transparence_données": "Améliorer la collecte et la publication de données sexuées pour mesurer les progrès et identifier les obstacles.",
+        "engagements_volontaires": "Encourager les organisations à prendre des engagements volontaires en faveur de la parité et à en rendre compte."
+      }
     }
   },
   "pouvoirs": {
@@ -95,6 +72,9 @@
       "prefectures": {
         "infobox": "<p><b>Veille à l'exécution des règlements et des décisions</b> gouvernementales et dirige les services déconcentrés des administrations civiles de l'État.</p><p><b>Représente le/la Premier·e ministre et chacun des ministres</b> dans les départements pour mettre en œuvre les politiques nationales et communautaires.</p><p>Est également en charge de l''<b>ordre public</b>, de la <b>sécurité</b> et de la <b>protection des populations</b>.</p>"
       }
+    },
+    "monde": {
+      "plus_haut_taux_parité": "<p>Les femmes représentent 27,2 % des parlementaires à l'échelle mondiale, seulement 6 pays ont atteint la parité au Parlement.</p><p>Les trois pays où aucune femme ne siège au Parlement : Oman Tuvalu et le Yémen.</p>"
     }
   }
 }
