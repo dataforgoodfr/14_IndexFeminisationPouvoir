@@ -7,6 +7,7 @@ type BlockClassementProps = {
   title: string;
   description: string;
   derniereMiseAJour?: Date;
+  downloadURL?: string;
 };
 
 export const BlocClassement = ({
@@ -14,6 +15,7 @@ export const BlocClassement = ({
   title,
   description,
   derniereMiseAJour,
+  downloadURL,
 }: BlockClassementProps) => {
   return (
     <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-center lg:items-start justify-center bg-foundations-violet-tres-clair">
@@ -44,7 +46,7 @@ export const BlocClassement = ({
           }))}
         />
       </div>
-      <LiensCTA />
+      <LiensCTA downloadURL={downloadURL} />
     </div>
   );
 };

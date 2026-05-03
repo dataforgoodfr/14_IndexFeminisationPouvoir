@@ -21,6 +21,7 @@ import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
+import { LiensCTA } from '@/components/LiensCTA';
 
 const RECOMMENDATIONS = [
   {
@@ -177,20 +178,7 @@ export default async function Home() {
                 Dernière mise à jour : {dateMiseAJour}
               </p>
             </div>
-            <div className="flex self-center lg:self-end mb-12 flex-row lg:flex-col gap-4 shrink-0">
-              <Link href="/methodologie">
-                <Tooltip
-                  text="Méthode de calcul"
-                  icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-              <Link href="/telecharger">
-                <Tooltip
-                  text="Télécharger les données"
-                  icon={<DownloadIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-            </div>
+            <LiensCTA className="self-center lg:self-end mb-12 shrink-0" />
           </div>
           <div className="flex lg:hidden flex-row flex-wrap justify-center lg:justify-between gap-6 px-4 lg:px-8">
             <StatsCard
