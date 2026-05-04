@@ -63,9 +63,12 @@ export default function Page() {
                 {
                   role: "directrice de cabinet d'un.e président.e de région",
                   annee: collectivites.régions.annee,
-                  valeur: collectivites.régions.composantes.présidentes.valeur,
+                  valeur:
+                    collectivites.régions.composantes.directrices_cabinet
+                      .valeur,
                   evolution:
-                    collectivites.régions.composantes.présidentes.evolution,
+                    collectivites.régions.composantes.directrices_cabinet
+                      .evolution,
                 },
               ]}
             />
@@ -86,9 +89,10 @@ export default function Page() {
                   role: "directrice de cabinet d'un.e président.e de département",
                   annee: collectivites.départements.annee,
                   valeur:
-                    collectivites.départements.composantes.présidentes.valeur,
+                    collectivites.départements.composantes.directrices_cabinet
+                      .valeur,
                   evolution:
-                    collectivites.départements.composantes.présidentes
+                    collectivites.départements.composantes.directrices_cabinet
                       .evolution,
                 },
               ]}

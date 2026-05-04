@@ -37,7 +37,7 @@ export type MapRegionSVGProps = MapSVGProps & {
 };
 
 export type MultipleRegionSVGProps = MapSVGProps & {
-  dataPerZone?: Record<
+  dataPerZone: Record<
     string,
     {
       percentage: number;

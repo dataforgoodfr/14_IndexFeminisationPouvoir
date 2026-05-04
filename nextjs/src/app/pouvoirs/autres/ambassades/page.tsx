@@ -43,7 +43,7 @@ export default async function AmbassadesPage() {
                 valeur={amb.score}
                 intitule="ambassadrices de France"
                 annee={ANNEE}
-                evolution={amb.evolution}
+                evolution={amb.evolution ?? undefined}
                 withChart
                 icon={AmbassadesIcon}
                 chartClassName="w-41 h-41"
@@ -67,7 +67,7 @@ export default async function AmbassadesPage() {
             <Figure
               femmes={amb.g7.femmes}
               total={amb.g7.total}
-              evolution={amb.g7.evolution}
+              evolution={amb.g7.evolution ?? undefined}
               intitule="ambassadrices pour la France"
               annee={ANNEE}
             />
@@ -81,7 +81,7 @@ export default async function AmbassadesPage() {
             <Figure
               femmes={amb.g20.femmes}
               total={amb.g20.total}
-              evolution={amb.evolution}
+              evolution={amb.g20.evolution ?? undefined}
               intitule="ambassadrices pour la France"
               annee={ANNEE}
             />
@@ -105,13 +105,17 @@ export default async function AmbassadesPage() {
 type FigureProps = {
   femmes: number;
   total: number;
-  evolution: number;
+  evolution?: number;
   intitule: string;
   annee: number;
 };
 const Figure = ({ femmes, total, evolution, intitule, annee }: FigureProps) => (
   <div className="flex flex-col gap-5">
-    <PersonGrid femmes={femmes} hommes={total - femmes} />
+    <PersonGrid
+      femmes={femmes}
+      hommes={total - femmes}
+      className="lg:flex-wrap"
+    />
     <div className="flex flex-col lg:flex-row  gap-2 items-center lg:items-start">
       <div className="flex flex-row  gap-2 items-start">
         <span
@@ -121,9 +125,9 @@ const Figure = ({ femmes, total, evolution, intitule, annee }: FigureProps) => (
           {femmes}/{total}
         </span>
       </div>
-      <EvolutionBadge value={evolution} />
+      {evolution !== undefined && <EvolutionBadge value={evolution} />}
       <div className="flex flex-col items-center lg:items-start text-foundations-violet-principal">
-        <span className="text-femmes-xl lowercase">de femmes</span>
+        <span className="text-femmes-xl lowercase">femmes</span>
         <span className="header-h3 uppercase text-center lg:text-left">
           {intitule}
         </span>
