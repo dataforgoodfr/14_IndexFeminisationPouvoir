@@ -174,7 +174,7 @@ export function EvolutionLineChart({
               fontSize={12}
               fontFamily="Lato, sans-serif"
               fontWeight={700}
-              fill="#000000"
+              className="fill-foundations-violet-principal"
             >
               {tick === 0 ? "0 %" : `${tick}%`}
             </text>
@@ -193,26 +193,38 @@ export function EvolutionLineChart({
         fill="none"
         strokeLinejoin="round"
       />
-
+      
       {/* President separator lines */}
-      {presidents.length > 0 && presidentEras.map((p) => (
+      {presidentEras.map((p) => (
         <line
           key={`sep-${p.nom}`}
           x1={p.startX}
-          y1={baseline}
+          y1={baseline + 60}
           x2={p.startX}
-          y2={presidentLabelY + 20}
+          y2={presidentLabelY + 30}
           className="stroke-foundations-violet-principal"
           strokeWidth={1}
           opacity={0.4}
         />
       ))}
+
       {/* Final separator */}
-      <line
+      {presidentEras.length && <line
         x1={x(maxYear)}
-        y1={baseline}
+        y1={baseline + 60}
         x2={x(maxYear)}
-        y2={presidentLabelY + 20}
+        y2={presidentLabelY + 30}
+        className="stroke-foundations-violet-principal"
+        strokeWidth={1}
+        opacity={0.4}
+      />}
+
+      {/* Y axis line */}
+      <line
+        x1={x(minYear)}
+        y1={baseline}
+        x2={x(minYear)}
+        y2={MARGIN.top}
         className="stroke-foundations-violet-principal"
         strokeWidth={1}
         opacity={0.4}
@@ -233,7 +245,7 @@ export function EvolutionLineChart({
               fontSize={11}
               fontFamily="Lato, sans-serif"
               fontWeight={700}
-              fill="#000000"
+              className="fill-foundations-violet-principal"
             >
               {firstName}
             </text>
@@ -244,7 +256,7 @@ export function EvolutionLineChart({
               fontSize={11}
               fontFamily="Lato, sans-serif"
               fontWeight={700}
-              fill="#000000"
+              className="fill-foundations-violet-principal"
             >
               {lastName}
             </text>
@@ -255,7 +267,7 @@ export function EvolutionLineChart({
               fontSize={11}
               fontFamily="Lato, sans-serif"
               fontWeight={400}
-              fill="#000000"
+              className="fill-foundations-violet-principal"
             >
               {years}
             </text>
@@ -268,12 +280,12 @@ export function EvolutionLineChart({
         <text
           key={`yr-${d.annee}`}
           x={x(d.annee)}
-          y={baseline + 8}
+          y={baseline + 8 + 4}
           textAnchor="end"
           fontSize={11}
           fontFamily="Lato, sans-serif"
           fontWeight={700}
-          fill="#000000"
+          className="fill-foundations-violet-principal"
           transform={`rotate(-90, ${x(d.annee)}, ${baseline + 8})`}
         >
           {d.annee}
@@ -284,10 +296,10 @@ export function EvolutionLineChart({
       {computeLabelPositions(data, x).map((pos, idx) => (
         <g key={`pt-${data[idx].annee}`}>
           <rect
-            x={pos.cx - 3}
-            y={pos.cy - 3}
-            width={6}
-            height={6}
+            x={pos.cx - 4}
+            y={pos.cy - 4}
+            width={8}
+            height={8}
             className="fill-foundations-violet-principal"
           />
           <text
