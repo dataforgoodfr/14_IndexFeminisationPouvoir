@@ -15,13 +15,13 @@ import { TerritoryView } from "./TerritoryView";
 
 // Score and evolution metrics
 export type ScoreEvolution = {
-  score: number;
-  evolution: number;
+  score: number | null;
+  evolution: number | null;
 };
 
 export type DataPouvoir = {
-  score: number;
-  evolution: number;
+  score: number | null;
+  evolution: number | null;
   composantes?: Record<string, ScoreEvolution>;
 };
 
@@ -29,8 +29,8 @@ export type DataPouvoir = {
 export type RegionJsonData = {
   code: string;
   nom: string;
-  score: number;
-  evolution: number;
+  score: number | null;
+  evolution: number | null;
   conseilRegional: DataPouvoir;
   conseilDepartemental: DataPouvoir;
   conseilsCommunautaires: DataPouvoir;
@@ -43,8 +43,8 @@ export type DepartementJsonData = {
   code: string;
   nom: string;
   code_region: string;
-  score: number;
-  evolution: number;
+  score: number | null;
+  evolution: number | null;
   conseilDepartemental: DataPouvoir;
   conseilsCommunautaires: DataPouvoir;
   mairesEtConseilsMunicipaux: DataPouvoir;
@@ -279,19 +279,11 @@ function getScoreEvolutionValueFromKeys(
     if (current === null || typeof current !== "object") return undefined;
     current = (current as Record<string, unknown>)[key];
   }
-  const result = current as Record<string, unknown> | undefined;
-  if (
-    !result ||
-    typeof result.score !== "number" ||
-    typeof result.evolution !== "number"
-  ) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn(
-        `[LocalTerritorySelector] Missing or invalid data at path: ${keys.join(".")}`,
-      );
-    }
-    return undefined;
+  const result = current as ScoreEvolution | undefined;
+  if (!result) {
+    return { score: null, evolution: null };
   }
+
   return { score: result.score, evolution: result.evolution };
 }
 
