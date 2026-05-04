@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import { Suspense } from "react";
 import { Footer } from "@/components/Footer";
+import { MatomoAnalytics } from "@/components/MatomoAnalytics";
 import { Menu, type NavigationItem } from "@/components/menu";
 import { PouvoirsSubmenu } from "@/components/PouvoirsSubmenu";
 
@@ -54,6 +56,11 @@ export default function RootLayout({
             <Footer />
           </NextIntlClientProvider>
         </div>
+        {process.env.NODE_ENV === "production" && (
+          <Suspense fallback={null}>
+            <MatomoAnalytics />
+          </Suspense>
+        )}
       </body>
     </html>
   );
