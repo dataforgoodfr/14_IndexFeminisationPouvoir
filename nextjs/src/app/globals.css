@@ -127,7 +127,7 @@ body {
 }
 
 html {
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 /* HACK: this prevents some elements that are wider
