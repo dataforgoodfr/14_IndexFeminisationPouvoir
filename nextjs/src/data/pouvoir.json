@@ -6,6 +6,7 @@
     "score": 32.6,
     "evolution": 3.4,
     "annee": 2026,
+    "analyse": "Seulement un tiers des postes clés de pouvoir au niveau de l’exécutif sont occupées par des femmes, une légère augmentation de 3 % par rapport à 2025. Le passage du gouvernement de François Bayrou à celui de Sébastien Lecornu ne s’est donc pas accompagné d’une augmentation significative de la présence des femmes aux responsabilités au sein de l’exécutif.",
     "dateMiseAJour": "2026-04-30",
     "composantes": {
       "gouvernement": {
@@ -45,7 +46,7 @@
         "annee": 2026,
         "score": 33.5,
         "evolution": -16,
-        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "analyse": "Oxfam a calculé que, pour le Sénat et l’Assemblée nationale, depuis la création des commissions permanentes actuelles, seulement 14 % des présidences ont été occupées par des femmes. Deux commissions n’ont, à ce jour, jamais été présidées par des femmes : la commission des finances et la commission des affaires étrangères et de la défense.",
         "composantes": {
           "deputees": {
             "score": 39,
@@ -119,7 +120,7 @@
         "annee": 2026,
         "score": 32.75,
         "evolution": -2,
-        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "analyse": "Oxfam a calculé que, pour le Sénat et l’Assemblée nationale, depuis la création des commissions permanentes actuelles, seulement 14 % des présidences ont été occupées par des femmes. Au Sénat, une commission n’a, à ce jour, jamais été présidée par une femme : la commission des affaires européennes du Sénat.",
         "composantes": {
           "senatrices": {
             "score": 38,
@@ -143,7 +144,7 @@
           }
         },
         "parite_groupes": {
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "description": "Les partis politiques continuent de structurer la vie politique française, notamment dans la désignation des représentant·e·s politiques nationaux·ales et locaux·ales. Ils portent ainsi une responsabilité importante dans la faible féminisation actuelle du pouvoir en France.",
           "dateMiseAJour": "2026-01-01",
           "data": [
             {
