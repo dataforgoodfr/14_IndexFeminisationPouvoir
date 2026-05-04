@@ -5,7 +5,6 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
-import { DownloadIcon } from "@/components/icons/download";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
 import { LogoDataForGood } from "@/components/icons/logo-d4g";
@@ -15,10 +14,9 @@ import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
-import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
 import { richComponents } from "@/lib/utils";
 
@@ -143,20 +141,7 @@ export default async function Home() {
                 Dernière mise à jour : {dateMiseAJour}
               </p>
             </div>
-            <div className="flex self-center lg:self-end mb-12 flex-row lg:flex-col gap-4 shrink-0">
-              <Link href="/methodologie">
-                <Tooltip
-                  text="Méthode de calcul"
-                  icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-              <Link href="/telecharger">
-                <Tooltip
-                  text="Télécharger les données"
-                  icon={<DownloadIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-            </div>
+            <LiensCTA className="self-center lg:self-end mb-12 shrink-0" />
           </div>
           <div className="grid grid-cols-2 lg:hidden gap-y-14 gap-x-1.25">
             <StatsCard

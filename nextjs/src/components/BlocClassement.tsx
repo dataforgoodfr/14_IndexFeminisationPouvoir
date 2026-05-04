@@ -9,6 +9,7 @@ type BlockClassementProps = {
   derniereMiseAJour?: Date;
   thumbsUpTopValue?: number;
   thumbsDownBottomValue?: number;
+  downloadURL?: string;
 };
 
 export const BlocClassement = ({
@@ -18,6 +19,7 @@ export const BlocClassement = ({
   derniereMiseAJour,
   thumbsUpTopValue = 5,
   thumbsDownBottomValue = 5,
+  downloadURL,
 }: BlockClassementProps) => {
   return (
     <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-center lg:items-start justify-center bg-foundations-violet-tres-clair">
@@ -48,7 +50,7 @@ export const BlocClassement = ({
           }))}
         />
       </div>
-      <LiensCTA />
+      <LiensCTA downloadURL={downloadURL} />
     </div>
   );
 };

@@ -1,0 +1,43 @@
+{
+  "default": {
+    "default_source_url": "https://www.data.gouv.fr/datasets/index-sur-la-feminisation-du-pouvoir-doxfam-france"
+  },
+  "executif": {
+    "gouvernement": "https://www.info.gouv.fr/composition-du-gouvernement",
+    "regalien": "https://www.info.gouv.fr/composition-du-gouvernement",
+    "cabinet_president": "https://www.elysee.fr/la-presidence/cabinet-du-president-de-la-republique-et-services-de-l-elysee",
+    "cabinet_premier_ministre": "https://lannuaire.service-public.gouv.fr/gouvernement/cf3640b4-a97d-46e5-a28f-b30047729e23",
+    "cabinets_gouvernement": "https://lannuaire.service-public.gouv.fr/gouvernement"
+  },
+  "parlementaire": {
+    "deputes": "https://www2.assemblee-nationale.fr/deputes/liste/alphabetique",
+    "commissions_an": "https://www.assemblee-nationale.fr/dyn/commissions-et-autres-organes",
+    "bureau_an": "https://www2.assemblee-nationale.fr/17/le-bureau-de-l-assemblee-nationale",
+    "groupes_an": "https://www.assemblee-nationale.fr/dyn/les-groupes-politiques",
+    "senateurs": "https://www.senat.fr/senateurs/senatl.html",
+    "commissions_senat": "https://www.senat.fr/senateurs/commissions.html",
+    "bureau_senat": "https://data.senat.fr/data/senateurs/ODSEN_GENERAL.json",
+    "groupes_senat": "https://www.senat.fr/senateurs/grp.html",
+    "deputes_europeens": "https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1"
+  },
+  "local": {
+    "maires": "https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1?resource_id=2876a346-d50c-4911-934e-19ee07b0e503",
+    "maires_prefectures": "https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1",
+    "cabinets_mairies_prefectures": null,
+    "presidents_departements": "https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1",
+    "cabinets_departements": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
+    "presidents_regions": "https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1?resource_id=430e13f9-834b-4411-a1a8-da0b4b6e715c",
+    "cabinets_regions": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/"
+  },
+  "autres": {
+    "hautes_juridictions": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
+    "prefetes": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
+    "ambassadrices": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/?sort=type_organisme&q=Ambassade+de+France",
+    "hautes_autorites": "https://api-lannuaire.service-public.gouv.fr/explore/dataset/api-lannuaire-administration/table/",
+    "partis_politiques": null
+  },
+  "monde": {
+    "portefeuilles_ministeriels": "https://www.unwomen.org/fr/digital-library/publications/2026/03/les-femmes-en-politique-2026",
+    "cheffes_detat": "https://www.unwomen.org/fr/digital-library/publications/2026/03/les-femmes-en-politique-2026"
+  }
+}

@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { GoodBadExample, GoodBadTitle } from "@/components/GoodBadExample";
 import { InfoBox } from "@/components/InfoBox";
 import { FemmeAuGouvernementIcon } from "@/components/icons/femme-gouvernement";
+import { sourceURLs } from "@/components/LiensCTA";
 import { NavigationMonde } from "@/components/NavigationMonde";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { Standings } from "@/components/Standings";
@@ -59,6 +60,7 @@ export default async function DansLeMondePage() {
                     withChart
                     withButtons
                     variant="light"
+                    downloadURL={sourceURLs.monde.cheffes_detat}
                   />
                 </div>
               )}

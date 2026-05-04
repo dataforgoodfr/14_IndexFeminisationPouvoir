@@ -39,6 +39,7 @@ export default async function PartisPolitiquesPage() {
               annee={ANNEE}
               evolution={pp.evolution}
             />
+            {/* TODO: missing link for partis politiques */}
             <LiensCTA />
           </div>
         </div>

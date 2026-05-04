@@ -19,6 +19,7 @@ export type PouvoirFigureLProps = {
   // Currently this only works for certain icons, like the globe
   // This means this variant might not work for most icons.
   variant?: "dark" | "light";
+  downloadURL?: string;
 };
 
 export const PouvoirFigureL = ({
@@ -28,6 +29,7 @@ export const PouvoirFigureL = ({
   evolution,
   withChart,
   withButtons,
+  downloadURL,
   icon,
   chartClassName,
   variant = "light",
@@ -66,7 +68,7 @@ export const PouvoirFigureL = ({
           <span className="text-intitule-m">en {anneeAffichee}</span>
         </div>
       </div>
-      {withButtons && <LiensCTA />}
+      {withButtons && <LiensCTA downloadURL={downloadURL} />}
     </div>
   );
 };
