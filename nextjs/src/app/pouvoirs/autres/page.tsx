@@ -135,7 +135,7 @@ export default async function HautesJuridictionsPage() {
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
           annee={ANNEE}
-          evolution={hj.evolution}
+          evolution={hj.evolution ?? undefined}
           withChart
           icon={HautesJuridictionsIcon}
           chartClassName="w-41 h-41"

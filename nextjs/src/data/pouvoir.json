@@ -45,7 +45,7 @@
         "annee": 2026,
         "score": 33.5,
         "evolution": -16,
-        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "analyse": "Texte à ajouter",
         "composantes": {
           "deputees": {
             "score": 39,
@@ -119,7 +119,7 @@
         "annee": 2026,
         "score": 32.75,
         "evolution": -2,
-        "analyse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+        "analyse": "Texte à ajouter",
         "composantes": {
           "senatrices": {
             "score": 38,
@@ -143,7 +143,7 @@
           }
         },
         "parite_groupes": {
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate, tellus laoreet scelerisque tincidunt, ex lacus malesuada lectus, at congue magna velit eu felis.",
+          "description": "Texte à ajouter",
           "dateMiseAJour": "2026-01-01",
           "data": [
             {
@@ -338,7 +338,14 @@
         ]
       },
       "cheffes_detat_et_gouvernement": {
-        "pays": ["MH", "MX", "NA", "NI", "TZ", "SR"]
+        "pays": [
+          "MH",
+          "MX",
+          "NA",
+          "NI",
+          "TZ",
+          "SR"
+        ]
       },
       "parite_gouvernement": [
         {
