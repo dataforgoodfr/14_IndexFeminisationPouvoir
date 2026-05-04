@@ -31,7 +31,12 @@ export const LiensCTA = ({
         icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
       />
     </Link>
-    <a href={downloadURL ?? sourceURLs.default.default_source_url}>
+    <a
+      href={downloadURL ?? sourceURLs.default.default_source_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Source des données ayant permis d'obtenir ce score"
+    >
       <Tooltip
         text="Télécharger les données"
         icon={<DownloadIcon className="w-12.5 h-12.5" />}
