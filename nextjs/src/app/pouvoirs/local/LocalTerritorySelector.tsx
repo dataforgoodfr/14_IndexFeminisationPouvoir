@@ -491,7 +491,7 @@ export function LocalTerritorySelector() {
       {/* Bandeau de Recherche */}
       <div
         id="research-bandeau-local"
-        className="sticky top-0 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4"
+        className="sticky top-10 z-10 flex flex-col items-center justify-center py-5 bg-foundations-violet-principal w-full gap-4"
       >
         <p className="flex-1 body4-medium text-foundations-blanc">
           Chiffres en détails
