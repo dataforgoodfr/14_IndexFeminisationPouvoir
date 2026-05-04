@@ -17,6 +17,8 @@ export function Footer() {
           href="https://www.oxfamfrance.org/"
           target="_blank"
           rel="noopener noreferrer"
+          title="Oxfam France"
+          aria-label="Site d'Oxfam France"
         >
           <LogoOxfamHorizontal className="w-39 h-16" aria-label="Oxfam" />
         </Link>
@@ -37,6 +39,8 @@ export function Footer() {
           href="https://dataforgood.fr"
           target="_blank"
           rel="noopener noreferrer"
+          title="Data For Good"
+          aria-label="Site de Data For Good"
         >
           <LogoDataForGood className="w-58 h-12" />
         </Link>
