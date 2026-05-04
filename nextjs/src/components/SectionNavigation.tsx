@@ -17,7 +17,7 @@ export const SectionNavigation = ({
   isActive,
 }: SectionNavigationProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} scroll={false}>
       <div
         className={cn(
           `flex flex-row lg:flex-col justify-between lg:justify-center items-center px-6 py-2 gap-3 min-h-20 w-full lg:w-44 relative`,
