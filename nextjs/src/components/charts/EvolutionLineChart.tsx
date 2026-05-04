@@ -193,7 +193,7 @@ export function EvolutionLineChart({
         fill="none"
         strokeLinejoin="round"
       />
-      
+
       {/* President separator lines */}
       {presidentEras.map((p) => (
         <line
@@ -209,15 +209,17 @@ export function EvolutionLineChart({
       ))}
 
       {/* Final separator */}
-      {presidentEras.length && <line
-        x1={x(maxYear)}
-        y1={baseline + 60}
-        x2={x(maxYear)}
-        y2={presidentLabelY + 30}
-        className="stroke-foundations-violet-principal"
-        strokeWidth={1}
-        opacity={0.4}
-      />}
+      {presidentEras.length && (
+        <line
+          x1={x(maxYear)}
+          y1={baseline + 60}
+          x2={x(maxYear)}
+          y2={presidentLabelY + 30}
+          className="stroke-foundations-violet-principal"
+          strokeWidth={1}
+          opacity={0.4}
+        />
+      )}
 
       {/* Y axis line */}
       <line
