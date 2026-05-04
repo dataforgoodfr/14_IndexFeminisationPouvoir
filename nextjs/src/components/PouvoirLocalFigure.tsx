@@ -3,12 +3,12 @@ import { PresidenteDeptIcon } from "./icons/presidente-departement";
 import { PresidenteRegionIcon } from "./icons/presidente-region";
 
 export type PouvoirLocalFigureProps = {
-  valeur: number;
+  valeur: number | null;
   /** Affiché en majuscules, e.g. "présidant une région" */
   intitule: string;
   prelabel?: string;
   annee: number;
-  evolution?: number;
+  evolution?: number | null;
   IconType?: "region" | "departement";
 };
 
@@ -20,10 +20,13 @@ export const PouvoirLocalFigure = ({
   evolution,
   IconType,
 }: PouvoirLocalFigureProps) => {
-  const pourcentageFormate = valeur.toLocaleString("fr-FR", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 1,
-  });
+  const pourcentageFormate =
+    valeur !== null
+      ? valeur.toLocaleString("fr-FR", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 1,
+        })
+      : "--";
 
   return (
     <div className="flex flex-row gap-9 items-center">
@@ -34,7 +37,12 @@ export const PouvoirLocalFigure = ({
           <span className="text-chiffre-l text-foundations-violet-principal leading-none">
             {pourcentageFormate}%
           </span>
-          {evolution !== undefined && <EvolutionBadge value={evolution} />}
+          {evolution !== undefined && (
+            <EvolutionBadge
+              value={evolution}
+              display_a_venir={valeur === null}
+            />
+          )}
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
           <span className="text-femmes-xl  lowercase">de femmes</span>
