@@ -36,31 +36,31 @@
       "rank": 21,
       "region": "Corse",
       "percentage": 12,
-      "description": "Texte à ajouter"
+      "description": "Texte à ajouter Corse"
     },
     {
       "rank": 20,
       "region": "Grand Est",
       "percentage": 18,
-      "description": "Texte à ajouter"
+      "description": "Texte à ajouter Grand Est"
     },
     {
       "rank": 19,
       "region": "Hauts-de-France",
       "percentage": 18,
-      "description": "Texte à ajouter"
+      "description": "Texte à ajouter Hauts-de-France"
     },
     {
       "rank": 18,
       "region": "Provence-Alpes-Côte d'Azur",
       "percentage": 20,
-      "description": "Texte à ajouter"
+      "description": "Texte à ajouter Provence-Alpes-Côte d'Azur"
     },
     {
       "rank": 17,
       "region": "Occitanie",
       "percentage": 20,
-      "description": "Texte à ajouter"
+      "description": "Texte à ajouter Occitanie"
     }
   ]
 }
