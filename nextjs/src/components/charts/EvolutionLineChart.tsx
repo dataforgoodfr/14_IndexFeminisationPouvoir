@@ -13,7 +13,7 @@ interface President {
 
 interface EvolutionLineChartProps {
   data: DataPoint[];
-  presidents: President[];
+  presidents?: President[];
 }
 
 const SVG_WIDTH = 1164;
@@ -99,7 +99,7 @@ function yPos(pct: number): number {
 
 export function EvolutionLineChart({
   data,
-  presidents,
+  presidents = [],
 }: EvolutionLineChartProps) {
   if (data.length === 0) return null;
 
@@ -195,7 +195,7 @@ export function EvolutionLineChart({
       />
 
       {/* President separator lines */}
-      {presidentEras.map((p) => (
+      {presidents.length > 0 && presidentEras.map((p) => (
         <line
           key={`sep-${p.nom}`}
           x1={p.startX}

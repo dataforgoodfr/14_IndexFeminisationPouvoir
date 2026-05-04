@@ -56,7 +56,7 @@ export function EvolutionSection() {
         <div className="min-w-160">
           <EvolutionLineChart
             data={indicateur.data}
-            presidents={evolutionData.presidents}
+            presidents={active === "postesRegaliens" ? evolutionData.presidents : []}
           />
         </div>
       </div>
