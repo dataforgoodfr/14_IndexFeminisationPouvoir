@@ -26,9 +26,6 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
       .replace(/\/#.*$/, "")
       .startsWith(pathname),
   );
-  const inactiveItems = navItems.filter(
-    (item) => item.href !== activeItem?.href,
-  );
 
   return (
     <>
@@ -48,24 +45,9 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
         </div>
       </div>
 
-      {/* Mobile: active nav above children */}
-      {activeItem && (
-        <div className="lg:hidden w-full">
-          <SectionNavigation
-            label={activeItem.label}
-            href={activeItem.href}
-            icon={activeItem.icon}
-            isActive
-          />
-        </div>
-      )}
-
-      {children}
-
-      {/* Mobile: inactive navs below children */}
-      {inactiveItems.length > 0 && (
-        <div className="lg:hidden flex flex-col gap-4 w-full">
-          {inactiveItems.map((item) => (
+      <div className="lg:hidden flex flex-col gap-4 w-full">
+        {navItems.map((item) => (
+          <>
             <SectionNavigation
               key={item.href}
               label={item.label}
@@ -73,9 +55,10 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
               icon={item.icon}
               isActive={false}
             />
-          ))}
-        </div>
-      )}
+            {activeItem?.href === item.href && children}
+          </>
+        ))}
+      </div>
     </>
   );
 };
