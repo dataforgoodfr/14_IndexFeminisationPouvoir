@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: calculated_figures_2025
+    description: "Table déjà calculée des figures 2025."
+    columns:
+      - name: pouvoir_type
+        description: "Catégorie de pouvoir"
+        tests:
+          - not_null
+
+      - name: indicateur
+        description: "Libellé de la figure calculée."
+        tests:
+          - not_null
+
+      - name: institution_type
+        description: "Type d'institution"
+        tests:
+          - not_null
+
+      - name: figure_nom
+        description: "Référence de la figure dans le rapport."
+        tests:
+          - unique
+          - not_null
+
+      - name: pct_femmes
+        description: "Pourcentage de femmes calculé."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "<= 100"
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+      - name: nb_personnes_attendu
+        description: "Effectif attendu."

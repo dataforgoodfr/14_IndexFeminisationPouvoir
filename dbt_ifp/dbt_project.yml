@@ -40,4 +40,8 @@ models:
     staging:
       +schema: staging
       +tags: "staging"
+    intermediate:
+      +tags: "intermediate"
+    marts:
+      +tags: "marts"
 

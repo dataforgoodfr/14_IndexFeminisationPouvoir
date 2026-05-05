@@ -2,8 +2,8 @@ import { StandingLine } from "./StandingLine";
 
 interface StandingData {
   label: string;
-  percentage: number;
-  evolution?: number;
+  percentage: number | null;
+  evolution?: number | null;
 }
 
 interface StandingsProps {
@@ -22,7 +22,11 @@ export const Standings: React.FC<StandingsProps> = ({
   showSearch = false,
 }) => {
   // Sort data by percentage
-  const sortedData = data.toSorted((a, b) => b.percentage - a.percentage);
+  const sortedData = data.toSorted((a, b) => {
+    if (b.percentage === null) return -1;
+    if (a.percentage === null) return 1;
+    return b.percentage - a.percentage;
+  });
 
   if (order === "ascending") {
     sortedData.reverse();

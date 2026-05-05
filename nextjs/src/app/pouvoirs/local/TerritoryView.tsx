@@ -9,7 +9,10 @@ import { type SliderData, TerritorySlider } from "@/components/TerritorySlider";
 interface TerritoryViewProps {
   territoryName: string;
   territoryType: "region" | "departement";
-  dataPerZone: Record<string, { percentage: number; evolution: number }>;
+  dataPerZone: Record<
+    string,
+    { percentage: number | null; evolution: number | null }
+  >;
   onDepartementChange: (departementName: string) => void;
   dateMiseAJour: Date;
   annee: number;
