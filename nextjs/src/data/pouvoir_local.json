@@ -10,11 +10,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -96,11 +96,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -182,11 +182,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -268,11 +268,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -354,11 +354,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -440,11 +440,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -526,11 +526,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -612,11 +612,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -698,11 +698,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -784,11 +784,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -870,11 +870,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -956,11 +956,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1042,11 +1042,11 @@
         "evolution": null,
         "composantes": {
           "presidente_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_region": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1131,11 +1131,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1200,11 +1200,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1269,11 +1269,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1338,11 +1338,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -1407,11 +1407,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1476,11 +1476,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1545,11 +1545,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1614,11 +1614,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -1683,11 +1683,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -1752,11 +1752,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1821,11 +1821,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1890,11 +1890,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -1959,11 +1959,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2028,11 +2028,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -2097,11 +2097,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2166,11 +2166,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2235,11 +2235,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2304,11 +2304,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -2373,11 +2373,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2442,11 +2442,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2511,11 +2511,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2580,11 +2580,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -2649,11 +2649,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2718,11 +2718,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2787,11 +2787,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2856,11 +2856,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -2925,11 +2925,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -2994,11 +2994,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3201,11 +3201,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3270,11 +3270,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -3339,7 +3339,7 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
@@ -3408,11 +3408,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3477,11 +3477,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3546,11 +3546,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -3615,11 +3615,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -3684,11 +3684,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3753,11 +3753,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3822,11 +3822,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3891,11 +3891,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -3960,11 +3960,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4029,11 +4029,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4098,11 +4098,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4167,11 +4167,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4236,11 +4236,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4305,11 +4305,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4374,11 +4374,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4443,11 +4443,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4512,11 +4512,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4581,11 +4581,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4650,11 +4650,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4719,11 +4719,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4788,11 +4788,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4857,11 +4857,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -4926,11 +4926,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -4995,11 +4995,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5064,11 +5064,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5133,11 +5133,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5202,11 +5202,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5271,11 +5271,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5340,11 +5340,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5409,11 +5409,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5478,11 +5478,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5547,11 +5547,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5616,11 +5616,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5685,11 +5685,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5754,11 +5754,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -5823,11 +5823,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -5892,11 +5892,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -5961,11 +5961,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -6030,11 +6030,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6099,11 +6099,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -6168,11 +6168,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -6237,11 +6237,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -6306,11 +6306,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6375,11 +6375,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -6444,11 +6444,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6513,11 +6513,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6582,7 +6582,7 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
@@ -6651,11 +6651,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6720,11 +6720,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6789,7 +6789,7 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
@@ -6858,11 +6858,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6927,11 +6927,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -6996,11 +6996,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7065,11 +7065,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7134,11 +7134,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -7203,11 +7203,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7272,11 +7272,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7341,11 +7341,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7410,11 +7410,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7479,11 +7479,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7548,11 +7548,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           }
         }
@@ -7617,11 +7617,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7686,11 +7686,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 1,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7757,11 +7757,11 @@
         "composantes": {
           "presidente_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           },
           "directrices_cabinet_pres_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           }
         }
       },
@@ -7770,11 +7770,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -7843,11 +7843,11 @@
         "composantes": {
           "presidente_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           },
           "directrices_cabinet_pres_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           }
         }
       },
@@ -7929,7 +7929,7 @@
         "composantes": {
           "presidente_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           },
           "directrices_cabinet_pres_region": {
             "score": null,
@@ -8015,11 +8015,11 @@
         "composantes": {
           "presidente_region": {
             "score": null,
-            "evolution": null
+            "evolution": 1
           },
           "directrices_cabinet_pres_region": {
             "score": null,
-            "evolution": null
+            "evolution": 0
           }
         }
       },
@@ -8028,11 +8028,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -8114,11 +8114,11 @@
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -8204,7 +8204,7 @@
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
