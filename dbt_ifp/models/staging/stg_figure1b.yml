@@ -5,12 +5,26 @@ models:
     description: >
       Liste des ministres aux postes régaliens
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        data_tests:
+          - not_null
+
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
         type: TEXT
         data_tests:
@@ -30,7 +44,7 @@ models:
       - name: personne_nom
         description: Nom de la ou du ministre
         type: TEXT
-      - name: genre
+      - name: personne_genre
         description: F or M
         type: TEXT
         data_tests:
@@ -43,19 +57,12 @@ models:
         tests:
           - not_null    
         type: TEXT
-      - name: zone_geographique_libelle
+      - name: entite_libelle
         description: Ministère d'exercice
         type: TEXT
         data_tests:
           - not_null  
-      - name: zone_geographique_type
-        description: toujours "gouvernement"
-        type: TEXT
-        data_tests:
-          - not_null
-          - accepted_values:
-              arguments: 
-                values: ['gouvernement']    
+  
       - name: source_url
         description: URL de provenance de la données
         type: TEXT

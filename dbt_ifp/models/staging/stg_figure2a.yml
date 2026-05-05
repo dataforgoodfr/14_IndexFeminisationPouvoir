@@ -2,68 +2,68 @@ models:
   - name: stg_figure2a
     description: "Les données liées aux député·es récupérées par scraping"
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+
       - name: annee_partition
         data_type: integer
         description: année de la récupération des données
         data_tests:
           - not_null
 
-      - name: id
+      - name: personne_id
         data_type: text
         description: "L’id de la ligne"
         data_tests:
           - unique
           - not_null
 
-      - name: code_departement
+      - name: departement_code
         data_type: text
         description: "Le code du département: 
         - numéro de département
-        - 'ZZ' pour les circonscriptions des Français·es de l’étranger
-        - null pour les circonscriptions pour les collectivités à statut particulier"
+        - 'ZZ' pour les circonscriptions des Français·es de l’étranger"
 
-      - name: nom_departement
+      - name: departement_libelle
         data_type: text
         description: "Le nom du département: 
         - nom du département pour les départements français
-        - 'Français Établis Hors De France' pour les circonscriptions des Français·es de l’étranger
-        - null pour les circonscriptions pour les collectivités à status particulier"
+        - 'Français Établis Hors De France' pour les circonscriptions des Français·es de l’étranger"
 
-      - name: code_collectivite_statut_part
-        data_type: text
-        description: "Un code pour les collectivités à statut particulier (nul pour les départements ou 
-        circonscriptions de l’étranger)"
-
-      - name: nom_collectivite_statut_part
-        data_type: text
-        description: "Le nom pour les collectivités à statut particulier (nul pour les départements ou 
-        circonscriptions de l’étranger)"
-
-      - name: code_circonscription
+      - name: circonscription_code
         data_type: text
         description: "Le code de la circonscription législative"
         data_tests:
           - not_null
 
-      - name: nom_circonscription
+      - name: circonscription_libelle
         data_type: text
         description: "Le nom de la circonscription législative (du type '1ère Circonscription')"
         data_tests:
           - not_null
 
-      - name: nom_elu
+      - name: personne_nom
         data_type: text
         description: "Le nom de l’élu·e dans la circonscription"
         data_tests:
           - not_null
 
-      - name: prenom_elu
+      - name: personne_prenom
         data_type: text
         description: "Le prénom de l’élu·e dans la circonscription"
         data_tests:
           - not_null
 
-      - name: genre
+      - name: personne_genre
         data_type: text
         description: "Le genre de l’élu·e: 'M' ou 'F'"
         data_tests:
@@ -78,13 +78,13 @@ models:
         data_tests:
           - not_null
 
-      - name: code_csp
-        data_type: integer
+      - name: csp_code
+        data_type: text
         description: "Le code de la catégorie socio-professionnelle de l’élu·e"
         data_tests:
           - not_null
 
-      - name: libelle_csp
+      - name: csp_libelle
         data_type: text
         description: "Le nom de la catégorie socio-professionnelle de l’élu·e"
         data_tests:

@@ -5,12 +5,24 @@ models:
     description: >
       Liste des président·es de commission à l’Assemblée Nationale
     columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
       - name: annee_partition
         description: année de la récupération des données
         type: INTEGER
         data_tests:
           - not_null
-      - name: id
+      - name: personne_id
         description: ID généré par hachage MD5 personne_raw_text et poste_libelle
         type: TEXT
         data_tests:
@@ -30,7 +42,7 @@ models:
       - name: personne_nom
         description: Nom du / de la président·es de commision
         type: TEXT
-      - name: genre
+      - name: personne_genre
         description: F or M
         type: TEXT
         data_tests:
@@ -46,16 +58,26 @@ models:
         tests:
           - not_null
         type: TEXT
-      - name: zone_geographique_libelle
-        description: "Circonscription dans laquelle la personne a été élue, au format Région - Département - n° circo"
+      - name: circonscription_code
+        description: "Circonscription dans laquelle la personne a été élue"
         type: TEXT
         data_tests:
           - not_null
-      - name: zone_geographique_type
-        description: "toujours 'circonscription'"
+
+      - name: departement_code
+        description: "Code du département dans lequel la personne a été élue"
         type: TEXT
         data_tests:
           - not_null
-          - accepted_values:
-              arguments:
-                values: ['circonscription']
+
+      - name: departement_libelle
+        description: "Libellé du département dans lequel la personne a été élue"
+        type: TEXT
+        data_tests:
+          - not_null
+
+      - name: region_libelle
+        description: "Libellé de la région dans laquelle la personne a été élue"
+        type: TEXT
+        data_tests:
+          - not_null

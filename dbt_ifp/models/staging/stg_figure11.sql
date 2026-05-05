@@ -6,16 +6,19 @@
 {% for year in range(start_year, current_year + 1) %}
 SELECT
     DISTINCT
+    'figure11' as figure,
+	'agence' as institution_type,
+	'Autre Pouvoir' as pouvoir_type,
     {{ year }} AS annee_partition,
-    md5(concat(personne_raw_text, zone_geographique_libelle)) AS id,
+    {{ dbt_utils.generate_surrogate_key(['personne_nom', 'personne_prenom', 'poste_libelle', 'zone_geographique_libelle']) }} AS personne_id,
+    -- md5(concat(personne_raw_text, zone_geographique_libelle)) AS personne_id,
     personne_civilite,
     personne_prenom,
     personne_nom,
-    personne_genre AS genre,
-    -- groupe_politique_libelle, -- champ toujours nul
+    personne_genre,
+    groupe_politique_libelle, -- champ toujours nul
     poste_libelle,
-    zone_geographique_libelle,
-    zone_geographique_type,
+    zone_geographique_libelle as agence_libelle,
     source_url
 FROM
     {{ ref('figure11_' ~ year) }}

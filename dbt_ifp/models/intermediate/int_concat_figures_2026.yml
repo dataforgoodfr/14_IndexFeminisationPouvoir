@@ -1,0 +1,122 @@
+version: 2
+
+models:
+  - name: int_concat_figures_2026
+    description: "Table intermédiaire concaténant l'ensemble des figures pour l'Index de Féminisation 2026. Cette table harmonise les colonnes de toutes les tables de staging."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - figure
+              - personne_id
+    
+    columns:
+      - name: figure
+        description: "Nom de la figure source (ex: figure1a, figure9)."
+        tests:
+          - not_null
+
+      - name: personne_id
+        description: "Identifiant unique provenant de la source."
+        tests:
+          - not_null
+
+      - name: annee_partition
+        description: "Année de récupération de la donnée."
+        tests:
+          - not_null
+
+      - name: personne_genre
+        description: "Genre de la personne (H/F)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['F', 'M']
+              quote: true
+
+      - name: institution_type
+        description: "Type d'institution (ex: gouvernement, mairie, ambassade)."
+        tests:
+          - not_null
+
+      - name: pouvoir_type
+        description: "Grand type de pouvoir (ex: Pouvoir exécutif, Pouvoir local)."
+        tests:
+          - not_null
+
+      - name: personne_civilite
+        description: "Civilité de la personne."
+
+      - name: personne_nom
+        description: "Nom de famille de la personne."
+        tests:
+          - not_null
+
+      - name: personne_prenom
+        description: "Prénom de la personne."
+
+      - name: poste_libelle
+        description: "Libellé exact de la fonction occupée."
+
+      - name: source_url
+        description: "URL source de la donnée."
+
+      - name: entite_libelle
+        description: "Libellé de l'entité (Ministère, Institution, etc.)."
+
+      - name: agence_libelle
+        description: "Nom de l'agence (spécifique aux agences d'État)."
+
+      - name: canton_code
+        description: "Code INSEE du canton."
+
+      - name: canton_libelle
+        description: "Nom du canton."
+
+      - name: circonscription_code
+        description: "Code de la circonscription législative."
+
+      - name: circonscription_libelle
+        description: "Nom de la circonscription."
+
+      - name: commune_code
+        description: "Code INSEE de la commune."
+
+      - name: commune_libelle
+        description: "Nom de la commune."
+
+      - name: csp_code
+        description: "Code de la catégorie socio-professionnelle (nomenclature INSEE)."
+
+      - name: csp_libelle
+        description: "Libellé de la catégorie socio-professionnelle."
+
+      - name: groupe_politique_libelle
+        description: "Nom du groupe politique d'appartenance."
+
+      - name: date_debut_fonction
+        description: "Date officielle de début de la fonction actuelle."
+
+      - name: date_debut_mandat
+        description: "Date de début du mandat électif."
+
+      - name: date_naissance
+        description: "Date de naissance de la personne."
+
+      - name: departement_code
+        description: "Code INSEE du département."
+
+      - name: departement_libelle
+        description: "Nom du département."
+
+      - name: pays_libelle
+        description: "Nom du pays."
+
+      - name: prefecture_libelle
+        description: "Nom de la préfecture de rattachement."
+
+      - name: region_code
+        description: "Code INSEE de la région."
+        
+      - name: region_libelle
+        description: "Nom de la région."
