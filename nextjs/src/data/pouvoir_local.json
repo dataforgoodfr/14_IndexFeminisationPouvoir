@@ -655,7 +655,7 @@
           },
           "maires_prefectures": {
             "score": 0.0,
-            "evolution": 0.0
+            "evolution": -12.5
           },
           "directrices_cabinet_maires": {
             "score": 40.5,
@@ -6335,7 +6335,7 @@
           },
           "maires_prefectures": {
             "score": 0.0,
-            "evolution": 0.0
+            "evolution": -100.0
           },
           "directrices_cabinet_maires": {
             "score": 40.5,
