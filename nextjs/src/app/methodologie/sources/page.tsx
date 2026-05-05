@@ -3,7 +3,7 @@ import { DocumentIcon } from "@/components/icons/document";
 import { sourceURLs } from "@/components/LiensCTA";
 
 const sources = (record: Record<string, string>) => [
-  ...new Set(Object.values(sourceURLs.executif)),
+  ...new Set(Object.values(record)),
 ];
 
 export default function Page() {
