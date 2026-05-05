@@ -1,5 +1,6 @@
 import { LoupeIcon } from "@/components/icons/loupe";
 import { NormalisationIcon } from "@/components/icons/normalisation";
+import { TrendIcon } from "@/components/icons/trend";
 import { BlocMethodo } from "../../components/BlocMethodo";
 
 export default function Page() {
@@ -20,7 +21,7 @@ export default function Page() {
       <BlocMethodo
         order={3}
         title="Calcul de la tendance"
-        icon={<LoupeIcon />}
+        icon={<TrendIcon />}
         description="Les données collectées sont normalisées pour garantir leur cohérence."
       />
     </div>
