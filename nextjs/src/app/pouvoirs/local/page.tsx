@@ -1,6 +1,6 @@
-import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { Suspense } from "react";
 import { LocalTerritorySelector } from "@/app/pouvoirs/local/LocalTerritorySelector";
+import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
 import { Hero } from "@/components/Hero";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
