@@ -51,7 +51,7 @@ export default function Page() {
           evolution={evolution}
         />
       </Hero>
-      <div className="flex w-full justify-center p-4">
+      <div className="flex w-full justify-center p-4 svg-bg svg-inequal-local">
         <div className="flex w-full max-w-7xl flex-col gap-8 xl:flex-row xl:items-start">
           <div className="flex w-full flex-col gap-8 xl:flex-1">
             <CollectiviteLocaleBlock

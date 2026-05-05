@@ -42,6 +42,7 @@ export default function RootLayout({
     "--bg-chiffres-svg-url": `url(${svgRoot}bg-chiffres.svg)`,
     "--inequal-white-svg-url": `url(${svgRoot}inequal-white.svg)`,
     "--equal-white-svg-url": `url(${svgRoot}equal-white.svg)`,
+    "--inequal-local-svg-url": `url(${svgRoot}inequal-local.svg)`,
   };
 
   return (
