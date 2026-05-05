@@ -12,7 +12,7 @@ export default function MethodologieLayout({
           <h2 className="header-h2 text-foundations-violet-principal text-center">
             Méthodologie de calcul de l'index
           </h2>
-          <div className="flex flex-1 px-[52.5px] gap-3">
+          <div className="flex gap-3">
             <SectionMethodo label="Méthode" href="/methodologie" />
             <SectionMethodo label="Sources" href="/methodologie/sources" />
             <SectionMethodo
@@ -20,9 +20,9 @@ export default function MethodologieLayout({
               href="/methodologie/automatisation"
             />
           </div>
+          {children}
         </div>
       </div>
-      {children}
     </div>
   );
 }
