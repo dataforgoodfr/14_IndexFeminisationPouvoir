@@ -17,11 +17,12 @@
 
   /* Purple background with SVG pattern overlay (20% opacity) */
   .svg-inequal-local::after {
+    @apply lg:visible invisible;
     @apply bg-top bg-auto;
     background-image: var(--inequal-local-svg-url);
     background-size: no-repeat;
     background-color: var(--color-foundations-blanc);
-    background-position: 99% 112%;
+    @apply lg:bg-position-[99%_112%] 2xl:bg-position-[85%_112%];
   }
 
   /* Purple background with SVG pattern overlay (20% opacity) */
