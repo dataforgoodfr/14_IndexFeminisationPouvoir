@@ -3,6 +3,13 @@ version: 2
 models:
   - name: int_concat_figures_2026
     description: "Table intermédiaire concaténant l'ensemble des figures pour l'Index de Féminisation 2026. Cette table harmonise les colonnes de toutes les tables de staging."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - figure
+              - personne_id
+    
     columns:
       - name: figure
         description: "Nom de la figure source (ex: figure1a, figure9)."
