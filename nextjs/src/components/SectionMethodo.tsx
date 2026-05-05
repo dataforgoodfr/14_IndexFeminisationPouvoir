@@ -13,10 +13,8 @@ export const SectionMethodo = ({ label, href }: SectionMethodoProps) => {
   const pathname = usePathname()
     .replace(/\/$/, "")
     .replace(/\/#.*$/, "");
-  const activeItem = href
-    .replace(/\/$/, "")
-    .replace(/\/#.*$/, "")
-    .startsWith(pathname);
+  const activeItem = href.replace(/\/$/, "").replace(/\/#.*$/, "") === pathname;
+
   return (
     <Link href={href}>
       <p
