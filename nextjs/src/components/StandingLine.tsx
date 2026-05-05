@@ -30,17 +30,13 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       className={`flex flex-row items-center gap-x-2 lg:gap-x-5 px-2.5 py-1.25 ${backgroundColor}`}
     >
       {/* Icon */}
-      {iconType === "up" ? (
-        <div className="flex-1">
+      <div className="flex-1">
+        {iconType === "up" ? (
           <ThumbUpIcon className="w-5 h-5 fill-foundations-vert-principal" />
-        </div>
-      ) : iconType === "down" ? (
-        <div className="flex-1">
+        ) : iconType === "down" ? (
           <ThumbUpIcon className="w-5 h-5 rotate-180 fill-foundations-rouge-principal" />
-        </div>
-      ) : (
-        <div className="w-1" />
-      )}
+        ) : null}
+      </div>
 
       {/* Label */}
       <div className="flex-9">

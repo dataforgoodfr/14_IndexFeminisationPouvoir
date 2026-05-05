@@ -8,7 +8,7 @@ import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, dateMiseAJour, annee } = pouvoirData.autre;
+const { score, dateMiseAJour, annee, evolution } = pouvoirData.autre;
 
 export default function DansLeMondeLayout({
   children,
@@ -49,6 +49,7 @@ export default function DansLeMondeLayout({
               dateMiseAJour={new Date(dateMiseAJour)}
               annee={annee}
               intitule="Ministres dans le monde"
+              evolution={evolution}
             />
           </Hero>
         }

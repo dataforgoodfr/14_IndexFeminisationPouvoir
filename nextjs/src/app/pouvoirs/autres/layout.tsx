@@ -10,7 +10,7 @@ import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, dateMiseAJour, annee } = pouvoirData.autre;
+const { score, dateMiseAJour, annee, evolution } = pouvoirData.autre;
 
 export default function AutresLayout({
   children,
@@ -62,6 +62,7 @@ export default function AutresLayout({
               annee={annee}
               prelabel="au sein des"
               intitule="autres pouvoirs"
+              evolution={evolution}
             />
           </Hero>
         }

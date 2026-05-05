@@ -7,7 +7,8 @@ import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, collectivites, annee, dateMiseAJour } = pouvoirData.local;
+const { score, collectivites, annee, dateMiseAJour, evolution } =
+  pouvoirData.local;
 
 export function createZoneDataMap(
   data: Array<{
@@ -47,6 +48,7 @@ export default function Page() {
           annee={annee}
           prelabel="au sein du"
           intitule="pouvoir local"
+          evolution={evolution}
         />
       </Hero>
       <div className="flex w-full justify-center p-4">

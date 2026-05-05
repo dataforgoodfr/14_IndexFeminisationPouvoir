@@ -16,6 +16,7 @@ const {
   score,
   annee,
   dateMiseAJour,
+  evolution,
 } = parlementaire;
 export default function PouvoirLayout({
   children,
@@ -37,6 +38,7 @@ export default function PouvoirLayout({
           dateMiseAJour={new Date(dateMiseAJour)}
           prelabel="au sein des"
           intitule="parlements"
+          evolution={evolution}
         />
       </Hero>
       <h2
