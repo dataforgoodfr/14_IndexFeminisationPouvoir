@@ -1,100 +1,98 @@
 __id,Code du département,Libellé du département,Code de la collectivité à statut particulier,Libellé de la collectivité à statut particulier,Code de la commune,Libellé de la commune,Nom de l'élu,Prénom de l'élu,Code sexe,Date de naissance,Code de la catégorie socio-professionnelle,Libellé de la catégorie socio-professionnelle,Date de début du mandat,Date de début de la fonction,source_url
-47,01,Ain,,,01053,Bourg-En-Bresse,DEBAT,Jean-François,M,1966-01-24,33,Cadre de la fonction publique,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-774,02,Aisne,,,02408,Laon,DELHAYE,Eric,M,1968-12-21,33,Cadre de la fonction publique,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-1367,03,Allier,,,03190,Moulins,PERISSOL,Pierre-André,M,1947-04-30,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-1550,04,Alpes-De-Haute-Provence,,,04070,Digne-Les-Bains,GRANET-BRUNELLO,Patricia,F,1959-07-10,31,Profession libérale,2021-12-12,2021-12-17,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-1746,05,Hautes-Alpes,,,05061,Gap,DIDIER,Roger,M,1951-02-22,74,Ancien cadre,2020-05-18,2020-05-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-1944,06,Alpes-Maritimes,,,06088,Nice,ESTROSI,Christian,M,1955-01-07,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-2190,07,Ardèche,,,07186,Privas,VALLA,Michel,M,1949-01-04,72,"Ancien artisan, commerçant, chef d'entreprise",2020-05-18,2020-05-26,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-2437,08,Ardennes,,,08105,Charleville-Mézières,RAVIGNON,Boris,M,1975-11-30,33,Cadre de la fonction publique,2020-05-18,2020-05-26,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-2910,09,Ariège,,,09122,Foix,BORDES,Marine,F,1971-06-12,37,Cadre administratif et commercial d'entreprise,2020-05-18,2023-03-10,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-3493,10,Aube,,,10387,Troyes,BAROIN,François,M,1965-06-21,31,Profession libérale,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-3615,11,Aude,,,11069,Carcassonne,LARRAT,Gérard,M,1941-11-13,31,Profession libérale,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-4147,12,Aveyron,,,12202,Rodez,TEYSSEDRE,Christian,M,1952-06-11,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-4296,13,Bouches-Du-Rhône,,,13055,Marseille,PAYAN,Benoît,M,1978-01-31,33,Cadre de la fonction publique,2020-04-07,2020-10-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-4445,14,Calvados,,,14118,Caen,OLIVIER,Aristide,M,1981-09-26,42,"Professeur des écoles, instituteur et assimilé",2020-05-18,2024-07-16,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-4900,15,Cantal,,,15014,Aurillac,MATHONIER,Pierre,M,1963-06-05,31,Profession libérale,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-5146,16,Charente,,,16015,Angoulême,BONNEFONT,Xavier,M,1979-09-12,85,Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité),2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-5776,17,Charente-Maritime,,,17300,La Rochelle,GUIRAUD,Thibaut,M,1981-01-28,37,Cadre administratif et commercial d'entreprise,2020-06-28,2025-06-18,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-5984,18,Cher,,,18033,Bourges,GALUT,Yann,M,1966-03-14,31,Profession libérale,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-6491,19,Corrèze,,,19272,Tulle,COMBES,Bernard,M,1960-02-13,33,Cadre de la fonction publique,2020-05-18,2020-05-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-6732,21,Côte-D'Or,,,21231,Dijon,KOENDERS,Nathalie,F,1977-01-03,33,Cadre de la fonction publique,2020-06-28,2024-11-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-7445,22,Côtes-D'Armor,,,22278,Saint-Brieuc,GUIHARD,Hervé,M,1970-05-31,33,Cadre de la fonction publique,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-7633,23,Creuse,,,23096,Guéret,FOURNIER,Marie-Françoise,F,1957-02-13,74,Ancien cadre,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-8329,25,Doubs,,,25056,Besançon,VIGNOT,Anne,F,1960-02-28,34,"Professeur, profession scientifique",2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-9153,26,Drôme,,,26362,Valence,DARAGON,Nicolas,M,1972-12-03,37,Cadre administratif et commercial d'entreprise,2020-05-18,2020-05-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-9365,27,Eure,,,27229,Evreux,LEFRAND,Guy,M,1963-11-03,43,Profession intermédiaire de la santé et du travail social,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-9826,28,Eure-Et-Loir,,,28085,Chartres,GORGES,Jean-Pierre,M,1953-03-08,74,Ancien cadre,2020-05-18,2020-05-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-10327,29,Finistère,,,29232,Quimper,ASSIH,Isabelle,F,1970-02-27,33,Cadre de la fonction publique,2020-06-28,2020-05-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-10395,2A,Corse-Du-Sud,94,Corse,2A004,Ajaccio,SBRAGGIA,Stéphane,M,1974-12-10,37,Cadre administratif et commercial d'entreprise,2020-05-18,2022-09-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-10532,2B,Haute-Corse,94,Corse,2B033,Bastia,SAVELLI,Pierre,M,1959-05-06,31,Profession libérale,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-10935,30,Gard,,,30189,Nîmes,FOURNIER,Jean-Paul,M,1945-10-16,72,"Ancien artisan, commerçant, chef d'entreprise",2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-11638,31,Haute-Garonne,,,31555,Toulouse,MOUDENC,Jean-Luc,M,1960-07-19,33,Cadre de la fonction publique,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-11686,32,Gers,,,32013,Auch,LAPREBENDE,Christian,M,1952-08-19,75,Ancienne profession intermédiaire,2020-05-18,2020-05-18,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-12185,33,Gironde,,,33063,Bordeaux,HURMIC,Pierre,M,1955-10-04,31,Profession libérale,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-12828,34,Hérault,,,34172,Montpellier,DELAFOSSE,Michaël,M,1977-04-13,34,"Professeur, profession scientifique",2020-06-28,2020-09-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-13218,35,Ille-Et-Vilaine,,,35238,Rennes,APPÉRÉ,Nathalie,F,1975-08-07,33,Cadre de la fonction publique,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-13376,36,Indre,,,36044,Châteauroux,AVÉROUS,Gil,M,1973-12-07,33,Cadre de la fonction publique,2020-05-18,2020-05-18,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-13823,37,Indre-Et-Loire,,,37261,Tours,DENIS,Emmanuel,M,1971-09-23,38,Ingénieur et cadre technique d'entreprise,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-14005,38,Isère,,,38185,Grenoble,PIOLLE,Eric,M,1973-06-01,38,Ingénieur et cadre technique d'entreprise,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-14610,39,Jura,,,39300,Lons-Le-Saunier,RAVIER,Jean-Yves,M,1958-08-25,31,Profession libérale,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-15042,40,Landes,,,40192,Mont-De-Marsan,DAYOT,Charles,M,1968-04-22,37,Cadre administratif et commercial d'entreprise,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-15196,41,Loir-Et-Cher,,,41018,Blois,GRICOURT,Marc,M,1961-05-04,31,Profession libérale,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-15912,43,Haute-Loire,,,43157,Le Puy-En-Velay,CHAPUIS,Michel,M,1955-07-02,74,Ancien cadre,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-16113,44,Loire-Atlantique,,,44109,Nantes,ROLLAND,Johanna,F,1979-11-05,33,Cadre de la fonction publique,2020-06-28,2020-01-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-16443,45,Loiret,,,45234,Orléans,GROUARD,Serge,M,1959-03-19,86,Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité),2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-16594,46,Lot,,,46042,Cahors,MARX,Jean-Luc,M,1954-09-14,75,Ancienne profession intermédiaire,2020-05-18,2023-10-16,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-16868,47,Lot-Et-Garonne,,,47001,Agen,DIONIS DU SÉJOUR,Jean,M,1956-09-21,38,Ingénieur et cadre technique d'entreprise,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-17261,48,Lozère,,,48095,Mende,BOURGADE,Régine,F,1948-11-12,72,"Ancien artisan, commerçant, chef d'entreprise",2020-05-18,2024-08-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-17340,49,Maine-Et-Loire,,,49007,Angers,BECHU,Christophe,M,1974-11-06,31,Profession libérale,2020-05-18,2024-09-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-17859,50,Manche,,,50502,Saint-Lô,LEJEUNE,Emmanuelle,F,1976-09-02,42,"Professeur des écoles, instituteur et assimilé",2020-06-28,2020-05-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-18057,51,Marne,,,51108,Châlons-En-Champagne,APPARU,Benoist,M,1969-11-24,23,Chef d'entreprise de 10 salariés ou plus,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-18652,52,Haute-Marne,,,52121,Chaumont,GUILLEMY,Christine,F,1950-03-10,74,Ancien cadre,2020-05-18,2020-05-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-19107,53,Mayenne,,,53130,Laval,BERCAULT,Florian,M,1990-10-05,23,Chef d'entreprise de 10 salariés ou plus,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-19613,54,Meurthe-Et-Moselle,,,54395,Nancy,KLEIN,Mathieu,M,1976-01-20,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-05-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-19836,55,Meuse,,,55029,Bar-Le-Duc,JOLY,Martine,F,1951-05-28,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-20550,56,Morbihan,,,56260,Vannes,ROBO,David,M,1970-10-06,43,Profession intermédiaire de la santé et du travail social,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-20990,57,Moselle,,,57463,Metz,GROSDIDIER,François,M,1961-02-25,33,Cadre de la fonction publique,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-21464,58,Nièvre,,,58194,Nevers,THURIOT,Denis,M,1966-08-19,31,Profession libérale,2020-05-18,2020-05-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-21921,59,Nord,,,59350,Lille,DESLANDES,Arnaud,M,1982-10-22,33,Cadre de la fonction publique,2020-06-28,2025-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-22283,60,Oise,,,60057,Beauvais,PIA,Franck,M,1961-10-24,37,Cadre administratif et commercial d'entreprise,2020-05-18,2022-09-09,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-22910,61,Orne,,,61001,Alençon,PUEYO,Joaquim,M,1950-05-30,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-23329,62,Pas-De-Calais,,,62041,Arras,LETURQUE,Frédéric,M,1968-10-09,85,Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité),2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-24285,63,Puy-De-Dôme,,,63113,Clermont-Ferrand,BIANCHI,Olivier,M,1970-10-06,85,Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité),2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-25061,64,Pyrénées-Atlantiques,,,64445,Pau,BAYROU,François,M,1951-05-25,34,"Professeur, profession scientifique",2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-25591,65,Hautes-Pyrénées,,,65440,Tarbes,TRÉMÈGE,Gérard,M,1944-04-09,31,Profession libérale,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-25792,66,Pyrénées-Orientales,,,66136,Perpignan,ALIOT,Louis,M,1969-04-09,31,Profession libérale,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-26328,67,Bas-Rhin,,,67482,Strasbourg,BARSEGHIAN,Jeanne,F,1980-06-12,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-26462,68,Haut-Rhin,,,68066,Colmar,STRAUMANN,Eric,M,1964-08-17,34,"Professeur, profession scientifique",2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-26889,69,Rhône,,,69123,Lyon,DOUCET,Grégory,M,1973-08-22,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-27572,70,Haute-Saône,,,70550,Vesoul,CHRETIEN,Alain,M,1975-03-17,37,Cadre administratif et commercial d'entreprise,2020-05-18,2020-05-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-27860,71,Saône-Et-Loire,,,71270,Mâcon,COURTOIS,Jean-Patrick,M,1951-05-20,74,Ancien cadre,2020-05-18,2020-05-25,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-28331,72,Sarthe,,,72181,Le Mans,LE FOLL,Stéphane,M,1960-03-02,34,"Professeur, profession scientifique",2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-28573,73,Savoie,,,73065,Chambéry,REPENTIN,Thierry,M,1963-05-04,23,Chef d'entreprise de 10 salariés ou plus,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-28806,74,Haute-Savoie,,,74010,Annecy,ASTORG,François,M,1961-11-04,31,Profession libérale,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-29073,75,Paris,,,75056,Paris,HIDALGO,Anne,F,1959-06-19,56,Personnel des services directs aux particuliers,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-29578,76,Seine-Maritime,,,76540,Rouen,MAYER-ROSSIGNOL,Nicolas,M,1977-08-04,23,Chef d'entreprise de 10 salariés ou plus,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-30043,77,Seine-Et-Marne,,,77288,Melun,MEBAREK,Kadir,M,1975-05-16,31,Profession libérale,2020-06-28,2023-10-17,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-30508,78,Yvelines,,,78646,Versailles,DE MAZIÈRES,François,M,1960-05-22,33,Cadre de la fonction publique,2020-05-18,2020-05-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-30659,79,Deux-Sèvres,,,79191,Niort,BALOGE,Jérôme,M,1973-04-28,34,"Professeur, profession scientifique",2020-05-18,2020-05-26,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-30792,80,Somme,,,80021,Amiens,DE JENLIS,Hubert,M,1968-05-07,31,Profession libérale,2020-06-28,2024-10-24,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-31554,81,Tarn,,,81004,Albi,GUIRAUD-CHAUMEIL,Stéphanie,F,1971-08-28,38,Ingénieur et cadre technique d'entreprise,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-31988,82,Tarn-Et-Garonne,,,82121,Montauban,BERLY,Marie-Claude,F,1948-11-29,74,Ancien cadre,2020-06-28,2024-08-19,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-32197,83,Var,,,83137,Toulon,MASSI,Josée,F,1951-06-01,74,Ancien cadre,2020-05-18,2023-03-05,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-32245,84,Vaucluse,,,84007,Avignon,HELLE,Cécile,F,1969-08-05,34,"Professeur, profession scientifique",2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-32549,85,Vendée,,,85191,La Roche-Sur-Yon,BOUARD,Luc,M,1961-03-25,31,Profession libérale,2020-06-28,2020-06-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-32819,86,Vienne,,,86194,Poitiers,MONCOND'HUY,Leonore,F,1990-03-04,46,Profession intermédiaire administrative et commerciale des entreprises,2020-06-28,2020-06-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-32991,87,Haute-Vienne,,,87085,Limoges,LOMBERTIE,Emile Roger,M,1951-02-20,74,Ancien cadre,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-33263,88,Vosges,,,88160,Epinal,NARDIN,Patrick,M,1960-11-12,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-33643,89,Yonne,,,89024,Auxerre,MARAULT,Crescent,M,1970-10-04,23,Chef d'entreprise de 10 salariés ou plus,2020-06-28,2020-06-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34045,90,Territoire De Belfort,,,90010,Belfort,MESLOT,Damien,M,1964-11-11,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34205,91,Essonne,,,91228,Evry-Courcouronnes,BEAUDET,Stéphane,M,1972-05-25,33,Cadre de la fonction publique,2020-05-18,2020-05-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34362,92,Paris,,,92050,Nanterre,ADAM,Raphaël,M,1987-07-28,33,Cadre de la fonction publique,2020-05-18,2023-10-19,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34379,93,Seine-Saint-Denis,,,93008,Bobigny,SADI,Abdel,M,1962-11-02,43,Profession intermédiaire de la santé et du travail social,2020-06-28,2020-10-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34426,94,Val-De-Marne,,,94028,Créteil,CATHALA,Laurent,M,1945-09-21,74,Ancien cadre,2020-06-28,2020-05-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34513,95,Val-D'Oise,,,95127,Cergy,JEANDON,Jean-Paul,M,1958-05-12,37,Cadre administratif et commercial d'entreprise,2020-06-28,2020-03-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34667,971,Guadeloupe,,,97105,Basse-Terre,ATALLAH,André,M,1956-03-11,43,Profession intermédiaire de la santé et du travail social,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34706,974,La Réunion,,,97411,Saint-Denis,BAREIGTS,Ericka,F,1967-04-16,33,Cadre de la fonction publique,2020-06-28,2020-04-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34730,976,Mayotte,,,97611,Mamoudzou,SOUMAILA,Ambdilwahedou,M,1982-02-25,33,Cadre de la fonction publique,2020-05-07,2020-05-07,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34745,,,972,Martinique,97209,Fort-De-France,LAGUERRE,Didier,M,1966-10-01,34,"Professeur, profession scientifique",2020-05-18,2020-05-18,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
-34771,,,973,Guyane,97302,Cayenne,TROCHIMARA,Sandra,F,1963-11-11,31,Profession libérale,2020-05-18,2020-10-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+43,01,Ain,,,01053,Bourg-En-Bresse,DEBAT,Jean-François,M,1966-01-24,33,Cadre de la fonction publique,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+746,02,Aisne,,,02408,Laon,DELHAYE,Eric,M,1968-12-21,33,Cadre de la fonction publique,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+1239,03,Allier,,,03190,Moulins,FAIVRE,Benoit,M,1996-03-07,38,Ingénieur et cadre technique d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+1406,04,Alpes-De-Haute-Provence,,,04070,Digne-Les-Bains,DI BENEDETTO,Julien,M,1985-03-05,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+1600,05,Hautes-Alpes,,,05061,Gap,DIDIER,Roger,M,1951-02-22,74,Ancien cadre,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+1798,06,Alpes-Maritimes,,,06088,Nice,CIOTTI,Eric,M,1965-09-28,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+2049,07,Ardèche,,,07186,Privas,VALLA,Michel,M,1949-01-04,72,"Ancien artisan, commerçant, chef d'entreprise",2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+2297,08,Ardennes,,,08105,Charleville-Mézières,RAVIGNON,Boris,M,1975-11-30,33,Cadre de la fonction publique,2026-03-15,2026-03-20,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+2768,09,Ariège,,,09122,Foix,MATÉOS,Jérôme,M,1975-05-17,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+3351,10,Aube,,,10387,Troyes,BAROIN,François,M,1965-06-21,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+3473,11,Aude,,,11069,Carcassonne,BARTHÈS,Christophe,M,1966-12-10,12,Agriculteur sur moyenne exploitation,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+4016,12,Aveyron,,,12202,Rodez,MAZARS,Stéphane,M,1969-03-25,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+4315,14,Calvados,,,14118,Caen,OLIVIER,Aristide,M,1981-09-26,42,"Professeur des écoles, instituteur et assimilé",2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+4769,15,Cantal,,,15014,Aurillac,CASAGRANDE,Patrick,M,1991-03-23,33,Cadre de la fonction publique,2026-03-15,2026-03-20,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+5013,16,Charente,,,16015,Angoulême,BONNEFONT,Xavier,M,1979-09-12,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+5435,17,Charente-Maritime,,,17300,La Rochelle,FALORNI,Olivier,M,1972-03-27,34,"Professeur, profession scientifique",2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+5643,18,Cher,,,18033,Bourges,GALUT,Yann,M,1966-03-14,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+6152,19,Corrèze,,,19272,Tulle,MELIN,Laurent,M,1965-09-24,21,Artisan,2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+6393,21,Côte-D'Or,,,21231,Dijon,KOENDERS,Nathalie,F,1977-01-03,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+7106,22,Côtes-D'Armor,,,22278,Saint-Brieuc,BONNOT,Victor,M,1996-06-02,45,Profession intermédiaire administrative de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+7297,23,Creuse,,,23096,Guéret,FOURNIER,Marie-Françoise,F,1957-02-13,74,Ancien cadre,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+7716,24,Dordogne,,,24322,Périgueux,CADET,Michel,M,1961-09-17,31,Profession libérale,2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+7969,25,Doubs,,,25056,Besançon,FAGAUT,Ludovic,M,1978-06-08,33,Cadre de la fonction publique,2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+8670,26,Drôme,,,26362,Valence,DARAGON,Nicolas,M,1972-12-03,85,Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité),2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+8854,27,Eure,,,27229,Evreux,LEFRAND,Guy,M,1963-11-03,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+9141,28,Eure-Et-Loir,,,28085,Chartres,VERGNE,Ladislas,M,1991-12-24,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+9637,29,Finistère,,,29232,Quimper,ASSIH,Isabelle,F,1970-02-27,42,"Professeur des écoles, instituteur et assimilé",2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+9705,2A,Corse-Du-Sud,94,Corse,2A004,Ajaccio,SBRAGGIA,Stéphane,M,1974-12-10,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+9842,2B,Haute-Corse,94,Corse,2B033,Bastia,SIMEONI,Gilles,M,1967-04-20,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+10246,30,Gard,,,30189,Nîmes,BOUGET,Vincent,M,1979-11-09,34,"Professeur, profession scientifique",2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+10958,31,Haute-Garonne,,,31555,Toulouse,MOUDENC,Jean-Luc,M,1960-07-19,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+11007,32,Gers,,,32013,Auch,BONNE,Camille,M,1982-02-22,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+11514,33,Gironde,,,33063,Bordeaux,CAZENAVE,Thomas,M,1978-06-03,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+12153,34,Hérault,,,34172,Montpellier,DELAFOSSE,Michaël,M,1977-04-13,34,"Professeur, profession scientifique",2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+12541,35,Ille-Et-Vilaine,,,35238,Rennes,APPÉRÉ,Nathalie,F,1975-08-07,86,Personne diverse sans activité professionnelle de 60 ans et plus (sauf retraité),2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+12696,36,Indre,,,36044,Châteauroux,AVÉROUS,Gil,M,1973-12-07,33,Cadre de la fonction publique,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+13141,37,Indre-Et-Loire,,,37261,Tours,DENIS,Emmanuel,M,1971-09-23,38,Ingénieur et cadre technique d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+13324,38,Isère,,,38185,Grenoble,RUFFIN,Laurence,F,1978-02-21,23,Chef d'entreprise de 10 salariés ou plus,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+13923,39,Jura,,,39300,Lons-Le-Saunier,BRERO,Cyrille,M,1971-12-15,31,Profession libérale,2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+14339,40,Landes,,,40192,Mont-De-Marsan,DUTIN,Frédéric,M,1969-01-02,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+14494,41,Loir-Et-Cher,,,41018,Blois,GRICOURT,Marc,M,1961-05-04,75,Ancienne profession intermédiaire,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+14950,42,Loire,,,42218,Saint-Etienne,JUANICO,Régis,M,1972-05-02,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+15216,43,Haute-Loire,,,43157,Le Puy-En-Velay,CHAPUIS,Michel,M,1955-07-02,74,Ancien cadre,2026-03-15,2026-03-20,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+15415,44,Loire-Atlantique,,,44109,Nantes,ROLLAND,Johanna,F,1979-11-05,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+15737,45,Loiret,,,45234,Orléans,GROUARD,Serge,M,1959-03-19,33,Cadre de la fonction publique,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+15880,46,Lot,,,46042,Cahors,COSTE,Vivien,M,1985-10-06,74,Ancien cadre,2026-03-15,2026-03-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+16152,47,Lot-Et-Garonne,,,47001,Agen,BRUNEAU,Laurent,M,1977-11-28,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+16543,48,Lozère,,,48095,Mende,SAINT-LÉGER,Patrice,M,1962-03-06,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+16623,49,Maine-Et-Loire,,,49007,Angers,BÉCHU,Christophe,M,1974-11-06,45,Profession intermédiaire administrative de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+17142,50,Manche,,,50502,Saint-Lô,LEJEUNE,Emmanuelle,F,1976-09-02,42,"Professeur des écoles, instituteur et assimilé",2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+17340,51,Marne,,,51108,Châlons-En-Champagne,APPARU,Benoist,M,1969-11-24,23,Chef d'entreprise de 10 salariés ou plus,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+17944,52,Haute-Marne,,,52121,Chaumont,DESFRETIER,Antoine,M,1976-12-07,33,Cadre de la fonction publique,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+18659,54,Meurthe-Et-Moselle,,,54395,Nancy,KLEIN,Mathieu,M,1976-01-20,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+18885,55,Meuse,,,55029,Bar-Le-Duc,DEJAIFFE,Benoît,M,1980-10-27,34,"Professeur, profession scientifique",2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+19597,56,Morbihan,,,56260,Vannes,ROBO,David,M,1970-10-06,33,Cadre de la fonction publique,2026-03-15,2026-03-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+20034,57,Moselle,,,57463,Metz,GROSDIDIER,François,M,1961-02-25,74,Ancien cadre,2026-03-22,2026-03-31,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+20704,59,Nord,,,59350,Lille,DESLANDES,Arnaud,M,1982-10-22,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+21640,61,Orne,,,61001,Alençon,DOUVRY,Sophie,F,1978-03-29,22,Commerçant et assimilé,2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+22058,62,Pas-De-Calais,,,62041,Arras,LETURQUE,Frédéric,M,1968-10-09,34,"Professeur, profession scientifique",2026-03-15,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+23011,63,Puy-De-Dôme,,,63113,Clermont-Ferrand,BONY,Julien,M,1979-09-20,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+24291,65,Hautes-Pyrénées,,,65440,Tarbes,CLAVERIE,Pascal,M,1961-09-17,23,Chef d'entreprise de 10 salariés ou plus,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+24453,66,Pyrénées-Orientales,,,66136,Perpignan,ALIOT,Louis,M,1969-04-09,31,Profession libérale,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+24752,67,Bas-Rhin,,,67482,Strasbourg,TRAUTMANN,Catherine,F,1951-01-15,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+24838,68,Haut-Rhin,,,68066,Colmar,STRAUMANN,Eric,M,1964-08-17,34,"Professeur, profession scientifique",2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+25253,69,Rhône,,,69123,Lyon,DOUCET,Grégory,M,1973-08-22,43,Profession intermédiaire de la santé et du travail social,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+25903,70,Haute-Saône,,,70550,Vesoul,CHRETIEN,Alain,M,1975-03-17,33,Cadre de la fonction publique,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+26122,71,Saône-Et-Loire,,,71270,Mâcon,COURTOIS,Jean-Patrick,M,1951-05-20,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+26512,72,Sarthe,,,72181,Le Mans,LE FOLL,Stéphane,M,1960-03-02,74,Ancien cadre,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+26751,73,Savoie,,,73065,Chambéry,REPENTIN,Thierry,M,1963-05-04,33,Cadre de la fonction publique,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+26981,74,Haute-Savoie,,,74010,Annecy,ARMAND,Antoine,M,1991-09-19,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+27237,75,Paris,,,75056,Paris,GRÉGOIRE,Emmanuel,M,1977-12-24,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+27678,76,Seine-Maritime,,,76540,Rouen,MAYER-ROSSIGNOL,Nicolas,M,1977-08-04,23,Chef d'entreprise de 10 salariés ou plus,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+28132,77,Seine-Et-Marne,,,77288,Melun,MEBAREK,Kadir,M,1975-05-16,31,Profession libérale,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+28609,78,Yvelines,,,78646,Versailles,DE MAZIÈRES,François,M,1960-05-22,33,Cadre de la fonction publique,2026-03-15,2026-03-20,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+28760,79,Deux-Sèvres,,,79191,Niort,BALOGE,Jérôme,M,1973-04-28,34,"Professeur, profession scientifique",2026-03-15,2026-03-20,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+28890,80,Somme,,,80021,Amiens,FAUVET,Frédéric,M,1968-06-21,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+29645,81,Tarn,,,81004,Albi,GUIRAUD-CHAUMEIL,Stéphanie,F,1971-08-28,85,Personne diverse sans activité professionnelle de moins de 60 ans (sauf retraité),2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+30175,84,Vaucluse,,,84007,Avignon,GALZI,Olivier,M,1971-10-26,31,Profession libérale,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+30479,85,Vendée,,,85191,La Roche-Sur-Yon,BOSSIS,Romain,M,1989-05-18,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+30719,86,Vienne,,,86194,Poitiers,BROTTIER,Anthony,M,1986-05-21,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+30868,87,Haute-Vienne,,,87085,Limoges,GUERIN,Guillaume,M,1987-04-05,31,Profession libérale,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+31135,88,Vosges,,,88160,Epinal,JOURDAIN,Benoît,M,1961-05-14,23,Chef d'entreprise de 10 salariés ou plus,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+31497,89,Yonne,,,89024,Auxerre,DEBAIN,Mathieu,M,1977-03-14,43,Profession intermédiaire de la santé et du travail social,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+31701,90,Territoire De Belfort,,,90010,Belfort,MESLOT,Damien,M,1964-11-11,37,Cadre administratif et commercial d'entreprise,2026-03-22,2026-03-27,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+31860,91,Essonne,,,91228,Evry-Courcouronnes,BEAUDET,Stéphane,M,1972-05-25,33,Cadre de la fonction publique,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32009,92,Hauts-De-Seine,,,92050,Nanterre,ADAM,Raphaël,M,1987-07-28,33,Cadre de la fonction publique,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32025,93,Seine-Saint-Denis,,,93008,Bobigny,SADI,Abdel,M,1962-11-02,77,Ancien employé,2026-03-22,2026-03-30,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32072,94,Val-De-Marne,,,94028,Créteil,CATHALA,Laurent,M,1945-09-21,74,Ancien cadre,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32142,95,Val-D'Oise,,,95127,Cergy,JEANDON,Jean-Paul,M,1958-05-12,74,Ancien cadre,2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32292,971,Guadeloupe,,,97105,Basse-Terre,ATALLAH,André,M,1956-03-11,43,Profession intermédiaire de la santé et du travail social,2026-03-15,2026-03-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32324,974,La Réunion,,,97411,Saint-Denis,BAREIGTS,Ericka,F,1967-04-16,33,Cadre de la fonction publique,2026-03-15,2026-03-23,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32329,974,La Réunion,,,97416,Saint-Pierre,LORION,David,M,1964-10-15,34,"Professeur, profession scientifique",2026-03-22,2026-03-28,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32348,976,Mayotte,,,97611,Mamoudzou,SOUMAILA,Ambdilwahedou,M,1982-02-25,52,Employé civil et agent de service de la fonction publique,2026-03-15,2026-03-15,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32363,,,972,Martinique,97209,Fort-De-France,LAGUERRE,Didier,M,1966-10-01,34,"Professeur, profession scientifique",2026-03-22,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32390,,,973,Guyane,97302,Cayenne,TROCHIMARA,Sandra,F,1963-11-11,43,Profession intermédiaire de la santé et du travail social,2026-03-15,2026-03-21,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32410,,,975,Saint-Pierre-Et-Miquelon,97502,Saint-Pierre,CAMBRAY,Yannick,M,1961-04-17,72,"Ancien artisan, commerçant, chef d'entreprise",2026-03-15,2026-03-22,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
+32460,,,988,Nouvelle-Calédonie,98818,Nouméa,LAGARDE,Sonia,F,1948-08-29,22,Commerçant et assimilé,2026-03-22,2026-03-29,https://www.data.gouv.fr/api/1/datasets/repertoire-national-des-elus-1/
