@@ -6,7 +6,7 @@
       "score": 12,
       "evolution": -10,
       "conseilRegional": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -20,15 +20,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 25,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 16.7,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 33.3,
             "evolution": null
           }
         }
@@ -92,7 +92,7 @@
       "score": 12,
       "evolution": -9,
       "conseilRegional": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -106,15 +106,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 12.5,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 12.5,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 12.5,
             "evolution": null
           }
         }
@@ -178,7 +178,7 @@
       "score": 22,
       "evolution": 0,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -192,15 +192,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 12.5,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 25,
             "evolution": null
           }
         }
@@ -264,7 +264,7 @@
       "score": 8,
       "evolution": -15,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -278,15 +278,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 25,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 16.7,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 33.3,
             "evolution": null
           }
         }
@@ -350,7 +350,7 @@
       "score": 25,
       "evolution": 13,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -364,15 +364,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -436,7 +436,7 @@
       "score": 10,
       "evolution": -8,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -450,15 +450,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 30,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 10,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 50,
             "evolution": null
           }
         }
@@ -522,7 +522,7 @@
       "score": 18,
       "evolution": 0,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -536,15 +536,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 20,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 40,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           }
         }
@@ -608,7 +608,7 @@
       "score": 12,
       "evolution": -12,
       "conseilRegional": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -622,15 +622,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 12.5,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 12.5,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 12.5,
             "evolution": null
           }
         }
@@ -694,7 +694,7 @@
       "score": 18,
       "evolution": -4,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -708,15 +708,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 40,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 0,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 80,
             "evolution": null
           }
         }
@@ -780,7 +780,7 @@
       "score": 20,
       "evolution": -3,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -794,15 +794,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 29.15,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 33.3,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 25,
             "evolution": null
           }
         }
@@ -866,7 +866,7 @@
       "score": 22,
       "evolution": 2,
       "conseilRegional": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -880,15 +880,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 23.1,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 30.8,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 15.4,
             "evolution": null
           }
         }
@@ -952,7 +952,7 @@
       "score": 27,
       "evolution": 5,
       "conseilRegional": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -966,15 +966,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 20,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 20,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 20,
             "evolution": null
           }
         }
@@ -1038,7 +1038,7 @@
       "score": 31,
       "evolution": 11,
       "conseilRegional": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_region": {
@@ -1052,15 +1052,15 @@
         }
       },
       "conseilDepartemental": {
-        "score": null,
+        "score": 33.35,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
-            "score": null,
+            "score": 50,
             "evolution": null
           },
           "directrices_cabinet_pres_departement": {
-            "score": null,
+            "score": 16.7,
             "evolution": null
           }
         }
@@ -1127,7 +1127,7 @@
       "score": 22,
       "evolution": -0.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1196,7 +1196,7 @@
       "score": 22,
       "evolution": -1.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1265,7 +1265,7 @@
       "score": 22,
       "evolution": 3.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1334,7 +1334,7 @@
       "score": 22,
       "evolution": 3.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1403,7 +1403,7 @@
       "score": 22,
       "evolution": -2.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1472,7 +1472,7 @@
       "score": 22,
       "evolution": -1.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1541,7 +1541,7 @@
       "score": 22,
       "evolution": 0.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1610,7 +1610,7 @@
       "score": 22,
       "evolution": 1.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1679,7 +1679,7 @@
       "score": 22,
       "evolution": -0.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1748,7 +1748,7 @@
       "score": 22,
       "evolution": -2.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1817,7 +1817,7 @@
       "score": 22,
       "evolution": 4.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1886,7 +1886,7 @@
       "score": 22,
       "evolution": -1.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -1955,7 +1955,7 @@
       "score": 22,
       "evolution": 4.4,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2024,7 +2024,7 @@
       "score": 22,
       "evolution": 0.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2093,7 +2093,7 @@
       "score": 22,
       "evolution": 1.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2162,7 +2162,7 @@
       "score": 22,
       "evolution": -3.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2231,7 +2231,7 @@
       "score": 22,
       "evolution": -1.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2300,7 +2300,7 @@
       "score": 22,
       "evolution": -0.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2369,7 +2369,7 @@
       "score": 22,
       "evolution": 2.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2438,7 +2438,7 @@
       "score": 22,
       "evolution": 0.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2507,7 +2507,7 @@
       "score": 22,
       "evolution": -2.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2576,7 +2576,7 @@
       "score": 22,
       "evolution": -0.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2645,7 +2645,7 @@
       "score": 22,
       "evolution": -1.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2714,7 +2714,7 @@
       "score": 22,
       "evolution": 0.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2783,7 +2783,7 @@
       "score": 22,
       "evolution": -2.4,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2852,7 +2852,7 @@
       "score": 22,
       "evolution": -4.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2921,7 +2921,7 @@
       "score": 22,
       "evolution": -0.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -2990,7 +2990,7 @@
       "score": 22,
       "evolution": -2.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3059,7 +3059,7 @@
       "score": 22,
       "evolution": -0.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": "#DIV/0!",
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3128,7 +3128,7 @@
       "score": 22,
       "evolution": 4.4,
       "conseilDepartemental": {
-        "score": null,
+        "score": "#DIV/0!",
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3197,7 +3197,7 @@
       "score": 22,
       "evolution": -3.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3266,7 +3266,7 @@
       "score": 22,
       "evolution": 5.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3335,7 +3335,7 @@
       "score": 22,
       "evolution": 0.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3404,7 +3404,7 @@
       "score": 22,
       "evolution": -4.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3473,7 +3473,7 @@
       "score": 22,
       "evolution": -2.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3542,7 +3542,7 @@
       "score": 22,
       "evolution": -4.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3611,7 +3611,7 @@
       "score": 22,
       "evolution": 2.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3680,7 +3680,7 @@
       "score": 22,
       "evolution": 3.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3749,7 +3749,7 @@
       "score": 22,
       "evolution": -2.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3818,7 +3818,7 @@
       "score": 22,
       "evolution": 1.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3887,7 +3887,7 @@
       "score": 22,
       "evolution": 2.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3956,7 +3956,7 @@
       "score": 22,
       "evolution": 2.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4025,7 +4025,7 @@
       "score": 22,
       "evolution": -3.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4094,7 +4094,7 @@
       "score": 22,
       "evolution": -2.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4163,7 +4163,7 @@
       "score": 22,
       "evolution": 3.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4232,7 +4232,7 @@
       "score": 22,
       "evolution": -3.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4301,7 +4301,7 @@
       "score": 22,
       "evolution": 0.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4370,7 +4370,7 @@
       "score": 22,
       "evolution": -4.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4439,7 +4439,7 @@
       "score": 22,
       "evolution": -3.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4508,7 +4508,7 @@
       "score": 22,
       "evolution": 1.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4577,7 +4577,7 @@
       "score": 22,
       "evolution": -4.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4646,7 +4646,7 @@
       "score": 22,
       "evolution": 3.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4715,7 +4715,7 @@
       "score": 22,
       "evolution": 3.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4784,7 +4784,7 @@
       "score": 22,
       "evolution": 0.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4853,7 +4853,7 @@
       "score": 22,
       "evolution": -0.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4922,7 +4922,7 @@
       "score": 22,
       "evolution": 0.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -4991,7 +4991,7 @@
       "score": 22,
       "evolution": -4.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5060,7 +5060,7 @@
       "score": 22,
       "evolution": -3.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5129,7 +5129,7 @@
       "score": 22,
       "evolution": 3.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5198,7 +5198,7 @@
       "score": 22,
       "evolution": 0.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5267,7 +5267,7 @@
       "score": 22,
       "evolution": -1.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5336,7 +5336,7 @@
       "score": 22,
       "evolution": 1.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5405,7 +5405,7 @@
       "score": 22,
       "evolution": 3.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5474,7 +5474,7 @@
       "score": 22,
       "evolution": -3.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5543,7 +5543,7 @@
       "score": 22,
       "evolution": 0.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5612,7 +5612,7 @@
       "score": 22,
       "evolution": 2.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5681,7 +5681,7 @@
       "score": 22,
       "evolution": 1.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5750,7 +5750,7 @@
       "score": 22,
       "evolution": 1.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5819,7 +5819,7 @@
       "score": 22,
       "evolution": 3.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5888,7 +5888,7 @@
       "score": 22,
       "evolution": -1.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -5957,7 +5957,7 @@
       "score": 22,
       "evolution": -2.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6026,7 +6026,7 @@
       "score": 22,
       "evolution": -0.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6095,7 +6095,7 @@
       "score": 22,
       "evolution": -2.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6164,7 +6164,7 @@
       "score": 22,
       "evolution": 3.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6233,7 +6233,7 @@
       "score": 22,
       "evolution": 4.4,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6302,7 +6302,7 @@
       "score": 22,
       "evolution": -1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6371,7 +6371,7 @@
       "score": 22,
       "evolution": -2.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6440,7 +6440,7 @@
       "score": 22,
       "evolution": -1.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6509,7 +6509,7 @@
       "score": 22,
       "evolution": -2.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6578,7 +6578,7 @@
       "score": 22,
       "evolution": -0.9,
       "conseilDepartemental": {
-        "score": null,
+        "score": 100,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6647,7 +6647,7 @@
       "score": 22,
       "evolution": 0.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6716,7 +6716,7 @@
       "score": 22,
       "evolution": 3.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6785,7 +6785,7 @@
       "score": 22,
       "evolution": 2.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6854,7 +6854,7 @@
       "score": 22,
       "evolution": 0.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6923,7 +6923,7 @@
       "score": 22,
       "evolution": 1.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -6992,7 +6992,7 @@
       "score": 22,
       "evolution": -2.6,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7061,7 +7061,7 @@
       "score": 22,
       "evolution": 0.2,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7130,7 +7130,7 @@
       "score": 22,
       "evolution": 2.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7199,7 +7199,7 @@
       "score": 22,
       "evolution": 4.4,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7268,7 +7268,7 @@
       "score": 22,
       "evolution": -3.8,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7337,7 +7337,7 @@
       "score": 22,
       "evolution": 4.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7406,7 +7406,7 @@
       "score": 22,
       "evolution": 1.1,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7475,7 +7475,7 @@
       "score": 22,
       "evolution": -0.7,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7544,7 +7544,7 @@
       "score": 22,
       "evolution": -1.3,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7613,7 +7613,7 @@
       "score": 22,
       "evolution": -4.5,
       "conseilDepartemental": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -7682,7 +7682,7 @@
       "score": 22,
       "evolution": -1.0,
       "conseilDepartemental": {
-        "score": null,
+        "score": 50,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
