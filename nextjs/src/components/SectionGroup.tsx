@@ -2,6 +2,8 @@
 
 import type { Route } from "next";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 import { SectionNavigation } from "./SectionNavigation";
 
 type NavItem = {
@@ -26,12 +28,20 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
       .replace(/\/#.*$/, "")
       .startsWith(pathname),
   );
-  const inactiveItems = navItems.filter(
-    (item) => item.href !== activeItem?.href,
-  );
+
+  const mobileNavRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  useEffect(() => {
+    if (activeItem) {
+      const element = mobileNavRefs.current[activeItem.href];
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [activeItem]);
 
   return (
-    <>
+    <div className="flex flex-col gap-8 w-full">
       {/* Purple banner - always shown. Desktop: navs are absolutely positioned inside. */}
       <div className="w-full lg:relative flex flex-col items-center justify-start lg:mb-38">
         {banner}
@@ -47,35 +57,45 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
           ))}
         </div>
       </div>
+      <div className="hidden lg:flex flex-col items-center justify-start">
+        {children}
+      </div>
 
-      {/* Mobile: active nav above children */}
-      {activeItem && (
-        <div className="lg:hidden w-full">
-          <SectionNavigation
-            label={activeItem.label}
-            href={activeItem.href}
-            icon={activeItem.icon}
-            isActive
-          />
-        </div>
-      )}
-
-      {children}
-
-      {/* Mobile: inactive navs below children */}
-      {inactiveItems.length > 0 && (
-        <div className="lg:hidden flex flex-col gap-4 w-full">
-          {inactiveItems.map((item) => (
-            <SectionNavigation
+      <div className="lg:hidden flex flex-col gap-4 w-full">
+        {navItems.map((item) => {
+          const isOpen = activeItem?.href === item.href;
+          return (
+            <div
               key={item.href}
-              label={item.label}
-              href={item.href}
-              icon={item.icon}
-              isActive={false}
-            />
-          ))}
-        </div>
-      )}
-    </>
+              ref={(el) => {
+                mobileNavRefs.current[item.href] = el;
+              }}
+            >
+              <SectionNavigation
+                label={item.label}
+                href={item.href}
+                icon={item.icon}
+                isActive={isOpen}
+              />
+              <div
+                className={cn(
+                  `grid`,
+                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                )}
+              >
+                <div
+                  className={cn(
+                    `overflow-hidden mt-8`,
+                    isOpen ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  {children}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };

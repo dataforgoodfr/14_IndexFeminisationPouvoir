@@ -61,7 +61,7 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full mt-8">
         <BlocAnalyseRapport description={analyse} />
         <BlocClassement
           title="Taux de parité des groupes politiques"

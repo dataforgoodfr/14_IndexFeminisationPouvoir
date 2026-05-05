@@ -5,7 +5,7 @@ export default function PouvoirLayout({
 }>) {
   return (
     <div>
-      <div className="flex flex-col mt-20 gap-8  items-center justify-center ">
+      <div className="flex flex-col mt-20 gap-8 items-center justify-center">
         {children}
       </div>
     </div>
