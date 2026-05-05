@@ -15,13 +15,13 @@ export default function Page() {
             Oxfam France - 62 bis, avenue Parmentier - 75011 Paris, France
             <br />
             <br />
-            <b>Directeur.rice de la publication</b> : <b>XXXXXXX</b>
+            <b>Directrice de la publication</b> : Sandra LHOTE - FERNANDES
             <br />
             <b>Réalisation</b> : Data For Good
             <br />
-            <b>Hébergement</b> : <b>XXXXXXX</b>
+            <b>Hébergement</b> : Github Pages
             <br />
-            <b>Propriété intellectuelle - Crédits Photos</b> : Oxfam
+            <b>Propriété intellectuelle - Crédits Photos</b> : Oxfam France
             <br />
             <br />
             <b>
@@ -39,53 +39,33 @@ export default function Page() {
             Conformément à la loi du 6 janvier 1978, vous disposez d'un droit
             d'accès, de rectification et d'opposition aux informations
             nominatives et aux données personnelles vous concernant, en
-            contactant notre DPO à l'adresse : <b>Adresse E-mail</b>
+            contactant notre DPO à l'adresse :{" "}
+            <a href="mailto:web@oxfamfrance.org" className="link1-medium">
+              web@oxfamfrance.org
+            </a>
+            <br />
             <br />
             Si vous estimez, après avoir contacté le Propriétaire du site, que
             vos droits « Informatique et Libertés » ne sont pas respectés, vous
             pouvez adresser une réclamation en ligne à la CNIL.
             <br />
             <br />
-            <b>Cookies</b>
+            <b>Mesure d'audience</b>
             <br />
-            Un cookie est un petit fichier contenant un ensemble d'informations
-            qu'un site Internet peut transmettre à votre navigateur durant votre
-            navigation. Il sera conservé pendant une certaine durée sur votre
-            ordinateur, et sera utilisé chaque fois que vous vous connecterez à
-            nouveau à ce site. Un cookie peut avoir de multiples usages :
-            mémoriser votre identifiant client sur un site e-commerce, le
-            contenu de votre panier d'achat, enregistrer votre navigation à des
-            fins statistiques ou publicitaires, etc.
-            <br />
-            Différents cookies sont utilisés sur le site Adresse du site pour
-            mesurer l'audience et intégrer des services permettant d'améliorer
-            l'interactivité du site et sont ainsi sous la responsabilité du
-            Propriétaire du site.
-            <br />
-            <br />
-            <b>1 type de cookie est déposé sur le site ADRESSE DU SITE</b>
+            Ce site utilise Matomo pour la mesure d'audience, mais ne dépose
+            aucun cookie de mesure d'audience sur les navigateurs des visiteurs.
+            Matomo est configuré pour anonymiser les adresses IP et ne pas
+            utiliser de cookies. Par conséquent, aucune donnée personnelle n'est
+            collectée à travers l'utilisation de Matomo sur ce site.{" "}
+            <a
+              href="https://fr.matomo.org/cookie-consent-banners/"
+              className="link1-medium"
+            >
+              En savoir plus
+            </a>
+            .
             <br />
             <br />
-            <b>
-              Cookies de mesure d'audience et cookies tiers destinés à améliorer
-              l'interactivité du site.
-            </b>
-            <br />
-            Les sites s'appuient les cookies tiers suivants (directement déposés
-            par les services concernés) :
-            <br />
-            <b>- A compléter par nos soins</b>
-            <br />
-            Via ces cookies, ces services collectent et utilisent vos données de
-            navigation pour leur propre compte dans le but de de proposer des
-            contenus et de la publicité ciblée. 
-            <br />
-            Vous pouvez activer/désactiver leur utilisation via le lien
-            disponible en bas de chaque page.
-            <br />
-            <b>Cookies de mesure d'audience</b>
-            <br />
-            <b>Nom du cookie-Finalité-Durée de conservation</b>
           </p>
         </div>
       </div>
