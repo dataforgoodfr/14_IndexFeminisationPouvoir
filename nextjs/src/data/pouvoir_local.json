@@ -3059,7 +3059,7 @@
       "score": 22,
       "evolution": -0.6,
       "conseilDepartemental": {
-        "score": "#DIV/0!",
+        "score": null,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
@@ -3128,7 +3128,7 @@
       "score": 22,
       "evolution": 4.4,
       "conseilDepartemental": {
-        "score": "#DIV/0!",
+        "score": null,
         "evolution": null,
         "composantes": {
           "presidente_departement": {
