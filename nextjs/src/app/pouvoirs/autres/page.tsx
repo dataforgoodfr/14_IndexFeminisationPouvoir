@@ -24,17 +24,6 @@ const mag = hj.magistrature;
 
 const ANNEE = new Date(hj.dateMiseAJour).getFullYear();
 
-const INSTITUTION_ICONS: Record<
-  string,
-  ComponentType<SVGProps<SVGSVGElement>>
-> = {
-  "cour-cassation": CourCassationIcon,
-  "conseil-etat": ConseilEtatIcon,
-  "conseil-constitutionnel": ConseilConstitutionnelIcon,
-  "cour-justice-republique": CourJusticeRepubliqueIcon,
-  "cour-comptes": CourComptesIcon,
-};
-
 const MAGISTRATURE_FIGURES = [
   {
     valeur: mag.juges.score,
@@ -94,26 +83,31 @@ export default async function HautesJuridictionsPage() {
       id: "cour-cassation",
       label: "Cour de\ncassation",
       description: t("institutions.cour-cassation"),
+      icon: CourCassationIcon,
     },
     {
       id: "conseil-etat",
       label: "Conseil\nd'Etat",
       description: t("institutions.conseil-etat"),
+      icon: ConseilEtatIcon,
     },
     {
       id: "conseil-constitutionnel",
       label: "Conseil\nConstitutionnel",
       description: t("institutions.conseil-constitutionnel"),
+      icon: ConseilConstitutionnelIcon,
     },
     {
       id: "cour-justice-republique",
       label: "Cour de Justice de la République",
       description: t("institutions.cour-justice-republique"),
+      icon: CourJusticeRepubliqueIcon,
     },
     {
       id: "cour-comptes",
       label: "Cour des\ncomptes",
       description: t("institutions.cour-comptes"),
+      icon: CourComptesIcon,
     },
   ];
   return (
@@ -146,16 +140,7 @@ export default async function HautesJuridictionsPage() {
       {/* Institution cards */}
       <div className="flex flex-col lg:flex-row gap-4 w-full max-w-252">
         {institutions.map((institution) => {
-          const Icon = INSTITUTION_ICONS[institution.id];
-          if (!Icon) return null;
-          return (
-            <JuridictionCard
-              key={institution.id}
-              icon={Icon}
-              label={institution.label}
-              description={institution.description}
-            />
-          );
+          return <JuridictionCard key={institution.id} {...institution} />;
         })}
       </div>
 
