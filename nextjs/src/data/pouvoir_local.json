@@ -8093,8 +8093,8 @@
     {
       "code": "976",
       "nom": "Mayotte",
-      "score": 0,
-      "evolution": 0.9,
+      "score": null,
+      "evolution": null,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -8179,8 +8179,8 @@
     {
       "code": "975",
       "nom": "Saint-Pierre-et-Miquelon",
-      "score": 0,
-      "evolution": -2.3,
+      "score": null,
+      "evolution": null,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -8265,8 +8265,8 @@
     {
       "code": "987",
       "nom": "Polynésie Française",
-      "score": 13,
-      "evolution": 3.3,
+      "score": null,
+      "evolution": null,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -8351,8 +8351,8 @@
     {
       "code": "988",
       "nom": "Kanaky-Nouvelle-Calédonie",
-      "score": 21,
-      "evolution": 2.0,
+      "score": null,
+      "evolution": null,
       "conseilRegional": {
         "score": null,
         "evolution": null,
