@@ -19,7 +19,7 @@ models:
         tests:
           - not_null
 
-      - name: figure_nom
+      - name: figure
         description: "Référence de la figure dans le rapport."
         tests:
           - unique
