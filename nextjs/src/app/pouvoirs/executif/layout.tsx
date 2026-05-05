@@ -1,3 +1,4 @@
+import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { Hero } from "@/components/Hero";
 import { DirectriceCabinetIcon } from "@/components/icons/directrice-cabinet";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
@@ -6,7 +7,7 @@ import { SectionGroup } from "@/components/SectionGroup";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, annee, dateMiseAJour } = pouvoirData.executif;
+const { score, annee, dateMiseAJour, analyse } = pouvoirData.executif;
 
 export default function Page({ children }: { children: React.ReactNode }) {
   return (
@@ -59,6 +60,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         }
       >
         <div className="mb-32">{children}</div>
+        <BlocAnalyseRapport description={analyse} />
       </SectionGroup>
     </>
   );
