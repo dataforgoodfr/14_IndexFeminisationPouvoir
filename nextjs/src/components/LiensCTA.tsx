@@ -9,6 +9,7 @@ type LiensCTAProps = {
   variant?: "default" | "horizontal";
   className?: string;
   downloadURL?: string;
+  color?: "white";
 };
 
 export { sourceURLs };
@@ -17,6 +18,7 @@ export const LiensCTA = ({
   variant = "default",
   className,
   downloadURL = sourceURLs.default.default_source_url,
+  color,
 }: LiensCTAProps) => (
   <div
     className={cn(
@@ -28,7 +30,20 @@ export const LiensCTA = ({
     <Link href="/methodologie">
       <Tooltip
         text="Méthodologie de calcul"
-        icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
+        color={color}
+        icon={
+          <QuestionMarkIcon
+            className={cn("w-12.5 h-12.5")}
+            fill={
+              color === "white" ? "var(--color-foundations-blanc)" : undefined
+            }
+            questionMarkColor={
+              color === "white"
+                ? "var(--color-foundations-violet-principal)"
+                : undefined
+            }
+          />
+        }
       />
     </Link>
     <a
@@ -39,7 +54,20 @@ export const LiensCTA = ({
     >
       <Tooltip
         text="Télécharger les données"
-        icon={<DownloadIcon className="w-12.5 h-12.5" />}
+        color={color}
+        icon={
+          <DownloadIcon
+            className={cn("w-12.5 h-12.5")}
+            fill={
+              color === "white" ? "var(--color-foundations-blanc)" : undefined
+            }
+            downloadColor={
+              color === "white"
+                ? "var(--color-foundations-violet-principal)"
+                : undefined
+            }
+          />
+        }
       />
     </a>
   </div>
