@@ -1,10 +1,11 @@
 """
-Update mairesEtConseilsMunicipaux.composantes.maires.score for all regions,
-departements, and outre-mer territories in pouvoir_local.json using L1.csv
-(list of all mayors in France) from the IFP CSV export.
+Update mairesEtConseilsMunicipaux.composantes scores for all regions,
+departements, and outre-mer territories in pouvoir_local.json using:
+  - L1.csv: list of all mayors → updates composante "maires"
+  - L2.csv: list of prefecture mayors → updates composante "maires_prefectures"
 
 Usage:
-    uv run scripts/update_maires_scores.py <path_to_L1.csv> [path_to_pouvoir_local.json]
+    uv run scripts/update_maires_scores.py <L1.csv> <L2.csv> [pouvoir_local.json]
 """
 
 import csv
@@ -33,7 +34,6 @@ DEPT_TO_REGION = {
     "971": "01", "972": "02", "973": "03", "974": "04", "976": "06",
 }
 
-# 3-digit DOM codes that appear as-is in L1.csv
 DOM_CODES = {"971", "972", "973", "974", "976"}
 
 
@@ -41,73 +41,109 @@ def _pct(women: int, total: int) -> float:
     return round(100 * women / total, 1)
 
 
-def compute_all_scores(csv_path: Path) -> tuple[dict, dict, dict]:
-    """Return (region_scores, dept_scores, outremer_scores) keyed by code."""
-    region_counts: dict[str, dict] = defaultdict(lambda: {"total": 0, "women": 0})
-    dept_counts: dict[str, dict] = defaultdict(lambda: {"total": 0, "women": 0})
-    outremer_counts: dict[str, dict] = defaultdict(lambda: {"total": 0, "women": 0})
-    national = {"total": 0, "women": 0}
+def _new_counts() -> dict:
+    return {"total": 0, "women": 0}
+
+
+def _scores_from_counts(counts: dict) -> dict[str, float]:
+    return {
+        code: _pct(c["women"], c["total"])
+        for code, c in counts.items()
+        if c["total"] > 0
+    }
+
+
+def compute_l1_scores(csv_path: Path) -> tuple[dict, dict, dict]:
+    """Compute maires scores per region, department, outre-mer from L1.csv.
+
+    L1 columns used: 'Code du département', 'Code sexe' (M/F)
+    """
+    region_c: dict = defaultdict(_new_counts)
+    dept_c: dict = defaultdict(_new_counts)
+    outremer_c: dict = defaultdict(_new_counts)
+    national = _new_counts()
 
     with open(csv_path, encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
+        for row in csv.DictReader(f):
             raw = row["Code du département"].strip()
             if not raw:
                 continue
-
-            # Normalise: 3-digit DOM codes stay as-is, others zero-pad to 2 digits
             dept = raw if raw in DOM_CODES else raw.zfill(2)
+            is_woman = row["Code sexe"].strip() == "F"
 
-            sex = row["Code sexe"].strip()
-            is_woman = sex == "F"
-
-            # Department / outre-mer level
             if dept in DOM_CODES:
-                outremer_counts[dept]["total"] += 1
+                outremer_c[dept]["total"] += 1
                 if is_woman:
-                    outremer_counts[dept]["women"] += 1
+                    outremer_c[dept]["women"] += 1
             else:
-                dept_counts[dept]["total"] += 1
+                dept_c[dept]["total"] += 1
                 if is_woman:
-                    dept_counts[dept]["women"] += 1
+                    dept_c[dept]["women"] += 1
 
-            # Region level
             region = DEPT_TO_REGION.get(dept)
             if region is None:
                 continue
-            region_counts[region]["total"] += 1
+            region_c[region]["total"] += 1
             national["total"] += 1
             if is_woman:
-                region_counts[region]["women"] += 1
+                region_c[region]["women"] += 1
                 national["women"] += 1
 
     nat_pct = _pct(national["women"], national["total"])
-    print(f"National: {national['women']}/{national['total']} = {nat_pct}%")
+    print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
 
-    region_scores = {
-        code: _pct(c["women"], c["total"])
-        for code, c in region_counts.items()
-        if c["total"] > 0
-    }
-    dept_scores = {
-        code: _pct(c["women"], c["total"])
-        for code, c in dept_counts.items()
-        if c["total"] > 0
-    }
-    outremer_scores = {
-        code: _pct(c["women"], c["total"])
-        for code, c in outremer_counts.items()
-        if c["total"] > 0
-    }
-    return region_scores, dept_scores, outremer_scores
+    return _scores_from_counts(region_c), _scores_from_counts(dept_c), _scores_from_counts(outremer_c)
 
 
-def _update_section(entries: list, scores: dict, label: str) -> None:
+def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
+    """Compute maires_prefectures scores per region, department, outre-mer from L2.csv.
+
+    L2 columns used: 'Dép' (integer or 2A/2B), 'Sexe' (H/F)
+    Rows after the data block (empty Dép) are ignored.
+    """
+    region_c: dict = defaultdict(_new_counts)
+    dept_c: dict = defaultdict(_new_counts)
+    outremer_c: dict = defaultdict(_new_counts)
+    national = _new_counts()
+
+    with open(csv_path, encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            raw = row["Dép"].strip()
+            if not raw or not row["Sexe"].strip():
+                continue
+            dept = raw if raw in DOM_CODES or raw in ("2A", "2B") else str(int(raw)).zfill(2)
+            is_woman = row["Sexe"].strip() == "F"
+
+            if dept in DOM_CODES:
+                outremer_c[dept]["total"] += 1
+                if is_woman:
+                    outremer_c[dept]["women"] += 1
+            else:
+                dept_c[dept]["total"] += 1
+                if is_woman:
+                    dept_c[dept]["women"] += 1
+
+            region = DEPT_TO_REGION.get(dept)
+            if region is None:
+                continue
+            region_c[region]["total"] += 1
+            national["total"] += 1
+            if is_woman:
+                region_c[region]["women"] += 1
+                national["women"] += 1
+
+    nat_pct = _pct(national["women"], national["total"])
+    print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
+
+    return _scores_from_counts(region_c), _scores_from_counts(dept_c), _scores_from_counts(outremer_c)
+
+
+def _update_composante(entries: list, scores: dict, composante: str, label: str) -> None:
     updated = skipped = 0
     for entry in entries:
         code = entry["code"]
         if code in scores:
-            entry["mairesEtConseilsMunicipaux"]["composantes"]["maires"]["score"] = scores[code]
+            entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = scores[code]
             print(f"  {code} {entry['nom']}: {scores[code]}%")
             updated += 1
         else:
@@ -116,18 +152,25 @@ def _update_section(entries: list, scores: dict, label: str) -> None:
     print(f"  → {updated} updated, {skipped} skipped in {label}\n")
 
 
-def update_json(json_path: Path, region_scores: dict, dept_scores: dict, outremer_scores: dict) -> None:
+def update_json(
+    json_path: Path,
+    l1_scores: tuple[dict, dict, dict] | None,
+    l2_scores: tuple[dict, dict, dict] | None,
+) -> None:
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
 
-    print("--- regions ---")
-    _update_section(data["regions"], region_scores, "regions")
-
-    print("--- departements ---")
-    _update_section(data["departements"], dept_scores, "departements")
-
-    print("--- outre-mer ---")
-    _update_section(data["outre-mer"], outremer_scores, "outre-mer")
+    for composante, scores_tuple in [("maires", l1_scores), ("maires_prefectures", l2_scores)]:
+        if scores_tuple is None:
+            continue
+        region_scores, dept_scores, outremer_scores = scores_tuple
+        print(f"=== {composante} ===")
+        print("--- regions ---")
+        _update_composante(data["regions"], region_scores, composante, "regions")
+        print("--- departements ---")
+        _update_composante(data["departements"], dept_scores, composante, "departements")
+        print("--- outre-mer ---")
+        _update_composante(data["outre-mer"], outremer_scores, composante, "outre-mer")
 
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -137,20 +180,24 @@ def update_json(json_path: Path, region_scores: dict, dept_scores: dict, outreme
 
 
 def main() -> None:
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         print(__doc__)
         sys.exit(1)
 
-    csv_path = Path(sys.argv[1])
-    json_path = Path(sys.argv[2]) if len(sys.argv) > 2 else (
+    l1_path = Path(sys.argv[1])
+    l2_path = Path(sys.argv[2])
+    json_path = Path(sys.argv[3]) if len(sys.argv) > 3 else (
         Path(__file__).parent.parent / "nextjs/src/data/pouvoir_local.json"
     )
 
-    print(f"Reading mayors from: {csv_path}\n")
-    region_scores, dept_scores, outremer_scores = compute_all_scores(csv_path)
+    print(f"Reading L1 (maires) from: {l1_path}")
+    l1_scores = compute_l1_scores(l1_path)
+
+    print(f"\nReading L2 (maires_prefectures) from: {l2_path}")
+    l2_scores = compute_l2_scores(l2_path)
 
     print(f"\nUpdating: {json_path}\n")
-    update_json(json_path, region_scores, dept_scores, outremer_scores)
+    update_json(json_path, l1_scores, l2_scores)
 
 
 if __name__ == "__main__":
