@@ -1124,7 +1124,7 @@
       "code": "01",
       "nom": "Ain",
       "code_region": "84",
-      "score": 22,
+      "score": 13.55,
       "evolution": -0.6,
       "conseilDepartemental": {
         "score": 0,
@@ -1151,7 +1151,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1193,7 +1193,7 @@
       "code": "02",
       "nom": "Aisne",
       "code_region": "32",
-      "score": 22,
+      "score": 10.25,
       "evolution": -1.8,
       "conseilDepartemental": {
         "score": 0,
@@ -1220,7 +1220,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1262,7 +1262,7 @@
       "code": "03",
       "nom": "Allier",
       "code_region": "84",
-      "score": 22,
+      "score": 10.65,
       "evolution": 3.9,
       "conseilDepartemental": {
         "score": 0,
@@ -1289,7 +1289,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1331,7 +1331,7 @@
       "code": "04",
       "nom": "Alpes-de-Haute-Provence",
       "code_region": "93",
-      "score": 22,
+      "score": 61.4,
       "evolution": 3.0,
       "conseilDepartemental": {
         "score": 100,
@@ -1358,7 +1358,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1400,7 +1400,7 @@
       "code": "05",
       "nom": "Hautes-Alpes",
       "code_region": "93",
-      "score": 22,
+      "score": 12.35,
       "evolution": -2.5,
       "conseilDepartemental": {
         "score": 0,
@@ -1427,7 +1427,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1469,7 +1469,7 @@
       "code": "06",
       "nom": "Alpes-Maritimes",
       "code_region": "93",
-      "score": 22,
+      "score": 10.75,
       "evolution": -1.6,
       "conseilDepartemental": {
         "score": 0,
@@ -1496,7 +1496,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1538,7 +1538,7 @@
       "code": "07",
       "nom": "Ardèche",
       "code_region": "84",
-      "score": 22,
+      "score": 14.9,
       "evolution": 0.2,
       "conseilDepartemental": {
         "score": 0,
@@ -1565,7 +1565,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 29.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1607,7 +1607,7 @@
       "code": "08",
       "nom": "Ardennes",
       "code_region": "44",
-      "score": 22,
+      "score": 35.1,
       "evolution": 1.9,
       "conseilDepartemental": {
         "score": 50,
@@ -1634,7 +1634,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1676,7 +1676,7 @@
       "code": "09",
       "nom": "Ariège",
       "code_region": "76",
-      "score": 22,
+      "score": 61.9,
       "evolution": -0.8,
       "conseilDepartemental": {
         "score": 100,
@@ -1703,7 +1703,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1745,7 +1745,7 @@
       "code": "10",
       "nom": "Aube",
       "code_region": "44",
-      "score": 22,
+      "score": 10.2,
       "evolution": -2.9,
       "conseilDepartemental": {
         "score": 0,
@@ -1772,7 +1772,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1814,7 +1814,7 @@
       "code": "11",
       "nom": "Aude",
       "code_region": "76",
-      "score": 22,
+      "score": 33.6,
       "evolution": 4.2,
       "conseilDepartemental": {
         "score": 50,
@@ -1841,7 +1841,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 17.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1883,7 +1883,7 @@
       "code": "12",
       "nom": "Aveyron",
       "code_region": "76",
-      "score": 22,
+      "score": 11.8,
       "evolution": -1.1,
       "conseilDepartemental": {
         "score": 0,
@@ -1910,7 +1910,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23.6,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -1952,7 +1952,7 @@
       "code": "13",
       "nom": "Bouches-du-Rhône",
       "code_region": "93",
-      "score": 22,
+      "score": 33.1,
       "evolution": 4.4,
       "conseilDepartemental": {
         "score": 50,
@@ -1979,7 +1979,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 16.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2021,7 +2021,7 @@
       "code": "14",
       "nom": "Calvados",
       "code_region": "28",
-      "score": 22,
+      "score": 38.35,
       "evolution": 0.6,
       "conseilDepartemental": {
         "score": 50,
@@ -2048,7 +2048,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2090,7 +2090,7 @@
       "code": "15",
       "nom": "Cantal",
       "code_region": "84",
-      "score": 22,
+      "score": 9.1,
       "evolution": 1.7,
       "conseilDepartemental": {
         "score": 0,
@@ -2117,7 +2117,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 18.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2159,7 +2159,7 @@
       "code": "16",
       "nom": "Charente",
       "code_region": "75",
-      "score": 22,
+      "score": 13.85,
       "evolution": -3.8,
       "conseilDepartemental": {
         "score": 0,
@@ -2186,7 +2186,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2228,7 +2228,7 @@
       "code": "17",
       "nom": "Charente-Maritime",
       "code_region": "75",
-      "score": 22,
+      "score": 38.5,
       "evolution": -1.5,
       "conseilDepartemental": {
         "score": 50,
@@ -2255,7 +2255,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2297,7 +2297,7 @@
       "code": "18",
       "nom": "Cher",
       "code_region": "24",
-      "score": 22,
+      "score": 36.1,
       "evolution": -0.3,
       "conseilDepartemental": {
         "score": 50,
@@ -2324,7 +2324,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2366,7 +2366,7 @@
       "code": "19",
       "nom": "Corrèze",
       "code_region": "75",
-      "score": 22,
+      "score": 13.85,
       "evolution": 2.8,
       "conseilDepartemental": {
         "score": 0,
@@ -2393,7 +2393,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2435,7 +2435,7 @@
       "code": "21",
       "nom": "Côte-d'Or",
       "code_region": "27",
-      "score": 22,
+      "score": 12.65,
       "evolution": 0.6,
       "conseilDepartemental": {
         "score": 0,
@@ -2462,7 +2462,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2504,7 +2504,7 @@
       "code": "22",
       "nom": "Côtes-d'Armor",
       "code_region": "53",
-      "score": 22,
+      "score": 12.85,
       "evolution": -2.1,
       "conseilDepartemental": {
         "score": 0,
@@ -2531,7 +2531,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2573,7 +2573,7 @@
       "code": "23",
       "nom": "Creuse",
       "code_region": "75",
-      "score": 22,
+      "score": 63.2,
       "evolution": -0.7,
       "conseilDepartemental": {
         "score": 100,
@@ -2600,7 +2600,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2642,7 +2642,7 @@
       "code": "24",
       "nom": "Dordogne",
       "code_region": "75",
-      "score": 22,
+      "score": 10.85,
       "evolution": -1.1,
       "conseilDepartemental": {
         "score": 0,
@@ -2669,7 +2669,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2711,7 +2711,7 @@
       "code": "25",
       "nom": "Doubs",
       "code_region": "27",
-      "score": 22,
+      "score": 35.4,
       "evolution": 0.8,
       "conseilDepartemental": {
         "score": 50,
@@ -2738,7 +2738,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2780,7 +2780,7 @@
       "code": "26",
       "nom": "Drôme",
       "code_region": "84",
-      "score": 22,
+      "score": 36.75,
       "evolution": -2.4,
       "conseilDepartemental": {
         "score": 50,
@@ -2807,7 +2807,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2849,7 +2849,7 @@
       "code": "27",
       "nom": "Eure",
       "code_region": "28",
-      "score": 22,
+      "score": 38.15,
       "evolution": -4.7,
       "conseilDepartemental": {
         "score": 50,
@@ -2876,7 +2876,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2918,7 +2918,7 @@
       "code": "28",
       "nom": "Eure-et-Loir",
       "code_region": "24",
-      "score": 22,
+      "score": 12.85,
       "evolution": -0.9,
       "conseilDepartemental": {
         "score": 0,
@@ -2945,7 +2945,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -2987,7 +2987,7 @@
       "code": "29",
       "nom": "Finistère",
       "code_region": "53",
-      "score": 22,
+      "score": 10.25,
       "evolution": -2.8,
       "conseilDepartemental": {
         "score": 0,
@@ -3014,7 +3014,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3056,7 +3056,7 @@
       "code": "2A",
       "nom": "Corse-du-Sud",
       "code_region": "94",
-      "score": 22,
+      "score": null,
       "evolution": -0.6,
       "conseilDepartemental": {
         "score": null,
@@ -3083,7 +3083,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 9.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3125,7 +3125,7 @@
       "code": "2B",
       "nom": "Haute-Corse",
       "code_region": "94",
-      "score": 22,
+      "score": null,
       "evolution": 4.4,
       "conseilDepartemental": {
         "score": null,
@@ -3152,7 +3152,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 10.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3194,7 +3194,7 @@
       "code": "30",
       "nom": "Gard",
       "code_region": "76",
-      "score": 22,
+      "score": 33.75,
       "evolution": -3.9,
       "conseilDepartemental": {
         "score": 50,
@@ -3221,7 +3221,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 17.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3263,7 +3263,7 @@
       "code": "31",
       "nom": "Haute-Garonne",
       "code_region": "76",
-      "score": 22,
+      "score": 37.95,
       "evolution": 5.0,
       "conseilDepartemental": {
         "score": 50,
@@ -3290,7 +3290,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.9,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3332,7 +3332,7 @@
       "code": "32",
       "nom": "Gers",
       "code_region": "76",
-      "score": 22,
+      "score": 12.25,
       "evolution": 0.8,
       "conseilDepartemental": {
         "score": 0,
@@ -3359,7 +3359,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3401,7 +3401,7 @@
       "code": "33",
       "nom": "Gironde",
       "code_region": "75",
-      "score": 22,
+      "score": 13.1,
       "evolution": -4.3,
       "conseilDepartemental": {
         "score": 0,
@@ -3428,7 +3428,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3470,7 +3470,7 @@
       "code": "34",
       "nom": "Hérault",
       "code_region": "76",
-      "score": 22,
+      "score": 9.4,
       "evolution": -2.8,
       "conseilDepartemental": {
         "score": 0,
@@ -3497,7 +3497,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 18.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3539,7 +3539,7 @@
       "code": "35",
       "nom": "Ille-et-Vilaine",
       "code_region": "53",
-      "score": 22,
+      "score": 37.9,
       "evolution": -4.7,
       "conseilDepartemental": {
         "score": 50,
@@ -3566,7 +3566,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3608,7 +3608,7 @@
       "code": "36",
       "nom": "Indre",
       "code_region": "24",
-      "score": 22,
+      "score": 38.35,
       "evolution": 2.0,
       "conseilDepartemental": {
         "score": 50,
@@ -3635,7 +3635,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3677,7 +3677,7 @@
       "code": "37",
       "nom": "Indre-et-Loire",
       "code_region": "24",
-      "score": 22,
+      "score": 38,
       "evolution": 3.8,
       "conseilDepartemental": {
         "score": 50,
@@ -3704,7 +3704,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3746,7 +3746,7 @@
       "code": "38",
       "nom": "Isère",
       "code_region": "84",
-      "score": 22,
+      "score": 13.55,
       "evolution": -2.8,
       "conseilDepartemental": {
         "score": 0,
@@ -3773,7 +3773,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3815,7 +3815,7 @@
       "code": "39",
       "nom": "Jura",
       "code_region": "27",
-      "score": 22,
+      "score": 10.75,
       "evolution": 1.3,
       "conseilDepartemental": {
         "score": 0,
@@ -3842,7 +3842,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3884,7 +3884,7 @@
       "code": "40",
       "nom": "Landes",
       "code_region": "75",
-      "score": 22,
+      "score": 12.25,
       "evolution": 2.1,
       "conseilDepartemental": {
         "score": 0,
@@ -3911,7 +3911,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -3953,7 +3953,7 @@
       "code": "41",
       "nom": "Loir-et-Cher",
       "code_region": "24",
-      "score": 22,
+      "score": 12.15,
       "evolution": 2.1,
       "conseilDepartemental": {
         "score": 0,
@@ -3980,7 +3980,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4022,7 +4022,7 @@
       "code": "42",
       "nom": "Loire",
       "code_region": "84",
-      "score": 22,
+      "score": 34.95,
       "evolution": -3.6,
       "conseilDepartemental": {
         "score": 50,
@@ -4049,7 +4049,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 19.9,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4091,7 +4091,7 @@
       "code": "43",
       "nom": "Haute-Loire",
       "code_region": "84",
-      "score": 22,
+      "score": 61.5,
       "evolution": -2.0,
       "conseilDepartemental": {
         "score": 100,
@@ -4118,7 +4118,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4160,7 +4160,7 @@
       "code": "44",
       "nom": "Loire-Atlantique",
       "code_region": "52",
-      "score": 22,
+      "score": 13.55,
       "evolution": 3.3,
       "conseilDepartemental": {
         "score": 0,
@@ -4187,7 +4187,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4229,7 +4229,7 @@
       "code": "45",
       "nom": "Loiret",
       "code_region": "24",
-      "score": 22,
+      "score": 15,
       "evolution": -3.3,
       "conseilDepartemental": {
         "score": 0,
@@ -4256,7 +4256,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 30,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4298,7 +4298,7 @@
       "code": "46",
       "nom": "Lot",
       "code_region": "76",
-      "score": 22,
+      "score": 11.45,
       "evolution": 0.1,
       "conseilDepartemental": {
         "score": 0,
@@ -4325,7 +4325,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.9,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4367,7 +4367,7 @@
       "code": "47",
       "nom": "Lot-et-Garonne",
       "code_region": "75",
-      "score": 22,
+      "score": 60.2,
       "evolution": -4.9,
       "conseilDepartemental": {
         "score": 100,
@@ -4394,7 +4394,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4436,7 +4436,7 @@
       "code": "48",
       "nom": "Lozère",
       "code_region": "76",
-      "score": 22,
+      "score": 6.6,
       "evolution": -3.1,
       "conseilDepartemental": {
         "score": 0,
@@ -4463,7 +4463,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 13.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4505,7 +4505,7 @@
       "code": "49",
       "nom": "Maine-et-Loire",
       "code_region": "52",
-      "score": 22,
+      "score": 37.5,
       "evolution": 1.3,
       "conseilDepartemental": {
         "score": 50,
@@ -4532,7 +4532,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4574,7 +4574,7 @@
       "code": "50",
       "nom": "Manche",
       "code_region": "28",
-      "score": 22,
+      "score": 37.6,
       "evolution": -4.8,
       "conseilDepartemental": {
         "score": 50,
@@ -4601,7 +4601,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4643,7 +4643,7 @@
       "code": "51",
       "nom": "Marne",
       "code_region": "44",
-      "score": 22,
+      "score": 12.45,
       "evolution": 3.6,
       "conseilDepartemental": {
         "score": 0,
@@ -4670,7 +4670,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.9,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4712,7 +4712,7 @@
       "code": "52",
       "nom": "Haute-Marne",
       "code_region": "44",
-      "score": 22,
+      "score": 37.1,
       "evolution": 3.2,
       "conseilDepartemental": {
         "score": 50,
@@ -4739,7 +4739,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4781,7 +4781,7 @@
       "code": "53",
       "nom": "Mayenne",
       "code_region": "52",
-      "score": 22,
+      "score": null,
       "evolution": 0.6,
       "conseilDepartemental": {
         "score": 0,
@@ -4850,7 +4850,7 @@
       "code": "54",
       "nom": "Meurthe-et-Moselle",
       "code_region": "44",
-      "score": 22,
+      "score": 35,
       "evolution": -0.3,
       "conseilDepartemental": {
         "score": 50,
@@ -4877,7 +4877,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4919,7 +4919,7 @@
       "code": "55",
       "nom": "Meuse",
       "code_region": "44",
-      "score": 22,
+      "score": 35.65,
       "evolution": 0.5,
       "conseilDepartemental": {
         "score": 50,
@@ -4946,7 +4946,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -4988,7 +4988,7 @@
       "code": "56",
       "nom": "Morbihan",
       "code_region": "53",
-      "score": 22,
+      "score": 14.3,
       "evolution": -4.6,
       "conseilDepartemental": {
         "score": 0,
@@ -5015,7 +5015,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 28.6,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5057,7 +5057,7 @@
       "code": "57",
       "nom": "Moselle",
       "code_region": "44",
-      "score": 22,
+      "score": 8.05,
       "evolution": -3.1,
       "conseilDepartemental": {
         "score": 0,
@@ -5084,7 +5084,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 16.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5126,7 +5126,7 @@
       "code": "58",
       "nom": "Nièvre",
       "code_region": "27",
-      "score": 22,
+      "score": 15.5,
       "evolution": 3.2,
       "conseilDepartemental": {
         "score": 0,
@@ -5153,7 +5153,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 31,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5195,7 +5195,7 @@
       "code": "59",
       "nom": "Nord",
       "code_region": "32",
-      "score": 22,
+      "score": 10.6,
       "evolution": 0.1,
       "conseilDepartemental": {
         "score": 0,
@@ -5222,7 +5222,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5264,7 +5264,7 @@
       "code": "60",
       "nom": "Oise",
       "code_region": "32",
-      "score": 22,
+      "score": 37.2,
       "evolution": -1.8,
       "conseilDepartemental": {
         "score": 50,
@@ -5291,7 +5291,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5333,7 +5333,7 @@
       "code": "61",
       "nom": "Orne",
       "code_region": "28",
-      "score": 22,
+      "score": 11.5,
       "evolution": 1.7,
       "conseilDepartemental": {
         "score": 0,
@@ -5360,7 +5360,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5402,7 +5402,7 @@
       "code": "62",
       "nom": "Pas-de-Calais",
       "code_region": "32",
-      "score": 22,
+      "score": 7.7,
       "evolution": 3.3,
       "conseilDepartemental": {
         "score": 0,
@@ -5429,7 +5429,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 15.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5471,7 +5471,7 @@
       "code": "63",
       "nom": "Puy-de-Dôme",
       "code_region": "84",
-      "score": 22,
+      "score": 10,
       "evolution": -3.5,
       "conseilDepartemental": {
         "score": 0,
@@ -5498,7 +5498,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5540,7 +5540,7 @@
       "code": "64",
       "nom": "Pyrénées-Atlantiques",
       "code_region": "75",
-      "score": 22,
+      "score": 10.8,
       "evolution": 0.5,
       "conseilDepartemental": {
         "score": 0,
@@ -5567,7 +5567,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.6,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5609,7 +5609,7 @@
       "code": "65",
       "nom": "Hautes-Pyrénées",
       "code_region": "76",
-      "score": 22,
+      "score": 13.25,
       "evolution": 2.0,
       "conseilDepartemental": {
         "score": 0,
@@ -5636,7 +5636,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5678,7 +5678,7 @@
       "code": "66",
       "nom": "Pyrénées-Orientales",
       "code_region": "76",
-      "score": 22,
+      "score": 33.55,
       "evolution": 1.0,
       "conseilDepartemental": {
         "score": 50,
@@ -5705,7 +5705,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 17.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5747,7 +5747,7 @@
       "code": "67",
       "nom": "Bas-Rhin",
       "code_region": "44",
-      "score": 22,
+      "score": 36.05,
       "evolution": 1.3,
       "conseilDepartemental": {
         "score": 50,
@@ -5774,7 +5774,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5816,7 +5816,7 @@
       "code": "68",
       "nom": "Haut-Rhin",
       "code_region": "44",
-      "score": 22,
+      "score": 35.35,
       "evolution": 3.5,
       "conseilDepartemental": {
         "score": 50,
@@ -5843,7 +5843,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5885,7 +5885,7 @@
       "code": "69",
       "nom": "Rhône",
       "code_region": "84",
-      "score": 22,
+      "score": 13.15,
       "evolution": -1.2,
       "conseilDepartemental": {
         "score": 0,
@@ -5912,7 +5912,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -5954,7 +5954,7 @@
       "code": "70",
       "nom": "Haute-Saône",
       "code_region": "27",
-      "score": 22,
+      "score": 34.85,
       "evolution": -2.5,
       "conseilDepartemental": {
         "score": 50,
@@ -5981,7 +5981,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 19.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6023,7 +6023,7 @@
       "code": "71",
       "nom": "Saône-et-Loire",
       "code_region": "27",
-      "score": 22,
+      "score": 11.35,
       "evolution": -0.9,
       "conseilDepartemental": {
         "score": 0,
@@ -6050,7 +6050,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.7,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6092,7 +6092,7 @@
       "code": "72",
       "nom": "Sarthe",
       "code_region": "52",
-      "score": 22,
+      "score": 37.2,
       "evolution": -2.2,
       "conseilDepartemental": {
         "score": 50,
@@ -6119,7 +6119,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6161,7 +6161,7 @@
       "code": "73",
       "nom": "Savoie",
       "code_region": "84",
-      "score": 22,
+      "score": 37.8,
       "evolution": 3.5,
       "conseilDepartemental": {
         "score": 50,
@@ -6188,7 +6188,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 25.6,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6230,7 +6230,7 @@
       "code": "74",
       "nom": "Haute-Savoie",
       "code_region": "84",
-      "score": 22,
+      "score": 35.55,
       "evolution": 4.4,
       "conseilDepartemental": {
         "score": 50,
@@ -6257,7 +6257,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6299,7 +6299,7 @@
       "code": "75",
       "nom": "Paris",
       "code_region": "11",
-      "score": 22,
+      "score": 0,
       "evolution": -1,
       "conseilDepartemental": {
         "score": 0,
@@ -6326,7 +6326,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 0,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6368,7 +6368,7 @@
       "code": "76",
       "nom": "Seine-Maritime",
       "code_region": "28",
-      "score": 22,
+      "score": 36.5,
       "evolution": -2.1,
       "conseilDepartemental": {
         "score": 50,
@@ -6395,7 +6395,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 23,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6437,7 +6437,7 @@
       "code": "77",
       "nom": "Seine-et-Marne",
       "code_region": "11",
-      "score": 22,
+      "score": 14,
       "evolution": -1.1,
       "conseilDepartemental": {
         "score": 0,
@@ -6464,7 +6464,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 28,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6506,7 +6506,7 @@
       "code": "78",
       "nom": "Yvelines",
       "code_region": "11",
-      "score": 22,
+      "score": 15.25,
       "evolution": -2.1,
       "conseilDepartemental": {
         "score": 0,
@@ -6533,7 +6533,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 30.5,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6575,7 +6575,7 @@
       "code": "79",
       "nom": "Deux-Sèvres",
       "code_region": "75",
-      "score": 22,
+      "score": 62.4,
       "evolution": -0.9,
       "conseilDepartemental": {
         "score": 100,
@@ -6602,7 +6602,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 24.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6644,7 +6644,7 @@
       "code": "80",
       "nom": "Somme",
       "code_region": "32",
-      "score": 22,
+      "score": 35.7,
       "evolution": 0.2,
       "conseilDepartemental": {
         "score": 50,
@@ -6671,7 +6671,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 21.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6713,7 +6713,7 @@
       "code": "81",
       "nom": "Tarn",
       "code_region": "76",
-      "score": 22,
+      "score": 10.2,
       "evolution": 3.7,
       "conseilDepartemental": {
         "score": 0,
@@ -6740,7 +6740,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6782,7 +6782,7 @@
       "code": "82",
       "nom": "Tarn-et-Garonne",
       "code_region": "76",
-      "score": 22,
+      "score": 9.5,
       "evolution": 2.5,
       "conseilDepartemental": {
         "score": 0,
@@ -6809,7 +6809,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 19,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6851,7 +6851,7 @@
       "code": "83",
       "nom": "Var",
       "code_region": "93",
-      "score": 22,
+      "score": 7.2,
       "evolution": 0.7,
       "conseilDepartemental": {
         "score": 0,
@@ -6878,7 +6878,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 14.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6920,7 +6920,7 @@
       "code": "84",
       "nom": "Vaucluse",
       "code_region": "93",
-      "score": 22,
+      "score": 34.6,
       "evolution": 1.2,
       "conseilDepartemental": {
         "score": 50,
@@ -6947,7 +6947,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 19.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -6989,7 +6989,7 @@
       "code": "85",
       "nom": "Vendée",
       "code_region": "52",
-      "score": 22,
+      "score": 13.1,
       "evolution": -2.6,
       "conseilDepartemental": {
         "score": 0,
@@ -7016,7 +7016,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.2,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7058,7 +7058,7 @@
       "code": "86",
       "nom": "Vienne",
       "code_region": "75",
-      "score": 22,
+      "score": 14.9,
       "evolution": 0.2,
       "conseilDepartemental": {
         "score": 0,
@@ -7085,7 +7085,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 29.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7127,7 +7127,7 @@
       "code": "87",
       "nom": "Haute-Vienne",
       "code_region": "75",
-      "score": 22,
+      "score": 36.3,
       "evolution": 2.0,
       "conseilDepartemental": {
         "score": 50,
@@ -7154,7 +7154,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 22.6,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7196,7 +7196,7 @@
       "code": "88",
       "nom": "Vosges",
       "code_region": "44",
-      "score": 22,
+      "score": 10.45,
       "evolution": 4.4,
       "conseilDepartemental": {
         "score": 0,
@@ -7223,7 +7223,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 20.9,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7265,7 +7265,7 @@
       "code": "89",
       "nom": "Yonne",
       "code_region": "27",
-      "score": 22,
+      "score": 13.9,
       "evolution": -3.8,
       "conseilDepartemental": {
         "score": 0,
@@ -7292,7 +7292,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 27.8,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7334,7 +7334,7 @@
       "code": "90",
       "nom": "Territoire de Belfort",
       "code_region": "27",
-      "score": 22,
+      "score": 8,
       "evolution": 4.5,
       "conseilDepartemental": {
         "score": 0,
@@ -7361,7 +7361,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 16,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7403,7 +7403,7 @@
       "code": "91",
       "nom": "Essonne",
       "code_region": "11",
-      "score": 22,
+      "score": 14.7,
       "evolution": 1.1,
       "conseilDepartemental": {
         "score": 0,
@@ -7430,7 +7430,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 29.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7472,7 +7472,7 @@
       "code": "92",
       "nom": "Hauts-de-Seine",
       "code_region": "11",
-      "score": 22,
+      "score": 15.7,
       "evolution": -0.7,
       "conseilDepartemental": {
         "score": 0,
@@ -7499,7 +7499,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 31.4,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7541,7 +7541,7 @@
       "code": "93",
       "nom": "Seine-Saint-Denis",
       "code_region": "11",
-      "score": 22,
+      "score": 30.15,
       "evolution": -1.3,
       "conseilDepartemental": {
         "score": 50,
@@ -7568,7 +7568,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 10.3,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7610,7 +7610,7 @@
       "code": "94",
       "nom": "Val-de-Marne",
       "code_region": "11",
-      "score": 22,
+      "score": 13.05,
       "evolution": -4.5,
       "conseilDepartemental": {
         "score": 0,
@@ -7637,7 +7637,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.1,
         "evolution": null,
         "composantes": {
           "maires": {
@@ -7679,7 +7679,7 @@
       "code": "95",
       "nom": "Val-d'Oise",
       "code_region": "11",
-      "score": 22,
+      "score": 38.4,
       "evolution": -1.0,
       "conseilDepartemental": {
         "score": 50,
@@ -7706,7 +7706,7 @@
         }
       },
       "mairesEtConseilsMunicipaux": {
-        "score": null,
+        "score": 26.8,
         "evolution": null,
         "composantes": {
           "maires": {
