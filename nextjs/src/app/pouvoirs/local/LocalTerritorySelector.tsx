@@ -605,14 +605,14 @@ export function LocalTerritorySelector() {
             <div className="flex flex-col md:flex-row gap-x-8 gap-y-10 px-5 md:px-25 py-11 bg-foundations-blanc items-stretch justify-center">
               <div className="flex-1 min-w-0">
                 <RegionsSlider
-                  regions={regionsDescriptions.top5}
+                  regions={regionsDescriptions.top}
                   title="Une progressive féminisation du pouvoir local"
                   variant="good"
                 />
               </div>
               <div className="flex-1 min-w-0">
                 <RegionsSlider
-                  regions={regionsDescriptions.bottom5}
+                  regions={regionsDescriptions.bottom}
                   title="Le Boys Club des territoires"
                   variant="bad"
                 />
