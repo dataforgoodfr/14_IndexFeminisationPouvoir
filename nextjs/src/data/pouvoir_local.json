@@ -4812,7 +4812,7 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
@@ -7880,7 +7880,7 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
@@ -7966,7 +7966,7 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
@@ -8224,11 +8224,11 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "directrices_cabinet_maires": {
@@ -8310,11 +8310,11 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "directrices_cabinet_maires": {
@@ -8396,11 +8396,11 @@
         "evolution": 0.6,
         "composantes": {
           "maires": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "maires_prefectures": {
-            "score": 40.5,
+            "score": null,
             "evolution": 0.8
           },
           "directrices_cabinet_maires": {

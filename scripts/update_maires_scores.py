@@ -139,17 +139,17 @@ def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
 
 
 def _update_composante(entries: list, scores: dict, composante: str, label: str) -> None:
-    updated = skipped = 0
+    updated = nulled = 0
     for entry in entries:
         code = entry["code"]
+        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = scores.get(code)
         if code in scores:
-            entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = scores[code]
             print(f"  {code} {entry['nom']}: {scores[code]}%")
             updated += 1
         else:
-            print(f"  {code} {entry['nom']}: no data, skipped")
-            skipped += 1
-    print(f"  → {updated} updated, {skipped} skipped in {label}\n")
+            print(f"  {code} {entry['nom']}: no data → null")
+            nulled += 1
+    print(f"  → {updated} updated, {nulled} set to null in {label}\n")
 
 
 def update_json(
