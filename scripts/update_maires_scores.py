@@ -15,23 +15,107 @@ from collections import defaultdict
 from pathlib import Path
 
 DEPT_TO_REGION = {
-    "01": "84", "02": "32", "03": "84", "04": "93", "05": "93", "06": "93",
-    "07": "84", "08": "44", "09": "76", "10": "44", "11": "76", "12": "76",
-    "13": "93", "14": "28", "15": "84", "16": "75", "17": "75", "18": "24",
-    "19": "75", "2A": "94", "2B": "94", "21": "27", "22": "53", "23": "75",
-    "24": "75", "25": "27", "26": "84", "27": "28", "28": "24", "29": "53",
-    "30": "76", "31": "76", "32": "76", "33": "75", "34": "76", "35": "53",
-    "36": "24", "37": "24", "38": "84", "39": "27", "40": "75", "41": "24",
-    "42": "84", "43": "84", "44": "52", "45": "24", "46": "76", "47": "75",
-    "48": "76", "49": "52", "50": "28", "51": "44", "52": "44", "53": "52",
-    "54": "44", "55": "44", "56": "53", "57": "44", "58": "27", "59": "32",
-    "60": "32", "61": "28", "62": "32", "63": "84", "64": "75", "65": "76",
-    "66": "76", "67": "44", "68": "44", "69": "84", "70": "27", "71": "27",
-    "72": "52", "73": "84", "74": "84", "75": "11", "76": "28", "77": "11",
-    "78": "11", "79": "75", "80": "32", "81": "76", "82": "76", "83": "93",
-    "84": "93", "85": "52", "86": "75", "87": "75", "88": "44", "89": "27",
-    "90": "27", "91": "11", "92": "11", "93": "11", "94": "11", "95": "11",
-    "971": "01", "972": "02", "973": "03", "974": "04", "976": "06",
+    "01": "84",
+    "02": "32",
+    "03": "84",
+    "04": "93",
+    "05": "93",
+    "06": "93",
+    "07": "84",
+    "08": "44",
+    "09": "76",
+    "10": "44",
+    "11": "76",
+    "12": "76",
+    "13": "93",
+    "14": "28",
+    "15": "84",
+    "16": "75",
+    "17": "75",
+    "18": "24",
+    "19": "75",
+    "2A": "94",
+    "2B": "94",
+    "21": "27",
+    "22": "53",
+    "23": "75",
+    "24": "75",
+    "25": "27",
+    "26": "84",
+    "27": "28",
+    "28": "24",
+    "29": "53",
+    "30": "76",
+    "31": "76",
+    "32": "76",
+    "33": "75",
+    "34": "76",
+    "35": "53",
+    "36": "24",
+    "37": "24",
+    "38": "84",
+    "39": "27",
+    "40": "75",
+    "41": "24",
+    "42": "84",
+    "43": "84",
+    "44": "52",
+    "45": "24",
+    "46": "76",
+    "47": "75",
+    "48": "76",
+    "49": "52",
+    "50": "28",
+    "51": "44",
+    "52": "44",
+    "53": "52",
+    "54": "44",
+    "55": "44",
+    "56": "53",
+    "57": "44",
+    "58": "27",
+    "59": "32",
+    "60": "32",
+    "61": "28",
+    "62": "32",
+    "63": "84",
+    "64": "75",
+    "65": "76",
+    "66": "76",
+    "67": "44",
+    "68": "44",
+    "69": "84",
+    "70": "27",
+    "71": "27",
+    "72": "52",
+    "73": "84",
+    "74": "84",
+    "75": "11",
+    "76": "28",
+    "77": "11",
+    "78": "11",
+    "79": "75",
+    "80": "32",
+    "81": "76",
+    "82": "76",
+    "83": "93",
+    "84": "93",
+    "85": "52",
+    "86": "75",
+    "87": "75",
+    "88": "44",
+    "89": "27",
+    "90": "27",
+    "91": "11",
+    "92": "11",
+    "93": "11",
+    "94": "11",
+    "95": "11",
+    "971": "01",
+    "972": "02",
+    "973": "03",
+    "974": "04",
+    "976": "06",
 }
 
 DOM_CODES = {"971", "972", "973", "974", "976"}
@@ -92,7 +176,11 @@ def compute_l1_scores(csv_path: Path) -> tuple[dict, dict, dict]:
     nat_pct = _pct(national["women"], national["total"])
     print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
 
-    return _scores_from_counts(region_c), _scores_from_counts(dept_c), _scores_from_counts(outremer_c)
+    return (
+        _scores_from_counts(region_c),
+        _scores_from_counts(dept_c),
+        _scores_from_counts(outremer_c),
+    )
 
 
 def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
@@ -111,7 +199,11 @@ def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
             raw = row["Dép"].strip()
             if not raw or not row["Sexe"].strip():
                 continue
-            dept = raw if raw in DOM_CODES or raw in ("2A", "2B") else str(int(raw)).zfill(2)
+            dept = (
+                raw
+                if raw in DOM_CODES or raw in ("2A", "2B")
+                else str(int(raw)).zfill(2)
+            )
             is_woman = row["Sexe"].strip() == "F"
 
             if dept in DOM_CODES:
@@ -135,14 +227,22 @@ def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
     nat_pct = _pct(national["women"], national["total"])
     print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
 
-    return _scores_from_counts(region_c), _scores_from_counts(dept_c), _scores_from_counts(outremer_c)
+    return (
+        _scores_from_counts(region_c),
+        _scores_from_counts(dept_c),
+        _scores_from_counts(outremer_c),
+    )
 
 
-def _update_composante(entries: list, scores: dict, composante: str, label: str) -> None:
+def _update_composante(
+    entries: list, scores: dict, composante: str, label: str
+) -> None:
     updated = nulled = 0
     for entry in entries:
         code = entry["code"]
-        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = scores.get(code)
+        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = (
+            scores.get(code)
+        )
         if code in scores:
             print(f"  {code} {entry['nom']}: {scores[code]}%")
             updated += 1
@@ -160,7 +260,10 @@ def update_json(
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
 
-    for composante, scores_tuple in [("maires", l1_scores), ("maires_prefectures", l2_scores)]:
+    for composante, scores_tuple in [
+        ("maires", l1_scores),
+        ("maires_prefectures", l2_scores),
+    ]:
         if scores_tuple is None:
             continue
         region_scores, dept_scores, outremer_scores = scores_tuple
@@ -168,7 +271,9 @@ def update_json(
         print("--- regions ---")
         _update_composante(data["regions"], region_scores, composante, "regions")
         print("--- departements ---")
-        _update_composante(data["departements"], dept_scores, composante, "departements")
+        _update_composante(
+            data["departements"], dept_scores, composante, "departements"
+        )
         print("--- outre-mer ---")
         _update_composante(data["outre-mer"], outremer_scores, composante, "outre-mer")
 
@@ -186,8 +291,10 @@ def main() -> None:
 
     l1_path = Path(sys.argv[1])
     l2_path = Path(sys.argv[2])
-    json_path = Path(sys.argv[3]) if len(sys.argv) > 3 else (
-        Path(__file__).parent.parent / "nextjs/src/data/pouvoir_local.json"
+    json_path = (
+        Path(sys.argv[3])
+        if len(sys.argv) > 3
+        else (Path(__file__).parent.parent / "nextjs/src/data/pouvoir_local.json")
     )
 
     print(f"Reading L1 (maires) from: {l1_path}")
