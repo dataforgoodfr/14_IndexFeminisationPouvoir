@@ -12,10 +12,10 @@ const { score, collectivites, annee, dateMiseAJour } = pouvoirData.local;
 export function createZoneDataMap(
   data: Array<{
     nom: string;
-    score: number;
-    evolution: number;
+    score: number | null;
+    evolution: number | null;
   }>,
-): Record<string, { percentage: number; evolution: number }> {
+): Record<string, { percentage: number | null; evolution: number | null }> {
   return data.reduce(
     (acc, zone) => {
       acc[zone.nom] = {
@@ -24,7 +24,10 @@ export function createZoneDataMap(
       };
       return acc;
     },
-    {} as Record<string, { percentage: number; evolution: number }>,
+    {} as Record<
+      string,
+      { percentage: number | null; evolution: number | null }
+    >,
   );
 }
 

@@ -6,8 +6,8 @@ import { PouvoirFigureL } from "./PouvoirFigureL";
 import { PouvoirFigureS } from "./PouvoirFigureS";
 
 export interface SliderItem {
-  valeur: number;
-  evolution?: number;
+  valeur: number | null;
+  evolution?: number | null;
   title?: string;
 }
 
@@ -40,7 +40,7 @@ export function TerritorySlider({
   const isRawValue = (title: string): boolean => rawValueTitles.has(title);
 
   // Helper function to get the correct text for femme/femmes
-  const getFemmesText = (valeur: number, isRaw: boolean): string => {
+  const getFemmesText = (valeur: number | null, isRaw: boolean): string => {
     if (!isRaw) return "de femmes";
     return valeur === 1 ? "femme" : "femmes";
   };

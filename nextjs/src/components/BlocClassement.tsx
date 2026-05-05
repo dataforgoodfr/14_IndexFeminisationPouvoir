@@ -3,7 +3,11 @@ import { LiensCTA } from "./LiensCTA";
 import { ShortDate } from "./ShortDate";
 
 type BlockClassementProps = {
-  data: { label: string; percentage: number; evolution?: number }[];
+  data: {
+    label: string;
+    percentage: number | null;
+    evolution?: number | null;
+  }[];
   title: string;
   description: string;
   derniereMiseAJour?: Date;

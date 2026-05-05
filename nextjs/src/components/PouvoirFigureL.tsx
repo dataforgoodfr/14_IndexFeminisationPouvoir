@@ -5,11 +5,11 @@ import { EvolutionBadge } from "./EvolutionBadge";
 import { LiensCTA } from "./LiensCTA";
 
 export type PouvoirFigureLProps = {
-  valeur: number;
+  valeur: number | null;
   /** Affiché en majuscules, e.g. "présidant une région" */
   intitule: React.ReactNode;
   annee: number;
-  evolution?: number;
+  evolution?: number | null;
   withChart?: boolean;
   withButtons?: boolean;
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
@@ -35,16 +35,20 @@ export const PouvoirFigureL = ({
   variant = "light",
 }: PouvoirFigureLProps) => {
   const anneeAffichee = annee;
-  const pourcentageFormate = valeur.toLocaleString("fr-FR", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 1,
-  });
+  // Check if valeur is not null if it's the case show '--' instead of 0%
+  let pourcentageFormate = "--";
+  if (valeur !== null) {
+    pourcentageFormate = valeur.toLocaleString("fr-FR", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1,
+    });
+  }
 
   return (
     <div className="flex flex-col lg:flex-row gap-9 items-center">
       {withChart && (
         <DoughnutChart
-          value={valeur}
+          value={valeur !== null ? valeur : 0}
           className={cn("w-28 h-28 shrink-0", chartClassName)}
           variant={variant}
           icon={icon}
@@ -60,7 +64,12 @@ export const PouvoirFigureL = ({
           <span className="text-chiffre-l text-foundations-violet-principal leading-none">
             {pourcentageFormate}%
           </span>
-          {evolution !== undefined && <EvolutionBadge value={evolution} />}
+          {evolution !== undefined && (
+            <EvolutionBadge
+              value={evolution}
+              display_a_venir={valeur === null}
+            />
+          )}
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
           <span className="text-femmes-l">de femmes</span>

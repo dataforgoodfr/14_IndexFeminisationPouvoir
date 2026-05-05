@@ -2,11 +2,11 @@ import { EvolutionBadge } from "./EvolutionBadge";
 import { FemmeIcon } from "./icons/femme";
 
 export type PouvoirFigureSProps = {
-  valeur: number;
+  valeur: number | null;
   /** Affiché en majuscules, e.g. "présidant une région" */
   intitule: string;
   annee: number;
-  evolution?: number;
+  evolution?: number | null;
   hidePercentage?: boolean;
   textFemmes?: string;
 };
@@ -20,10 +20,13 @@ export const PouvoirFigureS = ({
   textFemmes = "de femmes",
 }: PouvoirFigureSProps) => {
   const anneeAffichee = annee;
-  const pourcentageFormate = valeur.toLocaleString("fr-FR", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 1,
-  });
+  let pourcentageFormate = "--";
+  if (valeur !== null) {
+    pourcentageFormate = valeur.toLocaleString("fr-FR", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1,
+    });
+  }
 
   return (
     <div className="flex flex-row gap-3 items-start">
@@ -36,7 +39,12 @@ export const PouvoirFigureS = ({
             {pourcentageFormate}
             {!hidePercentage && "%"}
           </span>
-          {evolution !== undefined && <EvolutionBadge value={evolution} />}
+          {evolution !== undefined && (
+            <EvolutionBadge
+              value={evolution}
+              display_a_venir={valeur === null}
+            />
+          )}
         </div>
         <div className="flex flex-col text-foundations-violet-principal">
           <span className="text-femmes-s">{textFemmes}</span>

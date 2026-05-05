@@ -6,8 +6,8 @@ import { EvolutionBadge } from "./EvolutionBadge";
 interface StandingLineProps {
   rank: number;
   label: string;
-  percentage: number;
-  evolution?: number;
+  percentage: number | null;
+  evolution?: number | null;
   iconType?: "up" | "down" | "none";
   showSearch?: boolean;
 }
@@ -52,7 +52,7 @@ export const StandingLine: React.FC<StandingLineProps> = ({
       {/* Percentage */}
       <div className="flex-1">
         <p className="body1-medium text-right text-foundations-violet-principal">
-          {percentage}%
+          {percentage !== null ? `${percentage}%` : "--%"}
         </p>
       </div>
 

@@ -86,8 +86,8 @@ type OutreMerGridProps = {
   dataPerRegion?: Record<
     string,
     {
-      percentage: number;
-      evolution: number;
+      percentage: number | null;
+      evolution: number | null;
     }
   >;
   onRegionChange?: (regionName: string) => void;
@@ -101,7 +101,10 @@ export const OutreMerGrid = ({
   const OutreMerNameList = data_maps_svg["outre-mer"].slice(0, 8);
 
   const outreMerDivHtml = OutreMerNameList.map((om) => {
-    const percentage = dataPerRegion?.[om.nom]?.percentage || 0;
+    const percentage =
+      dataPerRegion?.[om.nom]?.percentage !== null
+        ? dataPerRegion?.[om.nom].percentage
+        : "--";
     const evolution = dataPerRegion?.[om.nom]?.evolution || 0;
     const isEvolutionPositive = evolution > 0;
     const isEvolutionNegative = evolution < 0;
