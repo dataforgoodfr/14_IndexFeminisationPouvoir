@@ -1,11 +1,17 @@
 """
-Update mairesEtConseilsMunicipaux.composantes scores for all regions,
+Update mairesEtConseilsMunicipaux.composantes scores and evolutions for all regions,
 departements, and outre-mer territories in pouvoir_local.json using:
-  - L1.csv: list of all mayors → updates composante "maires"
-  - L2.csv: list of prefecture mayors → updates composante "maires_prefectures"
+  - L1_2026.csv : list of all mayors (2026) → composante "maires", score
+  - L2_2026.csv : list of prefecture mayors (2026) → composante "maires_prefectures", score
+  - L1_2025.csv : list of all mayors (2025) → composante "maires", evolution
+  - L2_2025.csv : list of prefecture mayors (2025) → composante "maires_prefectures", evolution
+
+2026 files: IFP 2026 Version Finale CSV Export / L1.csv, L2.csv
+2025 files: IFP 2025 CSV Export / Figure 5 a.csv, Figure 5b.csv
 
 Usage:
-    uv run scripts/update_maires_scores.py <L1.csv> <L2.csv> [pouvoir_local.json]
+    uv run scripts/update_maires_scores.py \\
+        <L1_2026.csv> <L2_2026.csv> <L1_2025.csv> <L2_2025.csv> [pouvoir_local.json]
 """
 
 import csv
@@ -125,6 +131,25 @@ def _pct(women: int, total: int) -> float:
     return round(100 * women / total, 1)
 
 
+def _evolution(score_2026: float | None, score_2025: float | None) -> float | None:
+    if score_2026 is None or score_2025 is None:
+        return None
+    return round(score_2026 - score_2025, 1)
+
+
+def _normalize_dept(raw: str) -> str | None:
+    """Normalize a raw department code to zero-padded 2-digit or 3-digit string."""
+    raw = raw.strip()
+    if not raw:
+        return None
+    if raw in DOM_CODES or raw in ("2A", "2B"):
+        return raw
+    try:
+        return str(int(raw)).zfill(2)
+    except ValueError:
+        return None
+
+
 def _new_counts() -> dict:
     return {"total": 0, "women": 0}
 
@@ -137,44 +162,73 @@ def _scores_from_counts(counts: dict) -> dict[str, float]:
     }
 
 
-def compute_l1_scores(csv_path: Path) -> tuple[dict, dict, dict]:
-    """Compute maires scores per region, department, outre-mer from L1.csv.
+def _accumulate(
+    dept: str,
+    is_woman: bool,
+    region_c: dict,
+    dept_c: dict,
+    outremer_c: dict,
+    national: dict,
+) -> None:
+    if dept in DOM_CODES:
+        outremer_c[dept]["total"] += 1
+        if is_woman:
+            outremer_c[dept]["women"] += 1
+    else:
+        dept_c[dept]["total"] += 1
+        if is_woman:
+            dept_c[dept]["women"] += 1
 
-    L1 columns used: 'Code du département', 'Code sexe' (M/F)
+    region = DEPT_TO_REGION.get(dept)
+    if region is None:
+        return
+    region_c[region]["total"] += 1
+    national["total"] += 1
+    if is_woman:
+        region_c[region]["women"] += 1
+        national["women"] += 1
+
+
+def _read_csv_skip_to(path: Path, header_field: str) -> csv.DictReader:
+    """Return a DictReader positioned at the row whose first cell matches header_field."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    for i, line in enumerate(lines):
+        if line.startswith(header_field):
+            return csv.DictReader(lines[i:])
+    raise ValueError(f"Header '{header_field}' not found in {path}")
+
+
+def compute_l1_scores(csv_path: Path) -> tuple[dict, dict, dict]:
+    """Compute maires scores from an individual-mayors CSV.
+
+    Handles both 2026 (L1.csv) and 2025 (Figure 5 a.csv) formats:
+      - dept column: 'Code du département' (zero-padded in 2026, integer in 2025)
+      - sex column: 'Code sexe', values 'F' / 'M'
+    2026 has headers on row 1; 2025 has 3 metadata rows then 'Nom de l'élu' header.
     """
+    first_line = csv_path.read_text(encoding="utf-8").splitlines()[0]
+    # 2026 L1.csv starts directly with column headers; 2025 has metadata rows first
+    header_field = (
+        "Code du département"
+        if first_line.startswith("Code du département")
+        else "Nom de l'élu"
+    )
+    reader = _read_csv_skip_to(csv_path, header_field)
     region_c: dict = defaultdict(_new_counts)
     dept_c: dict = defaultdict(_new_counts)
     outremer_c: dict = defaultdict(_new_counts)
     national = _new_counts()
 
-    with open(csv_path, encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            raw = row["Code du département"].strip()
-            if not raw:
-                continue
-            dept = raw if raw in DOM_CODES else raw.zfill(2)
-            is_woman = row["Code sexe"].strip() == "F"
+    for row in reader:
+        dept = _normalize_dept(row.get("Code du département", ""))
+        if dept is None:
+            continue
+        is_woman = row.get("Code sexe", "").strip() == "F"
+        _accumulate(dept, is_woman, region_c, dept_c, outremer_c, national)
 
-            if dept in DOM_CODES:
-                outremer_c[dept]["total"] += 1
-                if is_woman:
-                    outremer_c[dept]["women"] += 1
-            else:
-                dept_c[dept]["total"] += 1
-                if is_woman:
-                    dept_c[dept]["women"] += 1
-
-            region = DEPT_TO_REGION.get(dept)
-            if region is None:
-                continue
-            region_c[region]["total"] += 1
-            national["total"] += 1
-            if is_woman:
-                region_c[region]["women"] += 1
-                national["women"] += 1
-
-    nat_pct = _pct(national["women"], national["total"])
-    print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
+    if national["total"]:
+        nat_pct = _pct(national["women"], national["total"])
+        print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
 
     return (
         _scores_from_counts(region_c),
@@ -184,48 +238,39 @@ def compute_l1_scores(csv_path: Path) -> tuple[dict, dict, dict]:
 
 
 def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
-    """Compute maires_prefectures scores per region, department, outre-mer from L2.csv.
+    """Compute maires_prefectures scores from a prefecture-mayors CSV.
 
-    L2 columns used: 'Dép' (integer or 2A/2B), 'Sexe' (H/F)
-    Rows after the data block (empty Dép) are ignored.
+    Handles both 2026 (L2.csv) and 2025 (Figure 5b.csv) formats:
+      - 2026: dept in 'Dép' (integer), sex in 'Sexe' as 'H'/'F'
+      - 2025: dept in 'N°' (integer or 2A/2B), sex in 'Sexe ' as 'Madame'/'Monsieur'
     """
+    # Detect format by trying both header fields
+    text = csv_path.read_text(encoding="utf-8")
+    if "N°" in text:
+        dept_col, sex_col, is_woman_val = "N°", "Sexe ", "Madame"
+        reader = _read_csv_skip_to(csv_path, "N°")
+    else:
+        dept_col, sex_col, is_woman_val = "Dép", "Sexe", "F"
+        reader = _read_csv_skip_to(csv_path, "Région")
+
     region_c: dict = defaultdict(_new_counts)
     dept_c: dict = defaultdict(_new_counts)
     outremer_c: dict = defaultdict(_new_counts)
     national = _new_counts()
 
-    with open(csv_path, encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            raw = row["Dép"].strip()
-            if not raw or not row["Sexe"].strip():
-                continue
-            dept = (
-                raw
-                if raw in DOM_CODES or raw in ("2A", "2B")
-                else str(int(raw)).zfill(2)
-            )
-            is_woman = row["Sexe"].strip() == "F"
+    for row in reader:
+        dept = _normalize_dept(row.get(dept_col, ""))
+        if dept is None:
+            continue
+        sex = row.get(sex_col, "").strip()
+        if not sex:
+            continue
+        is_woman = sex == is_woman_val
+        _accumulate(dept, is_woman, region_c, dept_c, outremer_c, national)
 
-            if dept in DOM_CODES:
-                outremer_c[dept]["total"] += 1
-                if is_woman:
-                    outremer_c[dept]["women"] += 1
-            else:
-                dept_c[dept]["total"] += 1
-                if is_woman:
-                    dept_c[dept]["women"] += 1
-
-            region = DEPT_TO_REGION.get(dept)
-            if region is None:
-                continue
-            region_c[region]["total"] += 1
-            national["total"] += 1
-            if is_woman:
-                region_c[region]["women"] += 1
-                national["women"] += 1
-
-    nat_pct = _pct(national["women"], national["total"])
-    print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
+    if national["total"]:
+        nat_pct = _pct(national["women"], national["total"])
+        print(f"  National: {national['women']}/{national['total']} = {nat_pct}%")
 
     return (
         _scores_from_counts(region_c),
@@ -235,16 +280,26 @@ def compute_l2_scores(csv_path: Path) -> tuple[dict, dict, dict]:
 
 
 def _update_composante(
-    entries: list, scores: dict, composante: str, label: str
+    entries: list,
+    scores_2026: dict,
+    scores_2025: dict,
+    composante: str,
+    label: str,
 ) -> None:
     updated = nulled = 0
     for entry in entries:
         code = entry["code"]
-        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = (
-            scores.get(code)
+        score = scores_2026.get(code)
+        evo = _evolution(score, scores_2025.get(code))
+        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = score
+        entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["evolution"] = (
+            evo
         )
-        if code in scores:
-            print(f"  {code} {entry['nom']}: {scores[code]}%")
+        if score is not None:
+            print(
+                f"  {code} {entry['nom']}: {score}%"
+                + (f" (evo: {evo:+.1f})" if evo is not None else " (evo: null)")
+            )
             updated += 1
         else:
             print(f"  {code} {entry['nom']}: no data → null")
@@ -254,28 +309,26 @@ def _update_composante(
 
 def update_json(
     json_path: Path,
-    l1_scores: tuple[dict, dict, dict] | None,
-    l2_scores: tuple[dict, dict, dict] | None,
+    l1_2026: tuple[dict, dict, dict],
+    l2_2026: tuple[dict, dict, dict],
+    l1_2025: tuple[dict, dict, dict],
+    l2_2025: tuple[dict, dict, dict],
 ) -> None:
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
 
-    for composante, scores_tuple in [
-        ("maires", l1_scores),
-        ("maires_prefectures", l2_scores),
+    for composante, scores_2026, scores_2025 in [
+        ("maires", l1_2026, l1_2025),
+        ("maires_prefectures", l2_2026, l2_2025),
     ]:
-        if scores_tuple is None:
-            continue
-        region_scores, dept_scores, outremer_scores = scores_tuple
         print(f"=== {composante} ===")
-        print("--- regions ---")
-        _update_composante(data["regions"], region_scores, composante, "regions")
-        print("--- departements ---")
-        _update_composante(
-            data["departements"], dept_scores, composante, "departements"
-        )
-        print("--- outre-mer ---")
-        _update_composante(data["outre-mer"], outremer_scores, composante, "outre-mer")
+        for section_key, s2026, s2025 in [
+            ("regions", scores_2026[0], scores_2025[0]),
+            ("departements", scores_2026[1], scores_2025[1]),
+            ("outre-mer", scores_2026[2], scores_2025[2]),
+        ]:
+            print(f"--- {section_key} ---")
+            _update_composante(data[section_key], s2026, s2025, composante, section_key)
 
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -285,26 +338,34 @@ def update_json(
 
 
 def main() -> None:
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 5:
         print(__doc__)
         sys.exit(1)
 
-    l1_path = Path(sys.argv[1])
-    l2_path = Path(sys.argv[2])
+    l1_2026_path = Path(sys.argv[1])
+    l2_2026_path = Path(sys.argv[2])
+    l1_2025_path = Path(sys.argv[3])
+    l2_2025_path = Path(sys.argv[4])
     json_path = (
-        Path(sys.argv[3])
-        if len(sys.argv) > 3
-        else (Path(__file__).parent.parent / "nextjs/src/data/pouvoir_local.json")
+        Path(sys.argv[5])
+        if len(sys.argv) > 5
+        else Path(__file__).parent.parent / "nextjs/src/data/pouvoir_local.json"
     )
 
-    print(f"Reading L1 (maires) from: {l1_path}")
-    l1_scores = compute_l1_scores(l1_path)
+    print(f"Reading L1 2026 (maires) from: {l1_2026_path}")
+    l1_2026 = compute_l1_scores(l1_2026_path)
 
-    print(f"\nReading L2 (maires_prefectures) from: {l2_path}")
-    l2_scores = compute_l2_scores(l2_path)
+    print(f"\nReading L2 2026 (maires_prefectures) from: {l2_2026_path}")
+    l2_2026 = compute_l2_scores(l2_2026_path)
+
+    print(f"\nReading L1 2025 (maires) from: {l1_2025_path}")
+    l1_2025 = compute_l1_scores(l1_2025_path)
+
+    print(f"\nReading L2 2025 (maires_prefectures) from: {l2_2025_path}")
+    l2_2025 = compute_l2_scores(l2_2025_path)
 
     print(f"\nUpdating: {json_path}\n")
-    update_json(json_path, l1_scores, l2_scores)
+    update_json(json_path, l1_2026, l2_2026, l1_2025, l2_2025)
 
 
 if __name__ == "__main__":
