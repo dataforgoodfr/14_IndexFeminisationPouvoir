@@ -1,3 +1,4 @@
+import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { Suspense } from "react";
 import { LocalTerritorySelector } from "@/app/pouvoirs/local/LocalTerritorySelector";
 import { CollectiviteLocaleBlock } from "@/components/CollectiviteLocaleBlock";
@@ -7,7 +8,7 @@ import { PouvoirFigureXL } from "@/components/PouvoirFigureXL";
 import { PageTitle } from "@/components/titles";
 import pouvoirData from "@/data/pouvoir.json";
 
-const { score, collectivites, annee, dateMiseAJour, evolution } =
+const { score, collectivites, annee, dateMiseAJour, analyse, evolution } =
   pouvoirData.local;
 
 export function createZoneDataMap(
@@ -34,7 +35,7 @@ export function createZoneDataMap(
 
 export default function Page() {
   return (
-    <>
+    <div className="gap-0 flex flex-col">
       <PageTitle
         id="pouvoir-local"
         title="Pouvoir local"
@@ -139,9 +140,10 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <BlocAnalyseRapport description={analyse} />
       <Suspense fallback={<div />}>
         <LocalTerritorySelector />
       </Suspense>
-    </>
+    </div>
   );
 }
