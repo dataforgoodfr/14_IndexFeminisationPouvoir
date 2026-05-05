@@ -7,22 +7,17 @@ export default function MethodologieLayout({
 }) {
   return (
     <div className="flex flex-1 flex-col">
-      <div className="flex flex-1 max-h-[80px] h-full py-[26px] shadow-md">
-        <h3 className="header-h3 pl-5 text-foundations-violet-principal uppercase items-start">
-          explication de la méthodologie
-        </h3>
-      </div>
-      <div className="flex flex-1 py-[60px]">
-        <div className="flex flex-1 flex-col items-center gap-[24px] pb-[30px]">
+      <div className="flex flex-1 py-15">
+        <div className="flex flex-1 flex-col items-center gap-6 pb-7.5">
           <h2 className="header-h2 text-foundations-violet-principal text-center">
             Méthodologie de calcul de l'index
           </h2>
-          <div className="flex flex-1 px-[52.5px] gap-[12px]">
-            <SectionMethodo label="Méthode" href="/methodologie/methode" />
+          <div className="flex flex-1 px-[52.5px] gap-3">
+            <SectionMethodo label="Méthode" href="/methodologie" />
             <SectionMethodo label="Sources" href="/methodologie/sources" />
             <SectionMethodo
               label="Système d'automatisation"
-              href="/methodologie/systeme-automatisation"
+              href="/methodologie/automatisation"
             />
           </div>
         </div>

@@ -1,7 +1,8 @@
+"use client";
 import type { Route } from "next";
+import { usePathname } from "next/dist/client/components/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/dist/client/components/navigation";
 
 type SectionMethodoProps = {
   label: string;
