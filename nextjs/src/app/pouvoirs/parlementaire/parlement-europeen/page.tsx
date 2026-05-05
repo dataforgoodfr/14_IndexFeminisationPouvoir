@@ -4,7 +4,7 @@ import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score } = parlementaire.composantes.europeen;
+const { annee, evolution, score } = parlementaire.composantes.europeen;
 
 export default function Page() {
   return (
@@ -18,7 +18,7 @@ export default function Page() {
           valeur={score}
           intitule="députées européennes"
           annee={annee}
-          evolution={100}
+          evolution={evolution}
         />
         <InfoBox>
           <p>Les député.e.s du Parlement Européen :</p>

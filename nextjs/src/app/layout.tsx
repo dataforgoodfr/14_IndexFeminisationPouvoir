@@ -17,7 +17,7 @@ const navigation: NavigationItem[] = [
   },
   { name: "Pionnières", href: "/pionnieres" },
 
-  { name: "Recommandations", href: "/recommandations" },
+  { name: "Recommandations", href: "/#recommandations" },
   { name: "Méthode de calcul", href: "/methodologie" },
 ];
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const basePath = "";
   const svgRoot = `${basePath}/images/`;
   // On injecte des variables CSS pour les SVG utilisés dans des utilitaires Tailwind
   // afin de régler le problème de base path sur github pages.
@@ -50,7 +50,7 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <NextIntlClientProvider>
             <Menu items={navigation} />
-            <main className="flex-1 flex flex-col">{children}</main>
+            <main className="flex-1 flex flex-col mt-22.5">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </div>

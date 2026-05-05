@@ -25,7 +25,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
   }, [pathname]);
 
   return (
-    <nav className="relative bg-foundations-violet-principal text-foundations-blanc">
+    <nav className="fixed w-full z-20 bg-foundations-violet-principal text-foundations-blanc">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-22.5 items-center justify-between">
           <div className="flex flex-1  justify-start items-stretch">
@@ -46,7 +46,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                 Féminisation
               </h4>
             </Link>
-            <div className="hidden w-full md:ml-6 md:flex justify-between items-center">
+            <div className="hidden w-full md:ml-6 md:flex justify-center items-center">
               <div className="flex space-x-4 items-center justify-center">
                 {items.map((item) => (
                   <div
@@ -85,6 +85,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="hidden lg:flex items-center min-w-max">
               <Link href="/rapport" className="hidden lg:block button">
                 <BookIcon />
                 <span>Lire le rapport</span>

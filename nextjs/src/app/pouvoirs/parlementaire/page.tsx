@@ -2,12 +2,13 @@ import { BlocAnalyseRapport } from "@/components/BlocAnalyseRapport";
 import { BlocClassement } from "@/components/BlocClassement";
 import ParlementChart from "@/components/charts/ParlementChart";
 import { InfoBox } from "@/components/InfoBox";
+import { sourceURLs } from "@/components/LiensCTA";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score, composantes, analyse, parite_groupes } =
+const { annee, score, evolution, composantes, analyse, parite_groupes } =
   parlementaire.composantes.assemblee_nationale;
 
 export default function Page() {
@@ -22,7 +23,8 @@ export default function Page() {
           valeur={score}
           intitule="députées"
           annee={annee}
-          evolution={100}
+          evolution={evolution}
+          downloadURL={sourceURLs.parlementaire.groupes_an}
         />
         <InfoBox>
           <p>Les député.e.s de l'Assemblée Nationale :</p>
@@ -34,7 +36,7 @@ export default function Page() {
             Ils sont élus par les Français.es.
           </p>
         </InfoBox>
-        <div className="divider-dashed-horizontal w-full my-8" />
+        <div className="hidden lg:flex divider-dashed-horizontal w-full my-8" />
         <div className="flex flex-col lg:flex-row my-4 lg:my-0 gap-12 lg:gap-6">
           <PouvoirFigureS
             valeur={composantes.presidente_commission.score}
@@ -42,14 +44,16 @@ export default function Page() {
             evolution={composantes.presidente_commission.evolution}
             annee={composantes.presidente_commission.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             valeur={composantes.bureau.score}
             intitule="au bureau de l'assemblée nationale"
             annee={composantes.bureau.annee}
             evolution={composantes.bureau.evolution}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             valeur={composantes.presidente_groupe.score}
             intitule="présidant un groupe parlementaire"
@@ -63,12 +67,16 @@ export default function Page() {
         <BlocClassement
           title="Taux de parité des groupes politiques"
           description={parite_groupes.description}
-          data={parite_groupes.data.map(({ nom, score, evolution }) => ({
-            label: nom,
-            percentage: score,
-            evolution,
-          }))}
+          data={parite_groupes.data
+            .map(({ nom, score }) => ({
+              label: nom,
+              percentage: score,
+              evolution: undefined, // TODO: add evolution partis politiques à l'AN
+            }))
+            .sort((a, b) => b.percentage - a.percentage)}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
+          thumbsUpTopValue={0}
+          thumbsDownBottomValue={0}
         />
       </div>
     </>

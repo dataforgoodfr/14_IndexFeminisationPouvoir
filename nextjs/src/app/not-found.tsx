@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="flex flex-1 flex-col items-center gap-12 py-12">
       <div className="flex flex-1 flex-col gap-6.5 items-center w-full max-w-148 h-auto">
         <Image
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/inequal.svg`}
+          src={`/images/inequal.svg`}
           alt=""
           aria-hidden
           width={410}

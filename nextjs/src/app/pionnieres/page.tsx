@@ -95,7 +95,7 @@ export default function Page() {
     pionnieres.map((item) => ({
       ...item,
       imageAlt: item.name,
-      imageSrc: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/pionnieres/${item.id}.png`,
+      imageSrc: `/images/pionnieres/${item.id}.png`,
     })),
   );
 

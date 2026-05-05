@@ -5,8 +5,6 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
-import { BookIcon } from "@/components/icons/book";
-import { DownloadIcon } from "@/components/icons/download";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
 import { LogoDataForGood } from "@/components/icons/logo-d4g";
@@ -16,44 +14,11 @@ import { AutresPouvoirsIcon } from "@/components/icons/pouvoir-autres";
 import { PouvoirExecutifIcon } from "@/components/icons/pouvoir-executif";
 import { PouvoirLocalIcon } from "@/components/icons/pouvoir-local";
 import { PouvoirParlementaireIcon } from "@/components/icons/pouvoir-parlementaire";
-import { QuestionMarkIcon } from "@/components/icons/question-mark";
+import { LiensCTA } from "@/components/LiensCTA";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { StatsCard } from "@/components/StatsCard";
-import { Tooltip } from "@/components/Tooltip";
 import pouvoirData from "@/data/pouvoir.json";
-
-const RECOMMENDATIONS = [
-  {
-    color: "var(--color-foundations-jaune-oxfam)",
-    title: "Cadre législatif",
-    description:
-      "Renforcer les quotas de parité dans les instances décisionnelles et sanctionner le non-respect des obligations légales.",
-  },
-  {
-    color: "var(--color-foundations-violet-principal)",
-    title: "Formation & mentorat",
-    description:
-      "Développer des programmes de formation et de mentorat pour préparer les femmes à accéder aux postes de décision.",
-  },
-  {
-    color: "var(--color-foundations-vert-principal)",
-    title: "Culture organisationnelle",
-    description:
-      "Transformer les cultures organisationnelles pour éliminer les biais de genre et favoriser un environnement inclusif.",
-  },
-  {
-    color: "var(--color-foundations-orange-site)",
-    title: "Transparence & données",
-    description:
-      "Améliorer la collecte et la publication de données sexuées pour mesurer les progrès et identifier les obstacles.",
-  },
-  {
-    color: "var(--color-foundations-bleu-site)",
-    title: "Engagements volontaires",
-    description:
-      "Encourager les organisations à prendre des engagements volontaires en faveur de la parité et à en rendre compte.",
-  },
-];
+import { richComponents } from "@/lib/utils";
 
 const { dateMiseAJour, score, evolution } = pouvoirData;
 
@@ -86,7 +51,7 @@ export default async function Home() {
           </div>
           <div className="flex-1 ">
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/oxfam-homepage.webp`}
+              src={`/images/oxfam-homepage.webp`}
               alt="Collage de photos illustrant la féminisation du pouvoir"
               width={696}
               height={636}
@@ -96,13 +61,12 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
-          <Link
-            href="/rapport"
-            className="button font-headline flex gap-3 items-center"
+          <a
+            href="#explorer-les-donnees"
+            className="button button-primary font-headline"
           >
-            <BookIcon />
-            Lire le rapport
-          </Link>
+            Les pouvoirs
+          </a>
         </div>
       </section>
 
@@ -151,7 +115,7 @@ export default async function Home() {
           </div>
         </div>
         {/* Right column */}
-        <div className="flex flex-col items-center gap-3.25 w-110 shrink-0">
+        <div className="flex flex-col items-center gap-3.25 md:w-110 shrink-0">
           <DoughnutChart
             value={score}
             variant="light"
@@ -177,22 +141,9 @@ export default async function Home() {
                 Dernière mise à jour : {dateMiseAJour}
               </p>
             </div>
-            <div className="flex self-center lg:self-end mb-12 flex-row lg:flex-col gap-4 shrink-0">
-              <Link href="/methodologie">
-                <Tooltip
-                  text="Méthode de calcul"
-                  icon={<QuestionMarkIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-              <Link href="/telecharger">
-                <Tooltip
-                  text="Télécharger les données"
-                  icon={<DownloadIcon className="w-12.5 h-12.5" />}
-                />
-              </Link>
-            </div>
+            <LiensCTA className="self-center lg:self-end mb-12 shrink-0" />
           </div>
-          <div className="flex lg:hidden flex-row flex-wrap justify-center lg:justify-between gap-6 px-4 lg:px-8">
+          <div className="grid grid-cols-2 lg:hidden gap-y-14 gap-x-1.25">
             <StatsCard
               label="Pouvoir exécutif"
               score={pouvoirData.executif.score}
@@ -218,7 +169,10 @@ export default async function Home() {
       </section>
 
       {/* 3. Explorer les données */}
-      <section className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15">
+      <section
+        id="explorer-les-donnees"
+        className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15"
+      >
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="header-h1 text-white">Explorer les données</h2>
           <p className="body1-regular text-white">
@@ -288,35 +242,51 @@ export default async function Home() {
       </section>
 
       {/* 6. Recommandations */}
-      <section className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15">
+      <section
+        id="recommandations"
+        className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15"
+      >
         <div className="flex flex-col items-center gap-2.5 text-center">
           <h2 className="header-h1 text-foundations-violet-principal break-inside-auto hyphens-auto">
             Recomman&shy;dations
           </h2>
 
-          <p className="body2-regular text-foundations-gris-fonce">
-            Principales pistes d'action pour promouvoir la féminisation du
-            pouvoir
-          </p>
+          <div className="body1-medium text-center text-foundations-violet-principal">
+            {t.rich("recommandations.summary", richComponents)}
+          </div>
         </div>
         {/* Row 1: 3 cards */}
         <div className="flex gap-6.5 flex-wrap justify-center">
-          {RECOMMENDATIONS.slice(0, 3).map((reco) => (
-            <RecommendationCard key={reco.title} {...reco} />
-          ))}
+          <RecommendationCard
+            title="Cadre législatif"
+            color="var(--color-foundations-jaune-oxfam)"
+            description={t("recommandations.composantes.cadre_législatif")}
+          />
+          <RecommendationCard
+            title="Formation & mentorat"
+            color="var(--color-foundations-violet-principal)"
+            description={t("recommandations.composantes.formation_mentorat")}
+          />
+          <RecommendationCard
+            title="Culture organisationnelle"
+            color="var(--color-foundations-vert-principal)"
+            description={t(
+              "recommandations.composantes.culture_organisationnelle",
+            )}
+          />
+          <RecommendationCard
+            title="Transparence & données"
+            color="var(--color-foundations-orange-site)"
+            description={t("recommandations.composantes.transparence_données")}
+          />
+          <RecommendationCard
+            title="Engagements volontaires"
+            color="var(--color-foundations-bleu-site)"
+            description={t(
+              "recommandations.composantes.engagements_volontaires",
+            )}
+          />
         </div>
-        {/* Row 2: 2 cards */}
-        <div className="flex gap-6.5 flex-wrap justify-center">
-          {RECOMMENDATIONS.slice(3).map((reco) => (
-            <RecommendationCard key={reco.title} {...reco} />
-          ))}
-        </div>
-        <Link
-          href="/recommandations"
-          className="button button-primary text-center font-headline w-full lg:w-98 justify-center"
-        >
-          Lire les recommandations
-        </Link>
       </section>
     </>
   );

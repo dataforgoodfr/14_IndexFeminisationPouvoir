@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // This should be injected by CI, but currently the next.config.ts extension isn't supported
   // cf https://github.com/actions/configure-pages/issues/177
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  basePath: "",
   images: {
     unoptimized: true,
   },

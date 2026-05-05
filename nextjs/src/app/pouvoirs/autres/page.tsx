@@ -9,7 +9,7 @@ import { CourComptesIcon } from "@/components/icons/cour-comptes";
 import { CourJusticeRepubliqueIcon } from "@/components/icons/cour-justice-republique";
 import { HautesJuridictionsIcon } from "@/components/icons/hautes-juridictions";
 import { JuridictionCard } from "@/components/JuridictionCard";
-import { LiensCTA } from "@/components/LiensCTA";
+import { LiensCTA, sourceURLs } from "@/components/LiensCTA";
 import { PersonGrid } from "@/components/PersonGrid";
 import { PouvoirFigureL } from "@/components/PouvoirFigureL";
 import { PouvoirFigureRelative } from "@/components/PouvoirFigureRelative";
@@ -73,7 +73,7 @@ function MagistratureGridCell({
   withBottomBorder?: boolean;
 }) {
   return (
-    <div className="relative min-w-0 p-6 flex flex-col items-center lg:items-start justify-center">
+    <div className="relative min-w-0 p-6 flex flex-col items-start justify-center">
       {children}
 
       {withRightBorder && (
@@ -135,12 +135,12 @@ export default async function HautesJuridictionsPage() {
           valeur={hj.score}
           intitule="présidant les plus hautes juridictions et institutions en charge de l'application et/ou de la conformité de la loi"
           annee={ANNEE}
-          evolution={hj.evolution}
+          evolution={hj.evolution ?? undefined}
           withChart
           icon={HautesJuridictionsIcon}
           chartClassName="w-41 h-41"
         />
-        <LiensCTA />
+        <LiensCTA downloadURL={sourceURLs.autres.hautes_juridictions} />
       </div>
 
       {/* Institution cards */}

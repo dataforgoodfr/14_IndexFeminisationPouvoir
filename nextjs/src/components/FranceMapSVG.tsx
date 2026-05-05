@@ -37,11 +37,11 @@ export type MapRegionSVGProps = MapSVGProps & {
 };
 
 export type MultipleRegionSVGProps = MapSVGProps & {
-  dataPerZone?: Record<
+  dataPerZone: Record<
     string,
     {
-      percentage: number;
-      evolution: number;
+      percentage: number | null;
+      evolution: number | null;
     }
   >;
 };
@@ -66,7 +66,11 @@ const FranceMapSVG = ({
 
   // From dataPerZone, we generate textList, iconList and tooltipList with the same order as regionsList
   const textList = regionsList.map((region) => {
-    const percentage = dataPerZone ? dataPerZone[region.nom]?.percentage : 0;
+    const percentage = dataPerZone
+      ? dataPerZone[region.nom]?.percentage !== null
+        ? dataPerZone[region.nom]?.percentage
+        : "--"
+      : "--";
     return percentage !== undefined && percentage !== null
       ? `${percentage}%`
       : "";
@@ -74,13 +78,23 @@ const FranceMapSVG = ({
 
   const iconList = regionsList.map((region) => {
     const evolution = dataPerZone ? dataPerZone[region.nom]?.evolution : 0;
-    return evolution > 0 ? "up" : evolution < 0 ? "down" : "none";
+    return evolution != null
+      ? evolution > 0
+        ? "up"
+        : evolution < 0
+          ? "down"
+          : "none"
+      : "none";
   });
 
   const tooltipList = regionsList.map((region) => {
-    const percentage = dataPerZone ? dataPerZone[region.nom]?.percentage : 0;
+    const percentage = dataPerZone
+      ? dataPerZone[region.nom]?.percentage !== null
+        ? dataPerZone[region.nom]?.percentage
+        : "--"
+      : "--";
     const evolution = dataPerZone ? dataPerZone[region.nom]?.evolution : 0;
-    return `${region.nom}\n${percentage}%\nEvolution: ${evolution > 0 ? "+" : ""}${evolution}%`;
+    return `${region.nom}\n${percentage}%\nEvolution: ${evolution != null && evolution > 0 ? "+" : ""}${evolution}%`;
   });
 
   return (
