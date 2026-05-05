@@ -75,7 +75,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
                 label={item.label}
                 href={item.href}
                 icon={item.icon}
-                isActive={false}
+                isActive={isOpen}
               />
               <div
                 className={cn(
