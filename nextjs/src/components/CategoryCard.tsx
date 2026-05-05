@@ -4,7 +4,7 @@ import type { SVGProps } from "react";
 
 type CategoryCardProps = {
   icon: React.ComponentType<SVGProps<SVGSVGElement>>;
-  title: string;
+  title: React.ReactNode;
   description: string;
   href: Route;
 };

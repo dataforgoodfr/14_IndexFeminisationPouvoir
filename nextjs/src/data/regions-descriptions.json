@@ -4,31 +4,31 @@
       "rank": 1,
       "region": "Île-de-France",
       "percentage": 24,
-      "description": "Texte Île-de-France"
+      "description": "Texte à ajouter Île-de-France"
     },
     {
       "rank": 2,
       "region": "Centre-Val de Loire",
       "percentage": 23,
-      "description": "Texte Centre-Val de Loire"
+      "description": "Texte à ajouter Centre-Val de Loire"
     },
     {
       "rank": 3,
       "region": "Nouvelle-Aquitaine",
       "percentage": 23,
-      "description": "Texte Nouvelle-Aquitaine"
+      "description": "Texte à ajouter Nouvelle-Aquitaine"
     },
     {
       "rank": 4,
       "region": "Auvergne-Rhône-Alpes",
       "percentage": 22,
-      "description": "Texte Auvergne-Rhône-Alpes"
+      "description": "Texte à ajouter Auvergne-Rhône-Alpes"
     },
     {
       "rank": 5,
       "region": "Bretagne",
       "percentage": 22,
-      "description": "Texte Bretagne"
+      "description": "Texte à ajouter Bretagne"
     }
   ],
   "bottom5": [
@@ -36,31 +36,31 @@
       "rank": 21,
       "region": "Corse",
       "percentage": 12,
-      "description": "Texte Corse"
+      "description": "Texte à ajouter Corse"
     },
     {
       "rank": 20,
       "region": "Grand Est",
       "percentage": 18,
-      "description": "Texte Grand Est"
+      "description": "Texte à ajouter Grand Est"
     },
     {
       "rank": 19,
       "region": "Hauts-de-France",
       "percentage": 18,
-      "description": "Texte Hauts-de-France"
+      "description": "Texte à ajouter Hauts-de-France"
     },
     {
       "rank": 18,
       "region": "Provence-Alpes-Côte d'Azur",
       "percentage": 20,
-      "description": "Texte Provence-Alpes-Côte d'Azur"
+      "description": "Texte à ajouter Provence-Alpes-Côte d'Azur"
     },
     {
       "rank": 17,
       "region": "Occitanie",
       "percentage": 20,
-      "description": "Texte Occitanie"
+      "description": "Texte à ajouter Occitanie"
     }
   ]
 }

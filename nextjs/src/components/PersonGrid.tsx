@@ -1,14 +1,19 @@
+import { cn } from "@/lib/utils";
 import { FemmeIcon } from "./icons/femme";
 import { HommeIcon } from "./icons/homme";
 
 type PersonGridProps = {
   femmes: number;
   hommes: number;
+  className?: string;
 };
 
-export const PersonGrid = ({ femmes, hommes }: PersonGridProps) => (
+export const PersonGrid = ({ femmes, hommes, className }: PersonGridProps) => (
   <div
-    className="flex flex-wrap lg:flex-nowrap gap-6 items-end justify-center lg:justify-start"
+    className={cn(
+      "flex flex-wrap lg:flex-nowrap gap-6 items-end justify-center lg:justify-start",
+      className,
+    )}
     aria-hidden="true"
   >
     {Array.from({ length: femmes }, (_, i) => (

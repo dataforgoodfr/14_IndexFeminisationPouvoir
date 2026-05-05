@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { GoodBadExample, GoodBadTitle } from "./GoodBadExample";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
-import { ThumbUpIcon } from "./icons/thumbup";
+
 export interface RegionDescription {
   rank: number;
   region: string;
@@ -18,7 +19,7 @@ export interface RegionsDescriptions {
 interface RegionsSliderProps {
   regions: RegionDescription[];
   title: string;
-  variant: "top" | "bottom";
+  variant: "good" | "bad";
 }
 
 export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
@@ -53,43 +54,18 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
   const currentRegion = regions[currentIndex];
 
-  let backgroundColor = "svg-tree-red";
-  let backgroundEqual = "svg-inequal-white";
-  if (variant === "top") {
-    backgroundColor = "svg-tree-green";
-    backgroundEqual = "svg-equal-white";
-  }
-
   return (
-    <div
+    <GoodBadExample
+      variant={variant}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      className={`grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full svg-bg ${backgroundColor}`}
+      className="grid grid-cols-3 grid-rows-3 grid-cols-[1fr_4fr_1fr] grid-rows-[1fr_2fr_1fr] py-[24px] gap-y-[10px] h-full"
     >
       {/* Top Row */}
       <div></div>
 
       {/* Top Middle: Title */}
-      <div className="flex flex-row gap-[12px]">
-        <div
-          className={`flex-2 flex items-center justify-center svg-bg ${backgroundEqual} min-h-[75px] min-w-[85px]`}
-        >
-          {variant === "top" ? (
-            <ThumbUpIcon
-              fill="var(--color-foundations-violet-principal)"
-              className="size-12"
-            />
-          ) : (
-            <ThumbUpIcon
-              fill="var(--color-foundations-violet-principal)"
-              className="size-12 rotate-180"
-            />
-          )}
-        </div>
-        <h3 className="flex-5 flex items-center header-h4 text-foundations-blanc">
-          {title}
-        </h3>
-      </div>
+      <GoodBadTitle title={title} variant={variant} />
 
       <div></div>
 
@@ -108,7 +84,7 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
 
       {/* Middle Center: Description */}
       <div className="flex ">
-        <p className="body2-regular bg-foundations-blanc text-center rounded-[6px] p-[30px] w-full ">
+        <p className="body2-regular bg-foundations-blanc text-center rounded-md p-7.5 w-full ">
           {currentRegion.description}
         </p>
       </div>
@@ -129,15 +105,15 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       <div></div>
 
       {/* Bottom Middle: Indicator Dots */}
-      <div className="flex flex-row gap-x-[15px] items-center justify-center">
+      <div className="flex flex-row gap-x-3.75 items-center justify-center">
         {regions.map((element, index) => (
           <button
             key={element.region}
             onClick={() => setCurrentIndex(index)}
             type="button"
-            className={`w-[15px] h-[15px] rounded-full transition-colors ${
+            className={`w-3.75 h-3.75 rounded-full transition-colors ${
               index === currentIndex
-                ? "bg-purple-oxfam-600"
+                ? "bg-foundations-violet-principal"
                 : "bg-foundations-violet-tres-clair hover:bg-purple-oxfam-300"
             }`}
             aria-label={`Aller à la région ${index + 1}`}
@@ -146,6 +122,6 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       </div>
 
       <div></div>
-    </div>
+    </GoodBadExample>
   );
 }

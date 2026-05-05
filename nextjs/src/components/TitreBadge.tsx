@@ -9,7 +9,7 @@ export const TitreBadge = ({
 }) => (
   <div
     className={cn(
-      `bg-foundations-violet-principal rounded-md px-4 py-2 text-center`,
+      `bg-foundations-violet-principal px-4 py-2 text-center`,
       className,
     )}
   >

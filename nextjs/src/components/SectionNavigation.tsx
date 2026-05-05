@@ -20,7 +20,7 @@ export const SectionNavigation = ({
     <Link href={href}>
       <div
         className={cn(
-          `flex flex-row lg:flex-col justify-between lg:justify-center items-center px-6 py-2 gap-3 rounded min-h-20 w-full lg:w-44 relative`,
+          `flex flex-row lg:flex-col justify-between lg:justify-center items-center px-6 py-2 gap-3 min-h-20 w-full lg:w-44 relative`,
           "border-foundations-violet-principal",
           isActive
             ? "bg-foundations-blanc border-b-4"

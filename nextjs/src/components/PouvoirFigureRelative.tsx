@@ -9,7 +9,7 @@ export const PouvoirFigureRelative = ({
 }: {
   femmes: number;
   total: number;
-  intitule: string;
+  intitule: React.ReactNode;
   annee: number;
   evolution: number;
 }) => {
