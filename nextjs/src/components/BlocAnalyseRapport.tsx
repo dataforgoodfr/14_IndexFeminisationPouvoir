@@ -13,7 +13,12 @@ export const BlocAnalyseRapport = ({
       <p className="body1-regular">{description}</p>
       <p className="body1-medium">Pour en savoir plus :</p>
       <p>
-        <Link href="/rapport" className="hidden lg:block button">
+        <Link
+          href="https://www.oxfamfrance.org/rapports/index-de-feminisation-du-pouvoir-2026"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden lg:block button"
+        >
           <BookIcon />
           <span>Lire le rapport</span>
         </Link>

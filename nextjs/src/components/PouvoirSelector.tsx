@@ -33,6 +33,7 @@ export const PouvoirSelector = ({
           "border-foundations-violet-principal bg-foundations-violet-principal",
       )}
       {...linkProps}
+      onNavigate={() => window.scrollTo({ top: 0 })}
     >
       <Icon
         className={cn(
