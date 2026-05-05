@@ -25,12 +25,24 @@ export function Footer() {
       </div>
       {/* Contact & Legal */}
       <div className="flex-auto flex flex-col lg:flex-row gap-2 items-center text-foundations-blanc">
-        <Link href="/contact" className="link1-medium">
+        <Link
+          href="https://www.oxfamfrance.org/contactez-nous/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link1-medium"
+        >
           Contact
         </Link>{" "}
         <span className="hidden lg:block">|</span>
         <Link href="/legal" className="link1-medium text-center lg:text-left">
           Mentions légales & Politique de Confidentialité
+        </Link>
+        <span className="hidden lg:block">|</span>
+        <Link
+          href="https://github.com/dataforgoodfr/14_IndexFeminisationPouvoir"
+          className="link1-medium text-center lg:text-left"
+        >
+          Code source
         </Link>
       </div>
       {/* Data for good */}

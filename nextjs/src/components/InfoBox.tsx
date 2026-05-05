@@ -4,9 +4,12 @@ import { InfoIcon } from "./icons/info";
 type InfoBoxProps = {
   children: React.ReactNode;
   className?: string;
+  classes?: {
+    icon?: string;
+  };
 };
 
-export const InfoBox = ({ children, className }: InfoBoxProps) => {
+export const InfoBox = ({ children, className, classes }: InfoBoxProps) => {
   return (
     <div
       className={cn(
@@ -14,7 +17,7 @@ export const InfoBox = ({ children, className }: InfoBoxProps) => {
         className,
       )}
     >
-      <InfoIcon className="w-12 h-12 shrink-0" />
+      <InfoIcon className={cn("w-12 h-12 shrink-0", classes?.icon)} />
       <div>{children}</div>
     </div>
   );

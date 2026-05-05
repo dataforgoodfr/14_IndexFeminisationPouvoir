@@ -2,7 +2,7 @@
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type FC, useEffect, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { BookIcon } from "./icons/book";
 
@@ -17,6 +17,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenus, setOpenSubmenus] = useState<Record<string, boolean>>({});
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!pathname) return;
@@ -24,8 +25,22 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
     setOpenSubmenus({});
   }, [pathname]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+        setOpenSubmenus({});
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <nav className="fixed w-full z-20 bg-foundations-violet-principal text-foundations-blanc">
+    <nav
+      ref={navRef}
+      className="fixed w-full z-20 bg-foundations-violet-principal text-foundations-blanc"
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
         <div className="relative flex h-22.5 items-center justify-between">
           <div className="flex flex-1  justify-start items-stretch">
