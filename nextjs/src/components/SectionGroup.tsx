@@ -28,17 +28,7 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
       .replace(/\/#.*$/, "")
       .startsWith(pathname),
   );
-
   const mobileNavRefs = useRef<Record<string, HTMLDivElement | null>>({});
-
-  useEffect(() => {
-    if (activeItem) {
-      const element = mobileNavRefs.current[activeItem.href];
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-  }, [activeItem]);
 
   return (
     <div className="flex flex-col gap-8 w-full">
@@ -76,6 +66,17 @@ export const SectionGroup = ({ navItems, children, banner }: Props) => {
                 href={item.href}
                 icon={item.icon}
                 isActive={isOpen}
+                onNavigate={() => {
+                  const element = mobileNavRefs.current[item.href];
+                  if (element) {
+                    setTimeout(() => {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }, 100);
+                  }
+                }}
               />
               <div
                 className={cn(
