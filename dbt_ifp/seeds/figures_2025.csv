@@ -1,0 +1,27 @@
+type_pouvoir,indicateur,institution_type,nom_figure,reference_rapport_2025,nb_personnes_attendu
+Pouvoir exécutif ,Pourcentage de femmes au gouvernement,gouvernement,Figure 1a,50.0%,35
+Pouvoir exécutif ,Pourcentage de femmes aux postes régaliens,gouvernement,Figure 1b,0.0%,5
+Pouvoir exécutif ,Pourcentage de femmes dans le cabinet du Président de la République,gouvernement,Figure 1c,35.2%,40 à 50
+Pouvoir exécutif ,Pourcentage de femmes dans le cabinet du Premier Ministre,gouvernement,Figure 1d,42.9%,55 à 65
+Pouvoir exécutif ,Pourcentage de femmes dirigeants un cabinet au sein du gouvernement,gouvernement,Figure 1e,20.0%,35 à 40
+Pouvoir parlementaire,Pourcentage de femmes députées ,parlement,Figure 2a,36.0%,577
+Pouvoir parlementaire,Pourcentage de femmes président une commission à l'AN,parlement,Figure 2b,37.5%,8
+Pouvoir parlementaire,Pourcentage de femmes au sein du bureau de l'Assemblée Nationale,parlement,Figure 2c,59.0%,22
+Pouvoir parlementaire,Pourcentage de femmes présidant un groupe à l'AN,parlement,Figure 2d,27.3%,11
+Pouvoir parlementaire,Pourcentage de femmes sénatrices ,senat,Figure 3a,37.4%,348
+Pouvoir parlementaire,Pourcentage de femmes présidant une commission au Sénat,senat,Figure 3b,28.6%,7
+Pouvoir parlementaire,Pourcentage de femme au bureau du Sénat,senat,Figure 3c,46.0%,26
+Pouvoir parlementaire,Pourcentage de femmes présidant un groupe au Sénat,senat,Figure 3d,22.2%,8
+Pouvoir parlementaire,Pourcentage de femmes députées européennes,parlement_europeen,Figure 4,53.2%,81
+Pouvoir local ,Pourcentage de femmes maires ,mairie,Figure 5a,20.80%,35000
+Pouvoir local ,Pourcentage de femmes maires de préfectures ,mairie,Figure 5b,18.8%,101
+Pouvoir local ,Pourcentage de femmes directrices de cabinet des mairies des préfectures en France ,mairie,Figure 5c,34.3%,101
+Pouvoir local ,Pourcentage de femmes présidant un département ,departement,Figure 6a,21.8%,101
+Pouvoir local ,Pourcentage de femmes directrices de cabinet d'un président-e de département ,departement,Figure 6b,22.6%,101
+Pouvoir local ,Pourcentage de femmes présidant une région ,region,Figure 7a,29.4%,18
+Pouvoir local ,Pourcentage de femmes directrice de cabinet des régions ,region,Figure 7b,25.0%,18
+Autre Pouvoir,Pourcentage de hautes juridictions présidées par de femmes,haute_juridiction,Figure 8,0.0%,5
+Autre Pouvoir,Pourcentage de femmes préfètes ,prefecture,Figure 9,19.6%,125
+Autre Pouvoir,Pourcentage de femmes ambassadrices ,ambassade,Figure 10,34.9%,160
+Autre Pouvoir,Pourcentage de femmes président une haute autorité ou agences françaises ,agence,Figure 11,34.3%,35
+Autre Pouvoir,Pourcentage de femmes à a tête des principaux parti politique français,parti_politique,Figure 12,10.0%,10
