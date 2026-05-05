@@ -128,6 +128,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* Height of the fixed header */
+  scroll-margin: 90px;
 }
 
 /* HACK: this prevents some elements that are wider

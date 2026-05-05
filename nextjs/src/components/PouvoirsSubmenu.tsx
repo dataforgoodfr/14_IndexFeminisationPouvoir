@@ -82,6 +82,7 @@ export const PouvoirsSubmenu = () => {
             key={item.href}
             href={item.href}
             className="block px-3 py-2 text-foundations-blanc hover:bg-black/10 rounded text-sm"
+            onNavigate={() => window.scrollTo({ top: 0 })}
           >
             {item.label}
           </Link>

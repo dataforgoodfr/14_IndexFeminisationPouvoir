@@ -45,7 +45,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" style={svgIcons}>
+    <html lang="fr" style={svgIcons} data-scroll-behavior="smooth">
       <body
         className={`${OxfamHeadline.variable} ${OxfamTstarPro.variable} ${Lato.variable} antialiased`}
       >

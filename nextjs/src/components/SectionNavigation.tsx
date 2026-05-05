@@ -9,15 +9,17 @@ type SectionNavigationProps = {
   href: Route;
   icon: React.ReactNode;
   isActive: boolean;
+  onNavigate?: () => void;
 };
 export const SectionNavigation = ({
   label,
   href,
   icon,
   isActive,
+  onNavigate,
 }: SectionNavigationProps) => {
   return (
-    <Link href={href} scroll={false}>
+    <Link href={href} scroll={false} onNavigate={onNavigate}>
       <div
         className={cn(
           `flex flex-row lg:flex-col justify-between lg:justify-center items-center px-6 py-2 gap-3 min-h-20 w-full lg:w-44 relative`,
