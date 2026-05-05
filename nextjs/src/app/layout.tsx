@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Lato, OxfamHeadline, OxfamTstarPro } from "./fonts";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import { Suspense } from "react";
 import { Footer } from "@/components/Footer";
+import { MatomoAnalytics } from "@/components/MatomoAnalytics";
 import { Menu, type NavigationItem } from "@/components/menu";
 import { PouvoirsSubmenu } from "@/components/PouvoirsSubmenu";
 
@@ -12,12 +14,12 @@ export const metadata: Metadata = {
 
 const navigation: NavigationItem[] = [
   {
-    name: "Pouvoirs",
+    name: "En chiffres",
     submenu: <PouvoirsSubmenu />,
   },
   { name: "Pionnières", href: "/pionnieres" },
 
-  { name: "Recommandations", href: "/recommandations" },
+  { name: "Recommandations", href: "/#recommandations" },
   { name: "Méthode de calcul", href: "/methodologie" },
 ];
 
@@ -26,7 +28,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const basePath = "";
   const svgRoot = `${basePath}/images/`;
   // On injecte des variables CSS pour les SVG utilisés dans des utilitaires Tailwind
   // afin de régler le problème de base path sur github pages.
@@ -35,7 +37,8 @@ export default function RootLayout({
     "--inequal-svg-url": `url(${svgRoot}inequal.svg)`,
     "--evolution-red-svg-url": `url(${svgRoot}bg-evolution-red.svg)`,
     "--evolution-green-svg-url": `url(${svgRoot}bg-evolution-green.svg)`,
-    "--bg-trees-svg-url": `url(${svgRoot}bg-trees.svg)`,
+    "--bg-trees-svg-url": `url(${svgRoot}bg-trees.webp)`,
+    "--bg-trees-violet-svg-url": `url(${svgRoot}bg-trees-violet.webp)`,
     "--bg-chiffres-svg-url": `url(${svgRoot}bg-chiffres.svg)`,
     "--inequal-white-svg-url": `url(${svgRoot}inequal-white.svg)`,
     "--equal-white-svg-url": `url(${svgRoot}equal-white.svg)`,
@@ -49,10 +52,15 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <NextIntlClientProvider>
             <Menu items={navigation} />
-            <main className="flex-1 flex flex-col">{children}</main>
+            <main className="flex-1 flex flex-col mt-22.5">{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </div>
+        {process.env.NODE_ENV === "production" && (
+          <Suspense fallback={null}>
+            <MatomoAnalytics />
+          </Suspense>
+        )}
       </body>
     </html>
   );

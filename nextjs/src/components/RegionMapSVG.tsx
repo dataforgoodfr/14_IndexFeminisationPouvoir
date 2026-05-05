@@ -81,7 +81,7 @@ const RegionWithDeptMapSVG = ({
     const percentage = dataPerZone
       ? dataPerZone[departement.nom]?.percentage
       : 0;
-    if (percentage === undefined || percentage === null) return "";
+    if (percentage === undefined || percentage === null) return "--%";
 
     // For Paris, Hauts-de-Seine, Territoire de Belfort: show "regionName : XX %"
     if (specialDepartements.has(departement.nom)) {
@@ -93,15 +93,26 @@ const RegionWithDeptMapSVG = ({
 
   const iconList = departementsList.map((departement) => {
     const evolution = dataPerZone ? dataPerZone[departement.nom]?.evolution : 0;
-    return evolution > 0 ? "up" : evolution < 0 ? "down" : "none";
+    return evolution !== null
+      ? evolution > 0
+        ? "up"
+        : evolution < 0
+          ? "down"
+          : "none"
+      : "none";
   });
 
   const tooltipList = departementsList.map((departement) => {
     const percentage = dataPerZone
-      ? dataPerZone[departement.nom]?.percentage
-      : 0;
+      ? dataPerZone[departement.nom]?.percentage !== null
+        ? dataPerZone[departement.nom]?.percentage
+        : "--"
+      : "--";
+    if (percentage === "--") {
+      return `Valeur à venir`;
+    }
     const evolution = dataPerZone ? dataPerZone[departement.nom]?.evolution : 0;
-    return `${departement.nom}\n${percentage}%\nEvolution: ${evolution > 0 ? "+" : ""}${evolution}%`;
+    return `${departement.nom}\n${percentage}%\nEvolution: ${evolution !== null && evolution > 0 ? "+" : ""}${evolution}%`;
   });
 
   // Get viewBoxRegion from data_maps_svg.regions with zoneName
@@ -238,30 +249,40 @@ const DeptMapSVG = ({
   // From dataPerZone, we generate text, icon and tooltip for the found departement
   const text =
     dataPerZone && departements_map_svg
-      ? `${dataPerZone[departements_map_svg.nom]?.percentage || 0}%`
-      : "";
+      ? `${dataPerZone[departements_map_svg.nom]?.percentage || "--"}%`
+      : "--";
 
   const iconType =
     dataPerZone && departements_map_svg
-      ? (dataPerZone[departements_map_svg.nom]?.evolution || 0) > 0
-        ? "up"
-        : (dataPerZone[departements_map_svg.nom]?.evolution || 0) < 0
-          ? "down"
-          : "none"
+      ? dataPerZone[departements_map_svg.nom]?.evolution !== null &&
+        dataPerZone[departements_map_svg.nom]?.percentage !== null
+        ? (dataPerZone[departements_map_svg.nom]?.evolution || 0) > 0
+          ? "up"
+          : (dataPerZone[departements_map_svg.nom]?.evolution || 0) < 0
+            ? "down"
+            : "none"
+        : "none"
       : "none";
 
   const tooltip =
     dataPerZone && departements_map_svg
-      ? `${departements_map_svg.nom}\n${dataPerZone[departements_map_svg.nom]?.percentage || 0}%\nEvolution: ${(dataPerZone[departements_map_svg.nom]?.evolution || 0) > 0 ? "+" : ""}${dataPerZone[departements_map_svg.nom]?.evolution || 0}%`
-      : "";
+      ? dataPerZone[departements_map_svg.nom]?.percentage !== null
+        ? `${departements_map_svg.nom}\n${dataPerZone[departements_map_svg.nom]?.percentage || 0}%\nEvolution: ${(dataPerZone[departements_map_svg.nom]?.evolution || 0) > 0 ? "+" : ""}${dataPerZone[departements_map_svg.nom]?.evolution || 0}%`
+        : "Valeur à venir"
+      : `Valeur à venir`;
 
   // TooltipList for other departements
   const tooltipList = otherDepartements.map((departement) => {
     const percentage = dataPerZone
-      ? dataPerZone[departement.nom]?.percentage
-      : 0;
+      ? dataPerZone[departement.nom]?.percentage !== null
+        ? dataPerZone[departement.nom]?.percentage
+        : "--"
+      : "--";
+    if (percentage === "--") {
+      return `Valeur à venir`;
+    }
     const evolution = dataPerZone ? dataPerZone[departement.nom]?.evolution : 0;
-    return `${departement.nom}\n${percentage}%\nEvolution: ${evolution > 0 ? "+" : ""}${evolution}%`;
+    return `${departement.nom}\n${percentage}%\nEvolution: ${evolution !== null && evolution > 0 ? "+" : ""}${evolution}%`;
   });
 
   //   Get viewBox of the departement with zoneName

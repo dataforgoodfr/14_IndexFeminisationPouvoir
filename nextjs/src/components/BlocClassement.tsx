@@ -3,10 +3,17 @@ import { LiensCTA } from "./LiensCTA";
 import { ShortDate } from "./ShortDate";
 
 type BlockClassementProps = {
-  data: { label: string; percentage: number; evolution?: number }[];
+  data: {
+    label: string;
+    percentage: number | null;
+    evolution?: number | null;
+  }[];
   title: string;
   description: string;
   derniereMiseAJour?: Date;
+  thumbsUpTopValue?: number;
+  thumbsDownBottomValue?: number;
+  downloadURL?: string;
 };
 
 export const BlocClassement = ({
@@ -14,6 +21,9 @@ export const BlocClassement = ({
   title,
   description,
   derniereMiseAJour,
+  thumbsUpTopValue = 5,
+  thumbsDownBottomValue = 5,
+  downloadURL,
 }: BlockClassementProps) => {
   return (
     <div className="flex flex-col w-full md:flex-row gap-x-11.5 gap-y-10 px-5 md:px-53.75 py-16.25 items-center lg:items-start justify-center bg-foundations-violet-tres-clair">
@@ -35,6 +45,8 @@ export const BlocClassement = ({
       </div>
       <div className="flex-2 w-full">
         <Standings
+          thumbsUpTop={thumbsUpTopValue}
+          thumbsDownBottom={thumbsDownBottomValue}
           data={data.map(({ label, percentage, evolution }) => ({
             label,
             percentage,
@@ -42,7 +54,7 @@ export const BlocClassement = ({
           }))}
         />
       </div>
-      <LiensCTA />
+      <LiensCTA downloadURL={downloadURL} />
     </div>
   );
 };

@@ -27,7 +27,7 @@ export const PageTitle = ({ id, title, subtitle, classes }: TitleProps) => (
     {subtitle && (
       <span
         className={cn(
-          "text-lg text-center text-black max-w-2xl",
+          "text-lg text-center text-black max-w-2xl p-4",
           classes?.subtitle,
         )}
       >

@@ -7,7 +7,7 @@ import { PouvoirFigureS } from "@/components/PouvoirFigureS";
 import { SectionTitle } from "@/components/titles";
 import { parlementaire } from "@/data/pouvoir.json";
 
-const { annee, score, composantes, analyse, parite_groupes } =
+const { annee, score, evolution, composantes, analyse, parite_groupes } =
   parlementaire.composantes.senat;
 
 export default function Page() {
@@ -22,7 +22,7 @@ export default function Page() {
           valeur={score}
           intitule="sénatrices"
           annee={annee}
-          evolution={100}
+          evolution={evolution}
         />
         <InfoBox>
           <p>Les sénateur.rices :</p>
@@ -43,14 +43,16 @@ export default function Page() {
             evolution={composantes.presidente_commission.evolution}
             annee={composantes.presidente_commission.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             intitule="au bureau du Sénat"
             valeur={composantes.bureau.score}
             evolution={composantes.bureau.evolution}
             annee={composantes.bureau.annee}
           />
-          <div className="divider-dashed" />
+          <div className="hidden lg:flex divider-dashed" />
+          <div className="flex lg:hidden divider-dashed-horizontal-mobile" />
           <PouvoirFigureS
             intitule="présidant un groupe au Sénat"
             valeur={composantes.presidente_groupe.score}
@@ -64,12 +66,16 @@ export default function Page() {
         <BlocClassement
           title="Taux de parité des groupes politiques"
           description={parite_groupes.description}
-          data={parite_groupes.data.map(({ nom, score, evolution }) => ({
-            label: nom,
-            percentage: score,
-            evolution,
-          }))}
+          data={parite_groupes.data
+            .map(({ nom, score }) => ({
+              label: nom,
+              percentage: score,
+              evolution: undefined, // TODO: add evolution partis politiques au sénat
+            }))
+            .sort((a, b) => b.percentage - a.percentage)}
           derniereMiseAJour={new Date(parite_groupes.dateMiseAJour)}
+          thumbsDownBottomValue={0}
+          thumbsUpTopValue={0}
         />
       </div>
     </>

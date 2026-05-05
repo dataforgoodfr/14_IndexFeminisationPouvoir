@@ -109,3 +109,19 @@ docker compose down -v
 # Github Page
 
 Github page à retrouver [ici](https://dataforgoodfr.github.io/14_IndexFeminisationPouvoir/)
+
+# Figma
+
+- [Homepage](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=6517-1221&t=htt51UwpaT7n8RPE-0)
+
+- [Pouvoir Parlementaire](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=7265-27425&t=WTg5RABrwdx5iZkJ-4)
+
+- [Pouvoir local](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=6914-14003&t=WTg5RABrwdx5iZkJ-4) 
+
+- [Autres pouvoirs](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=7265-29157&t=WTg5RABrwdx5iZkJ-4) 
+
+- [Dans le monde](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=4746-83&t=WTg5RABrwdx5iZkJ-4) 
+
+- [Pouvoir Executif](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=7485-10632&t=WTg5RABrwdx5iZkJ-4) 
+
+- [Recommendations](https://www.figma.com/design/fK4TR6TrbUtQzLzVFMOwy7/Wireframe-IDFxD4G?node-id=8165-28354&t=WTg5RABrwdx5iZkJ-4) 

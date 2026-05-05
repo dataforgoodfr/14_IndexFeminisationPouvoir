@@ -7696,7 +7696,7 @@
         }
       },
       "conseilsCommunautaires": {
-        "score": 38.7,
+        "score": null,
         "evolution": 0.6,
         "composantes": {
           "presidente_conseils_communautaires": {
@@ -7780,12 +7780,12 @@
         }
       },
       "conseilsCommunautaires": {
-        "score": 38.7,
+        "score": null,
         "evolution": 0.6,
         "composantes": {
           "presidente_conseils_communautaires": {
-            "score": 40.5,
-            "evolution": 0.8
+            "score": null,
+            "evolution": null
           }
         }
       },
