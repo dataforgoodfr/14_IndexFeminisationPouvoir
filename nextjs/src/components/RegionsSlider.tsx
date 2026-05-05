@@ -5,15 +5,14 @@ import { GoodBadExample, GoodBadTitle } from "./GoodBadExample";
 import { ChevronLeftIcon, ChevronRightIcon } from "./icons/chevron";
 
 export interface RegionDescription {
-  rank: number;
   region: string;
   percentage: number;
   description: string;
 }
 
 export interface RegionsDescriptions {
-  top5: RegionDescription[];
-  bottom5: RegionDescription[];
+  top: RegionDescription[];
+  bottom: RegionDescription[];
 }
 
 interface RegionsSliderProps {
@@ -83,10 +82,11 @@ export function RegionsSlider({ regions, title, variant }: RegionsSliderProps) {
       </div>
 
       {/* Middle Center: Description */}
-      <div className="flex ">
-        <p className="body2-regular bg-foundations-blanc text-center rounded-md p-7.5 w-full ">
-          {currentRegion.description}
+      <div className="flex flex-col gap-y-2 body2-regular bg-foundations-blanc text-center rounded-md p-7.5 w-full ">
+        <p className="font-lato font-bold text-[14px]">
+          {currentRegion.region}
         </p>
+        <p className=" ">{currentRegion.description}</p>
       </div>
 
       {/* Middle Right: Chevron > */}

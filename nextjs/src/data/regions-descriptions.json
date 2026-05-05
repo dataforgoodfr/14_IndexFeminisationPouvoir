@@ -1,66 +1,31 @@
 {
-  "top5": [
+  "top": [
     {
-      "rank": 1,
-      "region": "Île-de-France",
-      "percentage": 24,
-      "description": "Texte à ajouter Île-de-France"
+      "region": "La Réunion",
+      "percentage": 67,
+      "description": "Un taux de parité de 67 %, avec une présidente de région, Huguette Bello, et une femme maire de la ville préfecture, Ericka Bareigts, maire de Saint-Denis de La Réunion."
     },
     {
-      "rank": 2,
-      "region": "Centre-Val de Loire",
-      "percentage": 23,
-      "description": "Texte à ajouter Centre-Val de Loire"
-    },
-    {
-      "rank": 3,
-      "region": "Nouvelle-Aquitaine",
-      "percentage": 23,
-      "description": "Texte à ajouter Nouvelle-Aquitaine"
-    },
-    {
-      "rank": 4,
-      "region": "Auvergne-Rhône-Alpes",
-      "percentage": 22,
-      "description": "Texte à ajouter Auvergne-Rhône-Alpes"
-    },
-    {
-      "rank": 5,
-      "region": "Bretagne",
-      "percentage": 22,
-      "description": "Texte à ajouter Bretagne"
+      "region": "Guyane",
+      "percentage": 50,
+      "description": "Un taux de parité de 50 %, avec une femme maire de la préfecture, Sandra Trochimara, maire de Cayenne."
     }
   ],
-  "bottom5": [
+  "bottom": [
     {
-      "rank": 21,
-      "region": "Corse",
-      "percentage": 12,
-      "description": "Texte à ajouter Corse"
+      "region": "Centre-Val de Loire",
+      "percentage": 8,
+      "description": "Avec un taux de parité de 8 %, un président de région, une seule femme présidente de département sur 6, et aucune femme maire dans les 6 préfectures"
     },
     {
-      "rank": 20,
       "region": "Grand Est",
-      "percentage": 18,
-      "description": "Texte à ajouter Grand Est"
+      "percentage": 10,
+      "description": "Avec un taux de parité de 10 %, un président de région, une femme présidente de département sur 9, et une seule femme maire parmi les 11 préfectures."
     },
     {
-      "rank": 19,
-      "region": "Hauts-de-France",
-      "percentage": 18,
-      "description": "Texte à ajouter Hauts-de-France"
-    },
-    {
-      "rank": 18,
-      "region": "Provence-Alpes-Côte d'Azur",
-      "percentage": 20,
-      "description": "Texte à ajouter Provence-Alpes-Côte d'Azur"
-    },
-    {
-      "rank": 17,
-      "region": "Occitanie",
-      "percentage": 20,
-      "description": "Texte à ajouter Occitanie"
+      "region": "Auvergne-Rhône-Alpes",
+      "percentage": 12,
+      "description": "Avec un taux de parité de 12 %, un président de région, 2 femmes présidentes de département sur 12, et une femme maire de préfecture sur 12."
     }
   ]
 }
