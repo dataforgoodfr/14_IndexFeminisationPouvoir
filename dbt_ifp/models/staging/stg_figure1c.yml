@@ -16,6 +16,8 @@ models:
       - name: institution_type
         description: "type d'institution"
         type: TEXT
+        data_tests:
+          - not_null
 
       - name: annee_partition
         description: année de la récupération des données
@@ -55,14 +57,7 @@ models:
         tests:
           - not_null
         type: TEXT 
-      - name: institution_type
-        description: toujours "gouvernement"
-        type: TEXT
-        data_tests:
-          - not_null
-          - accepted_values:
-              arguments: 
-                values: ['gouvernement']  
+
       - name: source_url
         description: URL de provenance de la données
         type: TEXT

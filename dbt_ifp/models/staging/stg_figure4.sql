@@ -6,7 +6,7 @@
 select
     'figure4' as figure,
 	'parlement_europeen' as institution_type,
-	'Pouvoir local' as pouvoir_type,
+	'Pouvoir parlementaire' as pouvoir_type,
     {{ year }} as annee_partition,
     -- {{ dbt_utils.generate_surrogate_key(["Nom de l'élu", "Prénom de l'élu"]) }} AS personne_id,
     __id as personne_id,

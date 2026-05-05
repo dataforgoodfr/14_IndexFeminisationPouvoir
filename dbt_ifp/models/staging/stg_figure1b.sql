@@ -4,7 +4,7 @@
 
 {% for year in range(start_year, current_year + 1) %}
 SELECT
-    'figure1a' as figure,
+    'figure1b' as figure,
     'Pouvoir exécutif' as pouvoir_type,
     zone_geographique_type as institution_type,
     {{ year }} AS annee_partition,
