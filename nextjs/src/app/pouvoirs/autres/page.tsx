@@ -201,7 +201,7 @@ export default async function HautesJuridictionsPage() {
               );
             })}
             <MagistratureGridCell>
-              <InfoBox>
+              <InfoBox className="gap-2" classes={{ icon: "w-6 h-6" }}>
                 <p className="body2-regular">
                   {t.rich("magistrature", richComponents)}
                 </p>
