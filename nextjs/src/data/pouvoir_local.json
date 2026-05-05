@@ -7749,8 +7749,8 @@
     {
       "code": "971",
       "nom": "Guadeloupe",
-      "score": 25,
-      "evolution": -1.4,
+      "score": 0,
+      "evolution": -25,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -7835,8 +7835,8 @@
     {
       "code": "972",
       "nom": "Martinique",
-      "score": 18,
-      "evolution": -2.2,
+      "score": 0,
+      "evolution": -18,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -7921,8 +7921,8 @@
     {
       "code": "973",
       "nom": "Guyane",
-      "score": 23,
-      "evolution": -3.5,
+      "score": 50,
+      "evolution": 27,
       "conseilRegional": {
         "score": null,
         "evolution": null,
@@ -8007,8 +8007,8 @@
     {
       "code": "974",
       "nom": "La Réunion",
-      "score": 17,
-      "evolution": 3.9,
+      "score": 67,
+      "evolution": 50,
       "conseilRegional": {
         "score": null,
         "evolution": null,
