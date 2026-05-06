@@ -15,7 +15,7 @@ export default function UnionEuropeennePage() {
 
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
         <Image
-          src={`/images/evolution-parite-commission-europeenne.webp`}
+          src="/images/evolution-parite-commission-europeenne.png"
           alt="Évolution de la parité dans la Commission europeenne"
           aria-hidden
           width={1632}

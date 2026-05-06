@@ -52,7 +52,7 @@ export default async function Home() {
           </div>
           <div className="flex-1 ">
             <Image
-              src={`/images/oxfam-homepage.webp`}
+              src="/images/oxfam-homepage.png"
               alt="Collage de photos illustrant la féminisation du pouvoir"
               width={696}
               height={636}
