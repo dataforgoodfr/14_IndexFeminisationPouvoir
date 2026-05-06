@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function UnionEuropeennePage() {
   return (
     <div className="flex flex-col items-center gap-12 py-12 px-4 lg:px-12 max-w-7xl mx-auto w-full">
@@ -12,20 +14,14 @@ export default function UnionEuropeennePage() {
         </h4>
 
         <div className="bg-foundations-violet-clair h-1.5 w-15 rounded-full" />
-        <picture>
-          <source
-            srcSet="/images/evolution-parite-commission-europeenne.webp"
-            type="image/webp"
-          />
-          <img
-            src="/images/evolution-parite-commission-europeenne.png"
-            alt="Évolution de la parité dans la Commission europeenne"
-            aria-hidden
-            width={1632}
-            height={836}
-            className="w-full h-auto"
-          />
-        </picture>
+        <Image
+          src="/images/evolution-parite-commission-europeenne.png"
+          alt="Évolution de la parité dans la Commission europeenne"
+          aria-hidden
+          width={1632}
+          height={836}
+          className="w-full h-auto"
+        />
       </div>
     </div>
   );
