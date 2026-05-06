@@ -119,22 +119,22 @@
         "evolution": 0
       },
       "presidents_tribunal": {
-        "score": 54,
-        "evolution": 0
+        "score": 50.5,
+        "evolution": null
       },
       "procureures_republique": {
-        "score": 36,
-        "evolution": 0
+        "score": 63,
+        "evolution": 2
       },
       "presidents_cour_appel": {
-        "score": 37.2,
-        "evolution": 0
+        "score": 38.9,
+        "evolution": null
       },
       "procureures_generaux": {
-        "score": 37,
-        "evolution": 0
+        "score": 36.1,
+        "evolution": null
       },
-      "dateMiseAJour": "2025-01-01"
+      "dateMiseAJour": "2025-05-05"
     }
   }
 }
