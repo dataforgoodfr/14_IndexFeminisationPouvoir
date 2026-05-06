@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { CategoryCard } from "@/components/CategoryCard";
@@ -51,14 +50,16 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex-1 ">
-            <Image
-              src={`/images/oxfam-homepage.webp`}
-              alt="Collage de photos illustrant la féminisation du pouvoir"
-              width={696}
-              height={636}
-              className="w-full max-w-174"
-              priority
-            />
+            <picture>
+              <source srcSet="/images/oxfam-homepage.webp" type="image/webp" />
+              <img
+                src="/images/oxfam-homepage.png"
+                alt="Collage de photos illustrant la féminisation du pouvoir"
+                width={696}
+                height={636}
+                className="w-full max-w-174"
+              />
+            </picture>
           </div>
         </div>
         <div className="flex gap-8 mt-10 mb-15 items-center flex-wrap justify-center">
