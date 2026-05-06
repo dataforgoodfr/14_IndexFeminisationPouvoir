@@ -83,9 +83,9 @@ export default async function Home() {
       </section>
 
       {/* 2. Présentation de l'Index */}
-      <section className="bg-white flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center lg:justify-start px-4 py-16 lg:px-32">
+      <section className="bg-white flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center lg:justify-center px-4 py-16 lg:px-32 w-full">
         {/* Left column */}
-        <div className="flex flex-col gap-4 lg:gap-15 flex-1 min-w-0">
+        <div className="flex flex-col gap-4 lg:gap-15 flex-1 min-w-0 max-w-180">
           <div className="flex flex-col items-center lg:items-start">
             <h2 className="header-h1 text-foundations-violet-principal">
               Présentation de l'Index
@@ -183,15 +183,15 @@ export default async function Home() {
       {/* 3. Explorer les données */}
       <section
         id="explorer-les-donnees"
-        className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15"
+        className="svg-bg svg-trees-violet flex flex-col items-center gap-11 px-8 py-15 w-full"
       >
-        <div className="flex flex-col items-center gap-4 text-center">
+        <div className="flex flex-col items-center gap-4 text-center ">
           <h2 className="header-h1 text-white">Explorer les données</h2>
           <p className="body1-regular text-white">
             Sélectionnez une catégorie pour visualiser les données détaillées
           </p>
         </div>
-        <div className="flex flex-row justify-center flex-wrap gap-16 h-full">
+        <div className="flex flex-row justify-center flex-wrap gap-16 h-full max-w-6xl">
           <CategoryCard
             icon={PouvoirParlementaireIcon}
             title="Pouvoir parlementaire"
@@ -256,9 +256,9 @@ export default async function Home() {
       {/* 6. Recommandations */}
       <section
         id="recommandations"
-        className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15"
+        className="bg-white flex flex-col items-center gap-9.5 px-4 lg:px-13 py-15 w-full"
       >
-        <div className="flex flex-col items-center gap-2.5 text-center">
+        <div className="flex flex-col items-center gap-2.5 text-center max-w-6xl">
           <h2 className="header-h1 text-foundations-violet-principal break-inside-auto hyphens-auto">
             Recomman&shy;dations
           </h2>
@@ -268,7 +268,7 @@ export default async function Home() {
           </div>
         </div>
         {/* Row 1: 3 cards */}
-        <div className="flex gap-6.5 flex-wrap justify-center">
+        <div className="flex gap-6.5 flex-wrap justify-center max-w-6xl">
           <RecommendationCard
             title="Cadre législatif"
             color="var(--color-foundations-jaune-oxfam)"
