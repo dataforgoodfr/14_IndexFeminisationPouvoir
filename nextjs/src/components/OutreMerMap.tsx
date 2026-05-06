@@ -44,9 +44,12 @@ export const OutreMerMapSVG = ({
         (item) => item.nom === name,
       )?.viewBox;
 
+      const [, , vbWidth, vbHeight] = (viewBox ?? "0 0 100 100").split(" ");
       return (
         <svg
           viewBox={viewBox}
+          width={vbWidth}
+          height={vbHeight}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-label={ariaLabel}

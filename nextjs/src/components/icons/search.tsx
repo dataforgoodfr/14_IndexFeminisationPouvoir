@@ -4,6 +4,8 @@ export const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 23 23"
+    width="23"
+    height="23"
     {...props}
     className={cn("size-6 fill-foundations-violet-principal", props.className)}
   >

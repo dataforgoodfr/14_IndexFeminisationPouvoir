@@ -48,6 +48,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               <div className="w-15 h-15 p-1 rounded-sm bg-foundations-violet-clair flex items-center justify-center">
                 <svg
                   viewBox="0 0 108 101"
+                  width="108"
+                  height="101"
                   fill="var(--color-foundations-violet-principal)"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-label="hidden"
@@ -127,6 +129,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
 
               <svg
                 viewBox="0 0 24 24"
+                width="24"
+                height="24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
@@ -142,6 +146,8 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
               </svg>
               <svg
                 viewBox="0 0 24 24"
+                width="24"
+                height="24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"

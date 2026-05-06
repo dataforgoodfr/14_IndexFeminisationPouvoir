@@ -1,6 +1,8 @@
 export const LogoOxfamHorizontal = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 156 64"
+    width="156"
+    height="64"
     fill="white"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"

@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 export const InfoIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 34 33"
+    width="34"
+    height="33"
     fill="none"
     aria-hidden="true"
     {...props}

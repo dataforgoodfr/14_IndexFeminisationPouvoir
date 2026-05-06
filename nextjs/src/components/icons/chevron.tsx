@@ -4,6 +4,8 @@ export const ChevronRightIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 14 26"
+    width="14"
+    height="26"
     fill="none"
     {...props}
     className={cn("size-6", props.className)}
@@ -23,6 +25,8 @@ export const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 14 26"
+    width="14"
+    height="26"
     fill="none"
     {...props}
     className={cn("size-6", props.className)}

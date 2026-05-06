@@ -32,6 +32,8 @@ export const FranceDepartementsOutremerSVG = ({
     <svg
       id="carte-departements-et-outremer"
       viewBox="0 0 458 757"
+      width="458"
+      height="757"
       aria-label="Carte de France avec départements et territoires d'outre-mer"
       {...props}
     >

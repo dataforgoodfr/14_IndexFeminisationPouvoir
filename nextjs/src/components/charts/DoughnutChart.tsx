@@ -51,6 +51,8 @@ export const DoughnutChart = ({
   return (
     <svg
       viewBox="0 0 272 272"
+      width="272"
+      height="272"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label={`Graphique en anneau représentant une valeur de ${value}% de femmes pour ce pouvoir`}

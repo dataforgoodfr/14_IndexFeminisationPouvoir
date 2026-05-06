@@ -543,6 +543,8 @@ export const WorldMapSVG = ({
     <svg
       id="world-map"
       viewBox="0 0 689 453"
+      width="689"
+      height="453"
       aria-label="Carte mondiale des ambassadrices de France"
       role="img"
       {...props}

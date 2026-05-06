@@ -11,6 +11,8 @@ export const QuestionMarkIcon = ({
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 52 51"
+    width="52"
+    height="51"
     fill="black"
     {...props}
     className={cn("size-6", props.className)}

@@ -139,6 +139,8 @@ export function EvolutionLineChart({
   return (
     <svg
       viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
+      width={SVG_WIDTH}
+      height={SVG_HEIGHT}
       className="w-full"
       aria-label="Graphique d'évolution du taux de féminisation"
     >

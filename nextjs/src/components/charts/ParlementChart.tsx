@@ -25,6 +25,8 @@ export default function ParlementChart({
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Hemicycle du Parlement sous forme de points"

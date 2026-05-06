@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 export const HommeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 23 57"
+    width="23"
+    height="57"
     xmlns="http://www.w3.org/2000/svg"
     aria-label="Homme"
     {...props}
