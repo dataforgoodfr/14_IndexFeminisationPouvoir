@@ -35,10 +35,10 @@ export function EvolutionSection() {
             key={key}
             type="button"
             onClick={() => setActive(key)}
-            className={`body1-medium cursor-pointer px-4 py-2 border transition-colors ${
+            className={`body1-medium cursor-pointer px-4 py-2 border transition-colors border-foundations-violet-principal ${
               active === key
-                ? "bg-foundations-violet-principal text-white border-foundations-violet-principal"
-                : "bg-white text-foundations-violet-principal border-foundations-violet-principal"
+                ? "bg-foundations-violet-principal text-white "
+                : "bg-white text-foundations-violet-principal hover:bg-foundations-violet-tres-clair"
             }`}
           >
             {evolutionData.indicateurs[key].label}
