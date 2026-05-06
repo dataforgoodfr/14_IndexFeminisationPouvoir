@@ -103,7 +103,7 @@ export const Menu: FC<{ items: NavigationItem[] }> = ({ items }) => {
             </div>
             <div className="hidden lg:flex items-center min-w-max">
               <Link
-                href="https://www.oxfamfrance.org/rapports/index-de-feminisation-du-pouvoir-2026"
+                href="https://www.oxfamfrance.org/app/uploads/2026/05/Oxfam_IndexFemmesAuPouvoirEnFrance2026_sous-embargo-6-mai26.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden lg:block button"

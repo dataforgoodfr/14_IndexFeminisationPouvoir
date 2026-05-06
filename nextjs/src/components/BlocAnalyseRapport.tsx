@@ -14,7 +14,7 @@ export const BlocAnalyseRapport = ({
       <p className="body1-medium">Pour en savoir plus :</p>
       <p>
         <Link
-          href="https://www.oxfamfrance.org/rapports/index-de-feminisation-du-pouvoir-2026"
+          href="https://www.oxfamfrance.org/app/uploads/2026/05/Oxfam_IndexFemmesAuPouvoirEnFrance2026_sous-embargo-6-mai26.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden lg:block button"

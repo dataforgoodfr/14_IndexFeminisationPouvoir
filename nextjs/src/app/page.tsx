@@ -5,6 +5,7 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DoughnutChart } from "@/components/charts/DoughnutChart";
 import { EvolutionBadge } from "@/components/EvolutionBadge";
 import { EvolutionSection } from "@/components/EvolutionSection";
+import { BookIcon } from "@/components/icons/book";
 import { FemmeMondeIcon } from "@/components/icons/femme-monde";
 import { InequalIcon } from "@/components/icons/inequal";
 import { LogoDataForGood } from "@/components/icons/logo-d4g";
@@ -67,6 +68,17 @@ export default async function Home() {
           >
             Les pouvoirs
           </a>
+          <div className="visible lg:hidden">
+            <Link
+              href="https://www.oxfamfrance.org/app/uploads/2026/05/Oxfam_IndexFemmesAuPouvoirEnFrance2026_sous-embargo-6-mai26.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button font-headline flex gap-3 items-center"
+            >
+              <BookIcon />
+              Lire le rapport
+            </Link>
+          </div>
         </div>
       </section>
 
