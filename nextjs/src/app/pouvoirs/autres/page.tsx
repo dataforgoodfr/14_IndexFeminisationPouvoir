@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import type { ComponentType, SVGProps } from "react";
 import { Block } from "@/components/Block";
 import { InfoBox } from "@/components/InfoBox";
 import { ConseilConstitutionnelIcon } from "@/components/icons/conseil-constitutionnel";
