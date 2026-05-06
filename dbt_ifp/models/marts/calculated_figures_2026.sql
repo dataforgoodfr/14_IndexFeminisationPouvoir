@@ -15,6 +15,6 @@ select
 	a.figure,
 	a.pct_femmes,
 	b.pct_femmes::numeric as pct_femmes_2025,
-	(a.pct_femmes - b.pct_femmes) as evolution
+	(a.pct_femmes - b.pct_femmes::numeric) as evolution
 from figures_2026 a
 left join {{ ref('calculated_figures_2025') }} b on a.figure = b.figure
