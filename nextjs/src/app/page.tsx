@@ -103,6 +103,7 @@ export default async function Home() {
               </p>
             </div>
           </div>
+          {/* Chiffres clés sur grand écran */}
           <div className="hidden lg:flex flex-row flex-wrap justify-between gap-4 px-8 lg:px-16">
             <StatsCard
               label="Pouvoir exécutif"
@@ -155,6 +156,7 @@ export default async function Home() {
             </div>
             <LiensCTA className="self-center lg:self-end mb-12 shrink-0" />
           </div>
+          {/* Chiffres clés sur petit écran */}
           <div className="grid grid-cols-2 lg:hidden gap-y-14 gap-x-1.25">
             <StatsCard
               label="Pouvoir exécutif"

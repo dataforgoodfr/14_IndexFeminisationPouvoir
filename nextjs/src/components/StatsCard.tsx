@@ -8,7 +8,7 @@ type StatsCardProps = {
 
 export function StatsCard({ label, score, evolution }: StatsCardProps) {
   return (
-    <div className="bg-white border border-[#dde1e6] w-40 lg:w-50 p-4 flex flex-col gap-1 shrink-0">
+    <div className="bg-white border border-[#dde1e6] w-44 lg:w-50 p-2 lg:p-4 flex flex-col gap-1 shrink-0">
       <p className="body1-medium text-foundations-violet-principal max-w-16 lg:max-w-full">
         {label}
       </p>
