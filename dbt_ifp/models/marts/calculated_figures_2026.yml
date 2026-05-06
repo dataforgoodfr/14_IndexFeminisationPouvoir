@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: calculated_figures_2026
+    description: "Table calculée des figures 2026 et évolution par rapport à 2025."
+    columns:
+      - name: pouvoir_type
+        description: "Catégorie de pouvoir"
+        tests:
+          - not_null
+
+      - name: institution_type
+        description: "Type d'institution"
+        tests:
+          - not_null
+
+      - name: figure
+        description: "Référence de la figure dans le rapport."
+        tests:
+          - unique
+          - not_null
+
+      - name: pct_femmes
+        description: "Pourcentage de femmes calculé."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "<= 100"
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+
+      - name: pct_femmes_2025
+        description: "Pourcentage de femmes calculé en 2025."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "<= 100"
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+        
+      - name: evolution
+        description: "Evolution (pts) par rapport à 2025."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "<= 100"
+          - dbt_utils.expression_is_true:
+              expression: ">= - 100"
