@@ -35,7 +35,7 @@ COMPOSANTE_TO_COLUMN = {
     "presidente_departement": "departemental_presidence",
 }
 
-BINARY_PERCENT_COLUMNS = {"municipal_maire_prefecture","departemental_presidence"}
+BINARY_PERCENT_COLUMNS = {"municipal_maire_prefecture", "departemental_presidence"}
 
 DEPT_TO_REGION = {
     "01": "84",
@@ -144,7 +144,9 @@ DEPT_TO_REGION = {
 DOM_CODES = {"971", "972", "973", "974", "976"}
 
 
-def _evolution(score_current: float | None, score_previous: float | None) -> float | None:
+def _evolution(
+    score_current: float | None, score_previous: float | None
+) -> float | None:
     if score_current is None or score_previous is None:
         return None
     return round(score_current - score_previous, 1)
@@ -235,25 +237,31 @@ def _update_composante(
         score = scores_current.get(code)
         score_previous = scores_previous.get(code)
         evo = _evolution(score, score_previous)
-        
-        if composante == 'total' and parent_section == "mairesEtConseilsMunicipaux":
+
+        if composante == "total" and parent_section == "mairesEtConseilsMunicipaux":
             entry["mairesEtConseilsMunicipaux"]["score"] = score
             entry["mairesEtConseilsMunicipaux"]["evolution"] = evo
-        elif composante == 'epci_total':
+        elif composante == "epci_total":
             entry["conseilsCommunautaires"]["score"] = score
             entry["conseilsCommunautaires"]["evolution"] = evo
-        elif composante == 'departemental_total':
+        elif composante == "departemental_total":
             entry["conseilDepartemental"]["score"] = score
             entry["conseilDepartemental"]["evolution"] = evo
         elif parent_section == "conseilsCommunautaires":
             entry["conseilsCommunautaires"]["composantes"][composante]["score"] = score
-            entry["conseilsCommunautaires"]["composantes"][composante]["evolution"] = evo
+            entry["conseilsCommunautaires"]["composantes"][composante]["evolution"] = (
+                evo
+            )
         elif parent_section == "conseilDepartemental":
             entry["conseilDepartemental"]["composantes"][composante]["score"] = score
             entry["conseilDepartemental"]["composantes"][composante]["evolution"] = evo
         else:
-            entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = score
-            entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["evolution"] = evo
+            entry["mairesEtConseilsMunicipaux"]["composantes"][composante]["score"] = (
+                score
+            )
+            entry["mairesEtConseilsMunicipaux"]["composantes"][composante][
+                "evolution"
+            ] = evo
 
         if score is not None:
             print(
@@ -281,16 +289,31 @@ def update_json(
         data = json.load(f)
 
     # Composantes for mairesEtConseilsMunicipaux
-    maires_composantes = {k: v for k, v in COMPOSANTE_TO_COLUMN.items() 
-                          if k not in {"epci_total", "presidente_conseils_communautaires", "departemental_total", "presidente_departement"}}
-    
+    maires_composantes = {
+        k: v
+        for k, v in COMPOSANTE_TO_COLUMN.items()
+        if k
+        not in {
+            "epci_total",
+            "presidente_conseils_communautaires",
+            "departemental_total",
+            "presidente_departement",
+        }
+    }
+
     # Composantes for conseilsCommunautaires
-    epci_composantes = {k: v for k, v in COMPOSANTE_TO_COLUMN.items()
-                        if k in {"epci_total", "presidente_conseils_communautaires"}}
+    epci_composantes = {
+        k: v
+        for k, v in COMPOSANTE_TO_COLUMN.items()
+        if k in {"epci_total", "presidente_conseils_communautaires"}
+    }
 
     # Composantes for conseilDepartemental
-    departemental_composantes = {k: v for k, v in COMPOSANTE_TO_COLUMN.items()
-                                 if k in {"departemental_total", "presidente_departement"}}
+    departemental_composantes = {
+        k: v
+        for k, v in COMPOSANTE_TO_COLUMN.items()
+        if k in {"departemental_total", "presidente_departement"}
+    }
 
     # Update mairesEtConseilsMunicipaux
     for composante in maires_composantes:
@@ -305,8 +328,12 @@ def update_json(
         ]:
             print(f"--- {section_key} ---")
             _update_composante(
-                data[section_key], s_current, s_previous, composante, section_key,
-                parent_section="mairesEtConseilsMunicipaux"
+                data[section_key],
+                s_current,
+                s_previous,
+                composante,
+                section_key,
+                parent_section="mairesEtConseilsMunicipaux",
             )
 
     # Update conseilsCommunautaires
@@ -322,8 +349,12 @@ def update_json(
         ]:
             print(f"--- {section_key} ---")
             _update_composante(
-                data[section_key], s_current, s_previous, composante, section_key,
-                parent_section="conseilsCommunautaires"
+                data[section_key],
+                s_current,
+                s_previous,
+                composante,
+                section_key,
+                parent_section="conseilsCommunautaires",
             )
 
     # Update conseilDepartemental
@@ -339,8 +370,12 @@ def update_json(
         ]:
             print(f"--- {section_key} ---")
             _update_composante(
-                data[section_key], s_current, s_previous, composante, section_key,
-                parent_section="conseilDepartemental"
+                data[section_key],
+                s_current,
+                s_previous,
+                composante,
+                section_key,
+                parent_section="conseilDepartemental",
             )
 
     with open(json_path, "w", encoding="utf-8") as f:

@@ -200,7 +200,6 @@ def load_prefecture_commune_codes() -> set[str]:
     return {normalize_commune_code(str(code)) for code in prefectures.keys()}
 
 
-
 def count_gender_by_department(
     input_csv: Path,
     epci_csv: Path | None = None,
@@ -254,7 +253,7 @@ def count_gender_by_department(
                 continue
 
             # Hack : do not consider "Maire délégué" for now
-            if(function_name == "Maire délégué"):
+            if function_name == "Maire délégué":
                 continue
 
             increment_stats(department.totals, gender_code)
@@ -280,7 +279,9 @@ def count_gender_by_department(
             "municipal_1er_adjoint": format_percentage(department.premier_adjoint),
             "municipal_2e_adjoint": format_percentage(department.deuxieme_adjoint),
             "municipal_autres_adjoints": format_percentage(department.autres_adjoints),
-            "municipal_autres_conseillers": format_percentage(department.autres_conseillers),
+            "municipal_autres_conseillers": format_percentage(
+                department.autres_conseillers
+            ),
             "epci_total": format_percentage(
                 epci_stats.get(department_code, CouncilStats()).conseil_total
             ),
