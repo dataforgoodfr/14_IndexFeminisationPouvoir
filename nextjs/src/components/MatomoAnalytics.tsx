@@ -4,7 +4,7 @@ import { trackAppRouter } from "@socialgouv/matomo-next";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-const MATOMO_URL = "https://oxfamfrance.matomo.cloud/";
+const MATOMO_URL = "https://oxfamfrance.matomo.cloud";
 const MATOMO_SITE_ID = "1";
 
 export function MatomoAnalytics() {
