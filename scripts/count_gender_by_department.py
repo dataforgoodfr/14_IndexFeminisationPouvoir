@@ -22,7 +22,6 @@ from __future__ import annotations
 import argparse
 import csv
 import importlib.util
-from inspect import formatargvalues
 import io
 import re
 import sys
