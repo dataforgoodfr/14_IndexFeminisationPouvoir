@@ -46,7 +46,6 @@ export default function Page() {
           <BlocPouvoir title="Pouvoir local" links={sourceURLs.local} />
           <BlocPouvoir title="Autres pouvoirs" links={sourceURLs.autres} />
           <BlocPouvoir title="Dans le monde" links={sourceURLs.monde} />
-          <BlocPouvoir title="Dans le monde" links={sourceURLs.monde} />
         </div>
       </BlocMethodo>
     </div>
