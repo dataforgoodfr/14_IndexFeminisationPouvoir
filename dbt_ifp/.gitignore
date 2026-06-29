@@ -4,3 +4,5 @@ dbt_packages/
 logs/
 .env
 .envrc
+.maria.env
+data/administration/*_raw_*.csv
