@@ -37,10 +37,28 @@ services:
 #    depends_on:
 #      - postgres
     volumes:
-      - ./dbt_ifp:/dbt_ifp
+      - ./dbt_ifp:/app/dbt_ifp
     env_file:
       - .env
     command: sleep infinity
+
+  ifp_sources:
+    build:
+      context: .
+      dockerfile: docker/ifp_sources/Dockerfile
+    container_name: ifp_sources
+    volumes:
+      - ./ifp_sources:/app/ifp_sources
+      - ./dbt_ifp:/app/dbt_ifp
+      - ./data:/app/data
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+    depends_on:
+      - dbt
+    command: python ifp_sources/extract_and_export.py
 
   # nocodb:
   #   image: nocodb/nocodb:latest
