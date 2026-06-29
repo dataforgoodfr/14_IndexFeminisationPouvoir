@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: ambassades
+    description: >
+      Liste des ambassadeurs et ambassadrices, représentants de la France à l'étranger ou dans des organisations internationales
+
+    columns:
+      - name: administration
+        description: Administration d’appartenance, ambassade
+        data_type: TEXT
+
+      - name: nom
+        description: Nom de la personne.
+        data_type: TEXT
+
+      - name: prenom
+        description: Prénom de la personne.
+        data_type: TEXT
+
+      - name: civilite
+        description: Civilité de la personne.
+        data_type: TEXT
+
+      - name: fonction
+        description: Fonction occupée.
+        data_type: TEXT
+
+      - name: type_organisme
+        description: Type d’organisme associé.
+        data_type: TEXT

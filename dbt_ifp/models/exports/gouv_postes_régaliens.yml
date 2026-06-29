@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: gouv_postes_régaliens
+    description: >
+      Liste des minsitres avec des fonctions régaliens : Premier ministre, ministres de la Défense, de l’Intérieur, des Affaires étrangères, de la Justice, de l’Economie et des Finances 
+      postes régaliens référencés dans le fichier ref_postes_régaliens
+
+    columns:
+      - name: administration
+        description: Administration d’appartenance, ministère
+        data_type: TEXT
+
+      - name: nom
+        description: Nom de la personne.
+        data_type: TEXT
+
+      - name: prenom
+        description: Prénom de la personne.
+        data_type: TEXT
+
+      - name: civilite
+        description: Civilité de la personne.
+        data_type: TEXT
+
+      - name: fonction
+        description: Fonction occupée au sein du gouvernement.
+        data_type: TEXT
+
+      - name: type_organisme
+        description: Type d’organisme associé.
+        data_type: TEXT

@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_figure1e_v2
+    description: >
+      Liste des hommes et des femmes dirigeant un cabinet au sein du gouvernement
+    columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+
+      - name: personne_id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        type: TEXT
+
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+       
+      - name: personne_prenom
+        description: Prénom du directeur de cabinet
+        type: TEXT
+
+      - name: personne_nom
+        description: Nom du directeur de cabinet
+        type: TEXT
+
+      - name: personne_genre
+        description: F or M
+        type: TEXT
+
+      - name: poste_libelle
+        description: Directrice du cabinet ou Directeur de cabinet
+        type: TEXT
+
+      - name: entite_libelle
+        description: nom du complet du cabinet
+        type: TEXT
+ 
+      - name: source_url
+        description: URL de provenance de la données
+        type: TEXT
+
+      - name : modification
+        description: "Tag les éventuelles modifications Oxfam : Ajouté/Modifié - si Supprimé: filtré"
+        type: TEXT 
+
+      - name : commentaires
+        description: "Commentaires Oxfam"
+        type: TEXT 

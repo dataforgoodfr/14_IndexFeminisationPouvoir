@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_figure11_v2
+    description: Liste des hommes et des femmes présidant une haute autorité ou agence française
+    columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
+      - name: annee_partition
+        description: année de la récupération des données
+        data_type: INTEGER
+
+      - name: personne_id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        data_type: TEXT
+
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        data_type: TEXT
+        
+      - name: personne_prenom
+        description: Prénom de la personne 
+        data_type: TEXT
+
+      - name: personne_nom
+        description: Nom de la personne 
+        data_type: TEXT
+
+      - name: personne_genre 
+        description: Genre de la personne (F or M)
+        data_type: TEXT
+
+      - name: poste_libelle
+        description: Intitulé du poste de la personne      
+        data_type: TEXT
+
+      - name: agence_libelle
+        description: agence d'exercice de la personne
+        data_type: TEXT 
+ 
+      - name: source_url
+        description: URL de provenance de la donnée
+        data_type: TEXT
+
+      - name : modification
+        description: "Tag les éventuelles modifications Oxfam : Ajouté/Modifié - si Supprimé: filtré"
+        type: TEXT 
+
+      - name : commentaires
+        description: "Commentaires Oxfam"
+        type: TEXT 

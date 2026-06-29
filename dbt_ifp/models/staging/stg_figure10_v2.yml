@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_figure10_v2
+    description: >
+        Liste des ambassadrices, ambassadeurs et représentant·es permanent·es dans les organisations internationales
+    columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+        
+      - name: annee_partition
+        description: année de la récupération des données
+        data_type: INTEGER
+
+      - name: personne_id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        data_type: TEXT
+
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        data_type: TEXT
+
+      - name: personne_prenom
+        description: Prénom de la personne 
+        data_type: TEXT
+
+      - name: personne_nom
+        description: Nom de la personne 
+        data_type: TEXT
+
+      - name: personne_genre 
+        description: Genre de la personne (F or M)
+        data_type: TEXT
+
+      - name: poste_libelle
+        description: Intitulé du poste de la personne      
+        data_type: TEXT
+
+      - name: pays_libelle
+        description: Pays d'exercice de la personne - Pays
+        data_type: TEXT 
+        data_tests:
+          - not_null
+
+      - name: source_url
+        description: URL de provenance de la donnée
+        data_type: TEXT
+
+      - name : modification
+        description: "Tag les éventuelles modifications Oxfam : Ajouté/Modifié - si Supprimé: filtré"
+        type: TEXT 
+
+      - name : commentaires
+        description: "Commentaires Oxfam"
+        type: TEXT 
