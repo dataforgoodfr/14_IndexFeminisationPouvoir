@@ -1,5 +1,7 @@
 # On utilise Python 3.13 pour éviter les packages non encore compatibles avec Python 3.14
-FROM python:3.13-slim
+# Maria : dbt_run ne marche pas avec py 3.13
+# FROM python:3.13-slim
+FROM python:3.12-slim
 
 # On installe uv directement dans l'image système
 RUN pip install uv
@@ -20,3 +22,6 @@ RUN uv sync
 
 # Commande par défaut si nécessaire
 #CMD ["python", "main.py"]
+
+# Le conteneur doit rester en vie car dbt est lancé depuis Python
+CMD ["sleep", "infinity"]
