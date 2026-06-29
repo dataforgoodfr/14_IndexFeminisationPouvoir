@@ -4,7 +4,8 @@ version = "0.1.0"
 description = """Outils de scraping et calcul de l'index de féminisation du pouvoir d'OXFAM,\
 et gestion des pages web associées"""
 readme = "README.md"
-requires-python = ">=3.13"
+# Maria : dbt n'est pas compatible Python 3.13 → on reste en 3.12
+requires-python =  ">=3.12,<3.13"
 dependencies = [
     "boto3>=1.42.79",
     "click>=8.1.8",
@@ -25,6 +26,10 @@ dependencies = [
     "requests>=2.32.3",
     "scrapy>=2.14.1",
     "scrapy-playwright==0.0.46",
+    # Maria :  Ajout nécessaire pour create_engine()
+    "sqlalchemy>=2.0.0",
+    # Maria:  nécessaire pour XL load_workbook()....
+    "openpyxl>=3.1.0",
 ]
 
 [dependency-groups]
