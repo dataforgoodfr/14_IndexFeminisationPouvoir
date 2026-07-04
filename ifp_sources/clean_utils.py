@@ -4,27 +4,28 @@ import os
 import logging
 from db_connexion import build_conn_str_from_env
 from pathlib import Path
+from typing import Callable, Iterable
 
 # ---------------------------------------------------------
 # CONFIG LOGGING
 # ---------------------------------------------------------
-logger = logging.getLogger(__name__)
+logging = logging.getLogger(__name__)
 
 def drop_view(engine: Engine, view_name: str, schema: str | None = None):
     full_name = f"{schema}.{view_name}" if schema else view_name
     sql = text(f"DROP VIEW IF EXISTS {full_name}")
 
-    logger.info(f"Début suppression de la vue : {full_name}")
-    logger.debug(f"SQL exécuté : {sql}")
+    logging.info(f"Début suppression de la vue : {full_name}")
+    logging.debug(f"SQL exécuté : {sql}")
 
     try:
         with engine.begin() as conn:
             conn.execute(sql)
 
-        logger.info(f"Fin suppression de la vue : {full_name}")
+        logging.info(f"Fin suppression de la vue : {full_name}")
 
     except Exception as e:
-        logger.error(f"Échec suppression de la vue {full_name} : {e}")
+        logging.error(f"Échec suppression de la vue {full_name} : {e}")
         raise
 
 
@@ -34,17 +35,17 @@ def drop_table(engine: Engine, table_name: str, schema: str | None = None, annee
     full_name = f"{schema_table_suffix_name}_{annee}" if annee else schema_table_suffix_name
     sql = text(f"DROP TABLE IF EXISTS {full_name} CASCADE")
 
-    logger.info(f"Début suppression de la table : {full_name}")
-    logger.debug(f"SQL exécuté : {sql}")
+    logging.info(f"Début suppression de la table : {full_name}")
+    logging.debug(f"SQL exécuté : {sql}")
 
     try:
         with engine.begin() as conn:
             conn.execute(sql)
 
-        logger.info(f"Fin suppression de la table : {full_name}")
+        logging.info(f"Fin suppression de la table : {full_name}")
 
     except Exception as e:
-        logger.error(f"Échec suppression de la table {full_name} : {e}")
+        logging.error(f"Échec suppression de la table {full_name} : {e}")
         raise
 
 
@@ -80,31 +81,37 @@ def clean_db_tables_and_views(annee: int, pipeline: str, schema: str| None = Non
     logging.info(f"Fin clean_db_tables_and_views : {pipeline} - {schema} - {annee}")
 
 
-def empty_folder(dir: str | Path, annee: int | None = None, keep_xl: bool = True, recursive: bool = False):
+
+def delete_file_type(glob_fn: Callable[[str], Iterable[Path]], filetype: str="csv", annee:int | None = None ):
+    pattern = f"*_{annee}.{filetype}" if annee else f"*.{filetype}"
+    logging.info(f"Suppression files {filetype}")
+    for f in glob_fn(pattern):
+        logging.info(f"Suppression {filetype} : {f.name}")
+        f.unlink()
+
+
+def empty_folder(dir: str | Path, annee: int | None = None, filetype: str | None = None, recursive: bool = False):
     folder = Path(dir)
 
     if not folder.exists():
-        logger.warning(f"Dossier inexistant : {folder}")
+        logging.warning(f"Dossier inexistant : {folder}")
         return
 
-    logger.info(f"Nettoyage du dossier : {folder}")
-    logger.info(f"Paramètres : annee={annee}, keep_xl={keep_xl}, recursive={recursive}")
+    logging.info(f"--- Nettoyage du dossier : {folder} ---")
+    logging.info(f"Paramètres : annee={annee}, filetype={filetype}, recursive={recursive}")
 
     # Choix entre glob (non récursif) et rglob (récursif)
     glob_fn = folder.rglob if recursive else folder.glob
 
-    # CSV
-    pattern_csv = f"*_{annee}.csv" if annee else "*.csv"
-    for f in glob_fn(pattern_csv):
-        logger.info(f"Suppression CSV : {f.name}")
-        f.unlink()
-    # XL
-    if not keep_xl:
-        pattern_xl = f"*_{annee}.xl*" if annee else "*.xl*"
-        for f in glob_fn(pattern_xl):
-            logger.info(f"Suppression XL : {f.name}")
-            f.unlink()
-    logger.info(f"Fin nettoyage du dossier : {folder}")
+    if filetype != None:
+        delete_file_type(glob_fn, filetype, annee)
+    else:
+        # A voir + tard si on passe "*", peut-être trop drastique ? bien tester avant ....
+        delete_file_type(glob_fn, "csv", annee)
+        delete_file_type(glob_fn, "xl*", annee)
+        delete_file_type(glob_fn, "parquet", annee)
+        delete_file_type(glob_fn, "json", annee)
+    logging.info(f"--- Fin nettoyage du dossier : {folder} ---")
     return
 
 

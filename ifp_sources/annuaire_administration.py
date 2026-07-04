@@ -5,18 +5,83 @@ import shutil
 from pathlib import Path
 import csv
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
 #################### Paths and URLs ####################
-# URL du CSV source
-URL = "https://api-lannuaire.service-public.fr/api/explore/v2.1/catalog/datasets/api-lannuaire-administration/exports/csv?lang=fr"
+# URL du source -  format parquet
+URL = "https://api-lannuaire.service-public.fr/api/explore/v2.1/catalog/datasets/api-lannuaire-administration/exports/parquet?lang=fr"
 
 ADMINISTRATION_RAW_FILENAME = "administration_raw"
 ADMINISTRATION_FILENAME = "administration"
 ADMIN_HIER_FILENAME = "administration_hierarchies"
 
-#################### Fonctions ####################
+
+#################### Fonctions parquet ####################
+
+def telecharger_parquet(url: str, parquet_path: str):
+    """
+    Télécharge un fichier .parquet depuis une URL et le sauvegarde localement.
+    Ne lit pas le fichier et ne retourne pas de DataFrame.
+    """
+
+    logging.info(
+        f"📥 Téléchargement des données\n"
+        f"    → URL : {url}\n"
+        f"    → Fichier : {parquet_path}"
+    )
+
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+
+        with open(parquet_path, "wb") as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+
+        logging.info(f"📥 Fichier téléchargé : {parquet_path}")
+        print("Parquet téléchargé :", parquet_path)
+
+    except Exception as e:
+        logging.error(f"❌ Erreur lors du téléchargement du parquet : {e}")
+        raise
+
+
+def filtre_et_parse_data_parquet(parquet_path: str):
+    try:
+        # Charger le fichier parquet
+        df = pd.read_parquet(parquet_path)
+
+        # Homogénéiser les types pour éviter les erreurs de comparaison / explode
+        df = df.astype(str)
+
+        # Filtrer les lignes
+        df = df[
+            (df["affectation_personne"].notna()) &
+            (df["affectation_personne"] != "") &
+            (df["categorie"] != "SL")
+        ]
+
+        # Colonnes utiles
+        df = df[[
+            "nom",
+            "affectation_personne",
+            "categorie",
+            "type_organisme",
+            "code_insee_commune"
+        ]]
+
+        df = df.rename(columns={"nom": "administration"})
+
+        return explode_affectations(df)
+
+    except Exception as e:
+        logging.error(f"❌ Erreur lors du filtrage/parsing : {e}")
+        raise
+
+
+#################### Fonctions CSV ####################
 
 def telecharger_csv(url, csv_path): 
     logging.info(
@@ -36,15 +101,14 @@ def telecharger_csv(url, csv_path):
     print("CSV téléchargé :", csv_path)
 
 
-def filtre_et_parse_data (csv_path, csv_sep):
-    # Charger dans pandas
-    df = pd.read_csv(csv_path, dtype=str, sep=csv_sep, quotechar='"')
+
+def filtre_et_parse_data(df_raw: pd.DataFrame):
 
     # Filtrer les lignes
-    df = df[
-        (df["affectation_personne"].notna()) &
-        (df["affectation_personne"] != "") &
-        (df["categorie"] != "SL")]
+    df = df_raw[
+        (df_raw["affectation_personne"].notna()) &
+        (df_raw["affectation_personne"] != "") &
+        (df_raw["categorie"] != "SL")]
 
     # Garder uniquement les colonnes utiles
     df = df[["nom", "affectation_personne", "categorie", "type_organisme", "code_insee_commune"]]
@@ -80,15 +144,12 @@ def explode_affectations(df):
     return pd.DataFrame(rows)
 
 
-def filtre_et_parse_hierarchie (csv_path, csv_sep):
-    # Charger dans pandas
-    df = pd.read_csv(csv_path, dtype=str, sep=csv_sep, quotechar='"')
-
+def filtre_et_parse_hierarchie (df_raw: pd.DataFrame):
     # Filtrer les lignes
-    df = df[
-        (df["categorie"] != "SL") 
-        # & (df["hierarchie"].notna())
-        # & (df["hierarchie"] != "")
+    df = df_raw[
+        (df_raw["categorie"] != "SL") 
+        # & (df_raw["hierarchie"].notna())
+        # & (df_raw["hierarchie"] != "")
         ]
 
     # Garder uniquement les colonnes utiles
@@ -135,7 +196,7 @@ def export_fichier_csv(df, csv_path, csv_sep):
 #################### END Fonctions ####################
 
 #################### Main ####################
-import os
+
 def get_annu_admin_data(année: int, output_dir: str, seeds_dir: str, telechargement: bool = False):
     try:
         # --- 0. Vérification des dossiers ---
@@ -148,24 +209,29 @@ def get_annu_admin_data(année: int, output_dir: str, seeds_dir: str, telecharge
         if not seeds_path.exists():
             raise FileNotFoundError(f"Le dossier seeds_dir n'existe pas : {seeds_path}")
 
-        # --- 1. Télécharger le CSV brut ---
-        raw_csv_path = output_path / f"{ADMINISTRATION_RAW_FILENAME}_{année}.csv"
+        # --- 1. Télécharger le fichier brut ---
+        raw_path = output_path / f"{ADMINISTRATION_RAW_FILENAME}_{année}.parquet"
 
-        if telechargement or not raw_csv_path.exists():
+        if telechargement or not raw_path.exists():
             try:
-                telecharger_csv(URL, raw_csv_path)
+                telecharger_parquet(URL, raw_path)
             except Exception as e:
                 raise RuntimeError(f"Erreur lors du téléchargement du CSV : {e}")
         else:
-            logging.info("CSV NON téléchargé :", raw_csv_path)
+            logging.info("Fichier raw NON téléchargé :", raw_path)
 
-        if not raw_csv_path.exists():
-            raise FileNotFoundError(f"Le fichier brut n'existe pas après téléchargement : {raw_csv_path}")
+        if not raw_path.exists():
+            raise FileNotFoundError(f"Le fichier brut n'existe pas après téléchargement : {raw_path}")
+        else:
+            # Charger le fichier parquet
+            df_raw = pd.read_parquet(raw_path)
+            # Homogénéiser les types pour éviter les erreurs de comparaison / explode
+            df_raw = df_raw.astype(str)
 
         # --- 2. Filtrer et parser les données ---
         logging.info(f"Traitement des données {ADMINISTRATION_FILENAME} ")
         try:
-            df = filtre_et_parse_data(raw_csv_path, ";")
+            df = filtre_et_parse_data(df_raw)
         except Exception as e:
             raise RuntimeError(f"Erreur lors du parsing des données : {e}")
 
@@ -189,7 +255,7 @@ def get_annu_admin_data(année: int, output_dir: str, seeds_dir: str, telecharge
         # --- 5. Parser les hiérarchies ---
         logging.info(f"Traitement des données {ADMIN_HIER_FILENAME} ")
         try:
-            df_h = filtre_et_parse_hierarchie(raw_csv_path, ";")
+            df_h = filtre_et_parse_hierarchie(df_raw)
         except Exception as e:
             raise RuntimeError(f"Erreur lors du parsing des hiérarchies : {e}")
 

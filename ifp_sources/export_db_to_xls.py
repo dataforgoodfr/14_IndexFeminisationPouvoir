@@ -83,7 +83,7 @@ def export_models_to_files(annee: int, models: list, output_xl: str, csv_dir: st
                 sheet_name = name[:31]
                 df_excel.to_excel(writer, sheet_name=sheet_name, index=False)
 
-        logging.info("Export CSV + Excel terminé.")
+        logging.info("Export CSV + Excel terminé.-------------------------")
         return True
 
     except Exception as e:
@@ -118,6 +118,7 @@ def force_excel_text_format(xl_path: Path):
 # 6) AJOUT LISTE DÉROULANTE SUR "modification"
 # ---------------------------------------------------------
 def add_modification_dropdown(xl_path: Path):
+    logging.info("Ajoute la liste de controle pour la colonne modification.")
     try:
         wb = load_workbook(xl_path)
 
@@ -156,9 +157,9 @@ def add_modification_dropdown(xl_path: Path):
 # ---------------------------------------------------------
 # 7) FONCTION PRINCIPALE : FAIT TOUT
 # ---------------------------------------------------------
-def run_exports(env_file: str, annee: int, models: list, data_export_dir: str, output_name: str) -> bool:
+def run_exports(annee: int, models: list, data_export_dir: str, output_name: str) -> bool:
     """
-    Pipeline complet :
+    Export CSV et XL complet :
     - charge env
     - initialise chemins
     - vérifie Excel
@@ -182,7 +183,9 @@ def run_exports(env_file: str, annee: int, models: list, data_export_dir: str, o
         bOK = test_excel_not_open(output_xl)
         if not bOK:
             return False
+        logging.info("export_models_to_files")
         bOK = export_models_to_files(annee, models, output_xl, csv_dir)
+        logging.info(f"FIN export_models_to_files : {bOK}")
         if bOK:
             force_excel_text_format(output_xl)
             add_modification_dropdown(output_xl)

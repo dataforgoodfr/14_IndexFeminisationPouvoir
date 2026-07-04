@@ -11,8 +11,8 @@ import json
 from utils_env import load_env_file
 from annuaire_administration import get_annu_admin_data
 from export_xls_to_csv import excel_to_csv_all_sheets
-from dbt_run import dbt_run_sources_and_exports, get_dbt_used_schema, get_dbt_models_from_tags, dbt_run_oxfam_validated_data
-from export_db_to_xls import export_models_to_files
+from dbt_run import dbt_run_sources_and_exports, get_dbt_used_schema, get_dbt_models_from_tags, dbt_run_oxfam_validated_data, init_seeds_oxfam
+from export_db_to_xls import run_exports
 from clean_utils import clean_db_tables_and_views, empty_folder
 from export_to_json import generate_json_executif
 
@@ -56,7 +56,7 @@ def init_env_dbt()-> str:
         raise FileNotFoundError(f"❌ Le fichier d'environnement est introuvable : {env_path}")
 
     # Charger les variables d'environnement
-    load_env_file(ENV_FILEPATH)
+    load_env_file(ENV_FILEPATH)  
 
     # Vérification DBT_DIR
     dbt_project_path = Path(DBT_DIR)
@@ -91,12 +91,15 @@ def pipeline_extract_and_export(annee: int):
         raise FileNotFoundError(f"❌ Le fichier xl référentiel est introuvable : {ref_xl_filepath}")
     bOK = excel_to_csv_all_sheets (annee, ref_xl_filepath, DATA_REF_DIR, DBT_SEEDS_REF_DIR)
 
-    if not bOK:
-        sys.exit(1)   # échec
-    # sys.exit(0)
+    # if not bOK:
+    #     sys.exit(1)   # échec
+    # # sys.exit(0)
 
     #Load env en init dbt profiles
     dbt_project_path = init_env_dbt()
+
+    # Créee les seeds oxfam pour pouvoir faire tourner dbt
+    init_seeds_oxfam(annee, DBT_SEEDS_OXFAM_DIR)
 
     # Lancer le pipeline dbt
     dbt_run_sources_and_exports(str(dbt_project_path), annee)
@@ -108,12 +111,8 @@ def pipeline_extract_and_export(annee: int):
     if export_models is None:
          logging.info(f"--- Pas de dbt exports models ---- ")
     else:
-        output_xl  = DATA_EXPORTS_DIR / f"administration_exports_{annee}.xlsx"
-        csv_dir = DATA_EXPORTS_DIR / f"administration_exports_{annee}"
-        os.makedirs(csv_dir, exist_ok=True)
-        export_models_to_files(annee, export_models, output_xl, csv_dir)
-    
-    logging.info(f"--- Fin des traitements Extract and Export pour l'année {annee} ")
+        bOK = run_exports(annee, export_models, DATA_EXPORTS_DIR, f"administration_exports_{annee}")
+        logging.info(f"--- Fin des traitements Extract and Export pour l'année {annee} - bOK = {bOK}")
 
 
 # -------------------------
@@ -122,18 +121,18 @@ def pipeline_extract_and_export(annee: int):
 def pipeline_import_and_generate(annee: int):
     logging.info(f"--- Début des traitements Import and Generate pour l'année {annee} ")
     
-    # # Export données modifiées par Oxfam à partir du fichier XL
-    # bOK = export_data_seeds_xl_to_csv(annee, ADM_OXFAM_XL_FILENAME, DATA_OXFAM_DIR, DBT_SEEDS_OXFAM_DIR, "oxfam")
-    # if not bOK:
-    #     sys.exit(1)   # échec
+    # Export données modifiées par Oxfam à partir du fichier XL
+    bOK = export_data_seeds_xl_to_csv(annee, ADM_OXFAM_XL_FILENAME, DATA_OXFAM_DIR, DBT_SEEDS_OXFAM_DIR, "oxfam")
+    if not bOK:
+        sys.exit(1)   # échec
 
     # #Load env en init dbt profiles
     dbt_project_path = init_env_dbt()
     
     # # Lancer le pipeline dbt
-    # dbt_run_oxfam_validated_data (str(dbt_project_path), annee)
+    dbt_run_oxfam_validated_data (str(dbt_project_path), annee)
 
-    #exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
+    exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
 
     generate_json_executif(annee, "dev.calc_executif_oxfam", DATA_JSON_DIR / JSON_POUVOIR_NAME)
     logging.info(f"--- Fin des traitements Import and Generate pour l'année {annee} ")
@@ -158,7 +157,7 @@ def main():
 
     logging.info(f"--- Début traitements année {annee} ---")
 
-    # pipeline = "import" #"import" # "clean_all" #"test_all"
+    # pour test pipeline = "test_all" # "extract"  "import" # "clean_all" #"test_all"
     if pipeline == "extract":
         pipeline_extract_and_export(annee)
 
@@ -173,16 +172,17 @@ def main():
         load_env_file(ENV_FILEPATH) 
         # "extract"
         clean_db_tables_and_views(annee, "extract", "sources")
-        empty_folder(DATA_ADMIN_DIR, annee, False)
-        empty_folder(DATA_REF_DIR, annee, True)
-        empty_folder(DATA_EXPORTS_DIR, annee, False, True)
-        empty_folder(DBT_SEEDS_SOURCES_DIR)
-        empty_folder(DBT_SEEDS_REF_DIR)
+        empty_folder(DATA_ADMIN_DIR, annee, None)
+        empty_folder(DATA_REF_DIR, annee, "csv")
+        empty_folder(DATA_EXPORTS_DIR, annee, None, True)
+        empty_folder(DBT_SEEDS_SOURCES_DIR, "csv")
+        empty_folder(DBT_SEEDS_REF_DIR, "csv")
         
         # "import"
         clean_db_tables_and_views(annee, "import", "sources")
-        empty_folder(DBT_SEEDS_OXFAM_DIR, annee)
-        empty_folder(DATA_OXFAM_DIR, annee)
+        empty_folder(DBT_SEEDS_OXFAM_DIR, annee,"csv")
+        empty_folder(DATA_OXFAM_DIR, annee,"csv")
+        empty_folder(DATA_JSON_DIR, None, "json")
 
 
     else:

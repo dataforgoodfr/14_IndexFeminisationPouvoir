@@ -30,6 +30,9 @@ dependencies = [
     "sqlalchemy>=2.0.0",
     # Maria:  nécessaire pour XL load_workbook()....
     "openpyxl>=3.1.0",
+    # Maria:   fichiers parquet
+    "pyarrow>=17.0.0",
+
 ]
 
 [dependency-groups]

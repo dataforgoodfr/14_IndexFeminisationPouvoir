@@ -9,6 +9,47 @@ from pathlib import Path
 # ---------------------------------------------------------
 logger = logging.getLogger(__name__)
 
+figures_files = [
+    "gouvernement",
+    "gouv_postes_régaliens",
+    "cabinet_président",
+    "cabinet_premier_ministre",
+    "dir_cab_ministères",
+    "hautes_juridictions",
+    "préfectures",
+    "ambassades",
+    "agences_hautes_autorités",
+]
+
+def init_seeds_oxfam (annee: int, seeds_oxfam_dir: Path):
+    init_seeds(figures_files, annee, "oxfam", seeds_oxfam_dir)
+    
+def init_seeds(prefixes: list[str], annee: int, suffixe: str, seeds_dir: str , header="id"):
+    """
+    Crée les fichiers seeds oxfam placeholders pour une année donnée pour ne pas faire planter dbt
+    """
+    seeds_dir.mkdir(parents=True, exist_ok=True)
+
+    created_files = []
+
+    for prefix in figures_files:
+        filename = f"{prefix}_{suffixe}_{annee}.csv"
+        fp = seeds_dir / filename
+
+        try:
+            # Création si absent ou vide
+            if not fp.exists() or fp.stat().st_size == 0:
+                fp.write_text(header + "\n", encoding="utf-8")
+                created_files.append(fp)
+                logging.info(f"✔ Fichier créé : {fp}")
+            else:
+                logging.info(f"⏩ Fichier déjà présent : {fp}")
+
+        except Exception as e:
+            logging.error(f"❌ Erreur lors de la création du fichier {fp} : {e}")
+
+    logger.info(f"Fin de l'initialisation des seeds oxfam pour {annee}")
+    return created_files
 
 def run_dbt_command(cmd: list, project_dir: str):
     logger.info(f"\n➡️  Exécution : {' '.join(cmd)}\n")
@@ -19,12 +60,13 @@ def run_dbt_command(cmd: list, project_dir: str):
         text=True,
         env=os.environ
     )
+    logger.info(f"STDOUT:\n{result.stdout}")
+    logger.info(f"STDERR:\n{result.stderr}")
 
     if result.returncode != 0:
-        print(result.stderr)
         raise Exception(f"❌ dbt command failed: {' '.join(cmd)}")
 
-    print(f"✅ Succès : {' '.join(cmd)}\n")
+    logger.info(f"✅ Succès : {' '.join(cmd)}\n")
 
     
 
