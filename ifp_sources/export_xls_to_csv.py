@@ -20,6 +20,7 @@ def excel_to_csv_all_sheets(
         suffix = f"_{suffix}_{année}" if suffix else f"_{année}"
             
         excel_path = Path(excel_filepath)
+        logging.info(f"------------- excel_to_csv_all_sheets {excel_filepath}")
         out_dir = Path(output_dir)
 
         # --- Vérifications des chemins ---

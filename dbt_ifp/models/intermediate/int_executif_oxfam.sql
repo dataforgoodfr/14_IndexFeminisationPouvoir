@@ -1,10 +1,19 @@
 {% set tables = {
     "gouvernement": "gouvernement_oxfam",
-    "gouv_postes_régaliens": "gouv_postes_régaliens_oxfam",
-    "cabinet_président": "cabinet_président_oxfam",
+    "gouv_postes_regaliens": "gouv_postes_regaliens_oxfam",
+    "cabinet_president": "cabinet_president_oxfam",
     "cabinet_premier_ministre": "cabinet_premier_ministre_oxfam",
-    "dir_cab_ministères": "dir_cab_ministères_oxfam"
+    "dir_cab_ministeres": "dir_cab_ministeres_oxfam"
 } %}
+
+{% set cols = [
+    "nom",
+    "prenom",
+    "civilite",
+    "fonction",
+    "modification",
+    "commentaires"
+] %}
 
 {% set start_year = 2026 %}
 {% set end_year = modules.datetime.date.today().year %}
@@ -17,7 +26,9 @@
             select
                 '{{ alias }}' as table_source,
                 {{ annee }} as annee,
-                *
+                {% for col in cols %}
+                    {{ col }}{% if not loop.last %},{% endif %}
+                {% endfor %}
             from {{ ref(base ~ '_' ~ annee) }}
         {% endset %}
         {% do selects.append(sql) %}

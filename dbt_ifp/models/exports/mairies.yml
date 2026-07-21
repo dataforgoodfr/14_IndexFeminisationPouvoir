@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: mairies
+    description: >
+      Maires des communes
+    columns:
+      - name: code_commune
+        description: Code de la commune
+        data_type: TEXT
+
+      - name: code_collectivite_statut_particulier
+        description: Code de la collectivité à statut particulier
+        data_type: TEXT
+
+      - name: nom
+        description: Nom de l'élu
+        data_type: TEXT
+
+      - name: prenom
+        description: Prénom de l'élu
+        data_type: TEXT
+
+      - name: genre
+        description: Genre de l'élu
+        data_type: TEXT
+
+      - name: date_naissance
+        description: Date de naissance
+        data_type: DATE
+
+      - name: code_CSP
+        description: Code de la catégorie socio-professionnelle
+        data_type: TEXT
+
+      - name: fonction
+        description: Libellé de la fonction
+        data_type: TEXT
+
+      - name: code_nationalite
+        description: Code nationalité
+        data_type: TEXT
+
+      - name: age
+        description: Âge au moment de l’année analysée
+        data_type: INITEGER

@@ -5,7 +5,7 @@
 
 {{ config(
     vars = {
-        'figure': "préfectures",
+        'figure': "prefectures",
         'schema_source': "sources",
         'suffixe': "oxfam"
     }

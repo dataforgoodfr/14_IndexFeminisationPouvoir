@@ -11,10 +11,12 @@ import json
 from utils_env import load_env_file
 from annuaire_administration import get_annu_admin_data
 from export_xls_to_csv import excel_to_csv_all_sheets
-from dbt_run import dbt_run_sources_and_exports, get_dbt_used_schema, get_dbt_models_from_tags, dbt_run_oxfam_validated_data, init_seeds_oxfam
+from dbt_run import dbt_run_sources_and_exports, delete_seeds_oxfam, get_dbt_used_schema, get_dbt_models_from_tags, dbt_run_oxfam_validated_data, init_seeds_oxfam, delete_seeds_oxfam
 from export_db_to_xls import run_exports
 from clean_utils import clean_db_tables_and_views, empty_folder
-from export_to_json import generate_json_executif
+from export_to_json import generate_json_executif, generate_json_pouvoirs
+from municipales import get_mairies_all_data
+from decoupage_territorial import get_GOG_data
 
 logging.basicConfig(
     level=logging.INFO,
@@ -34,20 +36,24 @@ BASE_DIR = CURRENT_DIR.parent
 
 # Chemins
 DBT_DIR = BASE_DIR / "dbt_ifp"
-ENV_FILEPATH = DBT_DIR / ".maria.env"
+ENV_FILEPATH = BASE_DIR /  ".env"
 DBT_SEEDS_DIR = DBT_DIR / "seeds"
 DBT_SEEDS_SOURCES_DIR = DBT_SEEDS_DIR / "sources"
 DBT_SEEDS_REF_DIR = DBT_SEEDS_DIR / "référentiels"
+DBT_SEEDS_TERRITOIRE_DIR = DBT_SEEDS_DIR / "territoire"
 DBT_SEEDS_OXFAM_DIR = DBT_SEEDS_DIR / "oxfam"
 DATA_DIR = BASE_DIR / "data"
 REF_XL_FILENAME = "IFP_réferentiels"
 DATA_ADMIN_DIR = DATA_DIR / "administration"
+DATA_MAIRIES_DIR = DATA_DIR / "mairies"
 DATA_REF_DIR = DATA_DIR / "référentiels"
+DATA_TERRITOIRE_DIR = DATA_DIR / "territoire"
 DATA_EXPORTS_DIR = DATA_DIR / "exports"
 DATA_OXFAM_DIR = DATA_DIR / "oxfam"
 ADM_OXFAM_XL_FILENAME = "administration_oxfam"
 DATA_JSON_DIR = DATA_DIR / "json"
-JSON_POUVOIR_NAME = "pouvoir.json"
+JSON_POUVOIRS_NAME = "pouvoirs.json"
+JSON_EXECUTIF_NAME = "pouvoir_executif.json"
 
 def init_env_dbt()-> str:
     # Vérification ENV_FILEPATH
@@ -77,23 +83,34 @@ def export_data_seeds_xl_to_csv(annee: int, xl_filename:str, data_dir: Path, see
 # -------------------------
 # PIPELINE 1 : EXTRACT AND EXPORT
 # -------------------------
-def pipeline_extract_and_export(annee: int):
+def pipeline_extract_and_export(annee: int, telechargement: bool = True,
+                                load_referentiels: bool=True, load_territoire: bool=True, load_sources: bool=True):
+    
+    logging.info("--------------------------------------------------------------------------")
     logging.info(f"--- Début des traitements Extract and Export pour l'année {annee} ")
     
-    # Charge sources annuaire administration
-    bOK = get_annu_admin_data(annee, DATA_ADMIN_DIR, DBT_SEEDS_SOURCES_DIR, telechargement=True)
-    if not bOK:
-        sys.exit(1)   # échec
+    if load_referentiels:
+        # Export fichiers référentiels à partir du fichier XL sources annuaire 
+        ref_xl_filepath = DATA_REF_DIR / f"{REF_XL_FILENAME}_{annee}.xlsx"
+        if not ref_xl_filepath.exists():
+            raise FileNotFoundError(f"❌ Le fichier xl référentiel est introuvable : {ref_xl_filepath}")
+        bOK = excel_to_csv_all_sheets (annee, ref_xl_filepath, DATA_REF_DIR, DBT_SEEDS_REF_DIR)
+        if not bOK:
+            sys.exit(1)   # échec
 
-    # Export fichiers référentiels à partir du fichier XL sources annuaire 
-    ref_xl_filepath = DATA_REF_DIR / f"{REF_XL_FILENAME}_{annee}.xlsx"
-    if not ref_xl_filepath.exists():
-        raise FileNotFoundError(f"❌ Le fichier xl référentiel est introuvable : {ref_xl_filepath}")
-    bOK = excel_to_csv_all_sheets (annee, ref_xl_filepath, DATA_REF_DIR, DBT_SEEDS_REF_DIR)
+    if load_sources:
+        # Charge sources annuaire administration
+        get_annu_admin_data(annee, DATA_ADMIN_DIR, DBT_SEEDS_SOURCES_DIR, telechargement)
+        # Charge sources mairies
+        bOK = get_mairies_all_data (annee, DATA_MAIRIES_DIR, DBT_SEEDS_SOURCES_DIR, telechargement)
+
+    if load_territoire:
+        # Charge territoire COG Code Officiel Géographique 
+        bOK = get_GOG_data (annee, DATA_TERRITOIRE_DIR, DBT_SEEDS_TERRITOIRE_DIR, telechargement)
 
     # if not bOK:
     #     sys.exit(1)   # échec
-    # # sys.exit(0)
+    # # # sys.exit(0)
 
     #Load env en init dbt profiles
     dbt_project_path = init_env_dbt()
@@ -102,9 +119,9 @@ def pipeline_extract_and_export(annee: int):
     init_seeds_oxfam(annee, DBT_SEEDS_OXFAM_DIR)
 
     # Lancer le pipeline dbt
-    dbt_run_sources_and_exports(str(dbt_project_path), annee)
+    dbt_run_sources_and_exports(str(dbt_project_path), annee, load_referentiels, load_territoire, load_sources)
 
-    #exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
+    # #exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
 
 
     export_models = get_dbt_models_from_tags(str(dbt_project_path), "exports")
@@ -113,29 +130,38 @@ def pipeline_extract_and_export(annee: int):
     else:
         bOK = run_exports(annee, export_models, DATA_EXPORTS_DIR, f"administration_exports_{annee}")
         logging.info(f"--- Fin des traitements Extract and Export pour l'année {annee} - bOK = {bOK}")
+    logging.info("--------------------------------------------------------------------------")
 
 
 # -------------------------
 # PIPELINE 2 : IMPORT OXFAM DATA AND GENERATE JSON
 # -------------------------
-def pipeline_import_and_generate(annee: int):
+def pipeline_import_and_generate(annee: int, db_schema:str, seeds: bool=True):
+    logging.info("--------------------------------------------------------------------------")
     logging.info(f"--- Début des traitements Import and Generate pour l'année {annee} ")
     
-    # Export données modifiées par Oxfam à partir du fichier XL
-    bOK = export_data_seeds_xl_to_csv(annee, ADM_OXFAM_XL_FILENAME, DATA_OXFAM_DIR, DBT_SEEDS_OXFAM_DIR, "oxfam")
-    if not bOK:
-        sys.exit(1)   # échec
-
-    # #Load env en init dbt profiles
+    # Load env et init dbt profiles
     dbt_project_path = init_env_dbt()
     
-    # # Lancer le pipeline dbt
-    dbt_run_oxfam_validated_data (str(dbt_project_path), annee)
+    # Export données modifiées par Oxfam à partir du fichier XL
+    if seeds:
+        # Delete les seeds oxfam créés pour pouvoir faire tourner dbt
+        delete_seeds_oxfam(annee, DBT_SEEDS_OXFAM_DIR)
+        # Delete les tables
+        clean_db_tables_and_views(annee, "import", "sources")
+        bOK = export_data_seeds_xl_to_csv(annee, ADM_OXFAM_XL_FILENAME, DATA_OXFAM_DIR, DBT_SEEDS_OXFAM_DIR, "oxfam")
+        if not bOK:
+            sys.exit(1)   # échec
 
-    exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
+    # Lancer le pipeline dbt 
+    dbt_run_oxfam_validated_data (str(dbt_project_path), annee, seeds)
 
-    generate_json_executif(annee, "dev.calc_executif_oxfam", DATA_JSON_DIR / JSON_POUVOIR_NAME)
+    #exports_schema = get_dbt_used_schema(str(dbt_project_path), annee, "exports")
+
+    generate_json_executif(annee, f"{db_schema}.calc_executif_oxfam", DATA_JSON_DIR / JSON_EXECUTIF_NAME)
+    generate_json_pouvoirs(annee,  db_schema, DATA_JSON_DIR / JSON_POUVOIRS_NAME)
     logging.info(f"--- Fin des traitements Import and Generate pour l'année {annee} ")
+    logging.info("--------------------------------------------------------------------------")
     
  
 
@@ -144,6 +170,7 @@ def parse_args():
     parser.add_argument("--annee", type=int, help="Année à traiter (défaut : année courante)")
     parser.add_argument("--pipeline", type=str, default="test_all",
                         help="Pipeline à exécuter : extract, import, test_all, clean_all")
+    parser.add_argument("--db_schema", type=str, default="dev", help="SChema db des vues finales (défaut : dev)")
     return parser.parse_args()
 
 
@@ -154,29 +181,40 @@ def main():
     args = parse_args()
     annee = args.annee or datetime.now().year
     pipeline = args.pipeline.lower()
+    db_schema = args.db_schema
 
-    logging.info(f"--- Début traitements année {annee} ---")
+    logging.info(f"--- Début traitements année {annee} - pipeline {pipeline}---")
 
-    # pour test pipeline = "test_all" # "extract"  "import" # "clean_all" #"test_all"
+    #if pipeline is None:
+        # pour test 
+    pipeline = "test_all" # "extract"  "import" # "clean_all" #"test_all"
+    telechargement = False
+    load_referentiels = True
+    load_territoire = False
+    load_sources = False
+    load_oxfam = False
     if pipeline == "extract":
-        pipeline_extract_and_export(annee)
+        pipeline_extract_and_export(annee) #, telechargement, load_referentiels, load_territoire, load_sources)
 
     elif pipeline == "import":
-        pipeline_import_and_generate(annee)
+        pipeline_import_and_generate(annee, db_schema)
     
     elif pipeline == "test_all":
-        pipeline_extract_and_export(annee)
-        pipeline_import_and_generate(annee)
+        pipeline_extract_and_export(annee, telechargement, load_referentiels, load_territoire, load_sources)
+        pipeline_import_and_generate(annee, db_schema, load_oxfam)
     
     elif pipeline == "clean_all":
         load_env_file(ENV_FILEPATH) 
         # "extract"
         clean_db_tables_and_views(annee, "extract", "sources")
         empty_folder(DATA_ADMIN_DIR, annee, None)
+        empty_folder(DATA_MAIRIES_DIR, annee, None)
         empty_folder(DATA_REF_DIR, annee, "csv")
+        empty_folder(DATA_TERRITOIRE_DIR, annee, "csv")
         empty_folder(DATA_EXPORTS_DIR, annee, None, True)
-        empty_folder(DBT_SEEDS_SOURCES_DIR, "csv")
-        empty_folder(DBT_SEEDS_REF_DIR, "csv")
+        empty_folder(DBT_SEEDS_SOURCES_DIR, annee, "csv", True)
+        empty_folder(DBT_SEEDS_REF_DIR, annee, "csv")
+        #empty_folder(DBT_SEEDS_TERRITOIRE_DIR, annee, "csv")
         
         # "import"
         clean_db_tables_and_views(annee, "import", "sources")

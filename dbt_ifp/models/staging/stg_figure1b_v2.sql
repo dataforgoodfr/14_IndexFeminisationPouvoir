@@ -5,7 +5,7 @@
 
 {{ config(
     vars = {
-        'figure': "gouv_postes_régaliens",
+        'figure': "gouv_postes_regaliens",
         'schema_source': "sources",
         'suffixe': "oxfam"
     }

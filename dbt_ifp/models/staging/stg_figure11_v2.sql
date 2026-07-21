@@ -5,7 +5,7 @@
 
 {{ config(
     vars = {
-        'figure': "agences_hautes_autorités",
+        'figure': "agences_hautes_autorites",
         'schema_source': "sources",
         'suffixe': "oxfam"
     }

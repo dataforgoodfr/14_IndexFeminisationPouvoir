@@ -21,7 +21,7 @@ def build_conn_str_from_env() -> str:
         conn_str = f"postgresql://{user}:{pwd}@{host}:{port}/{db}"
         logging.info("Chaîne de connexion PostgreSQL construite depuis l'environnement.")
         return conn_str
-
+ 
     except KeyError as e:
         logging.error(f"Variable d'environnement manquante : {e}")
         raise

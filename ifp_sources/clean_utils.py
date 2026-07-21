@@ -57,22 +57,24 @@ def clean_db_tables_and_views(annee: int, pipeline: str, schema: str| None = Non
     if pipeline == "extract":
         drop_table(engine, "administration", schema, annee)
         drop_table(engine, "administration_hierarchies", schema, annee)
+        drop_table(engine, "mairies", schema, annee)
+        drop_table(engine, "mairies_plm_arr", schema, annee)
         drop_table(engine, "ref_hautes_juridictions", schema, annee)
-        drop_table(engine, "ref_agences_hautes_autorités", schema, annee)
-        drop_table(engine, "ref_postes_régaliens", schema, annee)
+        drop_table(engine, "ref_agences_hautes_autorites", schema, annee)
+        drop_table(engine, "ref_postes_regaliens", schema, annee)
         drop_table(engine, "ref_figures", schema, annee)
 
     elif pipeline == "import":
         print ("------------------------ IMPORT CLEAN-------------------")
         drop_table(engine, "gouvernement", schema, annee, "oxfam")
-        drop_table(engine, "gouv_postes_régaliens" , schema, annee, "oxfam")
-        drop_table(engine, "cabinet_président" , schema, annee, "oxfam")
+        drop_table(engine, "gouv_postes_regaliens" , schema, annee, "oxfam")
+        drop_table(engine, "cabinet_president" , schema, annee, "oxfam")
         drop_table(engine, "cabinet_premier_ministre" , schema, annee, "oxfam")
-        drop_table(engine, "dir_cab_ministères" , schema, annee, "oxfam")
+        drop_table(engine, "dir_cab_ministeres" , schema, annee, "oxfam")
         drop_table(engine, "hautes_juridictions" , schema, annee, "oxfam")
-        drop_table(engine, "préfectures" , schema, annee, "oxfam")
+        drop_table(engine, "prefectures" , schema, annee, "oxfam")
         drop_table(engine, "ambassades" , schema, annee, "oxfam")
-        drop_table(engine, "agences_hautes_autorités" , schema, annee, "oxfam")
+        drop_table(engine, "agences_hautes_autorites" , schema, annee, "oxfam")
 
     # elif pipeline == "all":
     #     pipeline_import_and_generate(annee) 
@@ -84,7 +86,7 @@ def clean_db_tables_and_views(annee: int, pipeline: str, schema: str| None = Non
 
 def delete_file_type(glob_fn: Callable[[str], Iterable[Path]], filetype: str="csv", annee:int | None = None ):
     pattern = f"*_{annee}.{filetype}" if annee else f"*.{filetype}"
-    logging.info(f"Suppression files {filetype}")
+    logging.info(f"Suppression files {filetype} - pattern {pattern}")
     for f in glob_fn(pattern):
         logging.info(f"Suppression {filetype} : {f.name}")
         f.unlink()

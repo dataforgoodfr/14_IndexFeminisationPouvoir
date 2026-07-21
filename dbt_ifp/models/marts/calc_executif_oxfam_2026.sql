@@ -22,12 +22,11 @@ group by 1,2
 
 select
 	a.annee,
+	r.pouvoir_categorie,
 	r.pouvoir_type,
-	r.institution_type,
+	r.pouvoir_composante,
 	r.figure,
-	r.json_tag_level_0,
-	r.json_tag_level_1,
-	r.json_tag_level_2,
+	r.institution_type,
 	a.total_femmes,
 	a.total_personnes,
 	a.pct_femmes,
@@ -36,4 +35,4 @@ select
 from calc_admin_2026 a
 inner join {{ ref('ref_figures_2026') }} r
 on a.table_source = r.nom
-left join {{ ref('calculated_figures_2025') }} b on r.figure = b.figure
+left join {{ ref('calculated_figures_2025') }} b on r.figure = b.figure 

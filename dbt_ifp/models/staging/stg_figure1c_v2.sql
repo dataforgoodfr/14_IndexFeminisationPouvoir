@@ -5,7 +5,7 @@
 
 {{ config(
     vars = {
-        'figure': "cabinet_président",
+        'figure': "cabinet_president",
         'schema_source': "sources",
         'suffixe': "oxfam"
     }
