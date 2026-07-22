@@ -7,6 +7,7 @@ import sys
 import logging
 import argparse 
 import json
+print("SYS ARGV =",     sys.argv)
 
 from utils_env import load_env_file
 from annuaire_administration import get_annu_admin_data
@@ -168,10 +169,15 @@ def pipeline_import_and_generate(annee: int, db_schema:str, seeds: bool=True):
 def parse_args():
     parser = argparse.ArgumentParser(description="IFP Pipelines")
     parser.add_argument("--annee", type=int, help="Année à traiter (défaut : année courante)")
-    parser.add_argument("--pipeline", type=str, default="test_all",
-                        help="Pipeline à exécuter : extract, import, test_all, clean_all")
-    parser.add_argument("--db_schema", type=str, default="dev", help="SChema db des vues finales (défaut : dev)")
+    parser.add_argument("--pipeline", type=str, default="clean_all", help="Pipeline à exécuter : extract, import, test_all, clean_all")
+    parser.add_argument("--telechargement", choices=["y", "n"], default="y", help="Téléchargement et chargement de tous les fichiers sources, référentiels et territoire inclus (défaut : y)")
+    parser.add_argument("--load_referentiels", choices=["y", "n"], default="y", help="Téléchargement des fichiers référentiels (défaut : y)")
+    parser.add_argument("--load_territoire", choices=["y", "n"], default="y", help="Téléchargement des fichiers territoire (défaut : y)")
+    parser.add_argument("--load_sources", choices=["y", "n"], default="y", help="Téléchargement des fichiers sources (défaut : y)")
+    parser.add_argument("--load_oxfam", choices=["y", "n"], default="y", help="Téléchargement des fichiers modifiés par Oxfam (défaut : y)")
+    parser.add_argument("--db_schema", type=str, default="dev", help="Schema db des vues finales (défaut : dev)")
     return parser.parse_args()
+
 
 
 # -------------------------
@@ -182,22 +188,20 @@ def main():
     annee = args.annee or datetime.now().year
     pipeline = args.pipeline.lower()
     db_schema = args.db_schema
+    # Conversion Y/n → bool
+    telechargement = args.telechargement == "y"
+    load_referentiels = args.load_referentiels == "y"
+    load_territoire = args.load_territoire == "y"
+    load_sources = args.load_sources == "y"
+    load_oxfam = args.load_oxfam == "y"
 
     logging.info(f"--- Début traitements année {annee} - pipeline {pipeline}---")
 
-    #if pipeline is None:
-        # pour test 
-    pipeline = "test_all" # "extract"  "import" # "clean_all" #"test_all"
-    telechargement = False
-    load_referentiels = True
-    load_territoire = False
-    load_sources = False
-    load_oxfam = False
     if pipeline == "extract":
-        pipeline_extract_and_export(annee) #, telechargement, load_referentiels, load_territoire, load_sources)
+        pipeline_extract_and_export(annee, telechargement, load_referentiels, load_territoire, load_sources)
 
     elif pipeline == "import":
-        pipeline_import_and_generate(annee, db_schema)
+        pipeline_import_and_generate(annee, db_schema, load_oxfam)
     
     elif pipeline == "test_all":
         pipeline_extract_and_export(annee, telechargement, load_referentiels, load_territoire, load_sources)
