@@ -5,7 +5,12 @@ SOURCE = r"d:\Data For Good\IFP Oxfam Projet Integration\14_IndexFeminisationPou
 DEST = r"d:\Data For Good\clone_git"
 
 EXCLUDE_EXT = [".csv"]  # on exclut les CSV lourds
-EXCLUDE_DIRS = [".git", ".venv", "__pycache__", "data/administration"]  # adapte si besoin
+EXCLUDE_DIRS = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "data/administration",
+]  # adapte si besoin
 
 for root, dirs, files in os.walk(SOURCE):
     # Exclure les dossiers inutiles

@@ -1,19 +1,19 @@
-
 import requests
 from pathlib import Path
 import pandas as pd
 import logging
 import shutil
 import csv
-import os
 import zipfile
+
 
 logger = logging.getLogger(__name__)
 
 
 #################### Fonctions téléchargement parquet ####################
 
-def telecharger_parquet(url: str, parquet_path: str)->bool:
+
+def telecharger_parquet(url: str, parquet_path: str) -> bool:
     """
     Télécharge un fichier .parquet depuis une URL et le sauvegarde localement.
     Ne lit pas le fichier et ne retourne pas de DataFrame.
@@ -40,13 +40,18 @@ def telecharger_parquet(url: str, parquet_path: str)->bool:
         logging.error(f"❌ Erreur lors du téléchargement du parquet : {e}")
         raise
 
-def get_df_from_url_parquet(url: str, parquet_path: str, telechargement: bool = False) -> pd.DataFrame | None:
+
+def get_df_from_url_parquet(
+    url: str, parquet_path: str, telechargement: bool = False
+) -> pd.DataFrame | None:
     try:
         # Téléchargement
         if telechargement:
             bOK = telecharger_parquet(url, parquet_path)
             if not bOK:
-                logging.error("❌ Téléchargement échoué — abandon du chargement Parquet.")
+                logging.error(
+                    "❌ Téléchargement échoué — abandon du chargement Parquet."
+                )
                 return None
 
         # Lecture du parquet
@@ -65,12 +70,11 @@ def get_df_from_url_parquet(url: str, parquet_path: str, telechargement: bool = 
 
 #################### Fonctions téléchargement CSV ####################
 
-def telecharger_csv(url: str, csv_path: str)->bool: 
+
+def telecharger_csv(url: str, csv_path: str) -> bool:
     logging.info(
-        f"📥 Téléchargement des données\n"
-        f"    → URL : {url}\n"
-        f"    → Fichier : {csv_path}"
-     )
+        f"📥 Téléchargement des données\n    → URL : {url}\n    → Fichier : {csv_path}"
+    )
     try:
         response = requests.get(url, stream=True, timeout=20)
         response.raise_for_status()
@@ -87,7 +91,9 @@ def telecharger_csv(url: str, csv_path: str)->bool:
         return False
 
 
-def get_df_from_url_csv (url: str, csv_path: str, telechargement: bool = False) -> pd.DataFrame | None:
+def get_df_from_url_csv(
+    url: str, csv_path: str, telechargement: bool = False
+) -> pd.DataFrame | None:
     try:
         # Téléchargement
         if telechargement:
@@ -97,11 +103,9 @@ def get_df_from_url_csv (url: str, csv_path: str, telechargement: bool = False) 
                 return None
 
         # Lecture du CSV
-        df = pd.read_csv(csv_path,
-                sep=";",
-                quotechar='"',
-                encoding="utf-8",
-                engine="python")
+        df = pd.read_csv(
+            csv_path, sep=";", quotechar='"', encoding="utf-8", engine="python"
+        )
 
         # Homogénéisation des types
         df = df.astype(str)
@@ -113,17 +117,29 @@ def get_df_from_url_csv (url: str, csv_path: str, telechargement: bool = False) 
         logging.error(f"❌ Erreur lors du chargement/parse du CSV : {e}")
         return None
 
+
 #################### Fonctions export et copy csv ####################
 
-def export_fichier_csv(df, csv_path, csv_sep): 
-    df.to_csv(csv_path, index=False, encoding="utf-8-sig", 
-                sep=csv_sep, quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+def export_fichier_csv(df, csv_path, csv_sep):
+    df.to_csv(
+        csv_path,
+        index=False,
+        encoding="utf-8-sig",
+        sep=csv_sep,
+        quotechar='"',
+        quoting=csv.QUOTE_MINIMAL,
+    )
     print("Fichier  généré :", csv_path)
 
 
-def export_and_copy_dbt_source_data(df: pd.DataFrame, année: int, output_path: Path, seeds_path: Path, filename: str):
-    logging.info(f"Sauvegarde des données {filename} vers {output_path} et {seeds_path}")
-    try :
+def export_and_copy_dbt_source_data(
+    df: pd.DataFrame, année: int, output_path: Path, seeds_path: Path, filename: str
+):
+    logging.info(
+        f"Sauvegarde des données {filename} vers {output_path} et {seeds_path}"
+    )
+    try:
         # Export des données csv
         data_csv_path = output_path / f"{filename}_{année}.csv"
         export_fichier_csv(df, data_csv_path, ",")
@@ -133,16 +149,30 @@ def export_and_copy_dbt_source_data(df: pd.DataFrame, année: int, output_path: 
         shutil.copyfile(data_csv_path, seeds_csv_path)
     except Exception as e:
         raise RuntimeError(f"Erreur lors de la copie vers seeds : {e}")
-    
-    logging.info(f"Fin de traitement des données {filename} - Fichiers {data_csv_path} et {seeds_csv_path}")
+
+    logging.info(
+        f"Fin de traitement des données {filename} - Fichiers {data_csv_path} et {seeds_csv_path}"
+    )
+
 
 #################### Fonctions check dossiers et lance téléchargement si requis ####################
 
-def check_dossiers_et_télécharge_raw_data(année: int, output_path: Path, seeds_path: Path, URL: str, filename: str, type: str = "parquet", telechargement: bool = False)-> pd.DataFrame | None:
+
+def check_dossiers_et_télécharge_raw_data(
+    année: int,
+    output_path: Path,
+    seeds_path: Path,
+    URL: str,
+    filename: str,
+    type: str = "parquet",
+    telechargement: bool = False,
+) -> pd.DataFrame | None:
     try:
         # --- 0. Vérification des dossiers ---
         if not output_path.exists():
-            raise FileNotFoundError(f"Le dossier output_dir n'existe pas : {output_path}")
+            raise FileNotFoundError(
+                f"Le dossier output_dir n'existe pas : {output_path}"
+            )
 
         if not seeds_path.exists():
             raise FileNotFoundError(f"Le dossier seeds_dir n'existe pas : {seeds_path}")
@@ -158,24 +188,26 @@ def check_dossiers_et_télécharge_raw_data(année: int, output_path: Path, seed
         elif type == "csv":
             df_raw = get_df_from_url_csv(URL, raw_path, telechargement)
         else:
-            logging.info(f"Type de fichier {type} inconnu dans  heck_dossiers_et_télécharge_raw_data pour {filename}")
+            logging.info(
+                f"Type de fichier {type} inconnu dans  heck_dossiers_et_télécharge_raw_data pour {filename}"
+            )
         return df_raw
-    
+
     except Exception as e:
         raise RuntimeError(f"Erreur lors du chargement de {raw_path}: {e}")
 
+
 ########################## ZIP file #########################
 
-def telecharger_zip(url: str, zip_path: str)->bool:
+
+def telecharger_zip(url: str, zip_path: str) -> bool:
     """
     Télécharge un fichier .zip depuis une URL et le sauvegarde localement.
     Ne lit pas le fichier et ne retourne pas de DataFrame.
     """
 
     logging.info(
-        f"📥 Téléchargement des données\n"
-        f"    → URL : {url}\n"
-        f"    → Fichier : {zip_path}"
+        f"📥 Téléchargement des données\n    → URL : {url}\n    → Fichier : {zip_path}"
     )
 
     try:
@@ -193,11 +225,10 @@ def telecharger_zip(url: str, zip_path: str)->bool:
         logging.error(f"❌ Erreur lors du téléchargement du zip : {e}")
         return False
 
-import zipfile
-import logging
-from pathlib import Path
 
-def dezip_fichier(zip_path: Path, output_dir: Path, fichiers_a_extraire: list[str] | None) -> bool:
+def dezip_fichier(
+    zip_path: Path, output_dir: Path, fichiers_a_extraire: list[str] | None
+) -> bool:
     """
     Dézippe un fichier ZIP.
     - Si fichiers_a_extraire est None → extrait tout.
@@ -250,12 +281,22 @@ def dezip_fichier(zip_path: Path, output_dir: Path, fichiers_a_extraire: list[st
         return False
 
 
-
-def get_zip_files(année: int, output_path: Path, seeds_path: Path, URL: str, filename: str, sub_dir:str, fichiers_a_extraire: list[str] | None, telechargement: bool = False)-> bool:
+def get_zip_files(
+    année: int,
+    output_path: Path,
+    seeds_path: Path,
+    URL: str,
+    filename: str,
+    sub_dir: str,
+    fichiers_a_extraire: list[str] | None,
+    telechargement: bool = False,
+) -> bool:
     try:
         # --- 0. Vérification des dossiers ---
         if not output_path.exists():
-            raise FileNotFoundError(f"Le dossier output_dir n'existe pas : {output_path}")
+            raise FileNotFoundError(
+                f"Le dossier output_dir n'existe pas : {output_path}"
+            )
 
         # --- 1. Télécharger le fichier brut ---
         zip_path = output_path / filename
@@ -263,17 +304,17 @@ def get_zip_files(année: int, output_path: Path, seeds_path: Path, URL: str, fi
 
         if not zip_path.exists():
             telechargement = True
-            
+
         if telechargement:
-            bOK= telecharger_zip(URL, zip_path)
+            bOK = telecharger_zip(URL, zip_path)
         else:
             bOK = True
-        
+
         if bOK:
             bOK = dezip_fichier(zip_path, output_sub_dir_path, fichiers_a_extraire)
 
         if bOK:
-             # Copie vers dbt seeds ---
+            # Copie vers dbt seeds ---
             shutil.copytree(output_sub_dir_path, seeds_path, dirs_exist_ok=True)
             logger.info(f"📁 Copie complète OK : {output_sub_dir_path} → {seeds_path}")
 

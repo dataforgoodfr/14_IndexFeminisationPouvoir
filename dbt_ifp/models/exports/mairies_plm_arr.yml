@@ -3,7 +3,7 @@ version: 2
 models:
   - name: mairies_plm_arr
     description: >
-      Maires des communes
+      Maires des arrondissements PLM
     columns:
       - name: code_commune
         description: Code de la commune

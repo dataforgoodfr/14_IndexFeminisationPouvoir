@@ -1,4 +1,3 @@
-from sqlalchemy import create_engine
 import os
 import logging
 
@@ -6,6 +5,7 @@ import logging
 # CONFIG LOGGING
 # ---------------------------------------------------------
 logger = logging.getLogger(__name__)
+
 
 def build_conn_str_from_env() -> str:
     """
@@ -19,13 +19,17 @@ def build_conn_str_from_env() -> str:
         db = os.environ["POSTGRES_DB_NAME"]
 
         conn_str = f"postgresql://{user}:{pwd}@{host}:{port}/{db}"
-        logging.info("Chaîne de connexion PostgreSQL construite depuis l'environnement.")
+        logging.info(
+            "Chaîne de connexion PostgreSQL construite depuis l'environnement."
+        )
         return conn_str
- 
+
     except KeyError as e:
         logging.error(f"Variable d'environnement manquante : {e}")
         raise
 
     except Exception as e:
-        logging.error(f"Erreur inattendue lors de la construction de la chaîne de connexion : {e}")
+        logging.error(
+            f"Erreur inattendue lors de la construction de la chaîne de connexion : {e}"
+        )
         raise

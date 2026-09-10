@@ -35,7 +35,7 @@ seeds:
     +schema: sources
     sources:
       +schema: sources
-    référentiels:
+    referentiels:
       +schema: sources
     oxfam:
       +schema: sources

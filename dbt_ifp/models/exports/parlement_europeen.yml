@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: parlement_europeen
+    description: >
+      Membres français du Parlement européen
+
+    columns:
+      - name: nom
+        description: Nom de l'élu
+        data_type: TEXT
+
+      - name: prenom
+        description: Prénom de l'élu
+        data_type: TEXT
+
+      - name: genre
+        description: Genre de l'élu
+        data_type: TEXT
+
+      - name: date_naissance
+        description: Date de naissance
+        data_type: DATE
+
+      - name: code_CSP
+        description: Code de la catégorie socio-professionnelle
+        data_type: TEXT
+
+      - name: age
+        description: Âge au moment de l’année analysée
+        data_type: INITEGER

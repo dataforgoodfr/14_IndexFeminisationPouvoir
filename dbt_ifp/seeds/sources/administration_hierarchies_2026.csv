@@ -69,6 +69,8 @@ Direction du service de l'énergie opérationnelle,Centre d'expertise technique 
 "Département soutien, accompagnement et animation des réseaux",Département de l'informatique et des télécommunications de l'outre-mer
 "Département soutien, accompagnement et animation des réseaux",Bureau des affaires transverses
 Comité de suivi des retraites,Secrétariat du comité de suivi des retraites
+Mission Performance,Bureau de l'achat public et de l'exécution financière
+Mission Performance,Bureau de la synthèse et de la coordination budgétaire
 Services rattachés - Ministère chargé des Affaires étrangères,Agence pour l'enseignement français à l'étranger
 Services rattachés - Ministère chargé des Affaires étrangères,Alliance française
 Services rattachés - Ministère chargé des Affaires étrangères,Campus France
@@ -335,7 +337,7 @@ Département des retraites et de l'accueil,"Bureau SRE MRU. Relations usagers, o
 "Sous-direction de l'accès aux soins, des prestations familiales et des accidents du travail",Bureau 2A. Accès aux soins et prestations de santé
 "Sous-direction de l'accès aux soins, des prestations familiales et des accidents du travail",Bureau 2B. Prestations familiales et aides au logement
 "Sous-direction de l'accès aux soins, des prestations familiales et des accidents du travail",Bureau 2C. Accidents du travail et maladies professionnelles
-Sous-direction Administration et valorisation de l'immobilier de l'État,Bureau Administration des actifs immobiliers et domaniaux (DIE-3A)
+Sous-direction Administration et valorisation de l'immobilier de l'État,Bureau Administration des actifs immobiliers et domaniaux
 Sous-direction Administration et valorisation de l'immobilier de l'État,"Bureau Réglementation domaniale, contentieux et expertise domaniale (DIE-3B)"
 Délégation à la communication - ministère de l'Education nationale,Bureau de la communication de la jeunesse et des sports
 Délégation à la communication - ministère de l'Education nationale,Bureau de la communication pour l'enseignement supérieur et la recherche
@@ -429,7 +431,7 @@ Service de l'enseignement technique,Sous-direction des politiques de formation e
 Service de l'enseignement technique,"Sous-direction des établissements, des dotations et des compétences"
 Direction des systèmes d'information,"Division des applications législatives, de gestion de l'information et audiovisuelles"
 Direction des systèmes d'information,Division des applications de gestion
-Sous-direction des affaires générales et de la synthèse,Bureau de la synthèse (7A)
+Sous-direction des affaires générales et de la synthèse,Bureau de la synthèse
 Sous-direction des affaires générales et de la synthèse,Bureau des affaires financières et logistiques
 Sous-direction des affaires générales et de la synthèse,Bureau des ressources humaines
 Sous-direction des affaires générales et de la synthèse,Cellule internationale
@@ -919,7 +921,6 @@ Conseil départemental - Morbihan,Laboratoire départemental d'analyses - Morbih
 Secrétariat général de la préfecture - Seine-Saint-Denis,Direction des étrangers et des naturalisations - Seine-Saint-Denis
 Secrétariat général de la préfecture - Seine-Saint-Denis,Direction de la citoyenneté et de la légalité - Seine-Saint-Denis
 Secrétariat général de la préfecture - Seine-Saint-Denis,Direction de la coordination des politiques publiques et de l’appui territorial (DCPPAT) - Seine-Saint-Denis
-Secrétariat général de la préfecture - Seine-Saint-Denis,Direction des ressources - Seine-Saint-Denis
 Centre hospitalier régional (CHR) - Orléans,Pôle ressources humaines (CHR) - Orléans
 Centre hospitalier régional (CHR) - Orléans,Pôle GHT du Loiret (CHR) - Orléans
 Centre hospitalier régional (CHR) - Orléans,Pôle expertise (CHR) - Orléans
@@ -1085,6 +1086,7 @@ Vosges - 88,Préfecture - Vosges
 Secrétariat général de la préfecture - Yvelines,Direction de la coordination et de l'appui territorial - Yvelines
 Secrétariat général de la préfecture - Yvelines,Direction de la réglementation et des collectivités territoriales - Yvelines
 Secrétariat général de la préfecture - Yvelines,Direction des migrations - Yvelines
+Secrétariat général de la préfecture - Yvelines,Centre d'expertise de ressources titres - Yvelines
 Conseil national de l'ordre des experts-comptables,Conseil régional de l'ordre des experts-comptables (CROEC) - Auvergne-Rhône-Alpes
 Conseil national de l'ordre des experts-comptables,Conseil régional de l'ordre des experts-comptables (CROEC) - Bourgogne-Franche-Comté
 Conseil national de l'ordre des experts-comptables,Conseil régional de l'ordre des experts-comptables (CROEC) - Bretagne
@@ -1198,7 +1200,9 @@ Préfecture de région - Île-de-France et Paris,Secrétariat général aux moye
 Préfecture de région - Île-de-France et Paris,Direction du cabinet - Île-de-France
 Préfecture de région - Île-de-France et Paris,Agence régionale de lutte contre l'illettrisme (ARLCI) - Ile-de-France
 Direction du cabinet - Yvelines,Direction des sécurités - Yvelines
+Direction du cabinet - Yvelines,Bureau de la communication interministérielle - Yvelines
 Direction du cabinet - Val-d'Oise,Direction des sécurités - Val-d'Oise
+Direction du cabinet - Val-d'Oise,Bureau de la représentation de l'Etat et de la communication interministérielle - Val-d'Oise
 Fédération française du bâtiment (FFB) - Nouvelle-Aquitaine,Fédération française du bâtiment (FFB) - Charente-Maritime
 Fédération française du bâtiment (FFB) - Nouvelle-Aquitaine,Fédération française du bâtiment (FFB) - Charente
 Fédération française du bâtiment (FFB) - Nouvelle-Aquitaine,Fédération française du bâtiment (FFB) - Corrèze
@@ -1229,9 +1233,9 @@ Direction des services départementaux de l'Éducation nationale (DSDEN) - Paris
 Loir-et-Cher - 41,Conseil départemental - Loir-et-Cher
 Loir-et-Cher - 41,Préfecture - Loir-et-Cher
 Martinique,Collectivité territoriale de Martinique
-Martinique,Préfecture de région - Martinique
 Martinique,Services déconcentrés en région - Martinique
 Martinique,Martinique - 972
+Martinique,Préfecture - Martinique
 Collectivité territoriale de Guyane,Services de la collectivité territoriale - Guyane
 Collectivité territoriale de Guyane,Archives territoriales - Guyane
 Collectivité territoriale de Guyane,Médiathèque Territoriale - Guyane
@@ -1429,6 +1433,7 @@ Direction de l'administration,Sous-direction du recrutement et de la formation
 Direction de l'administration,Bureau de soutien de l'administration centrale
 Sous-direction des carrières des personnels d'encadrement - DGRH E2,Bureau des personnels de direction des lycées et collèges - DGRH E2-1
 Sous-direction des carrières des personnels d'encadrement - DGRH E2,Bureau des personnels d'inspection
+Sous-direction des carrières des personnels d'encadrement - DGRH E2,Bureau du développement professionnel et du suivi des situations individuelles
 "Sous-direction de la rétention, de l'éloignement et des procédures",Division nationale de la lutte contre la fraude documentaire et à l'identité
 "Sous-direction de la rétention, de l'éloignement et des procédures",Division de la rétention et de la lutte contre l'immigration
 "Sous-direction de la rétention, de l'éloignement et des procédures",Division nationale de l'éloignement
@@ -1584,6 +1589,9 @@ Direction Appui opérationnel et stratégique,"Pôle Prospective, veille et inno
 Direction Appui opérationnel et stratégique,Pôle Politique de cohésion européenne
 Ambassade de France CÔTE-D'IVOIRE - Abidjan,Consulat général de France CÔTE D'IVOIRE - Abidjan
 Ambassade de France CÔTE-D'IVOIRE - Abidjan,Institut français de CÔTE D'IVOIRE - Abidjan
+Service de la démocratie culturelle et des territoires,Bureau de la politique interministérielle
+Service de la démocratie culturelle et des territoires,Bureau des pratiques culturelles
+Service de la démocratie culturelle et des territoires,Bureau des temps de la vie
 Service de la démocratie culturelle et des territoires,Délégation aux territoires
 Agence nationale de lutte contre l'illettrisme,Agence régionale de lutte contre l'illettrisme (ARLCI) - Auvergne-Rhône-Alpes
 Agence nationale de lutte contre l'illettrisme,Agence régionale de lutte contre l'illettrisme (ARLCI) - Bourgogne - Franche-Comté
@@ -1912,9 +1920,9 @@ Délégation à l'information et à la communication - ministère de l’Agricul
 Délégation à l'information et à la communication - ministère de l’Agriculture et de la Souveraineté alimentaire,"Département de la communication, des réseaux et des partenariats"
 Délégation à l'information et à la communication - ministère de l’Agriculture et de la Souveraineté alimentaire,Mission Presse et veille médias (MPV)
 Délégation à l'information et à la communication - ministère de l’Agriculture et de la Souveraineté alimentaire,Mission de l'ingénierie du web
-Département RH de la filière numérique de l'Etat (RHN),Pôle RH et expérience collaborateurs
-Département RH de la filière numérique de l'Etat (RHN),Pôle Mobilité et parcours
-Département RH de la filière numérique de l'Etat (RHN),Pôle Campus du numérique public
+Département RH de la filière numérique de l'Etat (DRHN),Pôle RH et expérience collaborateurs
+Département RH de la filière numérique de l'Etat (DRHN),Pôle Mobilité et parcours
+Département RH de la filière numérique de l'Etat (DRHN),Pôle Campus du numérique public
 Sous-direction Études et politique des ressources humaines de la marine,Bureau des études et de la politique des ressources humaines
 Sous-direction Études et politique des ressources humaines de la marine,Bureau des effectifs militaires
 Sous-direction Études et politique des ressources humaines de la marine,Bureau de la condition du personnel de la marine
@@ -2229,38 +2237,6 @@ Préfecture - Indre-et-Loire,Secrétariat général commun départemental - Indr
 Préfecture - Indre-et-Loire,Sous-préfecture - Chinon
 Préfecture - Indre-et-Loire,Sous-préfecture - Loches
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Territoire-de-Belfort,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Territoire-de-Belfort"
-Direction du cabinet - Vaucluse,Direction des sécurités - Vaucluse
-Direction du cabinet - Vaucluse,Bureau de la représentation de l'Etat et de la communication interministérielle - Vaucluse
-Direction du cabinet - Seine-et-Marne,Service interministériel de la défense et de la protection civile - Seine-et-Marne
-Direction du cabinet - Seine-et-Marne,Service éducation et sécurité routière - Seine-et-Marne
-Direction du cabinet - Côtes-d'Armor,Direction des sécurités - Côtes-d'Armor
-Préfecture de région - Martinique,Secrétariat général pour les affaires régionales (SGAR) - Martinique
-Préfecture de région - Martinique,Agence régionale de lutte contre l'illettrisme (ARLCI) - Martinique
-Direction du cabinet - Martinique,Direction des sécurités - Martinique
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Menton
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Nice
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Levens
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Roquebillière
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-André-de-la-Roche
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Etienne-de-Tinée
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Martin-Vésubie
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Sauveur-sur-Tinée
-Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Vallier-de-Thiey
-Haute-Loire - 43,Conseil départemental - Haute-Loire
-Haute-Loire - 43,Préfecture - Haute-Loire
-Direction générale des territoires et de la mer (DGTM) - Guyane,"Direction de la mer, du littoral et des fleuves (DMLF) - Guyane"
-Direction générale des territoires et de la mer (DGTM) - Guyane,"Direction de l'environnement de l'agriculture, de l'alimentation et de la forêt (DEAAF) - Guyane"
-Direction générale des territoires et de la mer (DGTM) - Guyane,Direction de l'aménagement des territoires et de la transition écologique (DATTE) - Guyane
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Ancenis
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-atlantique - Châteaubriant
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Nantes
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Pornic
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Saint-Nazaire
-Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Clisson
-Conseil départemental - Doubs,Archives départementales - Doubs
-Conseil départemental - Doubs,Médiathèque départementale - Doubs
-Conseil départemental - Doubs,Laboratoire départemental d'analyses - Doubs
-Direction des services départementaux de l'Éducation nationale (DSDEN) - Lozère,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Lozère"
 Préfecture - Seine-et-Marne,Direction du cabinet - Seine-et-Marne
 Préfecture - Seine-et-Marne,Secrétariat général de la préfecture - Seine-et-Marne
 Préfecture - Seine-et-Marne,Secrétariat général commun départemental - Seine-et-Marne
@@ -2318,6 +2294,38 @@ Secrétariat général de la préfecture - Saône-et-Loire,Service Gestion et ma
 Var - 83,Conseil départemental - Var
 Var - 83,Préfecture - Var
 Direction du cabinet - Dordogne,Direction des sécurités - Dordogne
+Direction du cabinet - Vaucluse,Direction des sécurités - Vaucluse
+Direction du cabinet - Vaucluse,Bureau de la représentation de l'Etat et de la communication interministérielle - Vaucluse
+Direction du cabinet - Seine-et-Marne,Service interministériel de la défense et de la protection civile - Seine-et-Marne
+Direction du cabinet - Seine-et-Marne,Service éducation et sécurité routière - Seine-et-Marne
+Direction du cabinet - Seine-et-Marne,Bureau de la représentation de l'Etat et de la communication interministérielle - Seine-et-Marne
+Direction du cabinet - Côtes-d'Armor,Direction des sécurités - Côtes-d'Armor
+Direction du cabinet - Martinique,Direction des sécurités - Martinique
+Direction du cabinet - Martinique,Bureau de la représentation de l'Etat et de la communication interministérielle - Martinique
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Menton
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Nice
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Levens
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Roquebillière
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-André-de-la-Roche
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Etienne-de-Tinée
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Martin-Vésubie
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Sauveur-sur-Tinée
+Maisons du département des Alpes-Maritime : antennes du conseil départemental,Maison du département - Alpes-Maritimes - Saint-Vallier-de-Thiey
+Haute-Loire - 43,Conseil départemental - Haute-Loire
+Haute-Loire - 43,Préfecture - Haute-Loire
+Direction générale des territoires et de la mer (DGTM) - Guyane,"Direction de la mer, du littoral et des fleuves (DMLF) - Guyane"
+Direction générale des territoires et de la mer (DGTM) - Guyane,"Direction de l'environnement de l'agriculture, de l'alimentation et de la forêt (DEAAF) - Guyane"
+Direction générale des territoires et de la mer (DGTM) - Guyane,Direction de l'aménagement des territoires et de la transition écologique (DATTE) - Guyane
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Ancenis
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-atlantique - Châteaubriant
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Nantes
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Pornic
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Saint-Nazaire
+Maisons du département de Loire-Atlantique : antennes du conseil départemental,Maison du département - Loire-Atlantique - Clisson
+Conseil départemental - Doubs,Archives départementales - Doubs
+Conseil départemental - Doubs,Médiathèque départementale - Doubs
+Conseil départemental - Doubs,Laboratoire départemental d'analyses - Doubs
+Direction des services départementaux de l'Éducation nationale (DSDEN) - Lozère,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Lozère"
 Direction régionale des finances publiques (DRFIP) - Auvergne-Rhône-Alpes et département du Rhône,Mission de contrôle budgétaire régional - Auvergne-Rhône-Alpes et du département du Rhône
 Rhône - 69,Préfecture - Rhône
 Rhône - 69,Conseil départemental - Rhône
@@ -2716,7 +2724,7 @@ Division Performance et management général,Bureau Communication et information
 Division Performance et management général,Bureau Pilotage de la performance
 Division Performance et management général,Bureau Management de l'information
 Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service interrégional Bouches-du-Rhône
-Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service interrégional Haute-Garonne
+Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service interrégional Sud-Ouest (ANFR)
 Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service interrégional Meurthe-et-Moselle
 Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service Interrégional Atlantique
 Services en région de l'agence nationale des fréquences,Agence nationale des fréquences - Service interrégional Paris
@@ -3521,7 +3529,6 @@ Agence régionale de santé (ARS) - Hauts-de-France,Direction de la sécurité s
 Agence régionale de santé (ARS) - Hauts-de-France,Direction de l’offre de soins (ARS) - Hauts-de-France
 Agence régionale de santé (ARS) - Hauts-de-France,Direction de l’offre médico-sociale (ARS) - Hauts-de-France
 Guadeloupe - 971,Conseil départemental - Guadeloupe
-Guadeloupe - 971,Préfecture - Guadeloupe
 Conseil départemental - Tarn,Archives départementales - Tarn
 Conseil départemental - Tarn,Médiathèque départementale - Tarn
 Conseil départemental - Tarn,Laboratoire départemental d'analyses - Tarn
@@ -3579,7 +3586,7 @@ Préfecture - Haute-Garonne,Secrétariat général de la préfecture - Haute-Gar
 Préfecture - Haute-Garonne,Secrétariat commun départemental - Haute-Garonne
 Préfecture - Haute-Garonne,Sous-préfecture - Muret
 Préfecture - Haute-Garonne,Sous-préfecture - Saint-Gaudens
-Conseil régional - Guadeloupe,"Conseil économique, social et environnemental régional (Cerer) - Guadeloupe"
+Conseil régional - Guadeloupe,"Conseil économique, social et environnemental régional (Ceser) - Guadeloupe"
 Secrétariat général de la préfecture - Hérault,Direction des étrangers et de la naturalisation - Hérault
 Secrétariat général de la préfecture - Hérault,Direction des relations avec les collectivités locales - Hérault
 Secrétariat général de la préfecture - Hérault,Service interministériel départemental des systèmes d'information et de communication - Hérault
@@ -4437,7 +4444,7 @@ Services sous autorité conjointe avec d'autres ministères - Ministère chargé
 Sous-direction Observation de la solidarité,Bureau Lutte contre l'exclusion
 Sous-direction Observation de la solidarité,Bureau Retraites
 Sous-direction Observation de la solidarité,Bureau Jeunesse - Famille
-Sous-direction Observation de la solidarité,Bureau Handicap - Dépendance
+Sous-direction Observation de la solidarité,Bureau Autonomie - Personnes âgées et handicapées
 Sous-direction Observation de la solidarité,Bureau Collectivités locales
 Direction exécutive Prospective et Recherche (DEPR),Service Économie et finance
 Direction exécutive Prospective et Recherche (DEPR),Service Dynamiques sociales de la transition
@@ -4649,7 +4656,11 @@ Préfecture - Pas-de-Calais,Sous-préfecture - Lens
 Préfecture - Pas-de-Calais,Sous-préfecture - Montreuil-sur-Mer
 Préfecture - Pas-de-Calais,Sous-préfecture - Saint-Omer
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Haute-Marne,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Haute-Marne"
+Haut-commissariat de la République - Nouvelle-Calédonie,Direction du Cabinet - Nouvelle-Calédonie
 Haut-commissariat de la République - Nouvelle-Calédonie,Secrétariat général du Haut-commissariat
+Haut-commissariat de la République - Nouvelle-Calédonie,Subdivision administrative - Province Nord
+Haut-commissariat de la République - Nouvelle-Calédonie,Subdivision administrative - Province des Îles Loyauté
+Haut-commissariat de la République - Nouvelle-Calédonie,Subdivision administrative - Province Sud
 Côte-d'Or - 21,Conseil départemental - Côte-d'Or
 Côte-d'Or - 21,Préfecture - Côte-d'Or
 Direction du cabinet - Marne,Direction des sécurités - Marne
@@ -5403,10 +5414,10 @@ Service du numérique (SNUM),Mission Coordination des technologies de l'informat
 Service du numérique (SNUM),Mission Écosystème Sirhius et projets ministériels transversales
 Service du numérique (SNUM),Sous-direction du numérique de l'administration centrale - ministère de l'Economie
 Service du numérique (SNUM),Bureau Aide à la gouvernance et fonctions support
-Département Incubateur des services numériques (ISN),"Pôle Animation, opérations et expertises"
-Département Incubateur des services numériques (ISN),Pôle Accélération des Start-ups d'État et de Territoires
-Département Incubateur des services numériques (ISN),Pôle Entrepreneurs d'intérêt général
-Département Incubateur des services numériques (ISN),Pôle Responsables de portefeuilles ministériels et coachs
+Département Accompagnement des services numériques (ASN),"Pôle Animation, opérations et expertises"
+Département Accompagnement des services numériques (ASN),Pôle Accélération des Start-ups d'État et de Territoires
+Département Accompagnement des services numériques (ASN),Pôle Entrepreneurs d'intérêt général
+Département Accompagnement des services numériques (ASN),Pôle Responsables de portefeuilles ministériels et coachs
 Comité d'histoire des ministères chargés de la Jeunesse et des Sports,Secrétariat du Comité d'histoire des ministères chargés de la Jeunesse et des Sports
 Cour de justice de la République,Formation de jugement
 Cour de justice de la République,Commission d'instruction
@@ -5473,8 +5484,8 @@ Agence nationale de la cohésion des territoires (ANCT),Direction Appui opérati
 Agence nationale de la cohésion des territoires (ANCT),Observatoire des Territoires
 Agence nationale de la cohésion des territoires (ANCT),Observatoire national de la politique de la ville (ONPV)
 Agence nationale de la cohésion des territoires (ANCT),Secrétariat général du Conseil national des villes - CNV
-Département Etalab,"Pôle Accompagnement IA, ALLiaNCE"
-Département Etalab,Pôle Produits IA
+Département Intelligence artificielle dans l'Etat (IAE),"Pôle Accompagnement IA, ALLiaNCE"
+Département Intelligence artificielle dans l'Etat (IAE),Pôle Produits IA
 Service technique des remontées mécaniques et des transports guidés (STRMTG),Secrétariat général (SG)
 Service technique des remontées mécaniques et des transports guidés (STRMTG),Bureau de contrôle des remontées mécaniques et des transports guidés
 Service technique des remontées mécaniques et des transports guidés (STRMTG),Pôle Communication documentation archives
@@ -5822,7 +5833,7 @@ Conseil régional de l'ordre des médecins - Occitanie,Conseil départemental de
 Secrétariat général de la préfecture - Haute-Savoie,Direction de la citoyenneté et de l'immigration (DCI) - Haute-Savoie
 Secrétariat général de la préfecture - Haute-Savoie,Direction des relations avec les collectiivtés locales (DRCL) - Haute-Savoie
 Guyane,Collectivité territoriale de Guyane
-Guyane,Préfecture de région - Guyane
+Guyane,Préfecture - Guyane
 Guyane,Services déconcentrés en région - Guyane
 Guyane,Guyane - 973
 Préfecture - Seine-Saint-Denis,Direction du cabinet - Seine-Saint-Denis
@@ -6051,7 +6062,7 @@ Rectorat de région académique - Île-de-France,"Délégation régionale acadé
 Secrétariat général de la préfecture - Seine-et-Marne,Direction des relations avec les collectivités locales - Seine-et-Marne
 Secrétariat général de la préfecture - Seine-et-Marne,Direction de l’immigration et de l’intégration - Seine-et-Marne
 Secrétariat général de la préfecture - Seine-et-Marne,Direction de la coordination des services de l’État - Seine-et-Marne
-Secrétariat général de la préfecture - Seine-et-Marne,Direction de la modernisation et des missions transversales - Seine-et-Marne
+Secrétariat général de la préfecture - Seine-et-Marne,Centre d'expertise et de ressources des Titres - Seine-et-Marne
 Préfecture - Alpes-de-Haute-Provence,Direction des services du cabinet - Alpes-de-Haute-Provence
 Préfecture - Alpes-de-Haute-Provence,Secrétariat général de la préfecture - Alpes-de-Haute-Provence
 Préfecture - Alpes-de-Haute-Provence,Secrétariat général commun départemental - Alpes-de-Haute-Provence
@@ -6609,7 +6620,6 @@ Ambassade de France RÉPUBLIQUE DOMINICAINE - Saint-Domingue,Section consulaire 
 "Autorité de régulation des communications électroniques, des postes et de la distribution de la presse (ARCEP)",Secrétariat de l'Observatoire des impacts environnementaux du numérique
 Secrétariat général des ministères chargés des affaires sociales,Délégation aux affaires européennes et internationales
 Secrétariat général des ministères chargés des affaires sociales,Délégation à l'information et à la communication - ministère chargé des Affaires sociales
-Secrétariat général des ministères chargés des affaires sociales,Délégation à l'encadrement supérieur et dirigeant
 Secrétariat général des ministères chargés des affaires sociales,Direction des ressources humaines
 Secrétariat général des ministères chargés des affaires sociales,"Direction des finances, des achats et des services (DFAS)"
 Secrétariat général des ministères chargés des affaires sociales,Direction du numérique - ministère du Travail
@@ -6739,9 +6749,9 @@ Direction des services départementaux de l'Éducation nationale (DSDEN) - Allie
 Direction du cabinet - Meurthe-et-Moselle,Direction des sécurités - Meurthe-et-Moselle
 Direction du cabinet - Meurthe-et-Moselle,Bureau de la représentation de l'Etat et de la communication interministérielle - Meurthe-et-Moselle
 La Réunion,Conseil régional - La Réunion
-La Réunion,Préfecture de région - La Réunion
 La Réunion,Services déconcentrés en région - La Réunion
 La Réunion,Réunion - 974
+La Réunion,Préfecture - La Réunion
 Conseil départemental - Manche,Archives départementales - Manche
 Conseil départemental - Manche,Bibliothèque départementale - Manche
 Conseil départemental - Manche,Laboratoire départemental d'analyses - Manche
@@ -6985,7 +6995,7 @@ Conseil départemental - Maine-et-Loire,Maisons du département du Maine-et-Loir
 Île-de-France,Val-d'Oise - 95
 Conseil départemental - Aisne,Archives départementales - Aisne
 Conseil départemental - Aisne,Bibliothèque départementale - Aisne
-Conseil départemental - Aisne,Laboratoire départemental d’analyses - Aisne
+Conseil départemental - Aisne,Laboratoire départemental d’analyses et de recherche - Aisne
 Préfecture - Isère,Direction du cabinet - Isère
 Préfecture - Isère,Secrétariat général de la préfecture - Isère
 Préfecture - Isère,Secrétariat général commun départemental - Isère
@@ -8191,12 +8201,6 @@ Préfecture - Loire,Sous-préfecture - Roanne
 Direction zonale de la police nationale (DZPN) - Nord,État-major zonal de la police nationale (EMZPN) - Nord
 Direction du cabinet - Haut-Rhin,Direction des sécurités - Haut-Rhin
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Seine-Saint-Denis,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Seine-Saint-Denis"
-Préfecture de région - Guadeloupe,Agence régionale de lutte contre l'illettrisme (ARLCI) - Guadeloupe
-Préfecture de région - Guadeloupe,Direction du cabinet - Guadeloupe
-Préfecture de région - Guadeloupe,Secrétariat général pour les affaires régionales (SGAR) - Guadeloupe
-Préfecture de région - Guadeloupe,Secrétariat général de la préfecture - Guadeloupe
-Préfecture de région - Guadeloupe,Sous-préfecture - Pointe-à-Pitre
-Préfecture de région - Guadeloupe,Représentation de l'État - Annexe de Saint-Martin
 Agence régionale de santé (ARS) - Grand Est,"Direction de la promotion de la santé, de la prévention et de la santé environnementale (ARS) - Grand Est"
 Agence régionale de santé (ARS) - Grand Est,Direction des soins de proximité (ARS) - Grand Est
 Agence régionale de santé (ARS) - Grand Est,Direction de l'offre sanitaire (ARS) - Grand Est
@@ -8252,7 +8256,6 @@ Conseil régional de l'ordre des médecins - Bretagne,Conseil départemental de 
 Conseil régional de l'ordre des médecins - Bretagne,Conseil départemental de l'ordre des médecins - Ille-et-Vilaine
 Conseil régional de l'ordre des médecins - Bretagne,Conseil départemental de l'ordre des médecins - Morbihan
 Réunion - 974,Conseil départemental - La Réunion
-Réunion - 974,Préfecture - La Réunion
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Charente-Maritime,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Charente-Maritime"
 Préfecture - Haut-Rhin,Direction du cabinet - Haut-Rhin
 Préfecture - Haut-Rhin,Secrétariat général de la préfecture - Haut-Rhin
@@ -8266,10 +8269,7 @@ Conseil départemental - Hérault,Archives départementales - Hérault
 Conseil départemental - Hérault,Médiathèque départementale - Hérault
 Conseil départemental - Hérault,Laboratoire départemental d'analyses - Hérault
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Sarthe,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Sarthe"
-Direction du cabinet - Guadeloupe,Direction des services des sécurités - Guadeloupe
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Loire,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Loire"
-Préfecture de région - La Réunion,Secrétariat général pour les affaires régionales (SGAR) - La Réunion
-Préfecture de région - La Réunion,Agence régionale de lutte contre l'illettrisme (ARLCI) - La Réunion
 Mayenne - 53,Conseil départemental - Mayenne
 Mayenne - 53,Préfecture - Mayenne
 Secrétariat général de la préfecture - Haute-Saône,"Direction de la citoyenneté, de l'immigration et des libertés publiques - Haute-Saône"
@@ -8282,6 +8282,8 @@ Préfecture - La Réunion,Secrétariat général commun départemental - La Réu
 Préfecture - La Réunion,Sous-préfecture - Saint-Pierre (La Réunion)
 Préfecture - La Réunion,Sous-préfecture - Saint-Paul
 Préfecture - La Réunion,Sous-préfecture - Saint-Benoît
+Préfecture - La Réunion,Secrétariat général pour les affaires régionales (SGAR) - La Réunion
+Préfecture - La Réunion,Agence régionale de lutte contre l'illettrisme (ARLCI) - La Réunion
 Haute-Vienne - 87,Conseil départemental - Haute-Vienne
 Haute-Vienne - 87,Préfecture - Haute-Vienne
 Occitanie,Conseil régional - Occitanie
@@ -8418,12 +8420,13 @@ Préfecture - Vosges,Sous-préfecture - Saint-Dié-des-Vosges
 Préfecture - Martinique,Direction du cabinet - Martinique
 Préfecture - Martinique,Secrétariat général de la préfecture - Martinique
 Préfecture - Martinique,Secrétariat général commun départemental - Martinique
+Préfecture - Martinique,Secrétariat général pour les affaires régionales (SGAR) - Martinique
 Préfecture - Martinique,Sous-préfecture - La Trinité
 Préfecture - Martinique,Sous-préfecture - Le Marin
 Préfecture - Martinique,Sous-préfecture - Saint-Pierre (Martinique)
+Préfecture - Martinique,Agence régionale de lutte contre l'illettrisme (ARLCI) - Martinique
 Ille-et-Vilaine - 35,Conseil départemental - Ille-et-Vilaine
 Ille-et-Vilaine - 35,Préfecture - Ille-et-Vilaine
-Martinique - 972,Préfecture - Martinique
 Sous-direction du recrutement et de la formation,Bureau du pilotage de la politique de formation
 Sous-direction du recrutement et de la formation,Bureau du Centre national de la formation
 Sous-direction du recrutement et de la formation,Bureau du recrutement et de la promotion professionnelle
@@ -9299,6 +9302,8 @@ Maisons du département de la Moselle : antennes du conseil départemental,Maiso
 Maisons du département de la Moselle : antennes du conseil départemental,Maison du département - Moselle - Yutz
 Secrétariat général de la préfecture - Pyrénées-Atlantiques,"Direction de la  citoyenneté, de la légalité et du développement territorial - Pyrénées-Atlantiques"
 Secrétariat général de la préfecture - Pyrénées-Atlantiques,Secrétariat général aux affaires départementales  - Pyrénées-Atlantiques
+Direction du Cabinet - Nouvelle-Calédonie,Direction des sécurités - Nouvelle-Calédonie
+Direction du Cabinet - Nouvelle-Calédonie,Bureau de la représentation de l'Etat et de la communication interministérielle - Nouvelle-Calédonie
 Morbihan - 56,Conseil départemental - Morbihan
 Morbihan - 56,Préfecture - Morbihan
 Conseil départemental - Moselle,Archives départementales - Moselle
@@ -9348,6 +9353,9 @@ Préfecture - Indre,Sous-préfecture - La Châtre
 Préfecture - Indre,Sous-préfecture - Le Blanc
 Secrétariat général de la préfecture - Ardèche,Direction de la citoyenneté et de la légalité - Ardèche
 Secrétariat général de la préfecture - Ardèche,Service de la coordination des politiques publiques et de l'appui territorial - Ardèche
+Secrétariat général du Haut-commissariat,Direction de l'action de l'Etat et de la coordination des Politiques Publiques - Nouvelle-Calédonie
+Secrétariat général du Haut-commissariat,"Direction des collectivités, de la citoyenneté, des affaires juridiques et des Elections - Nouvelle-Calédonie"
+Secrétariat général du Haut-commissariat,Direction des ressources humaines et des moyens - Nouvelle-Calédonie
 Polynésie-Française,Assemblée de la Polynésie française
 Polynésie-Française,"Conseil économique, social, environnemental et culturel (Cesec) - Polynésie française"
 Polynésie-Française,Gouvernement de la Polynésie française
@@ -9464,7 +9472,13 @@ Agence régionale de santé (ARS) - Centre-Val de Loire,Direction de la santé p
 Agence régionale de santé (ARS) - Centre-Val de Loire,Direction de l’offre sanitaire (ARS) - Centre-Val de Loire
 Agence régionale de santé (ARS) - Centre-Val de Loire,Direction de l’offre médico-sociale (ARS) - Centre-Val de Loire
 Agence régionale de santé (ARS) - Centre-Val de Loire,Direction de la stratégie (ARS) - Centre-Val de Loire
+Préfecture - Guadeloupe,Direction du cabinet - Guadeloupe
+Préfecture - Guadeloupe,Secrétariat général de la préfecture - Guadeloupe
 Préfecture - Guadeloupe,Secrétariat général commun départemental - Guadeloupe
+Préfecture - Guadeloupe,Secrétariat général pour les affaires régionales (SGAR) - Guadeloupe
+Préfecture - Guadeloupe,Sous-préfecture - Pointe-à-Pitre
+Préfecture - Guadeloupe,Représentation de l'État - Annexe de Saint-Martin
+Préfecture - Guadeloupe,Agence régionale de lutte contre l'illettrisme (ARLCI) - Guadeloupe
 Secrétariat général de la préfecture - Loir-et-Cher,Direction de la légalité et de la citoyenneté - Loir-et-Cher
 Secrétariat général de la préfecture - Loir-et-Cher,Service interministériel d'animation territoriale - Loir-et-Cher
 Secrétariat général pour les affaires régionales (SGAR) - Hauts-de-France,Pôle Politiques publiques
@@ -9655,9 +9669,9 @@ Conseil départemental - Loiret,Médiathèque départementale - Loiret
 Conseil départemental - Loiret,Maisons du département du Loiret : antennes du conseil départemental
 Guadeloupe,Conseil régional - Guadeloupe
 Guadeloupe,"Conseil de la culture, de l'éducation et de l'environnement - Guadeloupe"
-Guadeloupe,Préfecture de région - Guadeloupe
 Guadeloupe,Services déconcentrés en région - Guadeloupe
 Guadeloupe,Guadeloupe - 971
+Guadeloupe,Préfecture - Guadeloupe
 Préfecture - Saône-et-Loire,Direction du cabinet - Saône-et-Loire
 Préfecture - Saône-et-Loire,Secrétariat général de la préfecture - Saône-et-Loire
 Préfecture - Saône-et-Loire,Secrétariat général commun départemental - Saône-et-Loire
@@ -10393,12 +10407,13 @@ Inspection générale de l'environnement et du développement durable (IGEDD),Mi
 Inspection générale de l'environnement et du développement durable (IGEDD),Service placé auprès du Bureau de l'Inspection générale de l'environnement et du développement durable
 Inspection générale de l'environnement et du développement durable (IGEDD),Services placés auprès de l'Inspection générale de l'environnement et du développement durable
 Inspection générale de l'environnement et du développement durable (IGEDD),Secrétariat du comité de déontologie
+Direction interministérielle du numérique (DINUM),Département Accompagnement des services numériques (ASN)
 Direction interministérielle du numérique (DINUM),"Département Appui, conseil et expertise (ACE)"
-Direction interministérielle du numérique (DINUM),Département Incubateur des services numériques (ISN)
-Direction interministérielle du numérique (DINUM),Département Etalab
+Direction interministérielle du numérique (DINUM),Département Expertise technique et ressources (ETR)
 Direction interministérielle du numérique (DINUM),Département Infrastructures et services opérés (ISO)
+Direction interministérielle du numérique (DINUM),Département Intelligence artificielle dans l'Etat (IAE)
 Direction interministérielle du numérique (DINUM),Département Opérateur des produits interministériels (OPI)
-Direction interministérielle du numérique (DINUM),Département RH de la filière numérique de l'Etat (RHN)
+Direction interministérielle du numérique (DINUM),Département RH de la filière numérique de l'Etat (DRHN)
 Sous-direction des compétences de l'ingénierie et de l'expertise,Bureau de la coordination des pôles techniques
 Sous-direction des compétences de l'ingénierie et de l'expertise,Bureau des orientations techniques
 "Sous-direction du pilotage, de la qualité et des systèmes d'information de gestion des ressources humaines",Bureau des systèmes d'information de gestion des ressources humaines
@@ -10617,14 +10632,14 @@ Préfecture - Haute-Marne,Sous-préfecture - Langres
 Préfecture - Haute-Marne,Sous-préfecture - Saint-Dizier
 Ariège - 09,Conseil départemental - Ariège
 Ariège - 09,Préfecture - Ariège
-Préfecture de région - Guyane,Agence régionale de lutte contre l'illettrisme (ARLCI) - Guyane
-Préfecture de région - Guyane,"Direction générale de la sécurité, de la réglementation et des contrôles (DGSRC) - Guyane"
-Préfecture de région - Guyane,Direction générale de l'administration (DGA) - Guyane
-Préfecture de région - Guyane,Direction générale des territoires et de la mer (DGTM) - Guyane
-Préfecture de région - Guyane,Direction générale de la cohésion et des populations (DGCOPOP) - Guyane
-Préfecture de région - Guyane,Secrétariat général des services de l'Etat - Guyane
-Préfecture de région - Guyane,Sous-préfecture - Saint-Laurent-du-Maroni
-Préfecture de région - Guyane,Sous-préfecture - Saint-Georges
+Préfecture - Guyane,Agence régionale de lutte contre l'illettrisme (ARLCI) - Guyane
+Préfecture - Guyane,"Direction générale de la sécurité, de la réglementation et des contrôles (DGSRC) - Guyane"
+Préfecture - Guyane,Direction générale de l'administration (DGA) - Guyane
+Préfecture - Guyane,Direction générale des territoires et de la mer (DGTM) - Guyane
+Préfecture - Guyane,Direction générale de la cohésion et des populations (DGCOPOP) - Guyane
+Préfecture - Guyane,Secrétariat général des services de l'Etat - Guyane
+Préfecture - Guyane,Sous-préfecture - Saint-Laurent-du-Maroni
+Préfecture - Guyane,Sous-préfecture - Saint-Georges
 Direction des services du cabinet - Lot,Direction des sécurités - Lot
 Direction des services du cabinet - Lot,Bureau de la représentation de l'Etat et de la communication interministérielle - Lot
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Pas-de-Calais,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Pas-de-Calais"
@@ -10698,11 +10713,10 @@ Aveyron - 12,Préfecture - Aveyron
 Direction des services départementaux de l'Éducation nationale (DSDEN) - Deux-Sèvres,"Service départemental à la jeunesse, à l'engagement et aux sports (SDJES) - Deux-Sèvres"
 Haute-Garonne - 31,Conseil départemental - Haute-Garonne
 Haute-Garonne - 31,Préfecture - Haute-Garonne
-Secrétariat général de la préfecture - Val-d'Oise,Direction des ressources humaines et du pilotage des moyens (DRHPM) - Val-d'Oise
 Secrétariat général de la préfecture - Val-d'Oise,Direction des migrations et de l’intégration (DMI) - Val-d'Oise
 Secrétariat général de la préfecture - Val-d'Oise,Direction de la citoyenneté et de la légalité (DCL) - Val-d'Oise
 Secrétariat général de la préfecture - Val-d'Oise,Direction de la coordination et de l’appui territorial (DCAT) - Val-d'Oise
-Secrétariat général de la préfecture - Val-d'Oise,Service interministériel départemental des systèmes d’information et de communication - Val-d'Oise
+Secrétariat général de la préfecture - Val-d'Oise,Centre de ressources et d'expertise Titres - Val-d'Oise
 Secrétariat général de la préfecture - Savoie,Direction de la citoyenneté et de la légalité - Savoie
 Secrétariat général de la préfecture - Savoie,Service de la coordination des politiques publiques - Savoie
 Collectivité territoriale de Martinique,Services de l'assemblée - Martinique
@@ -11118,7 +11132,7 @@ Service de l'attractivité et de la politique de ressources humaines - DGRH D,Mi
 Service de l'attractivité et de la politique de ressources humaines - DGRH D,Sous-direction de la stratégie et de la transformation des ressources humaines (DGRH D1)
 Service de l'attractivité et de la politique de ressources humaines - DGRH D,Sous-direction de l'attractivité des métiers et du recrutement  (DGRH D2)
 Sous-direction de la cohésion et de l'aménagement du territoire,Bureau des affaires financières et budgétaires - CAT 1
-Sous-direction de la cohésion et de l'aménagement du territoire,Bureau de la relation avec les opérateurs et agences - CAT 2
+Sous-direction de la cohésion et de l'aménagement du territoire,"Bureau de la ruralité, de l'aménagement du territoire et des politiques de cohésion européennes - CAT 2"
 Sous-direction de la cohésion et de l'aménagement du territoire,"Bureau de la stratégie, de la contractualisation et de l'évaluation - CAT 3"
 Centres territoriaux d'action sociale,Centre territorial d'action sociale - Bordeaux
 Centres territoriaux d'action sociale,Centre territorial d'action sociale - Brest
@@ -11877,9 +11891,6 @@ Nouvelle-Calédonie,"Conseil économique, social et environnemental (Cese) - Nou
 Nouvelle-Calédonie,Gouvernement de Nouvelle-Calédonie
 Nouvelle-Calédonie,Haut-commissariat de la République - Nouvelle-Calédonie
 Nouvelle-Calédonie,Services déconcentrés - Nouvelle-Calédonie
-Nouvelle-Calédonie,Subdivision administrative - Province des Îles Loyauté
-Nouvelle-Calédonie,Subdivision administrative - Province Nord
-Nouvelle-Calédonie,Subdivision administrative - Province Sud
 Aisne - 02,Conseil départemental - Aisne
 Aisne - 02,Préfecture - Aisne
 Conseil régional de l'ordre des médecins - Auvergne-Rhône-Alpes,Conseil départemental de l'ordre des médecins - Ain
@@ -11980,7 +11991,7 @@ Meurthe-et-Moselle - 54,Conseil départemental - Meurthe-et-Moselle
 Meurthe-et-Moselle - 54,Préfecture - Meurthe-et-Moselle
 Direction du cabinet - Tarn-et-Garonne,Direction des sécurités - Tarn-et-Garonne
 Direction du cabinet - Tarn-et-Garonne,Bureau de la représentation de l 'Etat et de la communication interministérielle - Tarn-et-Garonne
-Secrétariat général de la préfecture - Martinique,Direction de la légalité et des affaires locales - Martinique
+Secrétariat général de la préfecture - Martinique,Direction des collectivités locales et de la réglementation économique - Martinique
 Secrétariat général de la préfecture - Martinique,"Direction de la réglementation, de la citoyenneté et de l'immigration - Martinique"
 Centre hospitalier universitaire (CHU) - Nîmes,"Pôle politiques médicales, stratégie et innovation (CHU) - Nîmes"
 Centre hospitalier universitaire (CHU) - Nîmes,Pôle stratégie financière et évaluation (CHU) - Nîmes

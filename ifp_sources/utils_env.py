@@ -1,6 +1,7 @@
 # utils_env.py
 import os
 
+
 def load_env_file(env_path: str):
     """
     Charge un fichier .env (clé=valeur) et initialise os.environ.

@@ -10,7 +10,6 @@ Compatible Docker, WSL2, GitHub Actions, dbt orchestrator.
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 import boto3
 from botocore.exceptions import ClientError
@@ -39,7 +38,7 @@ logger.addHandler(handler)
 # ---------------------------------------------------------------------------
 # CLIENT S3
 # ---------------------------------------------------------------------------
-import os
+
 
 def get_s3_env():
     """
@@ -67,6 +66,7 @@ def get_s3_env():
         "bucket": os.environ("S3_BUCKET_NAME"),
     }
 
+
 def _get_s3_client():
     """
     Retourne un client S3 boto3.
@@ -81,21 +81,21 @@ def _get_s3_client():
         region_name=cfg["region"],
     )
 
+
 def get_s3_bucket() -> str:
     bucket = os.getenv("S3_BUCKET_NAME")
     if not bucket:
         raise EnvironmentError("Variable S3_BUCKET_NAME manquante.")
     return bucket
 
+
 # ---------------------------------------------------------------------------
 # COPIE un fichier S3 vers  S3
 # ---------------------------------------------------------------------------
 
+
 def copy_s3_file(
-    source_bucket: str,
-    source_key: str,
-    dest_bucket: str,
-    dest_key: str
+    source_bucket: str, source_key: str, dest_bucket: str, dest_key: str
 ) -> None:
     """
     Copie un fichier dans S3 sans le télécharger localement.
@@ -117,10 +117,7 @@ def copy_s3_file(
         Si la copie échoue.
     """
 
-    logger.info(
-        f"Copie S3 → "
-        f"{source_bucket}/{source_key} → {dest_bucket}/{dest_key}"
-    )
+    logger.info(f"Copie S3 → {source_bucket}/{source_key} → {dest_bucket}/{dest_key}")
 
     s3 = _get_s3_client()
 
@@ -128,10 +125,7 @@ def copy_s3_file(
         s3.copy_object(
             Bucket=dest_bucket,
             Key=dest_key,
-            CopySource={
-                "Bucket": source_bucket,
-                "Key": source_key
-            }
+            CopySource={"Bucket": source_bucket, "Key": source_key},
         )
         logger.info("✔️ Copie S3 OK")
 
@@ -139,15 +133,13 @@ def copy_s3_file(
         logger.error(f"❌ Erreur copie S3 : {e}")
         raise
 
+
 # ---------------------------------------------------------------------------
 # UPLOAD d'un fichier local dans S3
 # ---------------------------------------------------------------------------
 
-def upload_local_file_to_s3(
-    local_path: str,
-    bucket: str,
-    key: str
-) -> None:
+
+def upload_local_file_to_s3(local_path: str, bucket: str, key: str) -> None:
     """
     Upload d'un fichier local vers S3.
 
@@ -168,9 +160,7 @@ def upload_local_file_to_s3(
         Si l'upload S3 échoue.
     """
 
-    logger.info(
-        f"Upload local → S3 : {local_path} → {bucket}/{key}"
-    )
+    logger.info(f"Upload local → S3 : {local_path} → {bucket}/{key}")
 
     # Vérification fichier local
     if not os.path.exists(local_path):
@@ -212,9 +202,11 @@ def copy_local_dir_to_s3(local_dir: str, s3_prefix: str) -> None:
 
     logger.info("✔️ Copie LOCAL → S3 terminée")
 
+
 # ---------------------------------------------------------------------------
 # DOWNLOAD d'un répertoire S3 en local
 # ---------------------------------------------------------------------------
+
 
 def copy_s3_dir_to_local(s3_prefix: str, local_dir: str) -> None:
     bucket = get_s3_bucket()
@@ -230,7 +222,7 @@ def copy_s3_dir_to_local(s3_prefix: str, local_dir: str) -> None:
     for page in paginator.paginate(Bucket=bucket, Prefix=s3_prefix):
         for obj in page.get("Contents", []):
             key = obj["Key"]
-            relative = key[len(s3_prefix):].lstrip("/")
+            relative = key[len(s3_prefix) :].lstrip("/")
             dest_path = local_path / relative
 
             dest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -244,6 +236,7 @@ def copy_s3_dir_to_local(s3_prefix: str, local_dir: str) -> None:
 # ---------------------------------------------------------------------------
 # LECTURE S3 → DataFrame
 # ---------------------------------------------------------------------------
+
 
 def read_s3_to_df(bucket: str, key: str) -> pd.DataFrame:
     """
@@ -299,6 +292,7 @@ def read_s3_to_df(bucket: str, key: str) -> pd.DataFrame:
 # SAUVEGARDE DataFrame → S3
 # ---------------------------------------------------------------------------
 
+
 def save_df_to_s3(df: pd.DataFrame, bucket: str, key: str) -> None:
     """
     Sauvegarde un DataFrame pandas dans S3 au format CSV ou Parquet.
@@ -351,6 +345,7 @@ def save_df_to_s3(df: pd.DataFrame, bucket: str, key: str) -> None:
 # UTILITAIRES OPTIONNELS
 # ---------------------------------------------------------------------------
 
+
 def s3_file_exists(bucket: str, key: str) -> bool:
     """
     Vérifie si un fichier existe dans S3.
@@ -367,4 +362,3 @@ def s3_file_exists(bucket: str, key: str) -> bool:
         return True
     except ClientError:
         return False
-

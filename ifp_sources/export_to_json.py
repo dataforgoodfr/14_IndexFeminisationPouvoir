@@ -73,7 +73,7 @@ def generate_json_pouvoirs(annee: int, schema: str, output_file: str | Path):
     try:
         json_final = {}
 
-        # Types de pouvoir 
+        # Types de pouvoir
         types_pouvoirs = df_agg["pouvoir_type"]
 
         for p_type in types_pouvoirs:
@@ -85,7 +85,7 @@ def generate_json_pouvoirs(annee: int, schema: str, output_file: str | Path):
                 row["pouvoir_composante"]: {
                     "annee": int(row["annee"]),
                     "score": float(row["pct_femmes"]),
-                    "evolution": float(row["evolution"])
+                    "evolution": float(row["evolution"]),
                 }
                 for _, row in df_p_comp.iterrows()
             }
@@ -103,7 +103,7 @@ def generate_json_pouvoirs(annee: int, schema: str, output_file: str | Path):
                 "score": score_global,
                 "evolution": evolution_global,
                 "annee": int(annee),
-                "composantes": composantes
+                "composantes": composantes,
             }
 
         logging.info("Construction du JSON multi-pouvoirs OK")
@@ -165,7 +165,7 @@ def generate_json_executif(annee: int, view_name_type: str, output_file: str | P
 
     # -----------------------------------------------------
     # Filtrer sur le pouvoir exécutif
-    # ----------------------------------------------------- 
+    # -----------------------------------------------------
     try:
         df_exec = df[df["pouvoir_type"] == "executif"]
         if df_exec.empty:
@@ -184,7 +184,7 @@ def generate_json_executif(annee: int, view_name_type: str, output_file: str | P
             row["pouvoir_composante"]: {
                 "annee": int(row["annee"]),
                 "score": float(row["pct_femmes"]),
-                "evolution": float(row["evolution"])
+                "evolution": float(row["evolution"]),
             }
             for _, row in df_exec.iterrows()
         }
@@ -214,7 +214,7 @@ def generate_json_executif(annee: int, view_name_type: str, output_file: str | P
                 "score": score_global,
                 "evolution": evolution_global,
                 "annee": annee,
-                "composantes": composantes
+                "composantes": composantes,
             }
         }
         logging.info("JSON exécutif généré avec succès")

@@ -1,12 +1,13 @@
 with personnes_admin_distinct as 
-(select distinct pouvoir_type, table_source, annee, nom, prenom, civilite,
+(select distinct pouvoir_type, table_source, annee, nom, prenom, civilite, genre,
 	case when civilite = 'Mme' then 'F' 
 		when civilite = 'M.' then 'M'
+		when genre is not null then genre
 		else null
 	end as personne_genre
 	from {{ ref('int_oxfam') }}
 	where (modification is null or modification != 'Supprimé')
-		and civilite is not null
+		and (civilite is not null or genre is not null)
 )
 , calc_admin_2026 as
 (select 

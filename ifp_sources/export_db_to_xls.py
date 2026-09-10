@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from openpyxl import load_workbook
 from openpyxl.worksheet.datavalidation import DataValidation
 from pathlib import Path
-from datetime import datetime
 import logging
 import traceback
 import csv
@@ -13,7 +12,6 @@ from db_connexion import build_conn_str_from_env
 # CONFIG LOGGING
 # ---------------------------------------------------------
 logger = logging.getLogger(__name__)
-
 
 
 # ---------------------------------------------------------
@@ -36,7 +34,9 @@ def test_excel_not_open(path: Path) -> bool:
 # ---------------------------------------------------------
 # 4) EXPORT CSV + EXCEL POUR UNE LISTE DE MODÈLES
 # ---------------------------------------------------------
-def export_models_to_files(annee: int, models: list, output_xl: str, csv_dir: str) -> bool:
+def export_models_to_files(
+    annee: int, models: list, output_xl: str, csv_dir: str
+) -> bool:
     """
     Exporte les modèles en CSV + Excel.
     models = [{"name": "...", "schema": "...", "alias": "..."}]
@@ -62,7 +62,14 @@ def export_models_to_files(annee: int, models: list, output_xl: str, csv_dir: st
 
                 # CSV
                 csv_path = csv_dir / f"{name}_{annee}.csv"
-                df.to_csv(csv_path, index=False, encoding="utf-8-sig", sep=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                df.to_csv(
+                    csv_path,
+                    index=False,
+                    encoding="utf-8-sig",
+                    sep=",",
+                    quotechar='"',
+                    quoting=csv.QUOTE_MINIMAL,
+                )
 
                 # Excel
                 df_excel = df.copy()
@@ -133,9 +140,7 @@ def add_modification_dropdown(xl_path: Path):
 
             if mod_col:
                 dv = DataValidation(
-                    type="list",
-                    formula1='"Supprimé,Modifié,Ajouté"',
-                    allow_blank=True
+                    type="list", formula1='"Supprimé,Modifié,Ajouté"', allow_blank=True
                 )
 
                 cell_range = (
@@ -157,7 +162,9 @@ def add_modification_dropdown(xl_path: Path):
 # ---------------------------------------------------------
 # 7) FONCTION PRINCIPALE : FAIT TOUT
 # ---------------------------------------------------------
-def run_exports(annee: int, models: list, data_export_dir: str, output_name: str) -> bool:
+def run_exports(
+    annee: int, models: list, data_export_dir: str, output_name: str
+) -> bool:
     """
     Export CSV et XL complet :
     - charge env
@@ -170,15 +177,14 @@ def run_exports(annee: int, models: list, data_export_dir: str, output_name: str
     try:
         logging.info("=== DÉBUT EXPORTS ===")
 
-        #db_conf = load_env_config(env_file)
-        #paths = init_paths(base_export_dir)
+        # db_conf = load_env_config(env_file)
+        # paths = init_paths(base_export_dir)
         export_dir = Path(data_export_dir)
 
         output_xl = export_dir / f"{output_name}.xlsx"
 
         csv_dir = export_dir / output_name
         csv_dir.mkdir(exist_ok=True)
-
 
         bOK = test_excel_not_open(output_xl)
         if not bOK:
@@ -193,7 +199,7 @@ def run_exports(annee: int, models: list, data_export_dir: str, output_name: str
         else:
             logging.info("=== PB EXPORTS ===")
         return bOK
-    except Exception as e:
+    except Exception:
         logging.error("❌ Échec du pipeline d'export.")
         logging.error(traceback.format_exc())
         return False
