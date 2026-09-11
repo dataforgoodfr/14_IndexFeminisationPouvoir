@@ -21,6 +21,12 @@ FIGURE_FILES = [
     "prefectures",
     "ambassades",
     "agences_hautes_autorites",
+    "mairies",
+    "mairies_plm_arr",
+    "mairies_prefectures",
+    "conseils_departements",
+    "conseils_regions",
+    "parlement_europeen",
 ]
 
 

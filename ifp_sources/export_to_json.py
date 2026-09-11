@@ -158,7 +158,6 @@ def generate_json_executif(annee: int, view_name_type: str, output_file: str | P
         query = f"SELECT * FROM {view_name}"
         df = pd.read_sql(query, engine)
         logging.info(f"Lecture de la vue {view_name} OK ({len(df)} lignes)")
-        logging.info(f"{df}")
     except Exception as e:
         logging.error(f"Erreur lors de la lecture SQL : {e}")
         return None
