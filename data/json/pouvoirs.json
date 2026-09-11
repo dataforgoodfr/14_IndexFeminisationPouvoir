@@ -1,0 +1,105 @@
+{
+  "autre": {
+    "score": 27.6,
+    "evolution": 5.4,
+    "annee": 2026,
+    "composantes": {
+      "prefectures": {
+        "annee": 2026,
+        "score": 18.2,
+        "evolution": -1.4
+      },
+      "hautes_juridictions": {
+        "annee": 2026,
+        "score": 20.0,
+        "evolution": 20.0
+      },
+      "haute_autorite": {
+        "annee": 2026,
+        "score": 36.1,
+        "evolution": 1.8
+      },
+      "ambassades": {
+        "annee": 2026,
+        "score": 36.1,
+        "evolution": 1.2
+      }
+    }
+  },
+  "executif": {
+    "score": 31.9,
+    "evolution": 2.2,
+    "annee": 2026,
+    "composantes": {
+      "gouvernement": {
+        "annee": 2026,
+        "score": 47.2,
+        "evolution": -2.8
+      },
+      "cabiner_premier_ministre": {
+        "annee": 2026,
+        "score": 32.4,
+        "evolution": -10.5
+      },
+      "directrices_cabinet_gouvernement": {
+        "annee": 2026,
+        "score": 32.4,
+        "evolution": 12.4
+      },
+      "ministeres_regaliens": {
+        "annee": 2026,
+        "score": 16.7,
+        "evolution": 16.7
+      },
+      "cabinet_presidence": {
+        "annee": 2026,
+        "score": 30.6,
+        "evolution": -4.6
+      }
+    }
+  },
+  "local": {
+    "score": 25.7,
+    "evolution": 3.0,
+    "annee": 2026,
+    "composantes": {
+      "conseils_regions": {
+        "annee": 2026,
+        "score": 28.6,
+        "evolution": -0.8
+      },
+      "mairesPrefecture": {
+        "annee": 2026,
+        "score": 15.2,
+        "evolution": -3.6
+      },
+      "conseils_departements": {
+        "annee": 2026,
+        "score": 20.4,
+        "evolution": -1.4
+      },
+      "maires": {
+        "annee": 2026,
+        "score": 23.1,
+        "evolution": 2.3
+      },
+      "mairesPLMArrondissement": {
+        "annee": 2026,
+        "score": 41.2,
+        "evolution": NaN
+      }
+    }
+  },
+  "parlementaire": {
+    "score": 49.4,
+    "evolution": -3.8,
+    "annee": 2026,
+    "composantes": {
+      "parlement_europeen": {
+        "annee": 2026,
+        "score": 49.4,
+        "evolution": -3.8
+      }
+    }
+  }
+}

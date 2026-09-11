@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: stg_figure1c_v2
+    description: >
+      Liste des membres du cabinet du Président de la République
+    columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+
+      - name: personne_id
+        description: ID généré par hachage MD5 personne_raw_text et poste_libelle
+        type: TEXT
+
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+
+      - name: personne_prenom
+        description: Prénom de la ou du membre du cabinet présidentiel
+        type: TEXT
+
+      - name: personne_nom
+        description: Nom de la ou du membre du cabinet présidentiel
+        type: TEXT
+
+      - name: personne_genre
+        description: F or M
+        type: TEXT
+
+      - name: poste_libelle
+        description: Nom du poste
+        type: TEXT 
+
+      - name: source_url
+        description: URL de provenance de la données
+        type: TEXT
+
+      - name : modification
+        description: "Tag les éventuelles modifications Oxfam : Ajouté/Modifié - si Supprimé: filtré"
+        type: TEXT 
+
+      - name : commentaires
+        description: "Commentaires Oxfam"
+        type: TEXT 

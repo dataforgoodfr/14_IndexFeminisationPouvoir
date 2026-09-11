@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_figure1b_v2
+    description: >
+      Liste des ministres aux postes régaliens
+    columns:
+      - name: figure
+        description: nom de la figure
+        type: TEXT
+
+      - name: pouvoir_type
+        description: type de pouvoir
+        type: TEXT
+      
+      - name: institution_type
+        description: "type d'institution"
+        type: TEXT
+
+      - name: annee_partition
+        description: année de la récupération des données
+        type: INTEGER
+
+      - name: personne_id
+        description: ID généré par hachage MD5 personne_raw_text et zone_geographique_libelle
+        type: TEXT
+
+      - name: personne_civilite
+        description: civilité Mme ou M.
+        type: TEXT
+
+      - name: personne_prenom
+        description: Prénom de la ou du ministre
+        type: TEXT
+
+      - name: personne_nom
+        description: Nom de la ou du ministre
+        type: TEXT
+
+      - name: personne_genre
+        description: F or M
+        type: TEXT
+
+      - name: poste_libelle
+        description: Type du poste  
+        type: TEXT
+
+      - name: entite_libelle
+        description: Ministère d'exercice
+        type: TEXT
+  
+      - name: source_url
+        description: URL de provenance de la données
+        type: TEXT
+
+      - name : modification
+        description: "Tag les éventuelles modifications Oxfam : Ajouté/Modifié - si Supprimé: filtré"
+        type: TEXT 
+
+      - name : commentaires
+        description: "Commentaires Oxfam"
+        type: TEXT 

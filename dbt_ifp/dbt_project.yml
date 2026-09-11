@@ -33,15 +33,36 @@ clean-targets:         # directories to be removed by `dbt clean`
 seeds:
   dbt_ifp:
     +schema: sources
+    sources:
+      +schema: sources
+    referentiels:
+      +schema: sources
+    oxfam:
+      +schema: sources
+      +column_types:
+        modification: text
+        commentaires: text
 
 models:
-  dbt_ifp:
     # Config indicated by + and applies to all files under models/example/
-    staging:
-      +schema: staging
-      +tags: "staging"
-    intermediate:
-      +tags: "intermediate"
-    marts:
-      +tags: "marts"
+  dbt_ifp:
+    exports:
+      +schema: exports
+      +tags: "exports"
+
+# # avant modifs
+# models:
+#   dbt_ifp:
+#     # Config indicated by + and applies to all files under models/example/
+#     staging:
+#       +schema: staging
+#     intermediate:
+#       +tags: "intermediate"
+#     marts:
+#       +tags: "marts"
+#     exports:
+#       +schema: exports
+#       +tags: "exports"
+
+
 

@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: conseils_regions
+    description: >
+      Présidents des conseils de région
+
+    columns:
+      - name: code_region
+        description: Code de la région
+        data_type: TEXT
+
+      - name: libelle_region
+        description: Libellé de la région
+        data_type: TEXT
+
+      - name: code_section_departementale
+        description: Code de la section départementale
+        data_type: TEXT
+
+      - name: libelle_section_departementale
+        description: Libellé de la section départementale
+        data_type: TEXT
+
+      - name: nom
+        description: Nom de l'élu
+        data_type: TEXT
+
+      - name: prenom
+        description: Prénom de l'élu
+        data_type: TEXT
+
+      - name: genre
+        description: Genre de l'élu
+        data_type: TEXT
+
+      - name: date_naissance
+        description: Date de naissance
+        data_type: DATE
+
+      - name: code_CSP
+        description: Code de la catégorie socio-professionnelle
+        data_type: TEXT
+
+      - name: fonction
+        description: Libellé de la fonction
+        data_type: TEXT
+
+      - name: age
+        description: Âge au moment de l’année analysée
+        data_type: INITEGER
